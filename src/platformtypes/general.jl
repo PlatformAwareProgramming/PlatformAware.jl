@@ -34,10 +34,9 @@ abstract type ProcessorFamily{U<:Manufacturer} end
 abstract type ProcessorSeries{U<:Manufacturer, F<:ProcessorFamily{U}} end
 abstract type ProcessorMicroarchitecture{U<:Manufacturer} end
 abstract type ProcessorISA end
-abstract type ProcessorSIMD end
+abstract type ProcessorSIMD <: ProcessorISA end
 
-abstract type Processor{NC<:(@atleast 1),                  # number of cores 
-                        PCL<:(@atleast 0),                 # clock
+abstract type Processor{PCL<:(@atleast 0),                 # clock
                         CC<:(@atleast 1),                  # core count
                         TC<:(@atleast 1),                  # threads count
                         U<:Manufacturer,                   # manufacturer

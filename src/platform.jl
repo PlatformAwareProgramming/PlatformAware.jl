@@ -40,7 +40,7 @@ actual_platform_arguments = Dict(
 #    :processor_cacheL3_latency => :(@atmost ∞),
 #    :processor_cacheL3_bandwidth => :(@atleast 0),
 #    :processor_cacheL3_linesize => :(@atmost ∞),
-    :processor => :(Processor{(@atleast 1),(@atleast 0),(@atleast 1),(@atleast 1),Manufacturer,ProcessorFamily{Manufacturer},ProcessorSeries{Manufacturer,ProcessorFamily{Manufacturer}},ProcessorMicroarchitecture{Manufacturer},ProcessorSIMD,ProcessorISA, (@atleast 0)}),
+    :processor => :(Processor{(@atleast 0),(@atleast 1),(@atleast 1),Manufacturer,ProcessorFamily{Manufacturer},ProcessorSeries{Manufacturer,ProcessorFamily{Manufacturer}},ProcessorMicroarchitecture{Manufacturer},ProcessorSIMD,ProcessorISA, (@atleast 0)}),
     :accelerator_count => :(@just 4),
     :accelerator_manufacturer => :(NVIDIA),
     :accelerator_type => :(AcceleratorType{NVIDIA}),
@@ -50,7 +50,7 @@ actual_platform_arguments = Dict(
     :accelerator_energyefficiency => :(@atleast 0),
     :accelerator => :(Accelerator{NVIDIA,AcceleratorType{NVIDIA},AcceleratorArchitecture{NVIDIA},AcceleratorBackend, (@atleast 0), (@atleast 0)}),
     :interconnection_starttime => :(@atmost ∞),
-    :interconnection_latency => :(@atmost ∞),
+    :interconnection_latency => :(@atmost ∞),   
     :interconnection_bandwidth => :(@atleast 0),
     :interconnection_topology => :(InterconnectionTopology),
     :interconnection_RDMA => :(Query),
@@ -121,9 +121,7 @@ variables = Dict(
     :storage_networkbandwidth => :SN,
     :storage => :ST)
 
-
-
-platform_variables =
+platform_variable_types =
    [:(PC_<:(@atleast 1)),
     :(PCL_<:(@atleast 0)),
     :(CC_<:(@atleast 1)),
@@ -186,7 +184,7 @@ platform_variables =
 #    :(PC3T<:Type{<:(@atmost ∞)}),
 #    :(PC3B<:Type{<:(@atleast 0)}),
 #    :(PC3L<:Type{<:(@atmost ∞)}),
-    :(P<:Type{<:Processor{PC_,PCL_,CC_,TC_,PU_,PF_,PR_,PA_,PS_,PI_,PE_}}),
+    :(P<:Type{<:Processor{PCL_,CC_,TC_,PU_,PF_,PR_,PA_,PS_,PI_,PE_}}),
     :(MZ<:Type{<:MZ_}),
     :(ML<:Type{<:ML_}),
     :(MB<:Type{<:MB_}),
@@ -233,7 +231,7 @@ function platform_parameters_kernel(ppars)
     p2 = Dict(); foreach(x->get!(p2, check(x.args[1]), x.args[2]), ppars)
     p2_inv = Dict()
     platform_parameters_kernel = map(x-> (found = get(p2, x.args[1],nothing); if (isnothing(found)) x else get!(p2_inv, x.args[2], x.args[2]); :($(x.args[1])::Type{<:$found}) end), p1)
-    platform_variables_kernel = filter(x-> (isnothing(get(p2_inv, if (typeof(x) == Symbol) x else x.args[1] end,nothing))), platform_variables)
+    platform_variables_kernel = filter(x-> (isnothing(get(p2_inv, if (typeof(x) == Symbol) x else x.args[1] end,nothing))), platform_variable_types)
     (platform_parameters_kernel, platform_variables_kernel)
 end
 
@@ -273,7 +271,7 @@ function build_entry_signature(fsign::Expr, platform_parameters)
     keyword_parameters_node = Expr(:parameters, keyword_parameters..., platform_parameters...)
     fargs = map(collect_arg_names, call_node_args)
     new_call_node_args = [fname, keyword_parameters_node, call_node_args...]
-    return (fname, fargs, Expr(:where, Expr(:call, new_call_node_args...), where_vars..., platform_variables...))
+    return (fname, fargs, Expr(:where, Expr(:call, new_call_node_args...), where_vars..., platform_variable_types...))
 end
 
 function build_entry_body(fname, fargs, platform_parameters)
