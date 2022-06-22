@@ -19,7 +19,11 @@ macro between(m,n)
 end
 
 macro just(m)
-    m==:∞ || n==:inf ? "AtLeastInf" : "AtLeast" * string(m)
-    m==:∞ || n==:inf ? "AtMostInf" : "AtMost" * string(m)
+    M = m==:∞ || m==:inf ? "AtLeastInf" : "AtLeast" * string(m)
+    N = m==:∞ || m==:inf ? "AtMostInf" : "AtMost" * string(m)
     eval(Meta.parse("Tuple{" * M * "," * N * "}"))
+end
+
+macro unlimited()
+    @atleast 0
 end

@@ -6,5 +6,14 @@ module PlatformAware
 
 include("quantifiers/quantifiers.jl")
 include("platformtypes/platformtypes.jl")
+include("platform.jl")
+
+export 
+    @platform,
+    @atleast,
+    @atmost,
+    @between,
+    @just,
+    @unlimited
 
 end

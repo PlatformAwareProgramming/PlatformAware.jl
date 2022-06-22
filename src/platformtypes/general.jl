@@ -23,21 +23,28 @@ abstract type MachineSize end
 
 abstract type Locale end
 
+
+# manufacturer
+
+abstract type Manufacturer end
+
 # processor 
 
-abstract type ProcessorManufacturer end
-abstract type ProcessorFamily{U<:ProcessorManufacturer} end
-abstract type ProcessorSeries{U<:ProcessorManufacturer, F<:ProcessorFamily{U}} end
-abstract type ProcessorMicroarchitecture{U<:ProcessorManufacturer} end
+abstract type ProcessorFamily{U<:Manufacturer} end
+abstract type ProcessorSeries{U<:Manufacturer, F<:ProcessorFamily{U}} end
+abstract type ProcessorMicroarchitecture{U<:Manufacturer} end
 abstract type ProcessorISA end
-abstract type ProcessorSIMDExt end
+abstract type ProcessorSIMD end
 
 abstract type Processor{NC<:(@atleast 1),                  # number of cores 
-                        U<:ProcessorManufacturer,          # manufacturer
+                        PCL<:(@atleast 0),                 # clock
+                        CC<:(@atleast 1),                  # core count
+                        TC<:(@atleast 1),                  # threads count
+                        U<:Manufacturer,                   # manufacturer
                         F<:ProcessorFamily{U},             # family
                         R<:ProcessorSeries{U,F},           # series
                         A<:ProcessorMicroarchitecture{U},  # microarchitecture
-                        S<:ProcessorSIMDExt,               # SIMD extension
+                        S<:ProcessorSIMD,                  # SIMD extension
                         I<:ProcessorISA,                   # Main instruction set
                         P<:(@atleast 0)}                   # Energy efficiency
 end
@@ -52,11 +59,10 @@ abstract type CacheSetAssociative12 <: CacheMapping end
 
 # accelerator
 
-abstract type AcceleratorManufacturer end
-abstract type AcceleratorType{M<:AcceleratorManufacturer} end
-abstract type AcceleratorArchitecture{M<:AcceleratorManufacturer} end
+abstract type AcceleratorType{M<:Manufacturer} end
+abstract type AcceleratorArchitecture{M<:Manufacturer} end
 abstract type AcceleratorBackend end
-abstract type Accelerator{M<:AcceleratorManufacturer,           # vendor
+abstract type Accelerator{M<:Manufacturer,                      # manufacturer
                           T<:AcceleratorType{M},                # type
                           A<:AcceleratorArchitecture{M},        # architecture
                           API<:AcceleratorBackend,              # api/backend

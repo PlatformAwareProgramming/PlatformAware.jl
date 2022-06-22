@@ -4,7 +4,7 @@
 
 # abstract types
 
-struct NVIDIA <: AcceleratorManufacturer end
+struct NVIDIA <: Manufacturer end
 
 struct Ampere <: AcceleratorArchitecture{NVIDIA} end
 struct Kepler <: AcceleratorArchitecture{NVIDIA} end
@@ -21,4 +21,4 @@ struct TensorCore <: AcceleratorType{NVIDIA} end
 
 # CUDA API
 
-abstract type CUDA <: AcceleratorAPI end
+abstract type CUDA <: AcceleratorBackend end
