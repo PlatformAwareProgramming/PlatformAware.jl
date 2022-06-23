@@ -257,8 +257,8 @@ macro platform(t,f)
 
 function build_entry_function(f::Expr)
     platform_parameters = map(p->Expr(:kw,Expr(:(::),p[1],variables[p[1]]),p[2]), collect(actual_platform_arguments))
-    (fname, fargs, fsign) = build_entry_signature(f.args[1], platform_parameters)
-    fbody = build_entry_body(fname, fargs, platform_parameters)
+    (fname, fargs, kargs, fsign) = build_entry_signature(f.args[1], platform_parameters)
+    fbody = build_entry_body(fname, fargs, kargs, platform_parameters)
     Expr(:function, fsign, fbody)
 end
 
@@ -268,15 +268,17 @@ function build_entry_signature(fsign::Expr, platform_parameters)
     call_node_args = copy(call_node.args)
     fname = popfirst!(call_node_args)
     keyword_parameters = length(call_node_args) > 1 && typeof(call_node_args[1]) == Expr && call_node_args[1].head == :parameters ? popfirst!(call_node_args).args : []
-    keyword_parameters_node = Expr(:parameters, keyword_parameters..., platform_parameters...)
+    keyword_parameters_node = Expr(:parameters, platform_parameters..., keyword_parameters...)
     fargs = map(collect_arg_names, call_node_args)
+    kargs = map(p -> p.args[1] , keyword_parameters)
     new_call_node_args = [fname, keyword_parameters_node, call_node_args...]
-    return (fname, fargs, Expr(:where, Expr(:call, new_call_node_args...), where_vars..., platform_variable_types...))
+    return (fname, fargs, kargs, Expr(:where, Expr(:call, new_call_node_args...), where_vars..., platform_variable_types...))
 end
 
-function build_entry_body(fname, fargs, platform_parameters)
+function build_entry_body(fname, fargs, kargs, platform_parameters)
     pargs = map(collect_arg_names, platform_parameters)
-    Expr(:call, fname, pargs..., fargs...)
+    kargs = Expr(:parameters, map(p -> Expr(:kw, p, p), kargs)...)
+    Expr(:call, fname, kargs, pargs..., fargs...)
 end
 
 
