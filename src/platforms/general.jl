@@ -36,16 +36,16 @@ abstract type ProcessorMicroarchitecture{U<:Manufacturer} end
 abstract type ProcessorISA end
 abstract type ProcessorSIMD <: ProcessorISA end
 
-abstract type Processor{PCL<:(@atleast 0),                 # clock
-                        CC<:(@atleast 1),                  # core count
-                        TC<:(@atleast 1),                  # threads count
+abstract type Processor{PCL<:Tuple{AtLeast0,AtMostInf},                 # clock
+                        CC<:Tuple{AtLeast1,AtMostInf},                  # core count
+                        TC<:Tuple{AtLeast1,AtMostInf},                  # threads count
                         U<:Manufacturer,                   # manufacturer
                         F<:ProcessorFamily{U},             # family
                         R<:ProcessorSeries{U,F},           # series
                         A<:ProcessorMicroarchitecture{U},  # microarchitecture
                         S<:ProcessorSIMD,                  # SIMD extension
                         I<:ProcessorISA,                   # Main instruction set
-                        P<:(@atleast 0)}                   # Energy efficiency
+                        P<:Tuple{AtLeast0,AtMostInf}}                   # Energy efficiency
 end
 
 # cache
@@ -65,30 +65,30 @@ abstract type Accelerator{M<:Manufacturer,                      # manufacturer
                           T<:AcceleratorType{M},                # type
                           A<:AcceleratorArchitecture{M},        # architecture
                           API<:AcceleratorBackend,              # api/backend
-                          G<:(@atleast 0),                      # global memory size
-                          P<:(@atleast 0)                       # energy efficiency
+                          G<:Tuple{AtLeast0,AtMostInf},                      # global memory size
+                          P<:Tuple{AtLeast0,AtMostInf}                       # energy efficiency
                          } end
 
 
 abstract type InterconnectionTopology end
-abstract type Interconnection{S<:(@atmost ∞),               # startup time
-                              L<:(@atmost ∞),               # latency
-                              B<:(@atleast 0),              # bancwidth
+abstract type Interconnection{S<:Tuple{AtLeast0,AtMostInf},               # startup time
+                              L<:Tuple{AtLeast0,AtMostInf},               # latency
+                              B<:Tuple{AtLeast0,AtMostInf},              # bancwidth
                               T<:InterconnectionTopology,   # topology
                               R<:Query                      # RDMA support
                              } end
 
 # storage
 
-abstract type Storage{S<:(@atleast 0),       # size
-                      L<:(@atmost ∞),        # latency
-                      B<:(@atleast 0),       # bandwidth
-                      N<:(@atleast 0)        # network bandwidth
+abstract type Storage{S<:Tuple{AtLeast0,AtMostInf},       # size
+                      L<:Tuple{AtLeast0,AtMostInf},        # latency
+                      B<:Tuple{AtLeast0,AtMostInf},       # bandwidth
+                      N<:Tuple{AtLeast0,AtMostInf}        # network bandwidth
                      } end   
 
 # memory system
 
-abstract type MemorySystem{MS<:(@atleast 0),  # size
-                           ML<:(@atmost ∞),   # latency
-                           MB<:(@atleast 0)   # bandwidth
+abstract type MemorySystem{MS<:Tuple{AtLeast0,AtMostInf},  # size
+                           ML<:Tuple{AtLeast0,AtMostInf},   # latency
+                           MB<:Tuple{AtLeast0,AtMostInf}   # bandwidth
                           } end

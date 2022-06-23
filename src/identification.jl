@@ -3,63 +3,63 @@
 # ------------------------------------------------------------------
 
 actual_platform_arguments = Dict(
-    :node_count => :(@atleast 1),
+    :node_count => :(Tuple{AtLeast1,AtMostInf}),
     :node_maintainer => :(OnPremise),
     :node_machinefamily => :(MachineFamily),
     :node_machinetype => :(MachineType),
     :node_machinesize => :(MachineSize),
-    :node_memory_size => :(@atleast 0),
-    :node_memory_latency => :(@atmost ∞),
-    :node_memory_bandwidth => :(@atleast 0),
-    :node_memory_type => :(MemorySystem{(@atleast 0), (@atmost ∞), (@atleast 0)}),
+    :node_memory_size => :(Tuple{AtLeast0,AtMostInf}),
+    :node_memory_latency => :(Tuple{AtLeast0,AtMostInf}),
+    :node_memory_bandwidth => :(Tuple{AtLeast0,AtMostInf}),
+    :node_memory_type => :(MemorySystem{(Tuple{AtLeast0,AtMostInf}), (Tuple{AtLeast0,AtMostInf}), (Tuple{AtLeast0,AtMostInf})}),
     :node_virtual => :(Query),
     :node_dedicated => :(Query),
-    :processor_count => :(@atleast 1),
+    :processor_count => :(Tuple{AtLeast1,AtMostInf}),
     :processor_manufacturer => :(Manufacturer),
     :processor_family => :(ProcessorFamily{Manufacturer}),
     :processor_series => :(ProcessorSeries{Manufacturer,ProcessorFamily{Manufacturer}}),
     :processor_microarchitecture => :(ProcessorMicroarchitecture{Manufacturer}),
     :processor_simd => :(ProcessorSIMD),
     :processor_isa => :(ProcessorISA),
-    :processor_energyefficiency => :(@atleast 0),
-    :processor_core_clock => :(@atleast 0),
-    :processor_core_count => :(@atleast 1),
-    :processor_core_threads_count => :(@atleast 1),
+    :processor_energyefficiency => :(Tuple{AtLeast0,AtMostInf}),
+    :processor_core_clock => :(Tuple{AtLeast0,AtMostInf}),
+    :processor_core_count => :(Tuple{AtLeast1,AtMostInf}),
+    :processor_core_threads_count => :(Tuple{AtLeast1,AtMostInf}),
 #    :processor_core_cacheL1_mapping => :(CacheMapping),
-#    :processor_core_cacheL1_size => :(@atleast 0),
-#    :processor_core_cacheL1_latency => :(@atmost ∞),
-#    :processor_core_cacheL1_bandwidth => :(@atleast 0),
-#    :processor_core_cacheL1_linesize => :(@atmost ∞),
+#    :processor_core_cacheL1_size => :(Tuple{AtLeast0,AtMostInf}),
+#    :processor_core_cacheL1_latency => :(Tuple{AtLeast0,AtMostInf}),
+#    :processor_core_cacheL1_bandwidth => :(Tuple{AtLeast0,AtMostInf}),
+#    :processor_core_cacheL1_linesize => :(Tuple{AtLeast0,AtMostInf}),
 #    :processor_core_cacheL2_mapping => :(CacheMapping),
-#    :processor_core_cacheL2_size => :(@atleast 0),
-#    :processor_core_cacheL2_latency => :(@atmost ∞),
-#    :processor_core_cacheL2_bandwidth => :(@atleast 0),
-#    :processor_core_cacheL2_linesize => :(@atmost ∞),
+#    :processor_core_cacheL2_size => :(Tuple{AtLeast0,AtMostInf}),
+#    :processor_core_cacheL2_latency => :(Tuple{AtLeast0,AtMostInf}),
+#    :processor_core_cacheL2_bandwidth => :(Tuple{AtLeast0,AtMostInf}),
+#    :processor_core_cacheL2_linesize => :(Tuple{AtLeast0,AtMostInf}),
 #    :processor_cacheL3_mapping => :(CacheMapping),
-#    :processor_cacheL3_size => :(@atleast 0),
-#    :processor_cacheL3_latency => :(@atmost ∞),
-#    :processor_cacheL3_bandwidth => :(@atleast 0),
-#    :processor_cacheL3_linesize => :(@atmost ∞),
-    :processor => :(Processor{(@atleast 0),(@atleast 1),(@atleast 1),Manufacturer,ProcessorFamily{Manufacturer},ProcessorSeries{Manufacturer,ProcessorFamily{Manufacturer}},ProcessorMicroarchitecture{Manufacturer},ProcessorSIMD,ProcessorISA, (@atleast 0)}),
-    :accelerator_count => :(@just 4),
+#    :processor_cacheL3_size => :(Tuple{AtLeast0,AtMostInf}),
+#    :processor_cacheL3_latency => :(Tuple{AtLeast0,AtMostInf}),
+#    :processor_cacheL3_bandwidth => :(Tuple{AtLeast0,AtMostInf}),
+#    :processor_cacheL3_linesize => :(Tuple{AtLeast0,AtMostInf}),
+    :processor => :(Processor{(Tuple{AtLeast0,AtMostInf}),(Tuple{AtLeast1,AtMostInf}),(Tuple{AtLeast1,AtMostInf}),Manufacturer,ProcessorFamily{Manufacturer},ProcessorSeries{Manufacturer,ProcessorFamily{Manufacturer}},ProcessorMicroarchitecture{Manufacturer},ProcessorSIMD,ProcessorISA, (Tuple{AtLeast0,AtMostInf})}),
+    :accelerator_count => :(Tuple{AtLeast4,AtMost4}),
     :accelerator_manufacturer => :(NVIDIA),
     :accelerator_type => :(AcceleratorType{NVIDIA}),
     :accelerator_architecture => :(Turing#=AcceleratorArchitecture{Manufacturer}=#),
     :accelerator_api => :(AcceleratorBackend),
-    :accelerator_memorysize => :(@atleast 0),
-    :accelerator_energyefficiency => :(@atleast 0),
-    :accelerator => :(Accelerator{NVIDIA,AcceleratorType{NVIDIA},AcceleratorArchitecture{NVIDIA},AcceleratorBackend, (@atleast 0), (@atleast 0)}),
-    :interconnection_starttime => :(@atmost ∞),
-    :interconnection_latency => :(@atmost ∞),   
-    :interconnection_bandwidth => :(@atleast 0),
+    :accelerator_memorysize => :(Tuple{AtLeast0,AtMostInf}),
+    :accelerator_energyefficiency => :(Tuple{AtLeast0,AtMostInf}),
+    :accelerator => :(Accelerator{NVIDIA,AcceleratorType{NVIDIA},AcceleratorArchitecture{NVIDIA},AcceleratorBackend, (Tuple{AtLeast0,AtMostInf}), (Tuple{AtLeast0,AtMostInf})}),
+    :interconnection_starttime => :(Tuple{AtLeast0,AtMostInf}),
+    :interconnection_latency => :(Tuple{AtLeast0,AtMostInf}),   
+    :interconnection_bandwidth => :(Tuple{AtLeast0,AtMostInf}),
     :interconnection_topology => :(InterconnectionTopology),
     :interconnection_RDMA => :(Query),
-    :interconnection => :(Interconnection{(@atmost ∞), (@atmost ∞), (@atleast 0),InterconnectionTopology, Query}),
-    :storage_size => :(@atleast 0),
-    :storage_latency => :(@atmost ∞),
-    :storage_bandwidth => :(@atleast 0),
-    :storage_networkbandwidth => :(@atleast 0),
-    :storage => :(Storage{(@atleast 0), (@atmost ∞), (@atleast 0), (@atleast 0)}))
+    :interconnection => :(Interconnection{(Tuple{AtLeast0,AtMostInf}), (Tuple{AtLeast0,AtMostInf}), (Tuple{AtLeast0,AtMostInf}),InterconnectionTopology, Query}),
+    :storage_size => :(Tuple{AtLeast0,AtMostInf}),
+    :storage_latency => :(Tuple{AtLeast0,AtMostInf}),
+    :storage_bandwidth => :(Tuple{AtLeast0,AtMostInf}),
+    :storage_networkbandwidth => :(Tuple{AtLeast0,AtMostInf}),
+    :storage => :(Storage{(Tuple{AtLeast0,AtMostInf}), (Tuple{AtLeast0,AtMostInf}), (Tuple{AtLeast0,AtMostInf}), (Tuple{AtLeast0,AtMostInf})}))
 
 
 variables = Dict(
@@ -122,37 +122,37 @@ variables = Dict(
     :storage => :ST)
 
 platform_variable_types =
-   [:(PC_<:(@atleast 1)),
-    :(PCL_<:(@atleast 0)),
-    :(CC_<:(@atleast 1)),
-    :(TC_<:(@atleast 1)),
+   [:(PC_<:(Tuple{AtLeast1,AtMostInf})),
+    :(PCL_<:(Tuple{AtLeast0,AtMostInf})),
+    :(CC_<:(Tuple{AtLeast1,AtMostInf})),
+    :(TC_<:(Tuple{AtLeast1,AtMostInf})),
     :(PU_<:Manufacturer),
     :(PF_<:ProcessorFamily{PU_}),
     :(PR_<:ProcessorSeries{PU_,PF_}),
     :(PA_<:ProcessorMicroarchitecture{PU_}),
     :(PI_<:ProcessorISA),
     :(PS_<:ProcessorSIMD),
-    :(PE_<:(@atleast 0)),
-    :(MZ_<:(@atleast 0)),
-    :(ML_<:(@atmost ∞)),
-    :(MB_<:(@atleast 0)),
+    :(PE_<:(Tuple{AtLeast0,AtMostInf})),
+    :(MZ_<:(Tuple{AtLeast0,AtMostInf})),
+    :(ML_<:(Tuple{AtLeast0,AtMostInf})),
+    :(MB_<:(Tuple{AtLeast0,AtMostInf})),
     :(AU_<:Manufacturer),
     :(AT_<:AcceleratorType{AU_}),
     :(AA_<:AcceleratorArchitecture{AU_}),
     :(API_<:AcceleratorBackend),
-    :(AG_<:(@atleast 0)),
-    :(AE_<:(@atleast 0)),
-    :(IS_<:(@atmost ∞)),
-    :(IL_<:(@atmost ∞)),
-    :(IB_<:(@atleast 0)),
+    :(AG_<:(Tuple{AtLeast0,AtMostInf})),
+    :(AE_<:(Tuple{AtLeast0,AtMostInf})),
+    :(IS_<:(Tuple{AtLeast0,AtMostInf})),
+    :(IL_<:(Tuple{AtLeast0,AtMostInf})),
+    :(IB_<:(Tuple{AtLeast0,AtMostInf})),
     :(IT_<:InterconnectionTopology),
     :(IR_<:Query),
-    :(SS_<:(@atleast 0)),
-    :(SL_<:(@atmost ∞)),
-    :(SB_<:(@atleast 0)),
-    :(SN_<:(@atleast 0)),
+    :(SS_<:(Tuple{AtLeast0,AtMostInf})),
+    :(SL_<:(Tuple{AtLeast0,AtMostInf})),
+    :(SB_<:(Tuple{AtLeast0,AtMostInf})),
+    :(SN_<:(Tuple{AtLeast0,AtMostInf})),
     :(M<:Type{<:OnPremise}),
-    :(NC<:Type{<:(@atleast 1)}),
+    :(NC<:Type{<:(Tuple{AtLeast1,AtMostInf})}),
     :(Mf<:Type{<:MachineFamily}),
     :(Mt<:Type{<:MachineType}),
     :(Ms<:Type{<:MachineSize}),
@@ -170,26 +170,26 @@ platform_variable_types =
     :(PS<:Type{<:PS_}),
     :(PE<:Type{<:PE_}),
 #    :(PC1M<:Type{<:CacheMapping}),
-#    :(PC1S<:Type{<:(@atleast 0)}),
-#    :(PC1T<:Type{<:(@atmost ∞)}),
-#    :(PC1B<:Type{<:(@atleast 0)}),
-#    :(PC1L<:Type{<:(@atmost ∞)}),
+#    :(PC1S<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
+#    :(PC1T<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
+#    :(PC1B<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
+#    :(PC1L<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
 #    :(PC2M<:Type{<:CacheMapping}),
-#    :(PC2S<:Type{<:(@atleast 0)}),
-#    :(PC2T<:Type{<:(@atmost ∞)}),
-#    :(PC2B<:Type{<:(@atleast 0)}),
-#    :(PC2L<:Type{<:(@atmost ∞)}),
+#    :(PC2S<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
+#    :(PC2T<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
+#    :(PC2B<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
+#    :(PC2L<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
 #    :(PC3M<:Type{<:CacheMapping}),
-#    :(PC3S<:Type{<:(@atleast 0)}),
-#    :(PC3T<:Type{<:(@atmost ∞)}),
-#    :(PC3B<:Type{<:(@atleast 0)}),
-#    :(PC3L<:Type{<:(@atmost ∞)}),
+#    :(PC3S<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
+#    :(PC3T<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
+#    :(PC3B<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
+#    :(PC3L<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
     :(P<:Type{<:Processor{PCL_,CC_,TC_,PU_,PF_,PR_,PA_,PS_,PI_,PE_}}),
     :(MZ<:Type{<:MZ_}),
     :(ML<:Type{<:ML_}),
     :(MB<:Type{<:MB_}),
     :(MY<:Type{<:MemorySystem{MZ_,ML_,MB_}}),
-    :(AC<:Type{<:(@atleast 0)}),
+    :(AC<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
     :(AU<:Type{<:AU_}),
     :(AT<:Type{<:AT_}),
     :(AA<:Type{<:AA_}),
@@ -221,7 +221,7 @@ function getplatform(parameter_id)
 end
 
 function getplatform()
-    foreach(p->println(p), collect(actual_platform_arguments))
+    actual_platform_arguments
 end
 
 
@@ -231,7 +231,7 @@ function platform_parameters_kernel(ppars)
     p2 = Dict(); foreach(x->get!(p2, check(x.args[1]), x.args[2]), ppars)
     p2_inv = Dict()
     platform_parameters_kernel = map(x-> (found = get(p2, x.args[1],nothing); if (isnothing(found)) x else get!(p2_inv, x.args[2], x.args[2]); :($(x.args[1])::Type{<:$found}) end), p1)
-    platform_variables_kernel = filter(x-> (isnothing(get(p2_inv, if (typeof(x) == Symbol) x else x.args[1] end,nothing))), platform_variable_types)
+    platform_variables_kernel = filter(x-> (isnothing(get(p2_inv, if (typeof(x) == Symbol) x else x.args[1] end, nothing))), platform_variable_types)
     (platform_parameters_kernel, platform_variables_kernel)
 end
 
@@ -276,7 +276,7 @@ end
 
 function build_entry_body(fname, fargs, platform_parameters)
     pargs = map(collect_arg_names, platform_parameters)
-    Expr(:call, fname, fargs..., pargs...)
+    Expr(:call, fname, pargs..., fargs...)
 end
 
 
@@ -295,7 +295,7 @@ function build_kernel_signature(fsign::Expr)
     keyword_parameters_node = typeof(call_node_args[1]) == Expr && call_node_args[1].head == :parameters ? popfirst!(call_node_args) : nothing
     aware_parameters_args = typeof(call_node_args[1]) == Expr && call_node_args[1].head == :braces ? popfirst!(call_node_args).args : [] 
     (ppars, pvars) = platform_parameters_kernel(aware_parameters_args)
-    new_call_node_args = keyword_parameters_node == nothing ? [fun_name,call_node_args...,ppars...] : [fun_name,keyword_parameters_node,call_node_args...,ppars...]
+    new_call_node_args = isnothing(keyword_parameters_node) ? [fun_name,ppars...,call_node_args...] : [fun_name,keyword_parameters_node,ppars...,call_node_args...]
     Expr(:where, Expr(:call, new_call_node_args...), where_vars..., pvars...)
 end
 

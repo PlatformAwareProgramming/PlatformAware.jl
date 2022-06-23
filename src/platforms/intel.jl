@@ -18,14 +18,14 @@ abstract type AVX512 <: ProcessorSIMD end
 
 
 abstract type IntelXeonE7v48894 <: Processor{
-                                             (@just 2G),           # 2.4GHz
-                                             (@between 16 32),     # 24 
-                                             (@just 2),            # 2 
+                                             Tuple{AtLeast2G,AtMost2G},     # 2.4GHz
+                                             Tuple{AtLeast16,AtMost32},     # 24 
+                                             Tuple{AtLeast2,AtMost2},       # 2 
                                              Intel,
                                              IntelXeonE7v4,
                                              IntelXeonE7v48000,
                                              IntelAlderLake,
                                              AVX2,
                                              ISA_x86_64_v4,
-                                             (@between 128 256)    #165W
+                                             Tuple{AtLeast128,AtMost256}    # 165W
                                              } end
