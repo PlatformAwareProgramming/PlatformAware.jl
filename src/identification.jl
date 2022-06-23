@@ -244,6 +244,7 @@ end
 
 macro platform(t,f)
     if (t == :default)
+        # @platform default creates an entry function, called from outside, and a (default) kernel function 
         eval(build_entry_function(f))   
         eval(build_kernel_function(f))
     elseif (t == :aware)
@@ -256,28 +257,42 @@ macro platform(t,f)
  # build_entry_function
 
 function build_entry_function(f::Expr)
-    platform_parameters = map(p->Expr(:kw,Expr(:(::),p[1],variables[p[1]]),p[2]), collect(actual_platform_arguments))
-    (fname, fargs, kargs, fsign) = build_entry_signature(f.args[1], platform_parameters)
-    fbody = build_entry_body(fname, fargs, kargs, platform_parameters)
+    # builds the entry function signature
+    (fname, fargs, kargs, fsign) = build_entry_signature(f.args[1])
+    # builds the entry function body
+    fbody = build_entry_body(fname, fargs, kargs)
+    # builds the :function node
     Expr(:function, fsign, fbody)
 end
 
-function build_entry_signature(fsign::Expr, platform_parameters)
+function build_entry_signature(fsign::Expr)
     fsign_args = copy(fsign.args)
-    (call_node, where_vars) = fsign.head == :where ? (popfirst!(fsign_args), fsign_args) : (fsign, []) 
-    call_node_args = copy(call_node.args)
+    # take the :call node arguments from inside the :where node if there is a where clause in the default kernel. where_vars == [] if it does not exist.
+    (call_node_args, where_vars) = fsign.head == :where ? (popfirst!(fsign_args).args, fsign_args) : (fsign.args, []) 
+    # takes the name of the kernel (first argument to :call)
     fname = popfirst!(call_node_args)
+    # look for the existence of keyword parameters (second argument to :call). keyword_parameters == [], if they do not exist.
     keyword_parameters = length(call_node_args) > 1 && typeof(call_node_args[1]) == Expr && call_node_args[1].head == :parameters ? popfirst!(call_node_args).args : []
+    # takes a dictionary mapping par->actual_type and returns an expression :(par::actual_type)
+    # the remaining elements in call_node_args are the kernel parameters.
+    platform_parameters = map(p->Expr(:kw,Expr(:(::),p[1],variables[p[1]]),p[2]), collect(actual_platform_arguments))
+    # rebuild the keyword parameters node for the entry function, including the platform_parameters
     keyword_parameters_node = Expr(:parameters, platform_parameters..., keyword_parameters...)
+    # collect the identifiers of the kernel parameters
     fargs = map(collect_arg_names, call_node_args)
+    # collect the identifiers of the keyword parameters
     kargs = map(p -> p.args[1] , keyword_parameters)
+    # build the argument list of the call node (:call) of the entry function
     new_call_node_args = [fname, keyword_parameters_node, call_node_args...]
     return (fname, fargs, kargs, Expr(:where, Expr(:call, new_call_node_args...), where_vars..., platform_variable_types...))
 end
 
-function build_entry_body(fname, fargs, kargs, platform_parameters)
-    pargs = map(collect_arg_names, platform_parameters)
+function build_entry_body(fname, fargs, kargs)
+    # takes the identifiers of the platform parameters
+    pargs = keys(actual_platform_arguments)
+    # builds the :parameters node for the keyword arguments of the kernel invocation (kargs), since the identifiers must be refferenced.
     kargs = Expr(:parameters, map(p -> Expr(:kw, p, p), kargs)...)
+    # returns the :call node for the kernel invocation (note that platform arguments comes before kernel arguments)
     Expr(:call, fname, kargs, pargs..., fargs...)
 end
 
@@ -285,19 +300,23 @@ end
 # build_kernel_function
 
 function build_kernel_function(f::Expr)
+    # builds the kernel signature. The kernel's body (f.args[2]) is not modified.
     fsign = build_kernel_signature(f.args[1])
-    Expr(:function,fsign,f.args[2])
+    # returns the :function node.
+    Expr(:function, fsign, f.args[2])
 end
 
+# the code is similar to the code of build_kernel_entry
 function build_kernel_signature(fsign::Expr)
     fsign_args = copy(fsign.args)
-    (call_node, where_vars) = fsign.head == :where ? (popfirst!(fsign_args), fsign_args) : (fsign, []) 
-    call_node_args = copy(call_node.args)
-    fun_name = popfirst!(call_node_args)
+    (call_node_args, where_vars) = fsign.head == :where ? (popfirst!(fsign_args).args, fsign_args) : (fsign.args, []) 
+    fname = popfirst!(call_node_args)
     keyword_parameters_node = typeof(call_node_args[1]) == Expr && call_node_args[1].head == :parameters ? popfirst!(call_node_args) : nothing
+    # takes the platform parameters of the kernel
     aware_parameters_args = typeof(call_node_args[1]) == Expr && call_node_args[1].head == :braces ? popfirst!(call_node_args).args : [] 
+    # inserts the kernel's platform parameters into the list platform parameters.
     (ppars, pvars) = platform_parameters_kernel(aware_parameters_args)
-    new_call_node_args = isnothing(keyword_parameters_node) ? [fun_name,ppars...,call_node_args...] : [fun_name,keyword_parameters_node,ppars...,call_node_args...]
+    new_call_node_args = isnothing(keyword_parameters_node) ? [fname, ppars..., call_node_args...] : [fname, keyword_parameters_node, ppars..., call_node_args...]
     Expr(:where, Expr(:call, new_call_node_args...), where_vars..., pvars...)
 end
 
