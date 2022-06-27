@@ -1,0 +1,2 @@
+processor_family, processor_series, processor_microarchitecture, processor_count, processor_core_count, processor_manufacturer, processor, processor_simd
+example_intel, i7, 11850HE, microarchitecture_sample, 1, 8, PU, example_processor_simd
