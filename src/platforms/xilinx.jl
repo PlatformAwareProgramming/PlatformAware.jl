@@ -3,4 +3,6 @@
 # ------------------------------------------------------------------
 
 abstract type Xilinx <: Manufacturer end
-abstract type UltrascalePlus_HBM_FPGA <: AcceleratorType{Xilinx} end
+#abstract type UltrascalePlus_HBM_FPGA <: Accelerator end
+
+abstract type UltrascalePlus_HBM_FPGA <: AcceleratorType end

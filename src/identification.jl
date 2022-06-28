@@ -2,7 +2,7 @@
 # Licensed under the MIT License. See LICENCE in the project root.
 # ------------------------------------------------------------------
 
-actual_platform_arguments = Dict(
+global actual_platform_arguments_all = Dict(
     :node_count => :(Tuple{AtLeast1,AtMostInf}),
     :node_maintainer => :(OnPremise),
     :node_machinefamily => :(MachineFamily),
@@ -11,14 +11,12 @@ actual_platform_arguments = Dict(
     :node_memory_size => :(Tuple{AtLeast0,AtMostInf}),
     :node_memory_latency => :(Tuple{AtLeast0,AtMostInf}),
     :node_memory_bandwidth => :(Tuple{AtLeast0,AtMostInf}),
-    :node_memory_type => :(MemorySystem{(Tuple{AtLeast0,AtMostInf}), (Tuple{AtLeast0,AtMostInf}), (Tuple{AtLeast0,AtMostInf})}),
+    :node_memory_type => :(MemorySystem),
     :node_virtual => :(Query),
     :node_dedicated => :(Query),
     :processor_count => :(Tuple{AtLeast1,AtMostInf}),
     :processor_manufacturer => :(Manufacturer),
-    :processor_family => :(ProcessorFamily{Manufacturer}),
-    :processor_series => :(ProcessorSeries{Manufacturer,ProcessorFamily{Manufacturer}}),
-    :processor_microarchitecture => :(ProcessorMicroarchitecture{Manufacturer}),
+    :processor_microarchitecture => :(ProcessorMicroarchitecture),
     :processor_simd => :(ProcessorSIMD),
     :processor_isa => :(ProcessorISA),
     :processor_energyefficiency => :(Tuple{AtLeast0,AtMostInf}),
@@ -40,29 +38,30 @@ actual_platform_arguments = Dict(
 #    :processor_cacheL3_latency => :(Tuple{AtLeast0,AtMostInf}),
 #    :processor_cacheL3_bandwidth => :(Tuple{AtLeast0,AtMostInf}),
 #    :processor_cacheL3_linesize => :(Tuple{AtLeast0,AtMostInf}),
-    :processor => :(Processor{(Tuple{AtLeast0,AtMostInf}),(Tuple{AtLeast1,AtMostInf}),(Tuple{AtLeast1,AtMostInf}),Manufacturer,ProcessorFamily{Manufacturer},ProcessorSeries{Manufacturer,ProcessorFamily{Manufacturer}},ProcessorMicroarchitecture{Manufacturer},ProcessorSIMD,ProcessorISA, (Tuple{AtLeast0,AtMostInf})}),
+    :processor => :(Processor),
     :accelerator_count => :(Tuple{AtLeast4,AtMost4}),
     :accelerator_manufacturer => :(NVIDIA),
-    :accelerator_type => :(AcceleratorType{NVIDIA}),
-    :accelerator_architecture => :(Turing#=AcceleratorArchitecture{Manufacturer}=#),
+    :accelerator_type => :(AcceleratorType),
+    :accelerator_architecture => :(Turing),
     :accelerator_api => :(AcceleratorBackend),
     :accelerator_memorysize => :(Tuple{AtLeast0,AtMostInf}),
     :accelerator_energyefficiency => :(Tuple{AtLeast0,AtMostInf}),
-    :accelerator => :(Accelerator{NVIDIA,AcceleratorType{NVIDIA},AcceleratorArchitecture{NVIDIA},AcceleratorBackend, (Tuple{AtLeast0,AtMostInf}), (Tuple{AtLeast0,AtMostInf})}),
+    :accelerator => :(Accelerator),
     :interconnection_starttime => :(Tuple{AtLeast0,AtMostInf}),
     :interconnection_latency => :(Tuple{AtLeast0,AtMostInf}),   
     :interconnection_bandwidth => :(Tuple{AtLeast0,AtMostInf}),
     :interconnection_topology => :(InterconnectionTopology),
     :interconnection_RDMA => :(Query),
-    :interconnection => :(Interconnection{(Tuple{AtLeast0,AtMostInf}), (Tuple{AtLeast0,AtMostInf}), (Tuple{AtLeast0,AtMostInf}),InterconnectionTopology, Query}),
+    :interconnection => :(Interconnection),
     :storage_size => :(Tuple{AtLeast0,AtMostInf}),
     :storage_latency => :(Tuple{AtLeast0,AtMostInf}),
     :storage_bandwidth => :(Tuple{AtLeast0,AtMostInf}),
     :storage_networkbandwidth => :(Tuple{AtLeast0,AtMostInf}),
-    :storage => :(Storage{(Tuple{AtLeast0,AtMostInf}), (Tuple{AtLeast0,AtMostInf}), (Tuple{AtLeast0,AtMostInf}), (Tuple{AtLeast0,AtMostInf})}))
+    :storage => :(Storage))
 
+actual_platform_arguments = copy(actual_platform_arguments_all)
 
-variables = Dict(
+global variables_all = Dict(
     :node_count => :NC,
     :node_maintainer => :M,
     :node_machinefamily => :Mf,
@@ -76,8 +75,6 @@ variables = Dict(
     :node_dedicated => :D,
     :processor_count => :PC,
     :processor_manufacturer => :PU,
-    :processor_family => :PF,
-    :processor_series => :PR,
     :processor_microarchitecture => :PA,
     :processor_simd => :PS,
     :processor_isa => :PI,
@@ -121,54 +118,25 @@ variables = Dict(
     :storage_networkbandwidth => :SN,
     :storage => :ST)
 
-platform_variable_types =
-   [:(PC_<:(Tuple{AtLeast1,AtMostInf})),
-    :(PCL_<:(Tuple{AtLeast0,AtMostInf})),
-    :(CC_<:(Tuple{AtLeast1,AtMostInf})),
-    :(TC_<:(Tuple{AtLeast1,AtMostInf})),
-    :(PU_<:Manufacturer),
-    :(PF_<:ProcessorFamily{PU_}),
-    :(PR_<:ProcessorSeries{PU_,PF_}),
-    :(PA_<:ProcessorMicroarchitecture{PU_}),
-    :(PI_<:ProcessorISA),
-    :(PS_<:ProcessorSIMD),
-    :(PE_<:(Tuple{AtLeast0,AtMostInf})),
-    :(MZ_<:(Tuple{AtLeast0,AtMostInf})),
-    :(ML_<:(Tuple{AtLeast0,AtMostInf})),
-    :(MB_<:(Tuple{AtLeast0,AtMostInf})),
-    :(AU_<:Manufacturer),
-    :(AT_<:AcceleratorType{AU_}),
-    :(AA_<:AcceleratorArchitecture{AU_}),
-    :(API_<:AcceleratorBackend),
-    :(AG_<:(Tuple{AtLeast0,AtMostInf})),
-    :(AE_<:(Tuple{AtLeast0,AtMostInf})),
-    :(IS_<:(Tuple{AtLeast0,AtMostInf})),
-    :(IL_<:(Tuple{AtLeast0,AtMostInf})),
-    :(IB_<:(Tuple{AtLeast0,AtMostInf})),
-    :(IT_<:InterconnectionTopology),
-    :(IR_<:Query),
-    :(SS_<:(Tuple{AtLeast0,AtMostInf})),
-    :(SL_<:(Tuple{AtLeast0,AtMostInf})),
-    :(SB_<:(Tuple{AtLeast0,AtMostInf})),
-    :(SN_<:(Tuple{AtLeast0,AtMostInf})),
-    :(M<:Type{<:OnPremise}),
-    :(NC<:Type{<:(Tuple{AtLeast1,AtMostInf})}),
-    :(Mf<:Type{<:MachineFamily}),
-    :(Mt<:Type{<:MachineType}),
-    :(Ms<:Type{<:MachineSize}),
-    :(V<:Type{<:Query}),
-    :(D<:Type{<:Query}),
-    :(PC<:Type{<:PC_}),
-    :(PCL<:Type{<:PCL_}),
-    :(CC<:Type{<:CC_}),
-    :(TC<:Type{<:TC_}),
-    :(PU<:Type{<:PU_}),
-    :(PF<:Type{<:PF_}),
-    :(PR<:Type{<:PR_}),
-    :(PA<:Type{<:PA_}),
-    :(PI<:Type{<:PI_}),
-    :(PS<:Type{<:PS_}),
-    :(PE<:Type{<:PE_}),
+global variables = copy(variables_all)
+
+global platform_variable_types_all = Dict(
+    :node_maintainer => :(M<:Type{<:OnPremise}),
+    :node_count => :(NC<:Type{<:(Tuple{AtLeast1,AtMostInf})}),
+    :node_machinefamily => :(Mf<:Type{<:MachineFamily}),
+    :node_machinetype => :(Mt<:Type{<:MachineType}),
+    :node_machinesize => :(Ms<:Type{<:MachineSize}),
+    :node_virtual => :(V<:Type{<:Query}),
+    :node_dedicated => :(D<:Type{<:Query}),
+    :processor_count => :(PC<:Type{<:Tuple{AtLeast1,AtMostInf}}),
+    :processor_core_clock => :(PCL<:Type{<:Tuple{AtLeast0,AtMostInf}}),
+    :processor_core_count => :(CC<:Type{<:Tuple{AtLeast1,AtMostInf}}),
+    :processor_core_threads_count => :(TC<:Type{<:Tuple{AtLeast1,AtMostInf}}),
+    :processor_manufacturer => :(PU<:Type{<:Manufacturer}),
+    :processor_microarchitecture => :(PA<:Type{<:ProcessorMicroarchitecture}),
+    :processor_isa => :(PI<:Type{<:ProcessorISA}),
+    :processor_simd => :(PS<:Type{<:ProcessorSIMD}),
+    :processor_energyefficiency => :(PE<:Type{<:Tuple{AtLeast0,AtMostInf}}),
 #    :(PC1M<:Type{<:CacheMapping}),
 #    :(PC1S<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
 #    :(PC1T<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
@@ -184,32 +152,36 @@ platform_variable_types =
 #    :(PC3T<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
 #    :(PC3B<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
 #    :(PC3L<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
-    :(P<:Type{<:Processor{PCL_,CC_,TC_,PU_,PF_,PR_,PA_,PS_,PI_,PE_}}),
-    :(MZ<:Type{<:MZ_}),
-    :(ML<:Type{<:ML_}),
-    :(MB<:Type{<:MB_}),
-    :(MY<:Type{<:MemorySystem{MZ_,ML_,MB_}}),
-    :(AC<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
-    :(AU<:Type{<:AU_}),
-    :(AT<:Type{<:AT_}),
-    :(AA<:Type{<:AA_}),
-    :(API<:Type{<:API_}),
-    :(AG<:Type{<:AG_}),
-    :(AE<:Type{<:AE_}),
-    :(AM<:Type{<:Accelerator{AU_,AT_,AA_,API_,AG_,AE_}}),
-    :(IS<:Type{<:IS_}),
-    :(IL<:Type{<:IL_}),
-    :(IB<:Type{<:IB_}),
-    :(IT<:Type{<:IT_}),
-    :(IR<:Type{<:IR_}),
-    :(I<:Type{<:Interconnection{IS_,IL_,IB_,IT_,IR_}}),
-    :(SS<:Type{<:SS_}),
-    :(SL<:Type{<:SL_}),
-    :(SB<:Type{<:SB_}),
-    :(SN<:Type{<:SN_}),
-    :(ST<:Type{<:Storage{SS_,SL_,SB_,SN_}})]
+    :processor => :(P<:Type{<:Processor}),
+    :node_memory_size => :(MZ<:Type{<:Tuple{AtLeast0,AtMostInf}}),
+    :node_memory_latency => :(ML<:Type{<:Tuple{AtLeast0,AtMostInf}}),
+    :node_memory_bandwidth => :(MB<:Type{<:Tuple{AtLeast0,AtMostInf}}),
+    :node_memory_type => :(MY<:Type{<:MemorySystem}),
+    :accelerator_count => :(AC<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
+    :accelerator_manufacturer => :(AU<:Type{<:Manufacturer}),
+    :accelerator_type => :(AT<:Type{<:AcceleratorType}),
+    :accelerator_architecture => :(AA<:Type{<:AcceleratorArchitecture}),
+    :accelerator_api => :(API<:Type{<:AcceleratorBackend}),
+    :accelerator_memorysize => :(AG<:Type{<:Tuple{AtLeast0,AtMostInf}}),
+    :accelerator_energyefficiency => :(AE<:Type{<:Tuple{AtLeast0,AtMostInf}}),
+    :accelerator => :(AM<:Type{<:Accelerator}),
+    :interconnection_starttime => :(IS<:Type{<:Tuple{AtLeast0,AtMostInf}}),
+    :interconnection_latency => :(IL<:Type{<:Tuple{AtLeast0,AtMostInf}}),
+    :interconnection_bandwidth => :(IB<:Type{<:Tuple{AtLeast0,AtMostInf}}),
+    :interconnection_topology => :(IT<:Type{<:InterconnectionTopology}),
+    :interconnection_RDMA => :(IR<:Type{<:Query}),
+    :interconnection => :(I<:Type{<:Interconnection}),
+    :storage_size => :(SS<:Type{<:Tuple{AtLeast0,AtMostInf}}),
+    :storage_latency => :(SL<:Type{<:Tuple{AtLeast0,AtMostInf}}),
+    :storage_bandwidth => :(SB<:Type{<:Tuple{AtLeast0,AtMostInf}}),
+    :storage_networkbandwidth => :(SN<:Type{<:Tuple{AtLeast0,AtMostInf}}),
+    :storage => :(ST<:Type{<:Storage})
+)
 
-
+platform_variable_types = Vector()
+for v in values(platform_variable_types_all)
+    push!(platform_variable_types, v)
+end
 
 function setplatform!(parameter_id, actual_type)
     actual_platform_arguments[parameter_id] = actual_type
@@ -224,6 +196,46 @@ function getplatform()
     actual_platform_arguments
 end
 
+function empty_actual_platform_arguments!()
+    empty!(actual_platform_arguments)
+    empty!(variables)
+    empty!(platform_variable_types)
+end
+
+function reset_actual_platform_arguments!()
+    for (k,v) in actual_platform_arguments_all
+        actual_platform_arguments[k] = v
+    end
+    for (k,v) in variables_all
+        variables[k] = v
+    end
+    for v in values(platform_variable_types_all)
+        push!(platform_variable_types, v)
+    end
+    keys(actual_platform_arguments)
+end
+
+function include_actual_platform_argument!(f)
+    actual_platform_arguments[f] = actual_platform_arguments_all[f]
+    variables[f] = variables_all[f]
+    push!(platform_variable_types, platform_variable_types_all[f])
+    keys(actual_platform_arguments)
+end
+
+
+function platform_parameter_macro!(f)
+
+    if (f == :clear)
+        empty_actual_platform_arguments!()
+    elseif (f == :all)
+        reset_actual_platform_arguments!()
+    else
+        check_all(f)
+        include_actual_platform_argument!(f)
+    end
+ end
+
+
 
 function platform_parameters_kernel(ppars)
     platform_parameters = map(p->Expr(:kw,Expr(:(::),p[1],variables[p[1]]),p[2]), collect(actual_platform_arguments))
@@ -235,6 +247,13 @@ function platform_parameters_kernel(ppars)
     (platform_parameters_kernel, platform_variables_kernel)
 end
 
+function check_all(parameter_id)
+    if (!haskey(actual_platform_arguments_all,parameter_id))
+        throw(parameter_id)
+    end
+    parameter_id
+end
+
 function check(parameter_id)
     if (!haskey(actual_platform_arguments,parameter_id))
         throw(parameter_id)
@@ -242,15 +261,32 @@ function check(parameter_id)
     parameter_id
 end
 
+global const can_add_parameter = Ref{Bool}(true)
+
+function denyaddparameter!()
+    global can_add_parameter[] = false
+end
+
+function getaddparameter()
+    return can_add_parameter[]
+end
+
 macro platform(t,f)
     if (t == :default)
         # @platform default creates an entry function, called from outside, and a (default) kernel function 
+        denyaddparameter!()
         eval(build_entry_function(f))   
         eval(build_kernel_function(f))
     elseif (t == :aware)
+        denyaddparameter!()
         eval(build_kernel_function(f))
+    elseif (t == :parameter && getaddparameter())
+        platform_parameter_macro!(f)
+    elseif (t == :parameter && !getaddparameter())
+        println("cannot add parameters after including the first kernel method")
     else
         println("usage: platform [default | aware] <function declaration>")
+        println("       platform parameter :(<parameter name>)")
     end
  end
 
@@ -268,7 +304,7 @@ end
 function build_entry_signature(fsign::Expr)
     fsign_args = copy(fsign.args)
     # take the :call node arguments from inside the :where node if there is a where clause in the default kernel. where_vars == [] if it does not exist.
-    (call_node_args, where_vars) = fsign.head == :where ? (popfirst!(fsign_args).args, fsign_args) : (fsign.args, []) 
+    (call_node_args, where_vars) = fsign.head == :where ? (popfirst!(fsign_args).args, fsign_args) : (fsign_args, []) 
     # takes the name of the kernel (first argument to :call)
     fname = popfirst!(call_node_args)
     # look for the existence of keyword parameters (second argument to :call). keyword_parameters == [], if they do not exist.

@@ -30,23 +30,11 @@ abstract type Manufacturer end
 
 # processor 
 
-abstract type ProcessorFamily{U<:Manufacturer} end
-abstract type ProcessorSeries{U<:Manufacturer, F<:ProcessorFamily{U}} end
-abstract type ProcessorMicroarchitecture{U<:Manufacturer} end
+abstract type ProcessorMicroarchitecture end
 abstract type ProcessorISA end
 abstract type ProcessorSIMD <: ProcessorISA end
 
-abstract type Processor{PCL<:Tuple{AtLeast0,AtMostInf},                 # clock
-                        CC<:Tuple{AtLeast1,AtMostInf},                  # core count
-                        TC<:Tuple{AtLeast1,AtMostInf},                  # threads count
-                        U<:Manufacturer,                   # manufacturer
-                        F<:ProcessorFamily{U},             # family
-                        R<:ProcessorSeries{U,F},           # series
-                        A<:ProcessorMicroarchitecture{U},  # microarchitecture
-                        S<:ProcessorSIMD,                  # SIMD extension
-                        I<:ProcessorISA,                   # Main instruction set
-                        P<:Tuple{AtLeast0,AtMostInf}}                   # Energy efficiency
-end
+abstract type Processor end
 
 # cache
 
@@ -58,37 +46,24 @@ abstract type CacheSetAssociative12 <: CacheMapping end
 
 # accelerator
 
-abstract type AcceleratorType{M<:Manufacturer} end
-abstract type AcceleratorArchitecture{M<:Manufacturer} end
+abstract type AcceleratorType end
+abstract type AcceleratorArchitecture end
 abstract type AcceleratorBackend end
-abstract type Accelerator{M<:Manufacturer,                      # manufacturer
-                          T<:AcceleratorType{M},                # type
-                          A<:AcceleratorArchitecture{M},        # architecture
-                          API<:AcceleratorBackend,              # api/backend
-                          G<:Tuple{AtLeast0,AtMostInf},                      # global memory size
-                          P<:Tuple{AtLeast0,AtMostInf}                       # energy efficiency
-                         } end
+abstract type Accelerator end
 
+abstract type XPU <: AcceleratorType end
+abstract type GPU <: XPU end
+abstract type TPU <: XPU end
+abstract type FPGA <: AcceleratorType end
+abstract type MIC <: AcceleratorType end
 
 abstract type InterconnectionTopology end
-abstract type Interconnection{S<:Tuple{AtLeast0,AtMostInf},               # startup time
-                              L<:Tuple{AtLeast0,AtMostInf},               # latency
-                              B<:Tuple{AtLeast0,AtMostInf},              # bancwidth
-                              T<:InterconnectionTopology,   # topology
-                              R<:Query                      # RDMA support
-                             } end
+abstract type Interconnection end
 
 # storage
 
-abstract type Storage{S<:Tuple{AtLeast0,AtMostInf},       # size
-                      L<:Tuple{AtLeast0,AtMostInf},        # latency
-                      B<:Tuple{AtLeast0,AtMostInf},       # bandwidth
-                      N<:Tuple{AtLeast0,AtMostInf}        # network bandwidth
-                     } end   
+abstract type Storage end   
 
 # memory system
 
-abstract type MemorySystem{MS<:Tuple{AtLeast0,AtMostInf},  # size
-                           ML<:Tuple{AtLeast0,AtMostInf},   # latency
-                           MB<:Tuple{AtLeast0,AtMostInf}   # bandwidth
-                          } end
+abstract type MemorySystem end

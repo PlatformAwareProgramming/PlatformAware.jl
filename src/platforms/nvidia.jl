@@ -6,14 +6,14 @@
 
 struct NVIDIA <: Manufacturer end
 
-struct Ampere <: AcceleratorArchitecture{NVIDIA} end
-struct Kepler <: AcceleratorArchitecture{NVIDIA} end
-struct Maxwell <: AcceleratorArchitecture{NVIDIA} end
-struct Turing <: AcceleratorArchitecture{NVIDIA} end
-struct Volta <: AcceleratorArchitecture{NVIDIA} end
+struct Ampere <: AcceleratorArchitecture end
+struct Kepler <: AcceleratorArchitecture end
+struct Maxwell <: AcceleratorArchitecture end
+struct Turing <: AcceleratorArchitecture end
+struct Volta <: AcceleratorArchitecture end
 
-struct Tesla <: AcceleratorType{NVIDIA} end
-struct TensorCore <: AcceleratorType{NVIDIA} end
+#struct Tesla <: AcceleratorType{NVIDIA} end
+#struct TensorCore <: AcceleratorType{NVIDIA} end
 
 
 #struct NVIDIA_V100 <: AcceleratorModel{NVIDIA,TensorCore,Volta,CUDA7,GBytes{ThirtyTwoUp}} end
