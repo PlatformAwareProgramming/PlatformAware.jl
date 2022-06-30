@@ -62,26 +62,26 @@ global actual_platform_arguments_all = Dict(
 actual_platform_arguments = copy(actual_platform_arguments_all)
 
 global variables_all = Dict(
-    :node_count => :NC,
-    :node_maintainer => :M,
-    :node_machinefamily => :Mf,
-    :node_machinetype => :Mt,
-    :node_machinesize => :Ms,
-    :node_memory_size => :MZ,
-    :node_memory_latency => :ML,
-    :node_memory_bandwidth => :MB,
-    :node_memory_type => :MY,
-    :node_virtual => :V,
-    :node_dedicated => :D,
-    :processor_count => :PC,
-    :processor_manufacturer => :PU,
-    :processor_microarchitecture => :PA,
-    :processor_simd => :PS,
-    :processor_isa => :PI,
-    :processor_energyefficiency => :PE,
-    :processor_core_clock => :PCL,
-    :processor_core_count => :CC,
-    :processor_core_threads_count => :TC,
+    :node_count => :(Type{<:(Tuple{AtLeast1,AtMostInf})}),
+    :node_maintainer => :(Type{<:OnPremise}),
+    :node_machinefamily => :(Type{<:MachineFamily}),
+    :node_machinetype => :(Type{<:MachineType}),
+    :node_machinesize => :(Type{<:MachineSize}),
+    :node_memory_size => :(Type{<:Tuple{AtLeast0,AtMostInf}}),
+    :node_memory_latency => :(Type{<:Tuple{AtLeast0,AtMostInf}}),
+    :node_memory_bandwidth => :(Type{<:Tuple{AtLeast0,AtMostInf}}),
+    :node_memory_type => :(Type{<:MemorySystem}),
+    :node_virtual => :(Type{<:Query}),
+    :node_dedicated => :(Type{<:Query}),
+    :processor_count => :(Type{<:Tuple{AtLeast1,AtMostInf}}),
+    :processor_manufacturer => :(Type{<:Manufacturer}),
+    :processor_microarchitecture => :(Type{<:ProcessorMicroarchitecture}),
+    :processor_simd => :(Type{<:ProcessorSIMD}),
+    :processor_isa => :(Type{<:ProcessorISA}),
+    :processor_energyefficiency => :(Type{<:Tuple{AtLeast0,AtMostInf}}),
+    :processor_core_clock => :(Type{<:Tuple{AtLeast0,AtMostInf}}),
+    :processor_core_count => :(Type{<:Tuple{AtLeast1,AtMostInf}}),
+    :processor_core_threads_count => :(Type{<:Tuple{AtLeast1,AtMostInf}}),
 #    :processor_core_cacheL1_mapping => :PC1M,
 #    :processor_core_cacheL1_size => :PC1S,
 #    :processor_core_cacheL1_latency => :PC1T,
@@ -97,91 +97,30 @@ global variables_all = Dict(
 #    :processor_cacheL3_latency => :PC3T,
 #    :processor_cacheL3_bandwidth => :PC3B,
 #    :processor_cacheL3_linesize => :PC3L,
-    :processor => :P,
-    :accelerator_count => :AC,
-    :accelerator_manufacturer => :AU,
-    :accelerator_type => :AT,
-    :accelerator_architecture => :AA,
-    :accelerator_api => :API,
-    :accelerator_memorysize => :AG,
-    :accelerator_energyefficiency => :AE,
-    :accelerator => :AM,
-    :interconnection_starttime => :IS,
-    :interconnection_latency => :IL,
-    :interconnection_bandwidth => :IB,
-    :interconnection_topology => :IT,
-    :interconnection_RDMA => :IR,
-    :interconnection => :I,
-    :storage_size => :SS,
-    :storage_latency => :SL,
-    :storage_bandwidth => :SB,
-    :storage_networkbandwidth => :SN,
-    :storage => :ST)
+    :processor => :(Type{<:Processor}),
+    :accelerator_count => :(Type{<:(Tuple{AtLeast0,AtMostInf})}),
+    :accelerator_manufacturer => :(Type{<:Manufacturer}),
+    :accelerator_type => :(Type{<:AcceleratorType}),
+    :accelerator_architecture => :(Type{<:AcceleratorArchitecture}),
+    :accelerator_api => :(Type{<:AcceleratorBackend}),
+    :accelerator_memorysize => :(Type{<:Tuple{AtLeast0,AtMostInf}}),
+    :accelerator_energyefficiency => :(Type{<:Tuple{AtLeast0,AtMostInf}}),
+    :accelerator => :(Type{<:Accelerator}),
+    :interconnection_starttime => :(Type{<:Tuple{AtLeast0,AtMostInf}}),
+    :interconnection_latency => :(Type{<:Tuple{AtLeast0,AtMostInf}}),
+    :interconnection_bandwidth => :(Type{<:Tuple{AtLeast0,AtMostInf}}),
+    :interconnection_topology => :(Type{<:InterconnectionTopology}),
+    :interconnection_RDMA => :(Type{<:Query}),
+    :interconnection => :(Type{<:Interconnection}),
+    :storage_size => :(Type{<:Tuple{AtLeast0,AtMostInf}}),
+    :storage_latency => :(Type{<:Tuple{AtLeast0,AtMostInf}}),
+    :storage_bandwidth => :(Type{<:Tuple{AtLeast0,AtMostInf}}),
+    :storage_networkbandwidth => :(Type{<:Tuple{AtLeast0,AtMostInf}}),
+    :storage => :(Type{<:Storage}))
 
 global variables = copy(variables_all)
 
-global platform_variable_types_all = Dict(
-    :node_maintainer => :(M<:Type{<:OnPremise}),
-    :node_count => :(NC<:Type{<:(Tuple{AtLeast1,AtMostInf})}),
-    :node_machinefamily => :(Mf<:Type{<:MachineFamily}),
-    :node_machinetype => :(Mt<:Type{<:MachineType}),
-    :node_machinesize => :(Ms<:Type{<:MachineSize}),
-    :node_virtual => :(V<:Type{<:Query}),
-    :node_dedicated => :(D<:Type{<:Query}),
-    :processor_count => :(PC<:Type{<:Tuple{AtLeast1,AtMostInf}}),
-    :processor_core_clock => :(PCL<:Type{<:Tuple{AtLeast0,AtMostInf}}),
-    :processor_core_count => :(CC<:Type{<:Tuple{AtLeast1,AtMostInf}}),
-    :processor_core_threads_count => :(TC<:Type{<:Tuple{AtLeast1,AtMostInf}}),
-    :processor_manufacturer => :(PU<:Type{<:Manufacturer}),
-    :processor_microarchitecture => :(PA<:Type{<:ProcessorMicroarchitecture}),
-    :processor_isa => :(PI<:Type{<:ProcessorISA}),
-    :processor_simd => :(PS<:Type{<:ProcessorSIMD}),
-    :processor_energyefficiency => :(PE<:Type{<:Tuple{AtLeast0,AtMostInf}}),
-#    :(PC1M<:Type{<:CacheMapping}),
-#    :(PC1S<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
-#    :(PC1T<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
-#    :(PC1B<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
-#    :(PC1L<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
-#    :(PC2M<:Type{<:CacheMapping}),
-#    :(PC2S<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
-#    :(PC2T<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
-#    :(PC2B<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
-#    :(PC2L<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
-#    :(PC3M<:Type{<:CacheMapping}),
-#    :(PC3S<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
-#    :(PC3T<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
-#    :(PC3B<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
-#    :(PC3L<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
-    :processor => :(P<:Type{<:Processor}),
-    :node_memory_size => :(MZ<:Type{<:Tuple{AtLeast0,AtMostInf}}),
-    :node_memory_latency => :(ML<:Type{<:Tuple{AtLeast0,AtMostInf}}),
-    :node_memory_bandwidth => :(MB<:Type{<:Tuple{AtLeast0,AtMostInf}}),
-    :node_memory_type => :(MY<:Type{<:MemorySystem}),
-    :accelerator_count => :(AC<:Type{<:(Tuple{AtLeast0,AtMostInf})}),
-    :accelerator_manufacturer => :(AU<:Type{<:Manufacturer}),
-    :accelerator_type => :(AT<:Type{<:AcceleratorType}),
-    :accelerator_architecture => :(AA<:Type{<:AcceleratorArchitecture}),
-    :accelerator_api => :(API<:Type{<:AcceleratorBackend}),
-    :accelerator_memorysize => :(AG<:Type{<:Tuple{AtLeast0,AtMostInf}}),
-    :accelerator_energyefficiency => :(AE<:Type{<:Tuple{AtLeast0,AtMostInf}}),
-    :accelerator => :(AM<:Type{<:Accelerator}),
-    :interconnection_starttime => :(IS<:Type{<:Tuple{AtLeast0,AtMostInf}}),
-    :interconnection_latency => :(IL<:Type{<:Tuple{AtLeast0,AtMostInf}}),
-    :interconnection_bandwidth => :(IB<:Type{<:Tuple{AtLeast0,AtMostInf}}),
-    :interconnection_topology => :(IT<:Type{<:InterconnectionTopology}),
-    :interconnection_RDMA => :(IR<:Type{<:Query}),
-    :interconnection => :(I<:Type{<:Interconnection}),
-    :storage_size => :(SS<:Type{<:Tuple{AtLeast0,AtMostInf}}),
-    :storage_latency => :(SL<:Type{<:Tuple{AtLeast0,AtMostInf}}),
-    :storage_bandwidth => :(SB<:Type{<:Tuple{AtLeast0,AtMostInf}}),
-    :storage_networkbandwidth => :(SN<:Type{<:Tuple{AtLeast0,AtMostInf}}),
-    :storage => :(ST<:Type{<:Storage})
-)
 
-platform_variable_types = Vector()
-for v in values(platform_variable_types_all)
-    push!(platform_variable_types, v)
-end
 
 function setplatform!(parameter_id, actual_type)
     actual_platform_arguments[parameter_id] = actual_type
@@ -199,7 +138,6 @@ end
 function empty_actual_platform_arguments!()
     empty!(actual_platform_arguments)
     empty!(variables)
-    empty!(platform_variable_types)
 end
 
 function reset_actual_platform_arguments!()
@@ -209,16 +147,12 @@ function reset_actual_platform_arguments!()
     for (k,v) in variables_all
         variables[k] = v
     end
-    for v in values(platform_variable_types_all)
-        push!(platform_variable_types, v)
-    end
     keys(actual_platform_arguments)
 end
 
 function include_actual_platform_argument!(f)
     actual_platform_arguments[f] = actual_platform_arguments_all[f]
     variables[f] = variables_all[f]
-    push!(platform_variable_types, platform_variable_types_all[f])
     keys(actual_platform_arguments)
 end
 
@@ -243,8 +177,7 @@ function platform_parameters_kernel(ppars)
     p2 = Dict(); foreach(x->get!(p2, check(x.args[1]), x.args[2]), ppars)
     p2_inv = Dict()
     platform_parameters_kernel = map(x-> (found = get(p2, x.args[1],nothing); if (isnothing(found)) x else get!(p2_inv, x.args[2], x.args[2]); :($(x.args[1])::Type{<:$found}) end), p1)
-    platform_variables_kernel = filter(x-> (isnothing(get(p2_inv, if (typeof(x) == Symbol) x else x.args[1] end, nothing))), platform_variable_types)
-    (platform_parameters_kernel, platform_variables_kernel)
+    platform_parameters_kernel
 end
 
 function check_all(parameter_id)
@@ -320,7 +253,7 @@ function build_entry_signature(fsign::Expr)
     kargs = map(p -> p.args[1] , keyword_parameters)
     # build the argument list of the call node (:call) of the entry function
     new_call_node_args = [fname, keyword_parameters_node, call_node_args...]
-    return (fname, fargs, kargs, Expr(:where, Expr(:call, new_call_node_args...), where_vars..., platform_variable_types...))
+    return (fname, fargs, kargs, Expr(:where, Expr(:call, new_call_node_args...), where_vars...))
 end
 
 function build_entry_body(fname, fargs, kargs)
@@ -351,9 +284,9 @@ function build_kernel_signature(fsign::Expr)
     # takes the platform parameters of the kernel
     aware_parameters_args = typeof(call_node_args[1]) == Expr && call_node_args[1].head == :braces ? popfirst!(call_node_args).args : [] 
     # inserts the kernel's platform parameters into the list platform parameters.
-    (ppars, pvars) = platform_parameters_kernel(aware_parameters_args)
+    ppars = platform_parameters_kernel(aware_parameters_args)
     new_call_node_args = isnothing(keyword_parameters_node) ? [fname, ppars..., call_node_args...] : [fname, keyword_parameters_node, ppars..., call_node_args...]
-    Expr(:where, Expr(:call, new_call_node_args...), where_vars..., pvars...)
+    Expr(:where, Expr(:call, new_call_node_args...), where_vars...)
 end
 
 

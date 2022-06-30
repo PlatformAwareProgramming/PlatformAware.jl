@@ -2,6 +2,22 @@
 # Licensed under the MIT License. See LICENCE in the project root.
 # ------------------------------------------------------------------
 
+#abstract type AtMostInf end                     # 0
+
+#multiplier_super = "Inf"
+#magnitude_ = ""
+#for magnitude in reverse(['n', 'u', 'm', ' ', 'K', 'M', 'G', 'T', 'P', 'E'])
+#    for multiplier in reverse([1, 2, 4, 8, 16, 32, 64, 128, 256, 512])
+#        magnitude_super = multiplier == 512 ? magnitude_ : magnitude   
+#        code = "abstract type AtMost" * string(multiplier) * magnitude * " <: AtMost" * string(multiplier_super) * magnitude_super * " end"        
+#        eval(Meta.parse(code)); println(code)
+#        multiplier_super = multiplier
+#    end
+#    magnitude_ = magnitude
+#end
+#
+#abstract type AtMost0 <: AtMost1n end
+
 
 # abstract quantities of resources (magnitude order)
 

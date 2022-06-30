@@ -2,6 +2,23 @@
 # Licensed under the MIT License. See LICENCE in the project root.
 # ------------------------------------------------------------------
 
+#
+#abstract type AtLeast0 end                     # 0
+#
+#multiplier_super = 0
+#magnitude_ = ""
+#for magnitude in ['n', 'u', 'm', ' ', 'K', 'M', 'G', 'T', 'P', 'E']
+#    for multiplier in [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
+#        magnitude_super = multiplier == 1 ? magnitude_ : magnitude   
+#        code = "abstract type AtLeast" * string(multiplier) * magnitude * " <: AtLeast" * string(multiplier_super) * magnitude_super * " end"        
+#        eval(Meta.parse(code))
+#        multiplier_super = multiplier
+#    end
+#    magnitude_ = magnitude
+#end
+#
+#abstract type AtLeastInf <: AtLeast512E end
+
 
 # abstract quantities of resources (magnitude order)
 

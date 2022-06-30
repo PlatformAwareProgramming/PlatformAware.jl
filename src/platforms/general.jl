@@ -36,14 +36,6 @@ abstract type ProcessorSIMD <: ProcessorISA end
 
 abstract type Processor end
 
-# cache
-
-abstract type CacheMapping end
-abstract type CacheDirect <: CacheMapping end
-abstract type CacheFullyAssociative <: CacheMapping end
-abstract type CacheSetAssociative8 <: CacheMapping end
-abstract type CacheSetAssociative12 <: CacheMapping end
-
 # accelerator
 
 abstract type AcceleratorType end
@@ -57,6 +49,7 @@ abstract type TPU <: XPU end
 abstract type FPGA <: AcceleratorType end
 abstract type MIC <: AcceleratorType end
 
+#interconnection
 abstract type InterconnectionTopology end
 abstract type Interconnection end
 
@@ -67,3 +60,11 @@ abstract type Storage end
 # memory system
 
 abstract type MemorySystem end
+
+# cache
+
+abstract type CacheMapping end
+abstract type CacheDirect <: CacheMapping end
+abstract type CacheFullyAssociative <: CacheMapping end
+abstract type CacheSetAssociative8 <: CacheMapping end
+abstract type CacheSetAssociative12 <: CacheMapping end

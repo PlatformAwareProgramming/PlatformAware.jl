@@ -16,6 +16,7 @@
     @platform parameter interconnection_bandwidth
     @platform parameter interconnection_latency
     @platform parameter accelerator_type
+    @platform parameter accelerator_memorysize
     @platform parameter processor_simd
 
     # define a kernel
