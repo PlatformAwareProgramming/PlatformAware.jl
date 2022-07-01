@@ -24,6 +24,6 @@ macro just(m)
     eval(Meta.parse("Tuple{" * M * "," * N * "}"))
 end
 
-macro unlimited()
+macro unrestricted()
     @atleast 0
 end

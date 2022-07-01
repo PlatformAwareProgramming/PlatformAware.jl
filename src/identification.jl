@@ -61,7 +61,7 @@ global actual_platform_arguments_all = Dict(
 
 actual_platform_arguments = copy(actual_platform_arguments_all)
 
-global variables_all = Dict(
+global default_platform_types_all = Dict(
     :node_count => :(Type{<:(Tuple{AtLeast1,AtMostInf})}),
     :node_maintainer => :(Type{<:OnPremise}),
     :node_machinefamily => :(Type{<:MachineFamily}),
@@ -99,10 +99,10 @@ global variables_all = Dict(
 #    :processor_cacheL3_linesize => :PC3L,
     :processor => :(Type{<:Processor}),
     :accelerator_count => :(Type{<:(Tuple{AtLeast0,AtMostInf})}),
-    :accelerator_manufacturer => :(Type{<:Manufacturer}),
     :accelerator_type => :(Type{<:AcceleratorType}),
-    :accelerator_architecture => :(Type{<:AcceleratorArchitecture}),
+    :accelerator_manufacturer => :(Type{<:Manufacturer}),
     :accelerator_api => :(Type{<:AcceleratorBackend}),
+    :accelerator_architecture => :(Type{<:AcceleratorArchitecture}),
     :accelerator_memorysize => :(Type{<:Tuple{AtLeast0,AtMostInf}}),
     :accelerator_energyefficiency => :(Type{<:Tuple{AtLeast0,AtMostInf}}),
     :accelerator => :(Type{<:Accelerator}),
@@ -118,7 +118,7 @@ global variables_all = Dict(
     :storage_networkbandwidth => :(Type{<:Tuple{AtLeast0,AtMostInf}}),
     :storage => :(Type{<:Storage}))
 
-global variables = copy(variables_all)
+global default_platform_types = copy(default_platform_types_all)
 
 
 
@@ -137,22 +137,22 @@ end
 
 function empty_actual_platform_arguments!()
     empty!(actual_platform_arguments)
-    empty!(variables)
+    empty!(default_platform_types)
 end
 
 function reset_actual_platform_arguments!()
     for (k,v) in actual_platform_arguments_all
         actual_platform_arguments[k] = v
     end
-    for (k,v) in variables_all
-        variables[k] = v
+    for (k,v) in platform_types_all
+        default_platform_types[k] = v
     end
     keys(actual_platform_arguments)
 end
 
 function include_actual_platform_argument!(f)
     actual_platform_arguments[f] = actual_platform_arguments_all[f]
-    variables[f] = variables_all[f]
+    default_platform_types[f] = default_platform_types_all[f]
     keys(actual_platform_arguments)
 end
 
@@ -171,13 +171,19 @@ function platform_parameter_macro!(f)
 
 
 
-function platform_parameters_kernel(ppars)
-    platform_parameters = map(p->Expr(:kw,Expr(:(::),p[1],variables[p[1]]),p[2]), collect(actual_platform_arguments))
-    p1 = map(x-> x.args[1], platform_parameters)
-    p2 = Dict(); foreach(x->get!(p2, check(x.args[1]), x.args[2]), ppars)
-    p2_inv = Dict()
-    platform_parameters_kernel = map(x-> (found = get(p2, x.args[1],nothing); if (isnothing(found)) x else get!(p2_inv, x.args[2], x.args[2]); :($(x.args[1])::Type{<:$found}) end), p1)
-    platform_parameters_kernel
+function platform_parameters_kernel(p_list)
+
+    # move p_list (p::T) to p_dict (p => T)
+    p_dict = Dict(); foreach(x->get!(p_dict, check(x.args[1]), x.args[2]), p_list)
+
+    # replace default types to required types in kernel platform parameters
+    r = []
+    for (k,v) in default_platform_types
+         found = get(p_dict, k, nothing)
+         push!(r, isnothing(found) ? :(::$v) : :(::Type{<:$found}))
+    end
+
+    return r
 end
 
 function check_all(parameter_id)
@@ -244,7 +250,7 @@ function build_entry_signature(fsign::Expr)
     keyword_parameters = length(call_node_args) > 1 && typeof(call_node_args[1]) == Expr && call_node_args[1].head == :parameters ? popfirst!(call_node_args).args : []
     # takes a dictionary mapping par->actual_type and returns an expression :(par::actual_type)
     # the remaining elements in call_node_args are the kernel parameters.
-    platform_parameters = map(p->Expr(:kw,Expr(:(::),p[1],variables[p[1]]),p[2]), collect(actual_platform_arguments))
+    platform_parameters = map(p->Expr(:kw,Expr(:(::),p[1],default_platform_types[p[1]]),p[2]), collect(actual_platform_arguments))
     # rebuild the keyword parameters node for the entry function, including the platform_parameters
     keyword_parameters_node = Expr(:parameters, platform_parameters..., keyword_parameters...)
     # collect the identifiers of the kernel parameters
