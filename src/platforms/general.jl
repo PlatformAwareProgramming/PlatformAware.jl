@@ -12,6 +12,7 @@ abstract type No <: Query end
 
 abstract type Maintainer end
 abstract type OnPremise <: Maintainer end
+abstract type CloudProvider <: Maintainer end
 
 # machine
 
