@@ -47,7 +47,10 @@ abstract type Accelerator end
 abstract type XPU <: AcceleratorType end
 abstract type GPU <: XPU end
 abstract type TPU <: XPU end
+abstract type IPU <: XPU end
+
 abstract type FPGA <: AcceleratorType end
+
 abstract type MIC <: AcceleratorType end
 
 #interconnection

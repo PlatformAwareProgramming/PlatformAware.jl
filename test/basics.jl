@@ -35,7 +35,7 @@
         println(z,": kernel for 1 NVIDIA accelerators")
     end
     @platform aware function kernel({node_count::(@atleast 32),
-                                     processor::IntelXeonE7v48894},
+                                     processor::Core_i7_7500U},
                                     x,y,args...; z=3, kwargs...)
         println(z,": kernel for 1 NVIDIA accelerators")
     end
