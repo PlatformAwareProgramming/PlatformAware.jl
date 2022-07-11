@@ -6,7 +6,9 @@ abstract type Intel <: Manufacturer end
 
 # Processor models (source: https://ark.intel.com)
 
-abstract type Core <: Processor end
+abstract type IntelProcessor <: Processor end
+
+abstract type Core <: IntelProcessor end
 
 abstract type Core_X <: Core end
 abstract type Core_X_i9_10900X <: Core_X end
@@ -58,11 +60,15 @@ abstract type Core_M_g7 <: Core_M end
 abstract type Core_M_g8 <: Core_M end
 
 
-abstract type Xeon <: Processor end
-abstract type Atom <: Processor end
-abstract type Pentium <: Processor end
-abstract type Celeron <: Processor end
-abstract type Itanium <: Processor end
+abstract type Xeon <: IntelProcessor end
+
+abstract type Atom <: IntelProcessor end
+
+abstract type Pentium <: IntelProcessor end
+
+abstract type Celeron <: IntelProcessor end
+
+abstract type Itanium <: IntelProcessor end
 
 
 
