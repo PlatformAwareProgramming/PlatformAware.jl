@@ -1,9 +1,9 @@
 attribute_name, type, description, is_required
-processor_family, string, "name of the processor family", true
-processor_series, string, "series of the processor", true
-processor_microarchitecture, string, "type of the processor microarchitecture", false
-processor_count, int, "number of processor units", true
-processor_core_count, int, "number of the processor cores", true
 processor_manufacturer, string, "name of processor manufacturer", true
+processor_microarchitecture, string, "type of the processor microarchitecture", false
+processor_simd,string, "SIMD extension", false
+processor_isa, string, "Main instruction set architecture (ISA)"
+processor_core_count, int, "number of the processor cores", true
+processor_core_clock, int, "core frequency", true
+processor_core_threads_count, int, "number of threads per core", true
 processor, string, "processor type", false
-processor_simd, string, "processor SIMD type", false
