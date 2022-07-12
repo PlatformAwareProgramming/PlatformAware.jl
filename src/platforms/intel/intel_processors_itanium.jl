@@ -4,4 +4,4 @@
 
 ## Itanium processors
 
-abstract type Itanium <: IntelProcessor end
+abstract type IntelItanium <: IntelProcessor end

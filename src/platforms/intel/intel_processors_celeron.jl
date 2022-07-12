@@ -4,5 +4,5 @@
 
 ## Celeron processors
 
-abstract type Celeron <: IntelProcessor end
+abstract type IntelCeleron <: IntelProcessor end
 

@@ -4,4 +4,4 @@
 
 ## Atom processors
 
-abstract type Atom <: IntelProcessor end
+abstract type IntelAtom <: IntelProcessor end

@@ -4,4 +4,4 @@
 
 ## Xeon processors
 
-abstract type Xeon <: IntelProcessor end
+abstract type IntelXeon <: IntelProcessor end

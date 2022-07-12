@@ -1,2 +1,2 @@
 processor_manufacturer, processor_microarchitecture, processor_simd, processor_isa, processor_energyefficiency, processor_core_clock, processor_core_count, processor_core_threads_count,super*,processor,identifier
-Intel,Cascade Lake,AVX-512,X86_64,,"3,700,000,000",10,20,Core_X,Core_X_i9_10900X,Intel(R) Core(TM) i9-10900X CPU @ 3.70GHz
+Intel,Cascade Lake,AVX-512,X86_64,,"3,700,000,000",10,20,IntelCore_X,IntelCore_X_i9_10900X,Intel(R) Core(TM) i9-10900X CPU @ 3.70GHz

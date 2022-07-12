@@ -4,4 +4,4 @@
 
 ## Pentium processors
 
-abstract type Pentium <: IntelProcessor end
+abstract type IntelPentium <: IntelProcessor end
