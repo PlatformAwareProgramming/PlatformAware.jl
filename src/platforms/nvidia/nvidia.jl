@@ -22,3 +22,5 @@ struct Volta <: AcceleratorArchitecture end
 # CUDA API
 
 abstract type CUDA <: AcceleratorBackend end
+
+abstract type GeForce_940MX <: Accelerator end

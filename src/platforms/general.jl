@@ -59,11 +59,26 @@ abstract type Interconnection end
 
 # storage
 
-abstract type Storage end   
+abstract type StorageType end   
+abstract type StorageInterface end   
+
+abstract type SSD <: StorageType end
+abstract type HDD <: StorageType end
+
+abstract type SATA <: StorageInterface end
+abstract type IDE <: StorageInterface end; const PATA = IDE
+abstract type SAS <: StorageInterface end
+abstract type SCSI <: StorageInterface end
+abstract type FC <: StorageInterface end
+
 
 # memory system
 
-abstract type MemorySystem end
+abstract type MemoryType end
+
+abstract type DDR2 <: MemoryType end
+abstract type DDR3 <: MemoryType end
+abstract type DDR4 <: MemoryType end
 
 # cache
 

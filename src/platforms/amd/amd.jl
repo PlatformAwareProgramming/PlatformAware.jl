@@ -6,7 +6,6 @@ abstract type AMD <: Manufacturer end
 
 # AMD Processors - source: https://www.amd.com/en/products/specifications/processors
 
-
 abstract type AMDProcessor <: Processor end
 
 # Families 

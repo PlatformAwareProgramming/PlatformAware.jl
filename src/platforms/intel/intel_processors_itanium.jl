@@ -11,6 +11,7 @@ abstract type IntelItanium_9500 <: IntelItanium end
 abstract type IntelItanium_9300 <: IntelItanium end
 abstract type IntelItanium_9100 <: IntelItanium end
 abstract type IntelItanium_9000 <: IntelItanium end
-abstract type IntelItanium_fsb_400 <: IntelItanium end
-abstract type IntelItanium_fsb_533 <: IntelItanium end
-abstract type IntelItanium_fsb_677 <: IntelItanium end
+abstract type IntelItanium_FSB <: IntelItanium end
+abstract type IntelItanium_FSB_400 <: IntelItanium_FSB end
+abstract type IntelItanium_FSB_533 <: IntelItanium_FSB end
+abstract type IntelItanium_FSB_677 <: IntelItanium_FSB end

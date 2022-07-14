@@ -4,6 +4,10 @@
 
 module PlatformAware
 
+using XMLDict
+using TOML
+using Decimals
+
 # quantifiers
 include("quantifiers/atleast.jl")
 include("quantifiers/atmost.jl")
