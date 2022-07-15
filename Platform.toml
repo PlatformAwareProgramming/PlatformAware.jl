@@ -1,0 +1,82 @@
+# This is an example of platform description file
+
+# "na": not-applicable (use default value)
+# "unknown": unknown feature (use default value)
+# "unset": feature not set (calculate it from the database)
+# "ignore": the feature is being ignored (use default value)
+
+[node]
+
+node_count = 1
+node_maintainer = "OnPremise"
+node_virtual = "No"
+node_dedicated = "Yes"  
+node_machinefamily = "na"  
+node_machinetype = "na"
+node_machinesize = "na"
+node_vcpus_count = "na"
+
+[processor]
+
+processor = "IntelCore_i7_7500U"
+processor_count = 2
+processor_manufacturer = "Intel"
+processor_microarchitecture = "KabyLake"
+processor_simd = "AVX2"
+processor_isa = "ISA_x86_64"
+processor_tdp = 15    # W
+processor_core_clock = "2.7G"
+processor_core_count = 2
+processor_core_threads_count = 2
+processor_core_L1_size = "128K"
+processor_core_L2_size = "512K"
+processor_L3_size = "4M"
+
+[accelerator]
+
+accelerator = "GeForce_940MX"
+accelerator_count = 1
+accelerator_type = "GPU"
+accelerator_manufacturer = "NVIDIA"
+accelerator_api = "CUDA"
+accelerator_architecture = "Maxwell"
+accelerator_memorysize = "4G"
+accelerator_tdp = 23   # W
+
+[memory]
+
+node_memory_type = "DDR4"
+node_memory_frequency = 2400
+node_memory_size = "16G"
+node_memory_latency = "unknown"
+node_memory_bandwidth =  "unknown"
+
+[storage]
+
+[storage.0]
+
+storage_type = "SSD"
+storage_interface = "SATA"
+storage_size = "1T"
+storage_latency = "unknown"  
+storage_bandwidth = "unknown"
+storage_networkbandwidth = "unknown"
+
+[storage.1]
+
+storage_type = "HDD"
+storage_interface = "SATA"
+storage_size = "512G"
+storage_latency = "unknown"  
+storage_bandwidth = "unknown"
+storage_networkbandwidth = "unknown"
+
+[interconnection]
+
+interconnection_starttime = "na"
+interconnection_latency = "na"
+interconnection_bandwidth = "na"
+interconnection_topology = "na"
+interconnection_RDMA = "na"
+interconnection = "na"
+

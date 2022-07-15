@@ -429,5 +429,7 @@ function collect_arg_names(par)
         par.args[1].args[1]
     elseif (par.head == :(::))
         par.args[1]
+    elseif (par.head == :(...))
+        par.args[1]
     end
 end
