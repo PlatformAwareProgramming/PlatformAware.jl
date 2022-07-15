@@ -9,6 +9,7 @@ TOML = "fa267f1f-6049-4f14-aa54-33bafae1ed76"
 XMLDict = "228000da-037f-5747-90a9-8195ccbf91a5"
 
 [compat]
+Decimals = "0.4"
 XMLDict = "0.4"
 julia = "1"
 
