@@ -3,9 +3,7 @@
 # ------------------------------------------------------------------
 
 # maintaner types
-abstract type GoogleCloud <: Maintainer end
-
-struct GoogleCloudToken <: GoogleCloud end
+abstract type GoogleCloud <: Maintainer end; export GoogleCloud
 
 # locale types 
 

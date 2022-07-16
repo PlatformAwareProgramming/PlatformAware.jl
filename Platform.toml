@@ -19,7 +19,7 @@ node_vcpus_count = "na"
 [processor]
 
 processor = "IntelCore_i7_7500U"
-processor_count = 2
+processor_count = 1
 processor_manufacturer = "Intel"
 processor_microarchitecture = "KabyLake"
 processor_simd = "AVX2"

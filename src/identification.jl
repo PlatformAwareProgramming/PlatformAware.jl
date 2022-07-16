@@ -85,7 +85,7 @@ global default_platform_types_all = Dict(
     :processor_microarchitecture => ProcessorMicroarchitecture,
     :processor_simd => ProcessorSIMD,
     :processor_isa => ProcessorISA,
-    :processor_energyefficiency => Tuple{AtLeast0,AtMostInf},
+    :processor_tdp => Tuple{AtLeast0,AtMostInf},
     :processor_core_clock => Tuple{AtLeast0,AtMostInf},
     :processor_core_count => Tuple{AtLeast1,AtMostInf},
     :processor_core_threads_count => Tuple{AtLeast1,AtMostInf},
@@ -111,7 +111,7 @@ global default_platform_types_all = Dict(
     :accelerator_api => AcceleratorBackend,
     :accelerator_architecture => AcceleratorArchitecture,
     :accelerator_memorysize => Tuple{AtLeast0,AtMostInf},
-    :accelerator_energyefficiency => Tuple{AtLeast0,AtMostInf},
+    :accelerator_tdp => Tuple{AtLeast0,AtMostInf},
     :accelerator => Accelerator,
     :interconnection_starttime => Tuple{AtLeast0,AtMostInf},
     :interconnection_latency => Tuple{AtLeast0,AtMostInf},
@@ -133,6 +133,8 @@ global default_platform_types = copy(default_platform_types_all)
 
 # read the platform description file (default to the current directory)
 filename = get(ENV,"PLATFORM_DESCRIPTION","Platform.toml")
+
+println(pwd())
 
 platform_description_toml = 
      try
@@ -334,15 +336,18 @@ function getaddparameter()
     return can_add_parameter[]
 end
 
+
 macro platform(t,f)
     if (t == :default)
         # @platform default creates an entry function, called from outside, and a (default) kernel function 
         denyaddparameter!()
-        eval(build_entry_function(f))   
-        eval(build_kernel_function(f))
+        e = build_entry_function(f)
+        k = build_kernel_function(f)
+        return esc(:($e;$k))
+        #return k
     elseif (t == :aware)
         denyaddparameter!()
-        eval(build_kernel_function(f))
+        return esc(build_kernel_function(f))
     elseif (t == :parameter && getaddparameter())
         platform_parameter_macro!(f)
     elseif (t == :parameter && !getaddparameter())

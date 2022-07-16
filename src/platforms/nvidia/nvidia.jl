@@ -4,13 +4,13 @@
 
 # abstract types
 
-struct NVIDIA <: Manufacturer end
+abstract type NVIDIA <: Manufacturer end; export NVIDIA
 
-struct Ampere <: AcceleratorArchitecture end
-struct Kepler <: AcceleratorArchitecture end
-struct Maxwell <: AcceleratorArchitecture end
-struct Turing <: AcceleratorArchitecture end
-struct Volta <: AcceleratorArchitecture end
+abstract type Ampere <: AcceleratorArchitecture end;  export Ampere
+abstract type Kepler <: AcceleratorArchitecture end;  export Kepler
+abstract type Maxwell <: AcceleratorArchitecture end; export Maxwell
+abstract type Turing <: AcceleratorArchitecture end;  export Turing
+abstract type Volta <: AcceleratorArchitecture end;   export Volta
 
 #struct Tesla <: AcceleratorType{NVIDIA} end
 #struct TensorCore <: AcceleratorType{NVIDIA} end
@@ -21,6 +21,6 @@ struct Volta <: AcceleratorArchitecture end
 
 # CUDA API
 
-abstract type CUDA <: AcceleratorBackend end
+abstract type CUDA <: AcceleratorBackend end; export CUDA
 
-abstract type GeForce_940MX <: Accelerator end
+abstract type GeForce_940MX <: Accelerator end; export GeForce_940MX

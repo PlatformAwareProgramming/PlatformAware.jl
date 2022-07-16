@@ -17,3 +17,16 @@ abstract type IntelPentium_4000 <: IntelPentium end
 abstract type IntelPentium_3000 <: IntelPentium end
 abstract type IntelPentium_2000 <: IntelPentium end
 abstract type IntelPentium_1000 <: IntelPentium end
+
+export IntelPentium,
+       IntelPentium_1000,
+       IntelPentium_2000,
+       IntelPentium_3000,
+       IntelPentium_4000,
+       IntelPentium_6800,
+       IntelPentium_D,
+       IntelPentium_G,
+       IntelPentium_Gold,
+       IntelPentium_J,
+       IntelPentium_N,
+       IntelPentium_Silver

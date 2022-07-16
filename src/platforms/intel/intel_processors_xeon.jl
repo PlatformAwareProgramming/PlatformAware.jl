@@ -20,3 +20,17 @@ abstract type IntelXeon_E7_v4 <: IntelXeon_E7 end
 abstract type IntelXeon_Scalable <: IntelXeon end
 abstract type IntelXeon_Scalable_g2 <: IntelXeon_Scalable end
 abstract type IntelXeon_Scalable_g3 <: IntelXeon_Scalable end
+
+export IntelXeon,
+       IntelXeon_D,
+       IntelXeon_E,
+       IntelXeon_E5,
+       IntelXeon_E5_v4,
+       IntelXeon_E7,
+       IntelXeon_E7_v2,
+       IntelXeon_E7_v3,
+       IntelXeon_E7_v4,
+       IntelXeon_Scalable,
+       IntelXeon_Scalable_g2,
+       IntelXeon_Scalable_g3,
+       IntelXeon_W

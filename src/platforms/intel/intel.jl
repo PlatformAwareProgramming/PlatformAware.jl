@@ -2,11 +2,11 @@
 # Licensed under the MIT License. See LICENCE in the project root.
 # ------------------------------------------------------------------
 
-abstract type Intel <: Manufacturer end
+abstract type Intel <: Manufacturer end; export Intel
 
 # Processor models (source: https://ark.intel.com)
 
-abstract type IntelProcessor <: Processor end
+abstract type IntelProcessor <: Processor end; export IntelProcessor
 
 # Microarchictetures (from 2010)
 
@@ -35,6 +35,32 @@ abstract type CypressCove <: ProcessorMicroarchitecture end
 abstract type GoldenCove <: ProcessorMicroarchitecture end
 abstract type Gracemont <: ProcessorMicroarchitecture end
 
+export Westmere,
+    Saltwell,
+    SandyBridge,
+    IvyBridge,
+    Silvermont,
+    Haswell,
+    Broadwell,
+    Airmont,
+    Skylake,
+    Goldmont,
+    KabyLake,
+    GoldmontPlus,
+    CoffeeLake,
+    CannonLake,
+    SunnyCove,
+    CometLake,
+    IceLake,
+    Tremont,
+    TigerLake,
+    WillowCove,
+    AlderLake,
+    CypressCove,
+    GoldenCove,
+    Gracemont
+
+
 # SIMD extensions
 
 abstract type MMX <: ProcessorSIMD end
@@ -50,6 +76,15 @@ abstract type AVX <: ProcessorSIMD end
 abstract type AVX2 <: AVX end 
 abstract type AVX512 <: AVX2 end 
 
-
+export MMX,
+       SSE,
+       SSE2,
+       SSE3,
+       SSE4,
+       SSE41,
+       SSE42,
+       AVX,
+       AVX2,
+       AVX512
 
 

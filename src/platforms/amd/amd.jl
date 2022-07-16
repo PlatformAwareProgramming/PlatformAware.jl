@@ -2,11 +2,11 @@
 # Licensed under the MIT License. See LICENCE in the project root.
 # ------------------------------------------------------------------
 
-abstract type AMD <: Manufacturer end
+abstract type AMD <: Manufacturer end; export AMD
 
 # AMD Processors - source: https://www.amd.com/en/products/specifications/processors
 
-abstract type AMDProcessor <: Processor end
+abstract type AMDProcessor <: Processor end; export AMDProcessor
 
 # Families 
 

@@ -15,3 +15,14 @@ abstract type IntelItanium_FSB <: IntelItanium end
 abstract type IntelItanium_FSB_400 <: IntelItanium_FSB end
 abstract type IntelItanium_FSB_533 <: IntelItanium_FSB end
 abstract type IntelItanium_FSB_677 <: IntelItanium_FSB end
+
+export IntelItanium,
+       IntelItanium_9000,
+       IntelItanium_9100,
+       IntelItanium_9300,
+       IntelItanium_9500,
+       IntelItanium_9700,
+       IntelItanium_FSB,
+       IntelItanium_FSB_400,
+       IntelItanium_FSB_533,
+       IntelItanium_FSB_677

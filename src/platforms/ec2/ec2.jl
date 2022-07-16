@@ -3,9 +3,7 @@
 # ------------------------------------------------------------------
 
 # maintainer types
-abstract type AmazonEC2 <: Maintainer end
-
-struct AmazonEC2Token <: AmazonEC2 end
+abstract type AmazonEC2 <: Maintainer end; export AmazonEC2
 
 # locale types
 
