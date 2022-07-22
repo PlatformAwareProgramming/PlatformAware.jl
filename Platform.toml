@@ -8,7 +8,7 @@
 [node]
 
 node_count = 1
-node_maintainer = "OnPremise"
+node_provider = "OnPremise"
 node_virtual = "No"
 node_dedicated = "Yes"  
 node_machinefamily = "na"  
@@ -34,14 +34,23 @@ processor_L3_size = "4M"
 
 [accelerator]
 
-accelerator = "GeForce_940MX"
-accelerator_count = 1
-accelerator_type = "GPU"
-accelerator_manufacturer = "NVIDIA"
-accelerator_api = "CUDA"
-accelerator_architecture = "Maxwell"
-accelerator_memorysize = "4G"
-accelerator_tdp = 23   # W
+#accelerator = "GeForce_940MX"
+#accelerator_count = 1
+#accelerator_type = "GPU"
+#accelerator_manufacturer = "NVIDIA"
+#accelerator_api = "CUDA"
+#accelerator_architecture = "Maxwell"
+#accelerator_memorysize = "4G"
+#accelerator_tdp = 23   # W
+
+accelerator = "na"
+accelerator_count = "na"
+accelerator_type = "na"
+accelerator_manufacturer = "na"
+accelerator_api = "na"
+accelerator_architecture = "na"
+accelerator_memorysize = "na"
+accelerator_tdp = "na"   # W
 
 [memory]
 

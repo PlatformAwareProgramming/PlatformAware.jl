@@ -1,0 +1,3 @@
+accelerator_manufacturer,accelerator_type,accelerator_architecture,accelerator_api,accelerator_memorysize,accelerator_energyefficiency,accelerator
+NVIDIA,GPU,Turing,CUDA,,"3,700,000,000",
+Xilinx,FPGA,,,,,

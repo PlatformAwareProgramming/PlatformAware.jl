@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------
 
 # maintaner types
-abstract type GoogleCloud <: Maintainer end; export GoogleCloud
+abstract type GoogleCloud <: CloudProvider end; export GoogleCloud
 
 # locale types 
 

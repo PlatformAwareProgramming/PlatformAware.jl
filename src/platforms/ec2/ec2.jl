@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------
 
 # maintainer types
-abstract type AmazonEC2 <: Maintainer end; export AmazonEC2
+abstract type AmazonEC2 <: CloudProvider end; export AmazonEC2
 
 # locale types
 

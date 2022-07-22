@@ -10,30 +10,40 @@ abstract type IntelProcessor <: Processor end; export IntelProcessor
 
 # Microarchictetures (from 2010)
 
-abstract type Westmere <: ProcessorMicroarchitecture end
-abstract type Saltwell <: ProcessorMicroarchitecture end
-abstract type SandyBridge <: ProcessorMicroarchitecture end
-abstract type IvyBridge <: ProcessorMicroarchitecture end
-abstract type Silvermont <: ProcessorMicroarchitecture end
-abstract type Haswell <: ProcessorMicroarchitecture end
-abstract type Broadwell <: ProcessorMicroarchitecture end
-abstract type Airmont <: ProcessorMicroarchitecture end
-abstract type Skylake <: ProcessorMicroarchitecture end
-abstract type Goldmont <: ProcessorMicroarchitecture end
-abstract type KabyLake <: ProcessorMicroarchitecture end
-abstract type GoldmontPlus <: ProcessorMicroarchitecture end
-abstract type CoffeeLake <: ProcessorMicroarchitecture end
-abstract type CannonLake <: ProcessorMicroarchitecture end
-abstract type SunnyCove <: ProcessorMicroarchitecture end
-abstract type CometLake <: ProcessorMicroarchitecture end
-abstract type IceLake <: ProcessorMicroarchitecture end
-abstract type Tremont <: ProcessorMicroarchitecture end
-abstract type TigerLake <: ProcessorMicroarchitecture end
-abstract type WillowCove <: ProcessorMicroarchitecture end
-abstract type AlderLake <: ProcessorMicroarchitecture end
-abstract type CypressCove <: ProcessorMicroarchitecture end
-abstract type GoldenCove <: ProcessorMicroarchitecture end
-abstract type Gracemont <: ProcessorMicroarchitecture end
+abstract type IntelMicroarchitecture <: ProcessorMicroarchitecture end
+
+abstract type Westmere <: IntelMicroarchitecture end
+abstract type Saltwell <: IntelMicroarchitecture end
+abstract type SandyBridge <: IntelMicroarchitecture end
+abstract type IvyBridge <: IntelMicroarchitecture end
+abstract type Silvermont <: IntelMicroarchitecture end
+abstract type Haswell <: IntelMicroarchitecture end
+abstract type Broadwell <: IntelMicroarchitecture end
+abstract type Airmont <: IntelMicroarchitecture end
+abstract type Skylake <: IntelMicroarchitecture end
+abstract type Goldmont <: IntelMicroarchitecture end
+abstract type KabyLake <: IntelMicroarchitecture end
+abstract type GoldmontPlus <: IntelMicroarchitecture end
+abstract type CoffeeLake <: IntelMicroarchitecture end
+abstract type CannonLake <: IntelMicroarchitecture end
+abstract type SunnyCove <: IntelMicroarchitecture end
+abstract type CometLake <: IntelMicroarchitecture end
+abstract type IceLake <: IntelMicroarchitecture end
+abstract type Tremont <: IntelMicroarchitecture end
+abstract type TigerLake <: IntelMicroarchitecture end
+abstract type WillowCove <: IntelMicroarchitecture end
+abstract type AlderLake <: IntelMicroarchitecture end
+abstract type CypressCove <: IntelMicroarchitecture end
+abstract type GoldenCove <: IntelMicroarchitecture end
+abstract type Gracemont <: IntelMicroarchitecture end
+abstract type WhiskeyLake <: IntelMicroarchitecture end
+
+abstract type Kittson <: IntelMicroarchitecture end
+abstract type Poulson <: IntelMicroarchitecture end
+abstract type Tukwila <: IntelMicroarchitecture end
+abstract type Montvale <: IntelMicroarchitecture end
+abstract type Montecito <: IntelMicroarchitecture end
+
 
 export Westmere,
     Saltwell,
@@ -58,33 +68,18 @@ export Westmere,
     AlderLake,
     CypressCove,
     GoldenCove,
-    Gracemont
+    Gracemont,
+    Kittson,
+    Poulson,
+    Tukwila,
+    Montvale,
+    Montecito,
+    WhiskeyLake
+    
+# Intel Accelerators
+
+abstract type IntelAccelerator <: Accelerator end
 
 
-# SIMD extensions
-
-abstract type MMX <: ProcessorSIMD end
-
-abstract type SSE <: ProcessorSIMD end
-abstract type SSE2 <: SSE end
-abstract type SSE3 <: SSE2 end
-abstract type SSE4 <: SSE3 end
-abstract type SSE41 <: SSE4 end
-abstract type SSE42 <: SSE4 end
-
-abstract type AVX <: ProcessorSIMD end 
-abstract type AVX2 <: AVX end 
-abstract type AVX512 <: AVX2 end 
-
-export MMX,
-       SSE,
-       SSE2,
-       SSE3,
-       SSE4,
-       SSE41,
-       SSE42,
-       AVX,
-       AVX2,
-       AVX512
 
 

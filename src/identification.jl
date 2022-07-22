@@ -6,7 +6,7 @@
 
 global feature_type = Dict(
     :node_count => quantifier,
-    :node_maintainer => qualifier,
+    :node_provider => qualifier,
     :node_virtual => qualifier,
     :node_dedicated => qualifier,
     :node_machinefamily => qualifier,
@@ -68,7 +68,7 @@ global feature_type = Dict(
 
 global default_platform_types_all = Dict(
     :node_count => Tuple{AtLeast1,AtMostInf},
-    :node_maintainer => OnPremise,
+    :node_provider => Provider,
     :node_virtual => Query,
     :node_dedicated => Query,
     :node_machinefamily => MachineFamily,
@@ -80,7 +80,7 @@ global default_platform_types_all = Dict(
     :node_memory_bandwidth => Tuple{AtLeast0,AtMostInf},
     :node_memory_type => MemoryType,
     :node_memory_frequency => Tuple{AtLeast1,AtMostInf},
-    :processor_count => Tuple{AtLeast0,AtMostInf},
+    :processor_count => Tuple{AtLeast1,AtMostInf},
     :processor_manufacturer => Manufacturer,
     :processor_microarchitecture => ProcessorMicroarchitecture,
     :processor_simd => ProcessorSIMD,
