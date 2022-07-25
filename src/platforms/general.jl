@@ -53,6 +53,7 @@ abstract type FPGA <: AcceleratorType end
 
 abstract type MIC <: AcceleratorType end
 
+
 #interconnection
 abstract type InterconnectionTopology end
 abstract type Interconnection end

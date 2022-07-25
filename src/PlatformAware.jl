@@ -15,7 +15,7 @@ include("quantifiers/macros.jl")
 
 # platform types
 include("platforms/general.jl")
-include("platforms/isa.jl")
+include("platforms/common.jl")
 include("platforms/ec2/ec2.jl")
 include("platforms/gcp/gcp.jl")
 include("platforms/nvidia/nvidia.jl")
@@ -27,7 +27,8 @@ include("platforms/intel/intel_processors_core.jl")
 include("platforms/intel/intel_processors_itanium.jl")
 include("platforms/intel/intel_processors_pentium.jl")
 include("platforms/intel/intel_processors_xeon.jl")
-include("platforms/amd/amd.jl")
+include("platforms/amd/amd_processors.jl")
+include("platforms/amd/amd_accelerators.jl")
 include("platforms/xilinx/xilinx.jl")
 
 # platform identification
@@ -69,18 +70,6 @@ export
     Interconnection,
     StorageType,   
     StorageInterface,   
-    SSD,
-    HDD,
-    SATA,
-    IDE,
-    PATA,
-    SAS,
-    SCSI,
-    FC,
-    MemoryType,
-    DDR2,
-    DDR3,
-    DDR4
-
+    MemoryType
 
 end

@@ -7,10 +7,18 @@ using XMLDict
 using TOML
 using JSON
 
-processor_dict_intel = include("platforms/database/processors/ProcessorsDatabase.Intel.jl")
-processor_dict_amd = include("platforms/database/processors/ProcessorsDatabase.AMD.jl")
+@sync begin
+
+ Threads.@spawn global processor_dict_intel = include("src/platforms/intel/db-processors.Intel.jl")
+ Threads.@spawn global processor_dict_amd = include("src/platforms/amd/db-processors.AMD.jl")
+ Threads.@spawn global accelerator_dict_intel = include("src/platforms/intel/db-accelerators.Intel.jl")
+ Threads.@spawn global accelerator_dict_amd = include("src/platforms/amd/db-accelerators.AMD.jl")
+ Threads.@spawn global accelerator_dict_nvidia = include("src/platforms/nvidia/db-accelerators.NVIDIA.jl")
+
+end
 
 global processor_dict = merge(processor_dict_amd, processor_dict_intel)
+global accelerator_dict = merge(accelerator_dict_intel, accelerator_dict_amd, accelerator_dict_nvidia)
 
 
 function get_info_dict(idtype)
@@ -219,6 +227,11 @@ end
 
 function identifyProcessorModel(processor_string)
 
+   proc_info = get(processor_dict, processor_string, nothing)
+   if (!isnothing(proc_info)) 
+      return proc_info
+   end
+
    parts = split(processor_string," ")
 
    for p in parts        
@@ -286,7 +299,10 @@ function collectProcessorFeatures_CpuId()
    processor_features["processor_manufacturer"] = string(CpuId.cpuvendor())
    processor_features["processor_microarchitecture"] = nothing # string(CpuId.cpuarchitecture())
 
-   proc_info = identifyProcessorModel(CpuId.cpubrand())   
+   cpu_brand = CpuId.cpubrand()
+   cpu_brand = replace(cpu_brand,"(tm)" => "","(TM)" => "", "(r)" => "", "(R)" => "")
+
+   proc_info = identifyProcessorModel(cpu_brand)   
    if (!isnothing(proc_info))
       processor_features["processor_manufacturer"] = isnothing(processor_features["processor_manufacturer"]) ? proc_info[9] : processor_features["processor_manufacturer"]
       processor_features["processor_core_clock"] = isnothing(processor_features["processor_core_clock"]) ? getCoreClockString(proc_info[2]) : processor_features["processor_core_clock"]
@@ -379,19 +395,60 @@ function identifyProcessor()
 
 end
 
+function identifyAcceleratorModel(cpu_brand)
+
+   cpu_brand = replace(cpu_brand,"[" => "", "]" => "", "(" => "", ")" => "" )
+   parts = split(cpu_brand," ")
+
+   for p in parts        
+       acc_info = get(accelerator_dict, p, nothing)
+       if (!isnothing(acc_info)) 
+         return acc_info
+       end
+   end
+
+end
+
 function collectAcceleratorFeatures(l)
 
    accelerator_features = Dict()
 
    # Return the first display device that is an accelerator.
    # This is valid only for GPUs.
-   for acc in l 
-       # check the database
-       # TODO
+   i = 1
+   for acc_brand in l 
+      
+      # looking at the database
+      acc_info = identifyAcceleratorModel(acc_brand)   
+      if (isnothing(acc_info))
+         continue
+      end
+
+      device = Dict()
+      accelerator_features[string(i)] = device
+
+      accelerator = nothing
+      accelerator_count = 1
+      accelerator_type = nothing
+      accelerator_manufacturer = nothing
+      accelerator_api = nothing
+      accelerator_architecture = nothing
+      accelerator_memorysize = nothing
+      accelerator_tdp = nothing
+
+      device["accelerator_count"] = accelerator_count
+      device["accelerator"] = isnothing(accelerator) ? acc_info[1] : accelerator
+      device["accelerator_type"] = isnothing(accelerator_type) ? acc_info[2] : accelerator_type
+      device["accelerator_manufacturer"] = isnothing(accelerator_manufacturer) ? acc_info[3] : accelerator_manufacturer
+      device["accelerator_api"] = isnothing(accelerator_api) ? acc_info[4] : accelerator : accelerator_api
+      device["accelerator_architecture"] = isnothing(accelerator_architecture)  ? acc_info[5] : accelerator_architecture
+      device["accelerator_memorysize"] = isnothing(accelerator_memorysize) ? acc_info[6] : accelerator_memorysize
+      device["accelerator_tdp"] = isnothing(accelerator_tdp) ? acc_info[7] : accelerator_tdp
+
+       i = i + 1
    end
 
-   return accelerator_features;
-
+   return i == 2 ? accelerator_features["1"] : accelerator_features
 end
 
 function identifyAccelerator()
@@ -555,7 +612,7 @@ function addProcessorFeatures!(platform_features, processor_features)
 end
 
 function addAcceleratorFeatures!(platform_features, accelerator_features)
-   #get!(platform_features, "accelerator", accelerator_features)
+   platform_features["accelerator"] = accelerator_features
 end
    
 function addMemoryFeatures!(platform_features, memory_features)
@@ -573,11 +630,11 @@ end
 
 function identify_platform()
 
-   processor_features = identifyProcessor()
-   accelerator_features = identifyAccelerator()
-   memory_features = identifyMemory()
-   storage_features = identifyStorage()
-   interconnection_features = identityInterconnection()
+   print(stderr, "indentifying processor... "); processor_features = identifyProcessor(); println(stderr, "ok")
+   print(stderr, "indentifying accelerator... "); accelerator_features = identifyAccelerator(); println(stderr, "ok")
+   print(stderr, "indentifying memory... "); memory_features = identifyMemory(); println(stderr, "ok")
+   print(stderr, "indentifying storage... "); storage_features = identifyStorage(); println(stderr, "ok")
+   print(stderr, "indentifying interconnection... "); interconnection_features = identityInterconnection(); println(stderr, "ok")
 
    platform_features = Dict()
 
@@ -591,10 +648,9 @@ function identify_platform()
 
 end
 
-
-
+ 
 info = identify_platform()
 
-open("test_platform.toml","w") do f
-   TOML.print(f, info)
-end
+println(stderr)
+
+TOML.print(stdout, info)

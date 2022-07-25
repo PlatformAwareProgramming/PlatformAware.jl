@@ -1,8 +1,0 @@
-attribute_name, type, description, is_required
-accelerator_manufacturer, string,name of accelerator manufacturer,true
-accelerator_type, string,accelerator type,true
-accelerator_architecture,string,accelerator architecture,true
-accelerator_api,string,Native application programming interface,true
-accelerator_memorysize, int,global memory size,true
-accelerator_energyefficiency, int,energy efficiency,true
-accelerator, string,accelerator model,true
