@@ -83,3 +83,6 @@ Contributions are very welcome, as are feature requests and suggestions.
 
 Please [open an issue](https://github.com/decarvalhojunior-fh/PlatformAware.jl) if you encounter any problems.
 
+# License
+
+PlatformAware.jl is licensed under the [MIT License](https://github.com/decarvalhojunior-fh/PlatformAware.jl/blob/master/LICENSE) 
