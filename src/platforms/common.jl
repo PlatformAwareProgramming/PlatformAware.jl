@@ -23,20 +23,20 @@ abstract type Now3Dx <: Now3D end
 abstract type MMX <: ProcessorSIMD end
 
 abstract type SSE <: ProcessorSIMD end
-abstract type SSE2 <: SSE end
-abstract type SSE3 <: SSE2 end
-abstract type SSSE3 <: SSE3 end
-abstract type SSE4 <: SSSE3 end
-abstract type SSE41 <: SSE4 end
-abstract type SSE42 <: SSE4 end
-abstract type SSE4a <: SSE3 end
+abstract type SSE_2 <: SSE end; const SSE2 = SSE_2
+abstract type SSE_3 <: SSE_2 end; const SSE3 = SSE_3
+abstract type SSSE_3 <: SSE_3 end; const SSSE3 = SSSE_3
+abstract type SSE_4 <: SSSE_3 end; const SSE4 = SSE_4
+abstract type SSE_4_1 <: SSE_4 end
+abstract type SSE_4_2 <: SSE_4 end
+abstract type SSE_4a <: SSE_3 end
 
 abstract type AVX <: ProcessorSIMD end 
 abstract type AVX2 <: AVX end 
 abstract type AVX512 <: AVX2 end   # https://en.wikipedia.org/wiki/AVX-512
 
 
-export Now3D, Now3Dx, MMX, SSE, SSE2, SSE3, SSE4, SSE41, SSE42, AVX, AVX2, AVX512
+export Now3D, Now3Dx, MMX, SSE, SSE_2, SSE2, SSE_3, SSE3, SSSE_3, SSSE3, SSE_4, SSE4, SSE_4_1, SSE_4_2, AVX, AVX2, AVX512
 
 # Memory types
 

@@ -42,6 +42,7 @@ abstract type Processor end
 abstract type AcceleratorType end
 abstract type AcceleratorArchitecture end
 abstract type AcceleratorBackend end
+abstract type AcceleratorProcessor end
 abstract type Accelerator end
 
 abstract type XPU <: AcceleratorType end
@@ -63,61 +64,15 @@ abstract type Interconnection end
 abstract type StorageType end   
 abstract type StorageInterface end   
 
-abstract type SSD <: StorageType end
-abstract type HDD <: StorageType end
-
-abstract type SATA <: StorageInterface end
-abstract type IDE <: StorageInterface end; const PATA = IDE
-abstract type SAS <: StorageInterface end
-abstract type SCSI <: StorageInterface end
-abstract type FC <: StorageInterface end
 
 
 # memory system
 
 abstract type MemoryType end
 
-abstract type DDR2 <: MemoryType end
-abstract type DDR3 <: MemoryType end
-abstract type DDR3L <: DDR3 end
-abstract type DDR4 <: MemoryType end
-abstract type LPDDR4 <: DDR4 end
 
 # cache
 
 abstract type CacheMapping end
-abstract type CacheDirect <: CacheMapping end
-abstract type CacheFullyAssociative <: CacheMapping end
-abstract type CacheSetAssociative8 <: CacheMapping end
-abstract type CacheSetAssociative12 <: CacheMapping end
 
-# SIMD extensions
 
-abstract type Now3D <: ProcessorSIMD end
-abstract type Now3Dx <: Now3D end
-
-abstract type MMX <: ProcessorSIMD end
-
-abstract type SSE <: ProcessorSIMD end
-abstract type SSE2 <: SSE end
-abstract type SSE3 <: SSE2 end
-abstract type SSSE3 <: SSE3 end
-abstract type SSE4 <: SSSE3 end
-abstract type SSE41 <: SSE4 end
-abstract type SSE42 <: SSE4 end
-abstract type SSE4a <: SSE3 end
-
-abstract type AVX <: ProcessorSIMD end 
-abstract type AVX2 <: AVX end 
-abstract type AVX512 <: AVX2 end   # https://en.wikipedia.org/wiki/AVX-512
-
-export MMX,
-       SSE,
-       SSE2,
-       SSE3,
-       SSE4,
-       SSE41,
-       SSE42,
-       AVX,
-       AVX2,
-       AVX512

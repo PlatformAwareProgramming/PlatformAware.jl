@@ -7,18 +7,33 @@ using XMLDict
 using TOML
 using JSON
 
+function readDB(filename)
+
+   d = Dict()
+ 
+   for ls in readlines(filename)
+       l = split(ls,',')
+       d[l[1]] = tuple(l...)
+   end
+ 
+   return d
+ end
+
 @sync begin
 
- Threads.@spawn global processor_dict_intel = include("src/platforms/intel/db-processors.Intel.jl")
- Threads.@spawn global processor_dict_amd = include("src/platforms/amd/db-processors.AMD.jl")
- Threads.@spawn global accelerator_dict_intel = include("src/platforms/intel/db-accelerators.Intel.jl")
- Threads.@spawn global accelerator_dict_amd = include("src/platforms/amd/db-accelerators.AMD.jl")
- Threads.@spawn global accelerator_dict_nvidia = include("src/platforms/nvidia/db-accelerators.NVIDIA.jl")
+ Threads.@spawn global processor_dict_intel = readDB("src/platforms/intel/db-processors.Intel.csv")
+ Threads.@spawn global processor_dict_amd = readDB("src/platforms/amd/db-processors.AMD.csv")
+
+ Threads.@spawn global accelerator_dict_intel = readDB("src/platforms/intel/db-accelerators.Intel.csv")
+ Threads.@spawn global accelerator_dict_amd = readDB("src/platforms/amd/db-accelerators.AMD.csv")
+ Threads.@spawn global accelerator_dict_nvidia = readDB("src/platforms/nvidia/db-accelerators.NVIDIA.csv")
 
 end
 
 global processor_dict = merge(processor_dict_amd, processor_dict_intel)
 global accelerator_dict = merge(accelerator_dict_intel, accelerator_dict_amd, accelerator_dict_nvidia)
+
+
 
 
 function get_info_dict(idtype)
@@ -113,21 +128,24 @@ function identifySIMD(capabilities)
 end
 
 function identifySIMD_2(exts)
+
+   exts = split(exts,';')
+
    if (!isnothing(exts))
       if in("AVX-512",exts)
          return string(:AVX512)
       elseif in("AVX2", exts)
          return string(:AVX2)
       elseif in("SSE4.1",exts)
-         return string(:SSE41)
+         return string(:SSE_4_1)
       elseif in("SSE4.2",exts)
-         return string(:SSE42)
+         return string(:SSE_4_2)
       elseif in("SSSE3",exts)
-         return string(:SSSE3)
+         return string(:SSSE_3)
       elseif in("SSE3",exts)
-         return string(:SSE3)
+         return string(:SSE_3)
       elseif in("SSE2",exts)
-         return string(:SSE2)
+         return string(:SSE_2)
       elseif in("SSE", exts)
          return string(:SSE)
       elseif in("MMX", exts)
@@ -304,15 +322,15 @@ function collectProcessorFeatures_CpuId()
 
    proc_info = identifyProcessorModel(cpu_brand)   
    if (!isnothing(proc_info))
-      processor_features["processor_manufacturer"] = isnothing(processor_features["processor_manufacturer"]) ? proc_info[9] : processor_features["processor_manufacturer"]
-      processor_features["processor_core_clock"] = isnothing(processor_features["processor_core_clock"]) ? getCoreClockString(proc_info[2]) : processor_features["processor_core_clock"]
-      processor_features["processor_core_count"] = isnothing(processor_features["processor_core_count"]) ? proc_info[1] : processor_features["processor_core_count"] 
-      processor_features["processor_core_threads_count"] = isnothing(processor_features["processor_core_threads_count"]) ? proc_info[3] : processor_features["processor_core_count"]
-      processor_features["processor_simd"] = isnothing(processor_features["processor_simd"]) ? identifySIMD_2(proc_info[5]) : processor_features["processor_simd"] 
-      processor_features["processor_isa"] = isnothing(processor_features["processor_isa"]) ? identifyISA_2(proc_info[4]) : processor_features["processor_isa"]
-      processor_features["processor_microarchitecture"] = proc_info[6]
-      processor_features["processor_tdp"] = !isnothing(proc_info[8]) ? parse(Int64,match(r"[1-9]*",proc_info[10]).match) : nothing
-      processor_features["processor"] = proc_info[8]
+      processor_features["processor_manufacturer"] = isnothing(processor_features["processor_manufacturer"]) ? proc_info[10] : processor_features["processor_manufacturer"]
+      processor_features["processor_core_clock"] = isnothing(processor_features["processor_core_clock"]) ? getCoreClockString(proc_info[3]) : processor_features["processor_core_clock"]
+      processor_features["processor_core_count"] = isnothing(processor_features["processor_core_count"]) ? proc_info[2] : processor_features["processor_core_count"] 
+      processor_features["processor_core_threads_count"] = isnothing(processor_features["processor_core_threads_count"]) ? proc_info[4] : processor_features["processor_core_count"]
+      processor_features["processor_simd"] = isnothing(processor_features["processor_simd"]) ? identifySIMD_2(proc_info[6]) : processor_features["processor_simd"] 
+      processor_features["processor_isa"] = isnothing(processor_features["processor_isa"]) ? identifyISA_2(proc_info[5]) : processor_features["processor_isa"]
+      processor_features["processor_microarchitecture"] = proc_info[7]
+      processor_features["processor_tdp"] = !isnothing(proc_info[9]) ? parse(Int64,match(r"[1-9]*",proc_info[11]).match) : nothing
+      processor_features["processor"] = proc_info[9]
    end
 
    return processor_features
@@ -323,7 +341,7 @@ end
 # https://unix.stackexchange.com/questions/43539/what-do-the-flags-in-proc-cpuinfo-mean
 # https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/arch/x86/include/asm/cpufeatures.h
 
-function collectProcessorFeatures(l)
+#=function collectProcessorFeatures(l)
    
    processor_features_list = Dict{String,Any}()
 
@@ -363,7 +381,7 @@ function collectProcessorFeatures(l)
 
    return length(processor_features_list) > 1 ? processor_features_list : processor_features_list["1"]
 end
-
+=#
 
 # using CpuId (safe)
 
