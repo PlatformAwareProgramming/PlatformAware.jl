@@ -150,6 +150,8 @@ function identifySIMD_2(exts)
          return string(:SSE)
       elseif in("MMX", exts)
          return string(:MMX)
+      else exts == "nothing"
+         return string(:ProcessorSIMD)
       end
    else
       return string(:ProcessorSIMD)
