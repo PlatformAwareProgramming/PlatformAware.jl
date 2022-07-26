@@ -4,12 +4,12 @@
 
 abstract type IntelXeonPhi <: IntelAccelerator end
 
-abstract type IntelXeonPhi_75x5 <: IntelXeonPhi end
+abstract type IntelXeonPhi_72x5 <: IntelXeonPhi end
 abstract type IntelXeonPhi_x100 <: IntelXeonPhi end
 abstract type IntelXeonPhi_x200 <: IntelXeonPhi end
 
 export IntelXeonPhi,
-       IntelXeonPhi_75x5,
+       IntelXeonPhi_72x5,
        IntelXeonPhi_x100,
        IntelXeonPhi_x200
 
