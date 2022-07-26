@@ -2,6 +2,8 @@
 
 _A package for improving the practice of **platform-aware programming** in Julia_.
 
+[![][build-img]][build-url]
+
 # What is platform-aware programming ?
 
 We define platform-aware programming as the practice of writing code of computational intensive functions, called _kernels_, by using the most suitable programming abstractions and interfaces, as well as performance tuning techniques, to take the better advantage of the features of the target execution platform. This is a well-known practice in programming for HPC applications.
@@ -9,10 +11,6 @@ We define platform-aware programming as the practice of writing code of computat
 Platform-aware programming is particularly well suited when the developer is interested in employing heterogeneous computing resources such as accelerators (e.g., GPUs, FPGAs, and MICs), possibly in conjunction with multicore and cluster computing.
 
 For example, suppose a package developer is interested in providing a specialized kernel implementation for [NVIDIA A100 Tensor Core GPUs](https://www.nvidia.com/en-us/data-center/a100), meeting a demand from users of a specific cloud provider that offers virtual machines equipped with accelerators of this model. The developer would like to take advantage of CUDA programming with the appropriate computing capacity for this device (8.0). However, other users might demand for supporting other cloud providers that support different accelerator models, from different vendors (e.g. [AMD Instinct™ MI210](https://www.amd.com/en/products/server-accelerators/amd-instinct-mi210) and [Intel® Agilex™ F-Series FPGA and SoC FPGA](https://www.intel.com/content/www/us/en/products/details/fpga/agilex/f-series.html)). Then, the developer will face the challenge of multi-device coding and deployment, becoming a potential user of _PlatformAware.jl_. This is a typical platform-aware programming scenario, which is becoming increasingly common as the use of heterogeneous computing platforms increases to accelerate AI and data analytics applications.
-
-
-
-
 
 # Target users
 
@@ -86,3 +84,6 @@ Please [open an issue](https://github.com/decarvalhojunior-fh/PlatformAware.jl) 
 # License
 
 PlatformAware.jl is licensed under the [MIT License](https://github.com/decarvalhojunior-fh/PlatformAware.jl/blob/master/LICENSE) 
+
+[build-img]: https://img.shields.io/github/workflow/status/JuliaEarth/ImageQuilting.jl/CI
+[build-url]: https://github.com/decarvalhojunior-fh/PlatformAware.jl/actions
