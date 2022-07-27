@@ -134,22 +134,26 @@ global default_platform_types = copy(default_platform_types_all)
 # read the platform description file (default to the current directory)
 filename = get(ENV,"PLATFORM_DESCRIPTION","Platform.toml")
 
-println(pwd())
-
 platform_description_toml = 
      try
         io = open(filename)
         read(io,String)
      catch
-        default_location = "/etc/config/Platform.toml"
+        default_location = "/etc/Platform.toml"
         try
             # defaul system location
             io = open(default_location)
-            read(io,String)
+            contents = read(io,String)
+            close(io)
+            contents
         catch
-            platform_config = identify_platform()
-            write("platform.toml", platform_config)
-            platform_config
+            println(stderr,"The platform description file (Platform.toml) was not found.")
+            println(stderr,"Using default platform settings (calling only default kernels).")
+            println(stderr,"A Platform.toml file may be created by calling PlatformAware.setup(). Do it !")
+            io = open("DefaultPlatform.toml")
+            contents = read(io,String)
+            close(io)
+            contents
         end
      end
 
@@ -185,8 +189,8 @@ function get_quantifier_from_string(n)
     mag_mult = Dict('K' => 2^10, 'M' => 2^20, 'G' => 2^30, 'T' => 2^40, 'P'=> 2^50, 'E' => 2^60)
 
     m = n[length(n)] 
-    v1 = mag_mult[m]
-    v0 = parse(Float64,n[1:length(n)-1])
+    v1 = get(mag_mult,m,1)
+    v0 = v1 == 1 ? parse(Float64,n) : parse(Float64,n[1:length(n)-1])
 
     get_quantifier_from_number(v0*v1)
 end
@@ -240,7 +244,7 @@ end
 
 function loadFeatures(dict)
     for key in ["node","processor","accelerator","memory","storage","interconnection"]
-        loadFeaturesSection(dict[key])
+        loadFeaturesSection(dict[key]) 
     end
 end
 

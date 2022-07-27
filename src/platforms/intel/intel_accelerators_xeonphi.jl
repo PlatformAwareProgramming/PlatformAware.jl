@@ -29,7 +29,7 @@ abstract type IntelXeonPhi_7250 <: IntelXeonPhi_x200 end; export IntelXeonPhi_72
 abstract type IntelXeonPhi_7250F <: IntelXeonPhi_x200 end; export IntelXeonPhi_7250F
 abstract type IntelXeonPhi_7290 <: IntelXeonPhi_x200 end; export IntelXeonPhi_7290
 abstract type IntelXeonPhi_7290F <: IntelXeonPhi_x200 end; export IntelXeonPhi_7290F
-abstract type IntelXeonPhi_7235 <: IntelXeonPhi_75x5 end; export IntelXeonPhi_7235
-abstract type IntelXeonPhi_7285 <: IntelXeonPhi_75x5 end; export IntelXeonPhi_7285
-abstract type IntelXeonPhi_7295 <: IntelXeonPhi_75x5 end; export IntelXeonPhi_7295
+abstract type IntelXeonPhi_7235 <: IntelXeonPhi_72x5 end; export IntelXeonPhi_7235
+abstract type IntelXeonPhi_7285 <: IntelXeonPhi_72x5 end; export IntelXeonPhi_7285
+abstract type IntelXeonPhi_7295 <: IntelXeonPhi_72x5 end; export IntelXeonPhi_7295
         

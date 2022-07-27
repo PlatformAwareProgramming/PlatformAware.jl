@@ -7,7 +7,7 @@ using XMLDict
 using TOML
 using JSON
 
-function readDB(filename)
+function readDB2(filename)
 
    d = Dict()
  
@@ -18,6 +18,24 @@ function readDB(filename)
  
    return d
  end
+
+ function readDB(filename)
+
+   d = Dict()
+   for ls in readlines(filename)
+       l = split(ls,',')
+       ks = split(l[1],';')
+       d2 = d
+       for k in ks
+         d = get!(d,k,Dict()) 
+       end
+       d[l[2]] = tuple(l[2:length(l)]...)
+       d = d2
+   end
+ 
+   return d
+ end
+
 
 @sync begin
 
@@ -32,9 +50,6 @@ end
 
 global processor_dict = merge(processor_dict_amd, processor_dict_intel)
 global accelerator_dict = merge(accelerator_dict_intel, accelerator_dict_amd, accelerator_dict_nvidia)
-
-
-
 
 function get_info_dict(idtype)
    command = `sudo lshw -xml -C $idtype`    
@@ -245,21 +260,34 @@ end
 
 =#
 
+
 function identifyProcessorModel(processor_string)
+   lookupDB(processor_dict, processor_string)
+end
 
-   proc_info = get(processor_dict, processor_string, nothing)
-   if (!isnothing(proc_info)) 
-      return proc_info
+function identifyAcceleratorModel(accelerator_string)
+   lookupDB(accelerator_dict, accelerator_string)
+end
+
+function lookupDB(db, key)
+
+   d = db
+
+   while typeof(d) <: Dict
+
+      ks = keys(d)
+
+      found = false
+      for k in ks 
+         if (occursin(k,key))
+            d = d[k]; found = true
+            break
+         end
+      end
+      if !found return nothing end
    end
 
-   parts = split(processor_string," ")
-
-   for p in parts        
-       proc_info = get(processor_dict, p, nothing)
-       if (!isnothing(proc_info)) 
-         return proc_info
-       end
-   end
+   return d
 
 end
 
@@ -311,27 +339,26 @@ function collectProcessorFeatures_CpuId()
    processor_features["processor_core_threads_count"] = CpuId.cputhreads()
    processor_features["processor_core_clock"] = CpuId.cpu_base_frequency()
    processor_features["processor_simd"] = identifySIMD_CpuId() 
-   processor_features["processor_isa"] = nothing
    cache_config = CpuId.cachesize()
    processor_features["processor_core_L1_size"] = cache_config[1] 
    processor_features["processor_core_L2_size"] = cache_config[2]
    processor_features["processor_L3_size"] = cache_config[3]
    processor_features["processor_manufacturer"] = string(CpuId.cpuvendor())
-   processor_features["processor_microarchitecture"] = nothing # string(CpuId.cpuarchitecture())
 
-   cpu_brand = CpuId.cpubrand()
+   cpu_brand = string(CpuId.cpuvendor()) * " " * CpuId.cpubrand()
    cpu_brand = replace(cpu_brand,"(tm)" => "","(TM)" => "", "(r)" => "", "(R)" => "")
 
    proc_info = identifyProcessorModel(cpu_brand)   
    if (!isnothing(proc_info))
       processor_features["processor_manufacturer"] = isnothing(processor_features["processor_manufacturer"]) ? proc_info[10] : processor_features["processor_manufacturer"]
       processor_features["processor_core_clock"] = isnothing(processor_features["processor_core_clock"]) ? getCoreClockString(proc_info[3]) : processor_features["processor_core_clock"]
-      processor_features["processor_core_count"] = isnothing(processor_features["processor_core_count"]) ? proc_info[2] : processor_features["processor_core_count"] 
-      processor_features["processor_core_threads_count"] = isnothing(processor_features["processor_core_threads_count"]) ? proc_info[4] : processor_features["processor_core_count"]
+      processor_features["processor_core_count"] = isnothing(processor_features["processor_core_count"]) ? parse(Int64,proc_info[2]) : processor_features["processor_core_count"] 
+      processor_features["processor_core_threads_count"] = isnothing(processor_features["processor_core_threads_count"]) ? parse(Int64,proc_info[4]) : processor_features["processor_core_count"]
       processor_features["processor_simd"] = isnothing(processor_features["processor_simd"]) ? identifySIMD_2(proc_info[6]) : processor_features["processor_simd"] 
-      processor_features["processor_isa"] = isnothing(processor_features["processor_isa"]) ? identifyISA_2(proc_info[5]) : processor_features["processor_isa"]
+      processor_features["processor_isa"] = identifyISA_2(proc_info[5]) 
       processor_features["processor_microarchitecture"] = proc_info[7]
-      processor_features["processor_tdp"] = !isnothing(proc_info[9]) ? parse(Int64,match(r"[1-9]*",proc_info[11]).match) : nothing
+      tdp = tryparse(Int64, proc_info[11])
+      processor_features["processor_tdp"] = isnothing(tdp) ? proc_info[11] : parse(Int64,proc_info[11])
       processor_features["processor"] = proc_info[9]
    end
 
@@ -415,19 +442,6 @@ function identifyProcessor()
 
 end
 
-function identifyAcceleratorModel(cpu_brand)
-
-   cpu_brand = replace(cpu_brand,"[" => "", "]" => "", "(" => "", ")" => "" )
-   parts = split(cpu_brand," ")
-
-   for p in parts        
-       acc_info = get(accelerator_dict, p, nothing)
-       if (!isnothing(acc_info)) 
-         return acc_info
-       end
-   end
-
-end
 
 function collectAcceleratorFeatures(l)
 
@@ -439,7 +453,7 @@ function collectAcceleratorFeatures(l)
    for acc_brand in l 
       
       # looking at the database
-      acc_info = identifyAcceleratorModel(acc_brand)   
+      acc_info = identifyAcceleratorModel(replace(acc_brand,"[" => "", "]" => "", "(" => "", ")" => "" ))   
       if (isnothing(acc_info))
          continue
       end
@@ -447,23 +461,14 @@ function collectAcceleratorFeatures(l)
       device = Dict()
       accelerator_features[string(i)] = device
 
-      accelerator = nothing
-      accelerator_count = 1
-      accelerator_type = nothing
-      accelerator_manufacturer = nothing
-      accelerator_api = nothing
-      accelerator_architecture = nothing
-      accelerator_memorysize = nothing
-      accelerator_tdp = nothing
-
-      device["accelerator_count"] = accelerator_count
-      device["accelerator"] = isnothing(accelerator) ? acc_info[1] : accelerator
-      device["accelerator_type"] = isnothing(accelerator_type) ? acc_info[2] : accelerator_type
-      device["accelerator_manufacturer"] = isnothing(accelerator_manufacturer) ? acc_info[3] : accelerator_manufacturer
-      device["accelerator_api"] = isnothing(accelerator_api) ? acc_info[4] : accelerator : accelerator_api
-      device["accelerator_architecture"] = isnothing(accelerator_architecture)  ? acc_info[5] : accelerator_architecture
-      device["accelerator_memorysize"] = isnothing(accelerator_memorysize) ? acc_info[6] : accelerator_memorysize
-      device["accelerator_tdp"] = isnothing(accelerator_tdp) ? acc_info[7] : accelerator_tdp
+      device["accelerator_count"] = 1
+      device["accelerator"] = acc_info[2]
+      device["accelerator_type"] = acc_info[3]
+      device["accelerator_manufacturer"] = acc_info[4]
+      device["accelerator_api"] = acc_info[5]
+      device["accelerator_architecture"] = acc_info[6]
+      device["accelerator_memorysize"] = acc_info[7]
+      device["accelerator_tdp"] = acc_info[8]
 
        i = i + 1
    end
@@ -474,7 +479,7 @@ end
 function identifyAccelerator()
    l = Vector()
    for d in identifyComponent("display")
-      push!(l,d["product"])
+      push!(l,d["vendor"] * " " * d["product"])
    end
 
    collectAcceleratorFeatures(l)
@@ -624,7 +629,44 @@ function identifyStorage()
 
 end
 
+# TODO
 function identityInterconnection()
+
+   println("NOTE: The identification of interconnection features is not yet implemented. Using defaults.")
+
+   interconnection_features = Dict()
+
+   interconnection_features["interconnection_starttime"] = "unset"
+   interconnection_features["interconnection_latency"] = "unset"
+   interconnection_features["interconnection_bandwidth"] = "unset"
+   interconnection_features["interconnection_topology"] = "unset"
+   interconnection_features["interconnection_RDMA"] = "unset"
+   interconnection_features["interconnection"] = "unset"
+
+   return interconnection_features
+end
+
+# TODO
+function identifyNode()
+
+   println("NOTE: The identification of node features is not yet implemented. Using defaults.")
+
+   interconnection_features = Dict()
+
+   interconnection_features["node_count"] = 1
+   interconnection_features["node_provider"] = "OnPremise"
+   interconnection_features["node_virtual"] = "No"
+   interconnection_features["node_virtual"] = "Yes"
+   interconnection_features["node_machinefamily"] = "unset"
+   interconnection_features["node_machinetype"] = "unset"
+   interconnection_features["node_machinesize"] = "unset"
+   interconnection_features["node_vcpus_count"] = "unset"
+
+   return interconnection_features
+end
+
+function addNodeFeatures!(platform_features, node_features)
+   platform_features["node"] = node_features
 end
 
 function addProcessorFeatures!(platform_features, processor_features)
@@ -644,33 +686,54 @@ function addStorageFeatures!(platform_features, storage_features)
 end
 
 function addInterconnectionFeatures!(platform_features, interconnection_features)
-   #get!(platform_features, "interconnection", interconnection_features)
+   platform_features["interconnection"] = interconnection_features
 end
 
 
-function identify_platform()
+function setup()
 
-   print(stderr, "indentifying processor... "); processor_features = identifyProcessor(); println(stderr, "ok")
-   print(stderr, "indentifying accelerator... "); accelerator_features = identifyAccelerator(); println(stderr, "ok")
-   print(stderr, "indentifying memory... "); memory_features = identifyMemory(); println(stderr, "ok")
-   print(stderr, "indentifying storage... "); storage_features = identifyStorage(); println(stderr, "ok")
-   print(stderr, "indentifying interconnection... "); interconnection_features = identityInterconnection(); println(stderr, "ok")
+   print("indentifying node... "); node_features = identifyNode(); println(stderr, "ok")
+   print("indentifying processor... "); processor_features = identifyProcessor(); println(stderr, "ok")
+   print("indentifying accelerator... "); accelerator_features = identifyAccelerator(); println(stderr, "ok")
+   print("indentifying memory... "); memory_features = identifyMemory(); println(stderr, "ok")
+   print("indentifying storage... "); storage_features = identifyStorage(); println(stderr, "ok")
+   print("indentifying interconnection... "); interconnection_features = identityInterconnection(); println(stderr, "ok")
 
    platform_features = Dict()
 
+   addNodeFeatures!(platform_features, node_features)
    addProcessorFeatures!(platform_features, processor_features)
    addAcceleratorFeatures!(platform_features, accelerator_features)
    addMemoryFeatures!(platform_features, memory_features)
    addStorageFeatures!(platform_features, storage_features)
    addInterconnectionFeatures!(platform_features, interconnection_features)
 
-   return platform_features
+   println(stderr)
 
+   if (!isfile("Platform.toml"))
+      @sync begin
+         Threads.@spawn TOML.print(stdout, platform_features)
+         Threads.@spawn begin 
+                               fn = open("Platform.toml","w")
+                               TOML.print(fn, platform_features)
+                               close(fn)
+                          end 
+            end
+      println()      
+      println("Platform.toml file was created in the current folder.")
+      println("You can move it to your preferred target.")
+      println("It will be searched in the following locations:")
+      println("  1) A file path pointed by a PLATFORM_DESCRIPTION environment variable;")
+      println("  2) The current directory;")
+      println("  3) The /etc/conf directory.")
+      println("Remember to reinitialize the environemnt.")
+   else
+      TOML.print(stdout, platform_features)
+      println(stderr)
+      println(stderr, "Platform description file already exists in the current folder (Platform.toml)")
+      println(stderr, "You must erase or move it before to create a new one.")
+   end
+   
 end
 
  
-info = identify_platform()
-
-println(stderr)
-
-TOML.print(stdout, info)

@@ -31,8 +31,12 @@ include("platforms/amd/amd_processors.jl")
 include("platforms/amd/amd_accelerators.jl")
 include("platforms/xilinx/xilinx.jl")
 
-# platform identification
+# main functionality (@platform macro and default types)
 include("identification.jl")
+
+# platform identification
+include("awareness.jl")
+
 
 export 
     @platform,

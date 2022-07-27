@@ -62,7 +62,8 @@ abstract type CUDA_2_0 <: CUDA_1_3 end; const CUDA2 = CUDA_2_0; export CUDA_2_0,
 abstract type CUDA_3_0 <: CUDA_2_0 end; const CUDA3 = CUDA_3_0; export CUDA_3_0, CUDA3
 abstract type CUDA_3_5 <: CUDA_3_0 end; export CUDA_3_5
 abstract type CUDA_3_7 <: CUDA_3_5 end; export CUDA_3_7
-abstract type CUDA_5_2 <: CUDA_3_7 end; export CUDA_5_2
+abstract type CUDA_5_0 <: CUDA_3_7 end; export CUDA_5_2
+abstract type CUDA_5_2 <: CUDA_5_0 end; export CUDA_5_0
 abstract type CUDA_6_0 <: CUDA_5_2 end; const CUDA6 = CUDA_6_0; export CUDA_6_0, CUDA6
 abstract type CUDA_6_1 <: CUDA_6_0 end; export CUDA_6_1
 abstract type CUDA_7_0 <: CUDA_6_1 end; const CUDA7 = CUDA_7_0; export CUDA_7_0, CUDA7
@@ -80,8 +81,6 @@ abstract type NVIDIAAccelerator <: Accelerator end; export NVIDIAAccelerator
 
 abstract type NVIDIATesla <: NVIDIAAccelerator end; export NVIDIATesla
 
-abstract type NVIDIATesla_2200_D2 <: NVIDIATesla end; export NVIDIATesla_2200_D2
-abstract type NVIDIATesla_2200_S4 <: NVIDIATesla end; export NVIDIATesla_2200_S4
 abstract type NVIDIATesla_C870 <: NVIDIATesla end; export NVIDIATesla_C870
 abstract type NVIDIATesla_D870 <: NVIDIATesla end; export NVIDIATesla_D870
 abstract type NVIDIATesla_S870 <: NVIDIATesla end; export NVIDIATesla_S870
@@ -127,10 +126,18 @@ abstract type NVIDIATesla_A2 <: NVIDIATesla end; export NVIDIATesla_A2
 abstract type NVIDIATesla_H100 <: NVIDIATesla end; export NVIDIATesla_H100
 #abstract type NVIDIATesla_H100 <: NVIDIATesla end; export NVIDIATesla_H100
 
+
+abstract type NVIDIAQuadro <: NVIDIAAccelerator end
+
+abstract type NVIDIAQuadro_Plex <: NVIDIAAccelerator end
+
+abstract type NVIDIAQuadro_2200_D2 <: NVIDIAQuadro_Plex end; export NVIDIAQuadro_2200_D2
+abstract type NVIDIAQuadro_2200_S4 <: NVIDIAQuadro_Plex end; export NVIDIAQuadro_2200_S4
+    
+
 # GeForce 
 
 abstract type NVIDIAGeForce <: NVIDIAAccelerator end
 
-abstract type GeForce_940MX <: Accelerator end; export GeForce_940MX
+abstract type NVIDIAGeForce_940MX <: Accelerator end; export GeForce_940MX
 
-    

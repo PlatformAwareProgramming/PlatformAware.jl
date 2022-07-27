@@ -26,11 +26,11 @@ abstract type GCN <: AMDGPUArchitecture end
 abstract type GCN_1_0 <: GCN end; const CGN1 = GCN_1_0
 abstract type GCN_2_0 <: GCN_1_0 end; const GCN2 = GCN_2_0
 abstract type GCN_3_0 <: GCN_2_0 end; const GCN3 = GCN_3_0
-abstract type GCN_4_0 <: GCN_3_0 end; const GCN4 = GCN_4_0
-abstract type GCN_5_0 <: GCN_4_0 end; const GCN5 = GCN_5_0
-abstract type GCN_5_1 <: GCN_5_0 end
+abstract type GCN_4_0 <: GCN_3_0 end; const GCN4 = GCN_4_0; const Polaris = GCN4
+abstract type GCN_5_0 <: GCN_4_0 end; const GCN5 = GCN_5_0; const Vega = GCN5
+abstract type GCN_5_1 <: GCN_5_0 end; const Vega20 = GCN_5_1
 
-export GCN, GCN_1_0, GCN_2_0, GCN_3_0, GCN_4_0, GCN_5_0, GCN_5_1, GCN1, GCN2, GCN3, GCN4, GCN5
+export GCN, GCN_1_0, GCN_2_0, GCN_3_0, GCN_4_0, GCN_5_0, GCN_5_1, GCN1, GCN2, GCN3, GCN4, Polaris, GCN5, Vega, Vega20
 
 abstract type TeraScale <: AMDGPUArchitecture end
 abstract type TeraScale_1_0 <: TeraScale end; const TeraScale1 = TeraScale_1_0
@@ -111,38 +111,32 @@ abstract type AMDRadeon_PRO_W6000 <: AMDRadeon_PRO end
 abstract type AMDRadeon_PRO_W6000_Mobile <: AMDRadeon_PRO end
 abstract type AMDRadeon_PRO_VII <: AMDRadeon_PRO end
 abstract type AMDRadeon_PRO_W5000 <: AMDRadeon_PRO end
+abstract type AMDRadeon_PRO_W5000_Mobile <: AMDRadeon_PRO end
 abstract type AMDRadeon_PRO_WX_x200 <: AMDRadeon_PRO end
 abstract type AMDRadeon_PRO_WX_x100 <: AMDRadeon_PRO end
 abstract type AMDFirePro_Wx100 <: AMDFirePro end
 abstract type AMDFirePro_Wx000 <: AMDFirePro end
 abstract type AMDFirePro_S <: AMDFirePro end
-abstract type AMDRadeon_PRO_W5000_Mobile <: AMDRadeon_PRO end
 abstract type AMDFirePro_R <: AMDFirePro end
-abstract type AMDRadeon_PRO_WX_x100_Mobile <: AMDRadeon_PRO end
-abstract type AMDRadeon_PRO_WX_x200_Mobile <: AMDRadeon_PRO end
 abstract type AMDFirePro_Mobility <: AMDFirePro end
 abstract type AMDFirePro_MultiView <: AMDFirePro end
 
 
 # models
 
-abstract type AMDInstinct_MI_250X <: AMDInstinct_MI end
-abstract type AMDInstinct_MI_250 <: AMDInstinct_MI end
-abstract type AMDInstinct_MI_210 <: AMDInstinct_MI end
-abstract type AMDInstinct_MI_100 <: AMDInstinct_MI end
-abstract type AMDRadeonPRO_V_250 <: AMDRadeon_PRO_V end
-abstract type AMDInstinct_MI_60 <: AMDInstinct_MI end
-abstract type AMDInstinct_MI_50_32GB <: AMDInstinct_MI end
-abstract type AMDInstinct_MI_50_16GB <: AMDInstinct_MI end
-abstract type AMDInstinct_MI_25 <: AMDInstinct_MI end
-abstract type AMDInstinct_MI_8 <: AMDInstinct_MI end
-abstract type AMDInstinct_MI_6 <: AMDInstinct_MI end
-abstract type AMDRadeon_PRO_V620 <: AMDRadeon_PRO_V end
 abstract type AMDInstinct_MI250X <: AMDInstinct_MI end
 abstract type AMDInstinct_MI250 <: AMDInstinct_MI end
-abstract type AMDRadeon_PRO_W6800 <: AMDRadeon_PRO_W6000 end
 abstract type AMDInstinct_MI210 <: AMDInstinct_MI end
 abstract type AMDInstinct_MI100 <: AMDInstinct_MI end
+abstract type AMDInstinct_MI60 <: AMDInstinct_MI end
+abstract type AMDInstinct_MI50_32GB <: AMDInstinct_MI end
+abstract type AMDInstinct_MI50_16GB <: AMDInstinct_MI end
+abstract type AMDInstinct_MI25 <: AMDInstinct_MI end
+abstract type AMDInstinct_MI8 <: AMDInstinct_MI end
+abstract type AMDInstinct_MI6 <: AMDInstinct_MI end
+abstract type AMDRadeonPRO_V_250 <: AMDRadeon_PRO_V end
+abstract type AMDRadeon_PRO_V620 <: AMDRadeon_PRO_V end
+abstract type AMDRadeon_PRO_W6800 <: AMDRadeon_PRO_W6000 end
 abstract type AMDRadeon_PRO_W6600 <: AMDRadeon_PRO_W6000 end
 abstract type AMDRadeon_PRO_V520 <: AMDRadeon_PRO_V end
 abstract type AMDRadeon_PRO_W6600M <: AMDRadeon_PRO_W6000_Mobile end
@@ -154,21 +148,14 @@ abstract type AMDRadeon_PRO_W6300M <: AMDRadeon_PRO_W6000_Mobile end
 abstract type AMDRadeon_PRO_WX_8200 <: AMDRadeon_PRO_WX_x200 end
 abstract type AMDRadeon_PRO_WX_3200 <: AMDRadeon_PRO_WX_x200 end
 abstract type AMDRadeon_PRO_SSG <: AMDRadeon_PRO end
-abstract type AMDRadeon_Vega_Frontier_Edition_L <: AMDRadeon_PRO end
-abstract type AMDRadeon_Vega_Frontier_Edition_A <: AMDRadeon_PRO end
+abstract type AMDRadeon_Vega_Frontier <: AMDRadeon_PRO end
 abstract type AMDRadeon_PRO_Duo <: AMDRadeon_PRO end
 abstract type AMDRadeon_PRO_WX_9100 <: AMDRadeon_PRO_WX_x100 end
 abstract type AMDRadeon_PRO_WX_7100 <: AMDRadeon_PRO_WX_x100 end
 abstract type AMDRadeon_PRO_WX_5100 <: AMDRadeon_PRO_WX_x100 end
 abstract type AMDRadeon_PRO_WX_4100 <: AMDRadeon_PRO_WX_x100 end
-abstract type AMDInstinct_MI60 <: AMDInstinct_MI end
 abstract type AMDRadeon_PRO_WX_3100 <: AMDRadeon_PRO_WX_x100 end
-abstract type AMDInstinct_MI50_32GB <: AMDInstinct_MI end
 abstract type AMDRadeon_PRO_WX_2100 <: AMDRadeon_PRO_WX_x100 end
-abstract type AMDInstinct_MI50_16GB <: AMDInstinct_MI end
-abstract type AMDInstinct_MI25 <: AMDInstinct_MI end
-abstract type AMDInstinct_MI8 <: AMDInstinct_MI end
-abstract type AMDInstinct_MI6 <: AMDInstinct_MI end
 abstract type AMDFirePro_W9100_32GB <: AMDFirePro_Wx100 end
 abstract type AMDFirePro_W9100 <: AMDFirePro_Wx100 end
 abstract type AMDFirePro_W8100 <: AMDFirePro_Wx100 end
@@ -184,7 +171,6 @@ abstract type AMDFirePro_W5000 <: AMDFirePro_Wx000 end
 abstract type AMDFirePro_W5000_DVI <: AMDFirePro_Wx000 end
 abstract type AMDFirePro_W600 <: AMDFirePro_Wx000 end
 abstract type AMDFirePro_S10000 <: AMDFirePro_S end
-abstract type AMDFirePro_S10000_ActiveCooling <: AMDFirePro_S end
 abstract type AMDFirePro_S10000_12GB <: AMDFirePro_S end
 abstract type AMDFirePro_S9300_x2 <: AMDFirePro_S end
 abstract type AMDFirePro_S9170 <: AMDFirePro_S end
@@ -193,20 +179,12 @@ abstract type AMDFirePro_S9100 <: AMDFirePro_S end
 abstract type AMDFirePro_S9050 <: AMDFirePro_S end
 abstract type AMDFirePro_S9000 <: AMDFirePro_S end
 abstract type AMDFirePro_S7150_x2 <: AMDFirePro_S end
-abstract type AMDFirePro_S7150_ActiveCooling <: AMDFirePro_S end
-abstract type AMDFirePro_S7150_PassiveCooling <: AMDFirePro_S end
+abstract type AMDFirePro_S7150 <: AMDFirePro_S end
 abstract type AMDFirePro_S7100X <: AMDFirePro_S end
 abstract type AMDFirePro_S7000 <: AMDFirePro_S end
 abstract type AMDFirePro_S4000X <: AMDFirePro_S end
 abstract type AMDRadeon_PRO_W5500M <: AMDRadeon_PRO_W5000_Mobile end
 abstract type AMDFirePro_R5000 <: AMDFirePro_R end
-abstract type AMDRadeon_PRO_WX_7100_M <: AMDRadeon_PRO_WX_x100_Mobile end
-abstract type AMDRadeon_PRO_WX_4170_M <: AMDRadeon_PRO_WX_x100_Mobile end
-abstract type AMDRadeon_PRO_WX_4150_M <: AMDRadeon_PRO_WX_x100_Mobile end
-abstract type AMDRadeon_PRO_WX_4130_M <: AMDRadeon_PRO_WX_x100_Mobile end
-abstract type AMDRadeon_PRO_WX_3200_M <: AMDRadeon_PRO_WX_x200_Mobile end
-abstract type AMDRadeon_PRO_WX_3100_M <: AMDRadeon_PRO_WX_x100_Mobile end
-abstract type AMDRadeon_PRO_WX_2100_M <: AMDRadeon_PRO_WX_x100_Mobile end
 abstract type AMDFirePro_W7170M <: AMDFirePro_Mobility end
 abstract type AMDFirePro_W6150M <: AMDFirePro_Mobility end
 abstract type AMDFirePro_W5170M <: AMDFirePro_Mobility end
@@ -219,14 +197,12 @@ abstract type AMDFirePro_2270_1GB <: AMDFirePro_MultiView end
 abstract type AMDFirePro_2270 <: AMDFirePro_MultiView end
 abstract type AMDRadeon_RX_6950_XT <: AMDRadeon_RX_6900 end
 abstract type AMDRadeon_RX_6900_XT <: AMDRadeon_RX_6900 end
-abstract type AMDRadeon_RX_6800_XT_MB <: AMDRadeon_RX_6800 end
 abstract type AMDRadeon_RX_6800_XT <: AMDRadeon_RX_6800 end
 abstract type AMDRadeon_RX_6850M_XT <: AMDRadeon_RX_6000M end
 abstract type AMDRadeon_RX_6750_XT <: AMDRadeon_RX_6700 end
 abstract type AMDRadeon_RX_6800S <: AMDRadeon_RX_6000S end
 abstract type AMDRadeon_RX_6700_XT <: AMDRadeon_RX_6700 end
 abstract type AMDRadeon_RX_6650_XT <: AMDRadeon_RX_6600 end
-abstract type AMDRadeon_RX_5700_XT_50 <: AMDRadeon_RX_5700 end
 abstract type AMDRadeon_RX_6800M <: AMDRadeon_RX_6000M end
 abstract type AMDRadeon_RX_6600_XT <: AMDRadeon_RX_6600 end
 abstract type AMDRadeon_RX_6700M <: AMDRadeon_RX_6000M end
@@ -372,12 +348,12 @@ abstract type AMDRadeon_HD_6750 <: AMDRadeon_HD_6000 end
 abstract type AMDRadeon_HD_6670 <: AMDRadeon_HD_6000 end
 abstract type AMDRadeon_HD_6570 <: AMDRadeon_HD_6000 end
 abstract type AMDRadeon_HD_6450 <: AMDRadeon_HD_6000 end
-abstract type ATI_AMDRadeon_HD_5970 <: ATIRadeon_HD_5000 end
-abstract type ATI_AMDRadeon_HD_5870 <: ATIRadeon_HD_5000 end
-abstract type ATI_AMDRadeon_HD_5850 <: ATIRadeon_HD_5000 end
-abstract type ATI_AMDRadeon_HD_5830 <: ATIRadeon_HD_5000 end
-abstract type ATI_AMDRadeon_HD_5770 <: ATIRadeon_HD_5000 end
-abstract type ATI_AMDRadeon_HD_5750 <: ATIRadeon_HD_5000 end
-abstract type ATI_AMDRadeon_HD_5670 <: ATIRadeon_HD_5000 end
-abstract type ATI_AMDRadeon_HD_5570 <: ATIRadeon_HD_5000 end
-abstract type ATI_AMDRadeon_HD_5450 <: ATIRadeon_HD_5000 end
+abstract type ATIRadeon_HD_5970 <: ATIRadeon_HD_5000 end
+abstract type ATIRadeon_HD_5870 <: ATIRadeon_HD_5000 end
+abstract type ATIRadeon_HD_5850 <: ATIRadeon_HD_5000 end
+abstract type ATIRadeon_HD_5830 <: ATIRadeon_HD_5000 end
+abstract type ATIRadeon_HD_5770 <: ATIRadeon_HD_5000 end
+abstract type ATIRadeon_HD_5750 <: ATIRadeon_HD_5000 end
+abstract type ATIRadeon_HD_5670 <: ATIRadeon_HD_5000 end
+abstract type ATIRadeon_HD_5570 <: ATIRadeon_HD_5000 end
+abstract type ATIRadeon_HD_5450 <: ATIRadeon_HD_5000 end

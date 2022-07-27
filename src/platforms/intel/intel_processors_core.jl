@@ -541,7 +541,7 @@ abstract type IntelCore_i5_8210Y <: IntelCore_i5_g8 end; export IntelCore_i5_821
 abstract type IntelCore_i3_10100Y <: IntelCore_i3_g10 end; export IntelCore_i3_10100Y
 abstract type IntelCore_i5_8200Y <: IntelCore_i5_g8 end; export IntelCore_i5_8200Y
 abstract type IntelCore_i7_8500Y <: IntelCore_i7_g8 end; export IntelCore_i7_8500Y
-abstract type IntelCore_m3_8100Y <: IntelCore_M_g8 end; export IntelCore_m3_8100Y
+abstract type IntelCore_M3_8100Y <: IntelCore_M_g8 end; export IntelCore_M3_8100Y
 abstract type IntelCore_i3_12300HE <: IntelCore_i3_g12 end; export IntelCore_i3_12300HE
 abstract type IntelCore_i3_11100HE <: IntelCore_i3_g11 end; export IntelCore_i3_11100HE
 abstract type IntelCore_i5_11500HE <: IntelCore_i5_g11 end; export IntelCore_i5_11500HE
