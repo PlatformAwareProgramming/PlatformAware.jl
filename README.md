@@ -6,25 +6,24 @@ _A package for improving the practice of **platform-aware programming** in Julia
 
 # What is platform-aware programming ?
 
-We define platform-aware programming as the practice of writing code of computational intensive functions, called _kernels_, by using the most suitable programming abstractions and interfaces, as well as performance tuning techniques, to take the better advantage of the features of the target execution platform. This is a well-known practice in programming for HPC applications.
+We define platform-aware programming as the practice of coding computationally intensive functions, called _kernels_, using the most appropriate abstractions and programming interfaces, as well as performance tuning techniques, to take better advantage of the capabilities of the target execution platform. This is a well-known practice in programming for HPC applications.
 
-Platform-aware programming is particularly well suited when the developer is interested in employing heterogeneous computing resources such as accelerators (e.g., GPUs, FPGAs, and MICs), possibly in conjunction with multicore and cluster computing.
+Platform-aware programming is especially suitable when the developer is interested in employing heterogeneous computing resources, such as accelerators (e.g., GPUs, FPGAs, and MICs), possibly in conjunction with multicore and cluster computing.
 
-For example, suppose a package developer is interested in providing a specialized kernel implementation for [NVIDIA A100 Tensor Core GPUs](https://www.nvidia.com/en-us/data-center/a100), meeting a demand from users of a specific cloud provider that offers virtual machines equipped with accelerators of this model. The developer would like to take advantage of CUDA programming with the appropriate computing capacity for this device (8.0). However, other users might demand for supporting other cloud providers that support different accelerator models, from different vendors (e.g. [AMD Instinct™ MI210](https://www.amd.com/en/products/server-accelerators/amd-instinct-mi210) and [Intel® Agilex™ F-Series FPGA and SoC FPGA](https://www.intel.com/content/www/us/en/products/details/fpga/agilex/f-series.html)). Then, the developer will face the challenge of multi-device coding and deployment, becoming a potential user of _PlatformAware.jl_. This is a typical platform-aware programming scenario, which is becoming increasingly common as the use of heterogeneous computing platforms increases to accelerate AI and data analytics applications.
+For example, suppose a package developer is interested in providing a specialized kernel implementation for [NVIDIA A100 Tensor Core GPUs](https://www.nvidia.com/en-us/data-center/a100), meeting the demand from users of a specific cloud provider offering virtual machines with accelerators of this model. The developer would like to use CUDA programming with this device's supported *computing capability* (8.0). However, other users may require support from other cloud providers that support different accelerator models, from different vendors (for example, [AMD Instinct™ MI210](https://www.amd.com/en/products/server-accelerators/amd-instinct-mi210) and [Intel® Agilex™ F-Series FPGA and SoC FPGA]( https://www.intel.com/content/www/us/en/products/details/fpga/agilex/f-series.html)). In this scenario, the developer will face the challenge of coding and deploying for multiple devices. This is a typical platform-aware programming scenario, becoming increasingly common as the use of heterogeneous computing platforms increases to accelerate AI and data analysis applications.
 
 # Target users
 
-_PlatformAware.jl_ is aimed primarily at **_package developers_** dealing with HPC concerns. We assume that **_package users_** are only interested in using package operations without being concerned about how they are implemented.
+_PlatformAware.jl_ is aimed primarily at **_package developers_** dealing with HPC concerns, especially using heterogenous computing resources.
+We assume that **_package users_** are only interested in using package operations without being concerned about how they are implemented.
 
 # Usage
 
 ## Instalation
 
-1. ```] add PlatformAware```
+```] add PlatformAware```
 
-2. Create the platform description file (```Platform.toml```)
-
-   - ...
+   
 
 ## Programming
 
