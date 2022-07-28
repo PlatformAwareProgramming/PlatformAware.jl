@@ -36,15 +36,16 @@ function readDB2(filename)
    return d
  end
 
+global package_path = pkgdir(@__MODULE__)
 
 @sync begin
 
- Threads.@spawn global processor_dict_intel = readDB("src/platforms/intel/db-processors.Intel.csv")
- Threads.@spawn global processor_dict_amd = readDB("src/platforms/amd/db-processors.AMD.csv")
+ Threads.@spawn global processor_dict_intel = readDB(package_path * "/src/platforms/intel/db-processors.Intel.csv")
+ Threads.@spawn global processor_dict_amd = readDB(package_path * "/src/platforms/amd/db-processors.AMD.csv")
 
- Threads.@spawn global accelerator_dict_intel = readDB("src/platforms/intel/db-accelerators.Intel.csv")
- Threads.@spawn global accelerator_dict_amd = readDB("src/platforms/amd/db-accelerators.AMD.csv")
- Threads.@spawn global accelerator_dict_nvidia = readDB("src/platforms/nvidia/db-accelerators.NVIDIA.csv")
+ Threads.@spawn global accelerator_dict_intel = readDB(package_path * "/src/platforms/intel/db-accelerators.Intel.csv")
+ Threads.@spawn global accelerator_dict_amd = readDB(package_path * "/src/platforms/amd/db-accelerators.AMD.csv")
+ Threads.@spawn global accelerator_dict_nvidia = readDB(package_path * "/src/platforms/nvidia/db-accelerators.NVIDIA.csv")
 
 end
 
@@ -722,11 +723,11 @@ function setup()
       println()      
       println("Platform.toml file was created in the current folder.")
       println("You can move it to your preferred target.")
-      println("It will be searched in the following locations:")
+      println("Platform.toml will be searched in the following locations:")
       println("  1) A file path pointed by a PLATFORM_DESCRIPTION environment variable;")
       println("  2) The current directory;")
       println("  3) The /etc/conf directory.")
-      println("Remember to reinitialize the environemnt.")
+      println("In the interctive environment, call PlatformAware.reload!() to reflect changes.")
    else
       TOML.print(stdout, platform_features)
       println(stderr)

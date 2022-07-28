@@ -54,9 +54,9 @@ abstract type GH100 <: NVIDIAGPUProcessor end; export GH100
 
 # CUDA API
 
-abstract type CUDA <: AcceleratorBackend end; export CUDA
+abstract type CUDA_API <: AcceleratorBackend end; export CUDA_API
 
-abstract type CUDA_1_0 <: CUDA end; const CUDA1 = CUDA_1_0; export CUDA_1_0, CUDA1
+abstract type CUDA_1_0 <: CUDA_API end; const CUDA1 = CUDA_1_0; export CUDA_1_0, CUDA1
 abstract type CUDA_1_3 <: CUDA_1_0  end; export CUDA_1_3
 abstract type CUDA_2_0 <: CUDA_1_3 end; const CUDA2 = CUDA_2_0; export CUDA_2_0, CUDA2
 abstract type CUDA_3_0 <: CUDA_2_0 end; const CUDA3 = CUDA_3_0; export CUDA_3_0, CUDA3

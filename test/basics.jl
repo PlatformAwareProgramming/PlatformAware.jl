@@ -63,4 +63,6 @@
                                     x,y,args...; z=6, kwargs...)
         println(z,": kernel for a UltrascalePlus+ HBM FPGA")
     end
+
+    kernel(0,1,2,3;z=10,kwargs=0)
 end
