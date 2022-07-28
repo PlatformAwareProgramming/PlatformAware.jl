@@ -1,3 +1,4 @@
+,,accelerator,accelerator_type,accelerator_manufacturer,accelerator_api,accelerator_architecture,accelerator_memorysize,accelerator_tdp,#chips,chip
 Intel;Xeon;Phi,3120A,IntelXeonPhi_3120A,MIC,Intel,OpenMP,KnightsCorner,6G,300,57,KnightsCorner
 Intel;Xeon;Phi,3120P,IntelXeonPhi_3120P,MIC,Intel,OpenMP,KnightsCorner,6G,300,57,KnightsCorner
 Intel;Xeon;Phi,5110P,IntelXeonPhi_5110P,MIC,Intel,OpenMP,KnightsCorner,8G,225,60,KnightsCorner
