@@ -49,7 +49,7 @@ global default_platform_types_all = Dict(
     :accelerator_memorysize => Tuple{AtLeast0,AtMostInf},
     :accelerator_tdp => Tuple{AtLeast0,AtMostInf},
     :accelerator => Accelerator,
-    :interconnection_starttime => Tuple{AtLeast0,AtMostInf},
+    :interconnection_startuptime => Tuple{AtLeast0,AtMostInf},
     :interconnection_latency => Tuple{AtLeast0,AtMostInf},
     :interconnection_bandwidth => Tuple{AtLeast0,AtMostInf},
     :interconnection_topology => InterconnectionTopology,
@@ -74,7 +74,7 @@ global actual_platform_arguments_all = Dict()
 loadFeatures(actual_platform_arguments_all)
 actual_platform_arguments = Dict(actual_platform_arguments_all)
 
-function reload!()    
+function reload!()
     empty!(actual_platform_arguments_all)
     loadFeatures(actual_platform_arguments_all)
     empty!(actual_platform_arguments)

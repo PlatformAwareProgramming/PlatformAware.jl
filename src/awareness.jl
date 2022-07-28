@@ -7,30 +7,22 @@ using XMLDict
 using TOML
 using JSON
 
-function readDB2(filename)
-
-   d = Dict()
- 
-   for ls in readlines(filename)
-       l = split(ls,',')
-       d[l[1]] = tuple(l...)
-   end
- 
-   return d
- end
-
  function readDB(filename)
 
    d = Dict()
+   i=0
    for ls in readlines(filename)
-       l = split(ls,',')
-       ks = split(l[1],';')
-       d2 = d
-       for k in ks
-         d = get!(d,k,Dict()) 
-       end
-       d[l[2]] = tuple(l[2:length(l)]...)
-       d = d2
+      if i>0
+         l = split(ls,',')
+         ks = split(l[1],';')
+         d2 = d
+         for k in ks
+            d = get!(d,k,Dict()) 
+         end
+         d[l[2]] = tuple(l[2:length(l)]...)
+         d = d2
+      end
+      i = i + 1
    end
  
    return d
@@ -351,16 +343,16 @@ function collectProcessorFeatures_CpuId()
 
    proc_info = identifyProcessorModel(cpu_brand)   
    if (!isnothing(proc_info))
-      processor_features["processor_manufacturer"] = isnothing(processor_features["processor_manufacturer"]) ? proc_info[10] : processor_features["processor_manufacturer"]
+      processor_features["processor_manufacturer"] = isnothing(processor_features["processor_manufacturer"]) ? proc_info[9] : processor_features["processor_manufacturer"]
       processor_features["processor_core_clock"] = isnothing(processor_features["processor_core_clock"]) ? getCoreClockString(proc_info[3]) : processor_features["processor_core_clock"]
       processor_features["processor_core_count"] = isnothing(processor_features["processor_core_count"]) ? parse(Int64,proc_info[2]) : processor_features["processor_core_count"] 
       processor_features["processor_core_threads_count"] = isnothing(processor_features["processor_core_threads_count"]) ? parse(Int64,proc_info[4]) : processor_features["processor_core_count"]
       processor_features["processor_simd"] = isnothing(processor_features["processor_simd"]) ? identifySIMD_2(proc_info[6]) : processor_features["processor_simd"] 
       processor_features["processor_isa"] = identifyISA_2(proc_info[5]) 
       processor_features["processor_microarchitecture"] = proc_info[7]
-      tdp = tryparse(Int64, proc_info[11])
-      processor_features["processor_tdp"] = isnothing(tdp) ? proc_info[11] : parse(Int64,proc_info[11])
-      processor_features["processor"] = proc_info[9]
+      tdp = tryparse(Int64, proc_info[10])
+      processor_features["processor_tdp"] = isnothing(tdp) ? proc_info[11] : parse(Int64,proc_info[10])
+      processor_features["processor"] = proc_info[8]
    end
 
    return processor_features
@@ -637,7 +629,7 @@ function identityInterconnection()
 
    interconnection_features = Dict()
 
-   interconnection_features["interconnection_starttime"] = "unset"
+   interconnection_features["interconnection_startuptime"] = "unset"
    interconnection_features["interconnection_latency"] = "unset"
    interconnection_features["interconnection_bandwidth"] = "unset"
    interconnection_features["interconnection_topology"] = "unset"
@@ -727,7 +719,7 @@ function setup()
       println("  1) A file path pointed by a PLATFORM_DESCRIPTION environment variable;")
       println("  2) The current directory;")
       println("  3) The /etc/conf directory.")
-      println("In the interctive environment, call PlatformAware.reload!() to reflect changes.")
+      println("In the interactive environment, you may call PlatformAware.reload!() to reflect changes.")
    else
       TOML.print(stdout, platform_features)
       println(stderr)

@@ -62,7 +62,7 @@ storage_networkbandwidth = "unset"
 
 [interconnection]
 
-interconnection_starttime = "unset"
+interconnection_startuptime = "unset"
 interconnection_latency = "unset"
 interconnection_bandwidth = "unset"
 interconnection_topology = "unset"
