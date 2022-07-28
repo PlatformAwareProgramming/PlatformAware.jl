@@ -1524,8 +1524,8 @@ Intel;Pentium,6405U,2,2.40G,4,64-bit,SSE4.1;SSE4.2,CometLake,IntelPentium_6405U,
 Intel;Pentium,6405U,2,2.40G,4,64-bit,SSE4.1;SSE4.2,CometLake,IntelPentium_6405U,Intel,15,unset,unset,unset
 Intel;Pentium,6500Y,2,1.10G,4,64-bit,SSE4.1;SSE4.2;AVX2,AmberLakeY,IntelPentium_6500Y,Intel,5,unset,unset,unset
 Intel;Pentium,6500Y,2,1.10G,4,64-bit,SSE4.1;SSE4.2;AVX2,AmberLakeY,IntelPentium_6500Y,Intel,5,unset,unset,unset
-Intel;Pentium,6805,2,1.10G,4,64-bit,unset,IceLake,IntelPentium_6800,IntelPentium_6805,Intel,15,unset,unset,unset
-Intel;Pentium,6805,2,1.10G,4,64-bit,unset,IceLake,IntelPentium_6800,IntelPentium_6805,Intel,15,unset,unset,unset
+Intel;Pentium,6805,2,1.10G,4,64-bit,unset,IceLake,IntelPentium_6805,Intel,15,unset,unset,unset
+Intel;Pentium,6805,2,1.10G,4,64-bit,unset,IceLake,IntelPentium_6805,Intel,15,unset,unset,unset
 Intel;Pentium,A1018,2,2.10G,2,64-bit,SSE4.1;SSE4.2,IvyBridge,IntelPentium_A1018,Intel,35,unset,unset,unset
 Intel;Pentium,A1018,2,2.10G,2,64-bit,SSE4.1;SSE4.2,IvyBridge,IntelPentium_A1018,Intel,35,unset,unset,unset
 Intel;Pentium,A1020,4,2.41G,4,64-bit,unset,BayTrail,IntelPentium_A1020,Intel,10,unset,unset,unset
