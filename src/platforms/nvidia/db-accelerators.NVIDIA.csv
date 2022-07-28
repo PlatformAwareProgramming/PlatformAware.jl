@@ -1,3 +1,4 @@
+,,accelerator,accelerator_type,accelerator_manufacturer,accelerator_api,accelerator_architecture,accelerator_memorysize,accelerator_tdp,#chips,chip
 NVIDIA;Quadro;2200,D2,NVIDIAQuadro_2200_D2,GPU,NVIDIA,CUDA_1_3,Tesla,8G,640,2,GT200GL
 NVIDIA;Quadro;2200,S4,NVIDIAQuadro_2200_S4,GPU,NVIDIA,CUDA_1_3,Tesla,16G,1200,4,GT200GL
 NVIDIA;Tesla,C870,NVIDIATesla_C870,GPU,NVIDIA,CUDA_1_0,Tesla,1.5G,171,1,G80
