@@ -7,7 +7,7 @@ _A package for improving the practice of **platform-aware programming** in Julia
 It helps HPC package developers write code for different versions of computationally intensive functions (kernels) according to different assumptions about the features of the execution platform.
 
 
-> _**NOTE**: This package is in the experimental stage. Interested users are invited to help us improve its implementation by making suggestions and reporting their experiences and issues._
+> _**NOTE**: This package is in the experimental stage. Although virtually all of the key features are implemented, more comprehensive testing is still needed, in addition to implementing some features. Interested users are invited to help us improve its implementation by making suggestions and reporting their experiences and found issues._
 
 # What is platform-aware programming ?
 
@@ -28,7 +28,9 @@ We assume that **_package users_** are only interested in using package operatio
 
 ```] add PlatformAware```
 
-   
+A _platform description file_ called _Platform.toml_ is needed to describe the features of the execution platform, allowing the selection of suitable kernels through Julia's multiple dispatch. It can be created by running ```PlatformAware.setup()``` in the REPL. Once created, the user can choose the appropriate location for the file, according to the output recommendations. Finally, the user can use ```PlatformAware.reload!()``` to read the file created in the current environment or reboot the environment.
+
+> _**NOTE**: We warn that the problem of discovering the features of the execution platform is still one of the most important challenges in the implementation of platform-aware programming. For now, ```PlatformAware.setup()``` works only for Linux platforms. For this reason, the Platform.toml file format has been chosen to facilitate its editing by the end user, who can complete or correct the automatically calculated information describing the platform features._
 
 ## Programming
 
