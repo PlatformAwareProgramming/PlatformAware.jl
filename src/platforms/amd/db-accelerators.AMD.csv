@@ -1,3 +1,4 @@
+,,accelerator,accelerator_type,accelerator_manufacturer,accelerator_api,accelerator_architecture,accelerator_memorysize,accelerator_tdp
 AMD;FirePro;2270,,AMDFirePro_2270,GPU,AMD,OpenCL_1_2,TeraScale2,512MB,15
 AMD;FirePro,2460,AMDFirePro_2460,GPU,AMD,OpenCL_1_2,TeraScale2,512MB,17
 AMD;FirePro;2270,1GB ,AMDFirePro_2270_1GB,GPU,AMD,OpenCL_1_2,TeraScale2,1GB,15
