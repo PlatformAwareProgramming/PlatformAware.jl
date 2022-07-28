@@ -2360,7 +2360,7 @@ Intel;Xeon;E7;4850,v3,14,2.20G,28,64-bit,AVX2,Haswell,IntelXeon_E7_4850V3,Intel,
 Intel;Xeon;E7;4850,v4,16,2.10G,32,64-bit,AVX2,Broadwell,IntelXeon_E7_4850V4,Intel,115,unset,unset,unset
 Intel;Xeon;E7;4860,,10,2.26G,20,64-bit,SSE4.1;SSE4.2,WestmereEX,IntelXeon_E7_4860,Intel,130,unset,unset,unset
 Intel;Xeon;E7;4860,v2,12,2.60G,24,64-bit,AVX,IvyBridge,IntelXeon_E7_4860V2,Intel,130,unset,unset,unset
-Intel;Xeon;E7;4870,10,2.40G,20,64-bit,SSE4.1;SSE4.2,WestmereEX,IntelXeon_E7_4870,Intel,130,unset,unset,unset
+Intel;Xeon;E7;4870,,10,2.40G,20,64-bit,SSE4.1;SSE4.2,WestmereEX,IntelXeon_E7_4870,Intel,130,unset,unset,unset
 Intel;Xeon;E7;4870,v2,15,2.30G,30,64-bit,AVX,IvyBridge,IntelXeon_E7_4870V2,Intel,130,unset,unset,unset
 Intel;Xeon;E7;4880,v2,15,2.50G,30,64-bit,AVX,IvyBridge,IntelXeon_E7_4880V2,Intel,130,unset,unset,unset
 Intel;Xeon;E7;4890,v2,15,2.80G,30,64-bit,AVX,IvyBridge,IntelXeon_E7_4890V2,Intel,155,unset,unset,unset
