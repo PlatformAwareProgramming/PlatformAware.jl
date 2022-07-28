@@ -4,9 +4,11 @@ _A package for improving the practice of **platform-aware programming** in Julia
 
 [![][build-img]][build-url]
 
+> _**NOTE**: This package is still in the experimental phase. Interested users are invited to help us improve its implementation by making suggestions and reporting their experiences and issues._
+
 # What is platform-aware programming ?
 
-We define platform-aware programming as the practice of coding computationally intensive functions, called _kernels_, using the most appropriate abstractions and programming interfaces, as well as performance tuning techniques, to take better advantage of the capabilities of the target execution platform. This is a well-known practice in programming for HPC applications.
+We define platform-aware programming as the practice of coding computationally intensive functions, called _kernels_, using the most appropriate abstractions and programming interfaces, as well as performance tuning techniques, to take better advantage of the features of the target execution platform. This is a well-known practice in programming for HPC applications.
 
 Platform-aware programming is especially suitable when the developer is interested in employing heterogeneous computing resources, such as accelerators (e.g., GPUs, FPGAs, and MICs), possibly in conjunction with multicore and cluster computing.
 
