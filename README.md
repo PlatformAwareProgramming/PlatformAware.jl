@@ -1,5 +1,3 @@
-[![][build-img]][build-url]
-
 # PlatformAware.jl
 
 _A package for improving the practice of **platform-aware programming** in Julia_.
