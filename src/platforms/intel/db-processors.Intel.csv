@@ -2033,8 +2033,8 @@ Intel;Xeon;E3,1105C,4,1.00G,8,64-bit,AVX,Gladden,IntelXeon_E3_1105C,Intel,25,uns
 Intel;Xeon;E3,1105CV2,4,1.80G,8,64-bit,SSE4.1;SSE4.2;AVX,Gladden,IntelXeon_E3_1105CV2,Intel,25,unset,unset,unset
 Intel;Xeon;E3,1125C,4,2.00G,8,64-bit,AVX,Gladden,IntelXeon_E3_1125C,Intel,40,unset,unset,unset
 Intel;Xeon;E3,1125CV2,4,2.50G,8,64-bit,SSE4.1;SSE4.2;AVX,Gladden,IntelXeon_E3_1125CV2,Intel,40,unset,unset,unset
-Intel;Xeon;E3,1220,4,3.10G,4,64-bit,SSE4.1;SSE4.2;AVX,SandyBridge,IntelXeon_E3_1220,Intel,80,unset,unset,unset
-Intel;Xeon;E3,1220,v3,4,3.10G,4,64-bit,SSE4.1;SSE4.2;AVX2,Haswell,IntelXeon_E3_1220_v3,Intel,80,unset,unset,unset
+Intel;Xeon;E3;1220,,4,3.10G,4,64-bit,SSE4.1;SSE4.2;AVX,SandyBridge,IntelXeon_E3_1220,Intel,80,unset,unset,unset
+Intel;Xeon;E3;1220,v3,4,3.10G,4,64-bit,SSE4.1;SSE4.2;AVX2,Haswell,IntelXeon_E3_1220_v3,Intel,80,unset,unset,unset
 Intel;Xeon;E3,1220L,2,2.20G,4,64-bit,SSE4.1;SSE4.2;AVX,SandyBridge,IntelXeon_E3_1220L,Intel,20,unset,unset,unset
 Intel;Xeon;E3,1220LV2,2,2.30G,4,64-bit,SSE4.1;SSE4.2;AVX,IvyBridge,IntelXeon_E3_1220LV2,Intel,17,unset,unset,unset
 Intel;Xeon;E3,1220LV3,2,1.10G,4,64-bit,SSE4.1;SSE4.2;AVX2,Haswell,IntelXeon_E3_1220LV3,Intel,13,unset,unset,unset
