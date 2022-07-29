@@ -24,7 +24,7 @@ We assume that **_package users_** are only interested in using package operatio
 
 ## Instalation
 
-```] add PlatformAware```
+```] add PlatformAware``` (_**not yet functional, because the inclusion of the project in the general registry is still pending**_)
 
 A _platform description file_ called _Platform.toml_ is needed to describe the features of the execution platform, allowing the selection of suitable kernels through Julia's multiple dispatch. It can be created by running ```PlatformAware.setup()``` in the REPL. Once created, the user can choose the appropriate location for the file, according to the output recommendations. Finally, the user can use ```PlatformAware.reload!()``` to read the file created in the current environment or reboot the environment.
 
