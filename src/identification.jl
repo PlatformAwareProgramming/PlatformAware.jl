@@ -2,7 +2,20 @@
 # Licensed under the MIT License. See LICENCE in the project root.
 # ------------------------------------------------------------------
 
-global default_platform_types_all = Dict(
+mutable struct PlatformFeatures
+    default_platform_types_all
+    default_platform_types
+    actual_platform_arguments_all
+    actual_platform_arguments    
+    function PlatformFeatures()
+        new(IdDict(),IdDict(),IdDict(),IdDict())
+    end
+end
+
+state = PlatformFeatures()
+
+
+defT =[
     :node_count => Tuple{AtLeast1,AtMostInf},
     :node_provider => Provider,
     :node_virtual => Query,
@@ -61,60 +74,56 @@ global default_platform_types_all = Dict(
     :storage_networkbandwidth => Tuple{AtLeast0,AtMostInf},
     :storage_type => StorageType,
     :storage_interface => StorageInterface
-)
+]
 
-global default_platform_types = copy(default_platform_types_all)
+state.default_platform_types_all = IdDict(defT...)
+state.default_platform_types = copy(state.default_platform_types_all)
 
-function loadFeatures(actual_platform_arguments_all)
+function load!()
+    empty!(state.actual_platform_arguments_all)
     platform_description_dict = readPlatormDescription()
-    loadFeatures!(platform_description_dict, default_platform_types_all, actual_platform_arguments_all)
-end
+    loadFeatures!(platform_description_dict, state.default_platform_types_all, state.actual_platform_arguments_all)
 
-global actual_platform_arguments_all = Dict()
-loadFeatures(actual_platform_arguments_all)
-actual_platform_arguments = Dict(actual_platform_arguments_all)
-
-function reload!()
-    empty!(actual_platform_arguments_all)
-    loadFeatures(actual_platform_arguments_all)
-    empty!(actual_platform_arguments)
-    for (k,v) in actual_platform_arguments_all
-        actual_platform_arguments[k] = v
+    empty!(state.actual_platform_arguments)
+    for (k,v) in state.actual_platform_arguments_all
+        state.actual_platform_arguments[k] = v
     end
 end
- 
+
+# load!()
+
 function setplatform!(parameter_id, actual_type)
-    actual_platform_arguments[parameter_id] = actual_type
+    state.actual_platform_arguments[parameter_id] = actual_type
     (parameter_id,actual_type)
 end
 
 function getplatform(parameter_id)
-    actual_platform_arguments[parameter_id]
+    state.actual_platform_arguments[parameter_id]
 end
 
 function getplatform()
-    actual_platform_arguments
+    state.actual_platform_arguments
 end
 
 function empty_actual_platform_arguments!()
-    empty!(actual_platform_arguments)
-    empty!(default_platform_types)
+    empty!(state.actual_platform_arguments)
+    empty!(state.default_platform_types)
 end
 
 function reset_actual_platform_arguments!()
-    for (k,v) in actual_platform_arguments_all
-        actual_platform_arguments[k] = v
+    for (k,v) in state.actual_platform_arguments_all
+        state.actual_platform_arguments[k] = v
     end
     for (k,v) in platform_types_all
-        default_platform_types[k] = v
+        state.default_platform_types[k] = v
     end
-    keys(actual_platform_arguments)
+    keys(state.actual_platform_arguments)
 end
 
 function include_actual_platform_argument!(f)
-    actual_platform_arguments[f] = actual_platform_arguments_all[f]
-    default_platform_types[f] = default_platform_types_all[f]
-    keys(actual_platform_arguments)
+    state.actual_platform_arguments[f] = state.actual_platform_arguments_all[f]
+    state.default_platform_types[f] = state.default_platform_types_all[f]
+    keys(state.actual_platform_arguments)
 end
 
 
@@ -138,9 +147,9 @@ function platform_parameters_kernel(p_list)
 
     # replace default types to required types in kernel platform parameters
     r = []
-    for k in keys(actual_platform_arguments)
+    for k in keys(state.actual_platform_arguments)
          found = get(p_dict, k, nothing)
-         v = default_platform_types[k]
+         v = state.default_platform_types[k]
          push!(r, isnothing(found) ? :(::Type{<:$v}) : :(::Type{<:$found}))
     end
 
@@ -148,14 +157,14 @@ function platform_parameters_kernel(p_list)
 end
 
 function check_all(parameter_id)
-    if (!haskey(actual_platform_arguments_all,parameter_id))
+    if (!haskey(state.actual_platform_arguments_all,parameter_id))
         throw(parameter_id)
     end
     parameter_id
 end
 
 function check(parameter_id)
-    if (!haskey(actual_platform_arguments,parameter_id))
+    if (!haskey(state.actual_platform_arguments,parameter_id))
         throw(parameter_id)
     end
     parameter_id
@@ -214,7 +223,7 @@ function build_entry_signature(fsign::Expr)
     keyword_parameters = length(call_node_args) > 1 && typeof(call_node_args[1]) == Expr && call_node_args[1].head == :parameters ? popfirst!(call_node_args).args : []
     # takes a dictionary mapping par->actual_type and returns an expression :(par::actual_type)
     # the remaining elements in call_node_args are the kernel parameters.
-    platform_parameters = map(p->Expr(:kw,Expr(:(::),p[1],Type{<:default_platform_types[p[1]]}),p[2]), collect(actual_platform_arguments))
+    platform_parameters = map(p->Expr(:kw,Expr(:(::),p[1],Type{<:state.default_platform_types[p[1]]}),p[2]), collect(state.actual_platform_arguments))
     # rebuild the keyword parameters node for the entry function, including the platform_parameters
     keyword_parameters_node = Expr(:parameters, platform_parameters..., keyword_parameters...)
     # collect the identifiers of the kernel parameters
@@ -228,7 +237,7 @@ end
 
 function build_entry_body(fname, fargs, kargs)
     # takes the identifiers of the platform parameters
-    pargs = keys(actual_platform_arguments)
+    pargs = keys(state.actual_platform_arguments)
     # builds the :parameters node for the keyword arguments of the kernel invocation (kargs), since the identifiers must be refferenced.
     kargs = Expr(:parameters, map(p -> Expr(:kw, p, p), kargs)...)
     # returns the :call node for the kernel invocation (note that platform arguments comes before kernel arguments)
@@ -248,11 +257,11 @@ end
 # the code is similar to the code of build_kernel_entry
 function build_kernel_signature(fsign::Expr)
     fsign_args = copy(fsign.args)
-    (call_node_args, where_vars) = fsign.head == :where ? (popfirst!(fsign_args).args, fsign_args) : (fsign.args, []) 
+    (call_node_args, where_vars) = fsign.head == :where ? (popfirst!(fsign_args).args, fsign_args) : (fsign_args, []) 
     fname = popfirst!(call_node_args)
-    keyword_parameters_node = typeof(call_node_args[1]) == Expr && call_node_args[1].head == :parameters ? popfirst!(call_node_args) : nothing
+    keyword_parameters_node = length(call_node_args) > 0 && typeof(call_node_args[1]) == Expr && call_node_args[1].head == :parameters ? popfirst!(call_node_args) : nothing
     # takes the platform parameters of the kernel
-    aware_parameters_args = typeof(call_node_args[1]) == Expr && call_node_args[1].head == :braces ? popfirst!(call_node_args).args : [] 
+    aware_parameters_args = length(call_node_args) > 0 && typeof(call_node_args[1]) == Expr && call_node_args[1].head == :braces ? popfirst!(call_node_args).args : [] 
     # inserts the kernel's platform parameters into the list platform parameters.
     ppars = platform_parameters_kernel(aware_parameters_args)
     new_call_node_args = isnothing(keyword_parameters_node) ? [fname, ppars..., call_node_args...] : [fname, keyword_parameters_node, ppars..., call_node_args...]

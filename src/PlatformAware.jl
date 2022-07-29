@@ -4,9 +4,10 @@
 
 module PlatformAware
 
+using CpuId
 using XMLDict
 using TOML
-using Decimals
+using JSON
 
 # quantifiers
 include("quantifiers/atleast.jl")
@@ -38,7 +39,10 @@ include("identification.jl")
 # platform identification
 include("awareness.jl")
 
-
+function __init__()
+    load!()
+end
+  
 export 
     @platform,
     @atleast,

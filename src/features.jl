@@ -70,7 +70,7 @@ function readPlatormDescription()
     # read the platform description file (default to the current directory)
     filename = get(ENV,"PLATFORM_DESCRIPTION","Platform.toml")
     
-    println(pwd())
+    println("reading platform description at " * filename);
 
     platform_description_toml =   
          try
@@ -98,7 +98,7 @@ function readPlatormDescription()
     
         TOML.parse(platform_description_toml)    
 end
-    
+
 function get_quantifier_from_number(n)
 
     magnitude = Dict(0 => "", 1 => "K", 2 => "M", 3 => "G", 4 => "T", 5 => "P", 6 => "E")
@@ -121,8 +121,11 @@ function get_quantifier_from_number(n)
     a_str = "AtLeast" * string(Integer(2^a)) * magnitude[m]
     b_str = "AtMost" * string(Integer(2^b)) * magnitude[m]
 
-    return eval(Meta.parse("Tuple{" * a_str * "," * b_str * "}"))
+    a_type = getfield(@__MODULE__, Meta.parse(a_str))
+    b_type = getfield(@__MODULE__, Meta.parse(b_str))
+    Tuple{a_type,b_type}
 end
+
 
 function get_quantifier_from_string(n)
    
@@ -144,7 +147,7 @@ function get_quantifier(feature)
 end
 
 function get_qualifier(feature)
-        eval(Meta.parse(feature))
+    getfield(@__MODULE__, Meta.parse(feature))
 end
 
 function check_blank_feature(parameter_id, feature, default_platform_types)

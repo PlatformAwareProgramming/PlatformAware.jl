@@ -2,11 +2,6 @@
 # Licensed under the MIT License. See LICENCE in the project root.
 # ------------------------------------------------------------------
 
-using CpuId
-using XMLDict
-using TOML
-using JSON
-
  function readDB(filename)
 
    d = Dict()
