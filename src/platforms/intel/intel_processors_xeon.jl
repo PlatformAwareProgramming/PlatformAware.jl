@@ -304,6 +304,7 @@ abstract type IntelXeon_E_2286M <: IntelXeon_E end; export IntelXeon_E_2286M
     abstract type IntelXeon_8164 <: IntelXeon_Scalable end; export IntelXeon_8164
     abstract type IntelXeon_8168 <: IntelXeon_Scalable end; export IntelXeon_8168
     abstract type IntelXeon_8170 <: IntelXeon_Scalable end; export IntelXeon_8170
+    abstract type IntelXeon_8175 <: IntelXeon_Scalable end; export IntelXeon_8175
     abstract type IntelXeon_8176 <: IntelXeon_Scalable end; export IntelXeon_8176
     abstract type IntelXeon_8176F <: IntelXeon_Scalable end; export IntelXeon_8176F
     abstract type IntelXeon_8180 <: IntelXeon_Scalable end; export IntelXeon_8180
