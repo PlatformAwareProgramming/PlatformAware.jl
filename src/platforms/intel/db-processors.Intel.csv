@@ -1842,6 +1842,7 @@ Intel;Xeon,8160T,24,2.10G,48,64-bit,SSE4.2;AVX;AVX2;AVX-512,Skylake,IntelXeon_81
 Intel;Xeon,8164,26,2.00G,52,64-bit,SSE4.2;AVX;AVX2;AVX-512,Skylake,IntelXeon_8164,Intel,150,unset,unset,unset
 Intel;Xeon,8168,24,2.70G,48,64-bit,SSE4.2;AVX;AVX2;AVX-512,Skylake,IntelXeon_8168,Intel,205,unset,unset,unset
 Intel;Xeon,8170,26,2.10G,52,64-bit,SSE4.2;AVX;AVX2;AVX-512,Skylake,IntelXeon_8170,Intel,165,unset,unset,unset
+Intel;Xeon,8175,24,2.10G,48,64-bit,SSE4.2;AVX;AVX2;AVX-512,Skylake,IntelXeon_8175,Intel,165,1.5M,24M,33M
 Intel;Xeon,8176,28,2.10G,56,64-bit,SSE4.2;AVX;AVX2;AVX-512,Skylake,IntelXeon_8176,Intel,165,unset,unset,unset
 Intel;Xeon,8176F,28,2.10G,56,64-bit,SSE4.2;AVX;AVX2;AVX-512,Skylake,IntelXeon_8176F,Intel,173,unset,unset,unset
 Intel;Xeon,8180,28,2.50G,56,64-bit,SSE4.2;AVX;AVX2;AVX-512,Skylake,IntelXeon_8180,Intel,205,unset,unset,unset
