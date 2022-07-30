@@ -497,24 +497,27 @@ end
 =#
 
 function getMemorySize(mem_size)
-   if (!isnothing(mem_size))
+   try
       size_unit = match(r"KB|MB|GB|TB",mem_size) 
       size_unit = isnothing(size_unit) ? nothing : size_unit.match
       multiplier = Dict("KB" => 2^10, "MB" => 2^20, "GB" => 2^30, "TB" => 2^40, nothing => 1)
-      parse(Int64,match(r"^[-+]?[0-9]*\.?[0-9]+",mem_size).match) * multiplier[size_unit]
-   else
-      nothing
+      return parse(Int64,match(r"^[-+]?[0-9]*\.?[0-9]+",mem_size).match) * multiplier[size_unit]
+   catch error
+      println(stderr,error)
+      return "unknown"
    end
+   
 end
 
 function getMemorySpeed(mem_speed)
-   if (!isnothing(mem_speed))
+   try
       speed_unit = match(r"MT/s|GT/s|MHz|GHz",mem_speed)
       speed_unit = isnothing(speed_unit) ? nothing : speed_unit.match
       multiplier = Dict("MT/s" => 1, "GT/s" => 2^10, "MHz" => 1, "GHz" => 2^10, nothing => 1)
-      parse(Int64,match(r"^[-+]?[0-9]*\.?[0-9]+",mem_speed).match) * multiplier[speed_unit]
-   else
-      nothing
+      return parse(Int64,match(r"^[-+]?[0-9]*\.?[0-9]+",mem_speed).match) * multiplier[speed_unit]
+   catch error
+      println(stderr,error)
+      return "unknown"
    end
 end
 
@@ -530,46 +533,61 @@ function collectMemoryFeatures(dict_list)
    memory_features["node_memory_size"] = 0
 
    for (k,dict) in dict_list
-      node_memory_type = dict["Type"]
-      node_memory_frequency = dict["Speed"]
-      node_memory_size =  memory_features["node_memory_size"] + getMemorySize(dict["Size"])
-      node_memory_bandwidth = !haskey(dict,"Configured Memory Speed") || dict["Configured Memory Speed"] == "Unknown" ? "unknown" : dict["Configured Memory Speed"]
-
-      memory_features["node_memory_type"] = node_memory_type
-      memory_features["node_memory_frequency"] = getMemorySpeed(node_memory_frequency)
-      memory_features["node_memory_size"] = node_memory_size
+      memory_features["node_memory_type"] = !haskey(dict,"Type") || dict["Type"] == "Unknown" ? "unknown" : dict["Type"]
+      memory_features["node_memory_frequency"] = !haskey(dict,"Speed") || dict["Speed"] == "Unknown" ? "unknown" : getMemorySpeed(dict["Speed"])
+      memory_features["node_memory_size"] = !haskey(dict,"Size") || dict["Size"] == "Unknown" ? "unknown" : memory_features["node_memory_size"] + getMemorySize(dict["Size"])
       memory_features["node_memory_latency"] = "unset"
-      memory_features["node_memory_bandwidth"] = getMemorySpeed(node_memory_bandwidth)
+      memory_features["node_memory_bandwidth"] =  !haskey(dict,"Configured Memory Speed") || dict["Configured Memory Speed"] == "Unknown" ? "unknown" : getMemorySpeed(dict["Configured Memory Speed"])
    end
+
+   return memory_features
+end
+
+function collectMemoryFeaturesDefault()
+   
+   memory_features = Dict()
+
+   memory_features["node_memory_size"] = 0
+   memory_features["node_memory_type"] = "unknown"
+   memory_features["node_memory_frequency"] = "unknown"
+   memory_features["node_memory_size"] = "unknown"
+   memory_features["node_memory_latency"] = "unknown"
+   memory_features["node_memory_bandwidth"] =  "unknown"
 
    return memory_features
 end
 
 # using dmidecode (unsafe ! text output)
 function identifyMemory()
+   try
+      command = `sudo dmidecode -t memory`
 
-   command = `sudo dmidecode -t memory`
+      l = split(replace(read(command, String),"\t"=>""),'\n')
 
-   l = split(replace(read(command, String),"\t"=>""),'\n')
-
-   d1 = Dict()
-   i=0
-   j=0
-   for s in l
-      if s == "Memory Device"
-         i = i + 1; j = j + 1
-         d1[j] = Dict()
-      else
-         if (i>0 && in(':',s))
-            ss = split(s,':')
-            d1[j][strip(ss[1])] = strip(ss[2])
-         elseif (i>0 && !in(':',s))
-            i=0
+      d1 = Dict()
+      i=0
+      j=0
+      for s in l
+         if s == "Memory Device"
+            i = i + 1; j = j + 1
+            d1[j] = Dict()
+         else
+            if (i>0 && in(':',s))
+               ss = split(s,':')
+               d1[j][strip(ss[1])] = strip(ss[2])
+            elseif (i>0 && !in(':',s))
+               i=0
+            end
          end
       end
-   end
 
-   collectMemoryFeatures(d1)
+      return collectMemoryFeatures(d1)
+
+   catch error
+      println(stderr, "Error fetching memory info. Loading default values.")
+      println(stderr,error)
+      return collectMemoryFeaturesDefault()
+   end
 
    #=dict = get_info_dict("memory")
 
@@ -590,31 +608,49 @@ end
 
 # using lsblk (safe - JSON output)
 function identifyStorage()
-
-   command = `lsblk --scsi --json -d --bytes -o rota,size,tran`
-   dict = JSON.parse(read(command, String))      
-
+   
    storage_features = Dict()
 
-   for device in dict["blockdevices"]
- 
-      storage_type = device["rota"] ? "HDD" : "SSD"
-      storage_interface = uppercase(device["tran"])
-      storage_size = device["size"]
-      storage_latency = "unset"  
-      storage_bandwidth = "unset"
-      storage_networkbandwidth = "unset"
-      
-      storage_features["storage_type"] = storage_type
-      storage_features["storage_interface"] = storage_interface
-      storage_features["storage_size"] = storage_size
-      storage_features["storage_latency"] = storage_latency
-      storage_features["storage_bandwidth"] = storage_bandwidth
-      storage_features["storage_networkbandwidth"] = storage_networkbandwidth
+   try
+      command = `lsblk --scsi --json -d --bytes -o rota,size,tran`
+      dict = JSON.parse(read(command, String))      
+
+      i = 1
+      for device in dict["blockdevices"]
+   
+         storage_device = Dict()
+         storage_features[string(i)] = storage_device
+
+         storage_type = device["rota"] ? "HDD" : "SSD"
+         storage_interface = uppercase(device["tran"])
+         storage_size = device["size"]
+         storage_latency = "unset"  
+         storage_bandwidth = "unset"
+         storage_networkbandwidth = "unset"
+         
+         storage_device["storage_type"] = storage_type
+         storage_device["storage_interface"] = storage_interface
+         storage_device["storage_size"] = storage_size
+         storage_device["storage_latency"] = storage_latency
+         storage_device["storage_bandwidth"] = storage_bandwidth
+         storage_device["storage_networkbandwidth"] = storage_networkbandwidth
+
+         i = i + 1
+      end
+   catch error
+      println(stderr, "Error fetching storage info. Loading default values.")
+      println(stderr, error)
+
+      # default
+      storage_features["storage_type"] = "unset"
+      storage_features["storage_interface"] = "unset"
+      storage_features["storage_size"] = "unset"
+      storage_features["storage_latency"] = "unset"
+      storage_features["storage_bandwidth"] = "unset"
+      storage_features["storage_networkbandwidth"] = "unset"
    end
 
-   return storage_features
-
+   return length(storage_features) > 1 ? storage_features : storage_features["1"]
 end
 
 # TODO
