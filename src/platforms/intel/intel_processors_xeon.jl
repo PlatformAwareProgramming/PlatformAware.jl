@@ -545,6 +545,7 @@ abstract type IntelXeon_E_2286M <: IntelXeon_E end; export IntelXeon_E_2286M
     abstract type IntelXeon_E5_2667V4 <: IntelXeon_E5_v4 end; export IntelXeon_E5_2667V4
     abstract type IntelXeon_E5_2680V4 <: IntelXeon_E5_v4 end; export IntelXeon_E5_2680V4
     abstract type IntelXeon_E5_2683V4 <: IntelXeon_E5_v4 end; export IntelXeon_E5_2683V4
+    abstract type IntelXeon_E5_2686V4 <: IntelXeon_E5_v4 end; export IntelXeon_E5_2686V4
     abstract type IntelXeon_E5_2687WV4 <: IntelXeon_E5_v4 end; export IntelXeon_E5_2687WV4
     abstract type IntelXeon_E5_2690V4 <: IntelXeon_E5_v4 end; export IntelXeon_E5_2690V4
     abstract type IntelXeon_E5_2695V4 <: IntelXeon_E5_v4 end; export IntelXeon_E5_2695V4
