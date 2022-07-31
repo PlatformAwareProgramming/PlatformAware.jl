@@ -612,30 +612,31 @@ function identifyStorage()
    storage_features = Dict()
 
    try
-      command = `lsblk --scsi --json -d --bytes -o rota,size,tran`
+      command = `lsblk --json -d --bytes -o rota,size,tran,type`
       dict = JSON.parse(read(command, String))      
 
       i = 1
       for device in dict["blockdevices"]
-   
-         storage_device = Dict()
-         storage_features[string(i)] = storage_device
+         println(device["type"])
+         if (device["type"] == "disk")
+            storage_device = Dict()
+            storage_features[string(i)] = storage_device
 
-         storage_type = device["rota"] ? "HDD" : "SSD"
-         storage_interface = uppercase(device["tran"])
-         storage_size = device["size"]
-         storage_latency = "unset"  
-         storage_bandwidth = "unset"
-         storage_networkbandwidth = "unset"
-         
-         storage_device["storage_type"] = storage_type
-         storage_device["storage_interface"] = storage_interface
-         storage_device["storage_size"] = storage_size
-         storage_device["storage_latency"] = storage_latency
-         storage_device["storage_bandwidth"] = storage_bandwidth
-         storage_device["storage_networkbandwidth"] = storage_networkbandwidth
-
-         i = i + 1
+            storage_type = device["rota"] ? "HDD" : "SSD"
+            storage_interface = uppercase(device["tran"])
+            storage_size = device["size"]
+            storage_latency = "unset"  
+            storage_bandwidth = "unset"
+            storage_networkbandwidth = "unset"
+            
+            storage_device["storage_type"] = storage_type
+            storage_device["storage_interface"] = storage_interface
+            storage_device["storage_size"] = storage_size
+            storage_device["storage_latency"] = storage_latency
+            storage_device["storage_bandwidth"] = storage_bandwidth
+            storage_device["storage_networkbandwidth"] = storage_networkbandwidth
+            i = i + 1
+         end
       end
    catch error
       println(stderr, "Error fetching storage info. Loading default values.")

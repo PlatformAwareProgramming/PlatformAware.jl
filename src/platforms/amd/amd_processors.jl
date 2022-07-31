@@ -498,6 +498,7 @@ abstract type AMDEPYC_7543P <: AMDEPYC_7003 end
 abstract type AMDEPYC_7551 <: AMDEPYC_7001 end
 abstract type AMDEPYC_7551P <: AMDEPYC_7001 end
 abstract type AMDEPYC_7552 <: AMDEPYC_7002 end
+abstract type AMDEPYC_7571 <: AMDEPYC_7003_VCache end
 abstract type AMDEPYC_7573X <: AMDEPYC_7003_VCache end
 abstract type AMDEPYC_75F3 <: AMDEPYC_7003 end
 abstract type AMDEPYC_7601 <: AMDEPYC_7001 end
