@@ -24,13 +24,13 @@ We assume that **_package users_** are only interested in using package operatio
 
 ## Instalation
 
-```] add PlatformAware``` (_**not yet functional, because the inclusion of the project in the general registry is still pending**_)
+```] add PlatformAware```
 
-A _platform description file_ called _Platform.toml_ is needed to describe the features of the execution platform, allowing the selection of suitable kernels through Julia's multiple dispatch. It can be created by running ```PlatformAware.setup()``` in the REPL. Once created, the user can choose the appropriate location for the file, according to the output recommendations. Finally, the user can use ```PlatformAware.reload!()``` to read the file created in the current environment or reboot the environment.
+A _platform description file_ called _Platform.toml_ is needed to describe the features of the execution platform, allowing the selection of suitable kernels through Julia's multiple dispatch. It can be created by running ```PlatformAware.setup()``` in the REPL. Once created, the user can choose the appropriate location for the file, according to the output recommendations. The user can also decide to edit the file to adjust or detail the platform features (we are working on a guideline for this). The new platform features configuration will be loaded in the next section.
 
 > _**NOTE**: We warn that the problem of discovering the features of the execution platform is still one of the most important challenges in the implementation of platform-aware programming. For now, ```PlatformAware.setup()``` works only for Linux platforms. For this reason, the Platform.toml file format has been chosen to facilitate its editing by the end user, who can complete or correct the automatically calculated information describing the platform features._
 
-## Programming
+## Using
 
 The following is a guideline that can be followed by HPC package developers to do _platform-aware programming_ using _PlatformAware.jl_.
 
@@ -49,7 +49,7 @@ end
 3. Identify the target execution platforms to which you want to provide specialized methods for each kernel function. You can choose a set of execution platforms for all kernels, or you can select one or more platforms for each kernel independently. For helping your choice, look at the following information sources:
    - the [table of supported _platform **parameters**_](https://docs.google.com/spreadsheets/d/1n-c4b7RxUduaKV43XrTnt54w-SR1AXgVNI7dN2OkEUc/edit?usp=sharing), which will help you to know which assumptions _PlatformAware.jl_ already allow you to make about the target execution platorm;
    - the database of supported _platform **features**_, where the features of the models of processors and accelerators that are currently suported by _PlatformAware.jl_ are described:
-      - AMD [accelerators](https://github.com/decarvalhojunior-fh/PlatformAware.jl/blob/master/src/platforms/amd/db-accelerators.AMD.csv) and [processors](https://github.com/decarvalhojunior-fh/PlatformAware.jl/blob/master/src/platforms/amd/amd_processors.jl);
+      - AMD [accelerators](https://github.com/decarvalhojunior-fh/PlatformAware.jl/blob/master/src/platforms/amd/db-accelerators.AMD.csv) and [processors](https://github.com/decarvalhojunior-fh/PlatformAware.jl/blob/master/src/platforms/amd/db-processors.AMD.csv);
       - Intel [accelerators](https://github.com/decarvalhojunior-fh/PlatformAware.jl/blob/master/src/platforms/intel/db-accelerators.Intel.csv) and [processors](https://github.com/decarvalhojunior-fh/PlatformAware.jl/blob/master/src/platforms/intel/db-processors.Intel.csv);
       - NVIDIA [accelerators](https://github.com/decarvalhojunior-fh/PlatformAware.jl/blob/master/src/platforms/nvidia/db-accelerators.NVIDIA.csv).
 
