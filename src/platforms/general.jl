@@ -24,7 +24,6 @@ abstract type MachineSize end
 
 abstract type Locale end
 
-
 # manufacturer
 
 abstract type Manufacturer end
@@ -54,7 +53,6 @@ abstract type FPGA <: AcceleratorType end
 
 abstract type MIC <: AcceleratorType end
 
-
 #interconnection
 abstract type InterconnectionTopology end
 abstract type Interconnection end
@@ -63,8 +61,6 @@ abstract type Interconnection end
 
 abstract type StorageType end   
 abstract type StorageInterface end   
-
-
 
 # memory system
 

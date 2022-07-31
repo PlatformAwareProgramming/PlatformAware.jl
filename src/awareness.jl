@@ -40,7 +40,7 @@ global processor_dict = merge(processor_dict_amd, processor_dict_intel)
 global accelerator_dict = merge(accelerator_dict_intel, accelerator_dict_amd, accelerator_dict_nvidia)
 
 function get_info_dict(idtype)
-   command = `sudo lshw -xml -C $idtype`    
+   command = `sudo lshw -xml -quiet -C $idtype`    
    xmlinfo = read(command, String)
    xml_dict(xmlinfo)
 end
@@ -400,11 +400,40 @@ end
 end
 =#
 
+function collectProcessorFeaturesDefault()
+
+   processor_features = Dict()
+
+   processor_features["processor_count"] = 1
+   processor_features["processor_core_count"] = 1
+   processor_features["processor_core_threads_count"] = 1
+   processor_features["processor_core_clock"] = "unset"
+   processor_features["processor_simd"] = "unset"
+   processor_features["processor_core_L1_size"] = "unset"
+   processor_features["processor_core_L2_size"] = "unset"
+   processor_features["processor_L3_size"] = "unset"
+   processor_features["processor_manufacturer"] = "unset"
+   processor_features["processor_tdp"] = "unset"
+   processor_features["processor"] = "unset"
+
+   return processor_features
+
+end
+
 # using CpuId (safe)
 
 function identifyProcessor()
-
-   collectProcessorFeatures_CpuId() 
+   try      
+      processor_features = collectProcessorFeatures_CpuId() 
+      println(stderr, "ok")
+      return processor_features
+   catch error
+      println(stderr, "fail.")
+      println(stderr, "=> Error: detecting processor features failed. Using default features.")
+      println(stderr, "          You can setup processor features manually.")
+      println(stderr, error)
+      return collectProcessorFeaturesDefault()
+   end
 
 #=
    l = Vector()
@@ -464,13 +493,40 @@ function collectAcceleratorFeatures(l)
    return i == 2 ? accelerator_features["1"] : accelerator_features
 end
 
-function identifyAccelerator()
-   l = Vector()
-   for d in identifyComponent("display")
-      push!(l,d["vendor"] * " " * d["product"])
-   end
+function collectAcceleratorFeaturesDefault()
 
-   collectAcceleratorFeatures(l)
+      default_features = Dict()
+
+      default_features["accelerator_count"] = 0
+      default_features["accelerator"] = "unset"
+      default_features["accelerator_type"] = "unset"
+      default_features["accelerator_manufacturer"] = "unset"
+      default_features["accelerator_api"] = "unset"
+      default_features["accelerator_architecture"] = "unset"
+      default_features["accelerator_memorysize"] = "unset"
+      default_features["accelerator_tdp"] = "unset"
+
+    return default_features
+end
+
+function identifyAccelerator()
+   try
+      
+      l = Vector()
+      for d in identifyComponent("display")
+         push!(l,d["vendor"] * " " * d["product"])
+      end
+
+      accelerator_features = collectAcceleratorFeatures(l)
+      println(stderr, "ok")
+      return accelerator_features
+   catch error
+      println(stderr, "fail.")
+      println(stderr, "=> Error: detecting accelerator features failed. Using default features.")
+      println(stderr, "          You can setup accelerator features manually.")
+      println(stderr, error)
+      return collectAcceleratorFeaturesDefault()
+   end
 end
 
 #=
@@ -580,11 +636,15 @@ function identifyMemory()
             end
          end
       end
-
-      return collectMemoryFeatures(d1)
+      
+      memory_features = collectMemoryFeatures(d1)
+      println(stderr, "ok")
+      return memory_features
 
    catch error
-      println(stderr, "Error fetching memory info. Loading default values.")
+      println(stderr, "fail.")
+      println(stderr, "=> Error: detecting primary memory features failed. Using default features.")
+      println(stderr, "          You can setup primary memory features manually.")
       println(stderr,error)
       return collectMemoryFeaturesDefault()
    end
@@ -638,7 +698,9 @@ function identifyStorage()
          end
       end
    catch error
-      println(stderr, "Error fetching storage info. Loading default values.")
+      println(stderr, "fail.")
+      println(stderr, "=> Error: detection of storage features failed. Using default features.")
+      println(stderr, "          You can setup storage features manually.")
       println(stderr, error)
 
       # default
@@ -656,7 +718,9 @@ end
 # TODO
 function identityInterconnection()
 
-   println("NOTE: The identification of interconnection features is not yet implemented. Using defaults.")
+   println(stderr, "fail.")
+   println(stderr, "=> Note: detection of interconnection features (cluster computing) not yet implemented. Using default features. You can setup manually.")
+   println(stderr, "         You can setup interconnection features manually.")
 
    interconnection_features = Dict()
 
@@ -673,14 +737,16 @@ end
 # TODO
 function identifyNode()
 
-   println("NOTE: The identification of node features is not yet implemented. Using defaults.")
+   println(stderr, "fail.")
+   println(stderr, "=> Note: detection of node features (cluster and cloud computing) not yet implemented. Using default features.")
+   println(stderr, "         You can setup node features manually.")
 
    interconnection_features = Dict()
 
    interconnection_features["node_count"] = 1
    interconnection_features["node_provider"] = "OnPremise"
    interconnection_features["node_virtual"] = "No"
-   interconnection_features["node_virtual"] = "Yes"
+   interconnection_features["node_dedicated"] = "No"
    interconnection_features["node_machinefamily"] = "unset"
    interconnection_features["node_machinetype"] = "unset"
    interconnection_features["node_machinesize"] = "unset"
@@ -716,12 +782,12 @@ end
 
 function setup()
 
-   print("indentifying node... "); node_features = identifyNode(); println(stderr, "ok")
-   print("indentifying processor... "); processor_features = identifyProcessor(); println(stderr, "ok")
-   print("indentifying accelerator... "); accelerator_features = identifyAccelerator(); println(stderr, "ok")
-   print("indentifying memory... "); memory_features = identifyMemory(); println(stderr, "ok")
-   print("indentifying storage... "); storage_features = identifyStorage(); println(stderr, "ok")
-   print("indentifying interconnection... "); interconnection_features = identityInterconnection(); println(stderr, "ok")
+   print("identifying node... "); node_features = identifyNode()
+   print("identifying processor... "); processor_features = identifyProcessor()
+   print("identifying accelerator... "); accelerator_features = identifyAccelerator()
+   print("identifying memory... "); memory_features = identifyMemory()
+   print("identifying storage... "); storage_features = identifyStorage()
+   print("identifying interconnection... "); interconnection_features = identityInterconnection()
 
    platform_features = Dict()
 
@@ -749,12 +815,12 @@ function setup()
       println("Platform.toml will be searched in the following locations:")
       println("  1) A file path pointed by a PLATFORM_DESCRIPTION environment variable;")
       println("  2) The current directory;")
-      println("  3) The /etc/conf directory.")
+      println("  3) The /etc directory.")
    else
       TOML.print(stdout, platform_features)
       println(stderr)
-      println(stderr, "Platform description file already exists in the current folder (Platform.toml)")
-      println(stderr, "You must erase or move it before to create a new one.")
+      println(stderr, "Platform description file already exists in the current folder (Platform.toml).")
+      println(stderr, "You must delete or move it before creating a new one.")
    end
    
 end

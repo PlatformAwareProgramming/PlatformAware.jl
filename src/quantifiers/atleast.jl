@@ -137,27 +137,3 @@ abstract type AtLeast512E <: AtLeast256E end   # 2^69
 # ...
 
 abstract type AtLeastInf <: AtLeast512E end    # ∞
-
-
-
-
-
-
-
-#=
-quantifiers = Integer[]
-
-function AtLeast(n::Integer)
-    idx = findfirst(x -> x > n, quantifiers)
-    if (isnothing(idx))
-        idx = size(l) + 1
-        push!(quantifiers,n)
-    elseif 
-        splice!(quantifiers,idx,[n,quantifiers[idx]])
-    end
-    if (idx-1 > 0)
-        super_n = quantifiers[idx-1]
-
-    eval(Meta.parse)
-end
-=#
