@@ -617,12 +617,11 @@ function identifyStorage()
 
       i = 1
       for device in dict["blockdevices"]
-         println(device["type"])
          if (device["type"] == "disk")
             storage_device = Dict()
             storage_features[string(i)] = storage_device
 
-            storage_type = device["rota"] ? "HDD" : "SSD"
+            storage_type = device["rota"] ? "HDD" : "SSD"; println(device["tran"])
             storage_interface = uppercase(device["tran"])
             storage_size = device["size"]
             storage_latency = "unset"  
