@@ -88,10 +88,9 @@ function readPlatormDescription()
                 println(stderr,"The platform description file (Platform.toml) was not found.")
                 println(stderr,"Using default platform settings (calling only default kernels).")
                 println(stderr,"A Platform.toml file may be created by calling PlatformAware.setup(). Do it !")
-                default_platorm_file = pkgdir(@__MODULE__) * "/DefaultPlatform.toml"
-                io = open(default_platorm_file)
+
+                io = joinpath(artifact"default_platform_description", "DefaultPlatform.toml")                
                 contents = read(io,String)
-                close(io)
                 contents
             end
          end

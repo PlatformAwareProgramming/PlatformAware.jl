@@ -8,6 +8,7 @@ using CpuId
 using XMLDict
 using TOML
 using JSON
+using Artifacts
 
 # quantifiers
 include("quantifiers/atleast.jl")

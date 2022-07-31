@@ -8,7 +8,7 @@ mutable struct PlatformFeatures
     actual_platform_arguments_all
     actual_platform_arguments    
     function PlatformFeatures()
-        new(IdDict(),IdDict(),IdDict(),IdDict())
+        new(Dict(),Dict(),Dict(),Dict())
     end
 end
 
@@ -76,7 +76,7 @@ defT =[
     :storage_interface => StorageInterface
 ]
 
-state.default_platform_types_all = IdDict(defT...)
+state.default_platform_types_all = Dict(defT...)
 state.default_platform_types = copy(state.default_platform_types_all)
 
 function load!()

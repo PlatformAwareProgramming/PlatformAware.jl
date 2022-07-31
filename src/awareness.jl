@@ -23,16 +23,16 @@
    return d
  end
 
-global package_path = pkgdir(@__MODULE__)
+global database_path = joinpath(pkgdir(@__MODULE__), "src","platforms")
 
 @sync begin
 
- Threads.@spawn global processor_dict_intel = readDB(package_path * "/src/platforms/intel/db-processors.Intel.csv")
- Threads.@spawn global processor_dict_amd = readDB(package_path * "/src/platforms/amd/db-processors.AMD.csv")
+ Threads.@spawn global processor_dict_intel = readDB(joinpath(database_path,"intel","db-processors.Intel.csv"))
+ Threads.@spawn global processor_dict_amd = readDB(joinpath(database_path,"amd","db-processors.AMD.csv"))
 
- Threads.@spawn global accelerator_dict_intel = readDB(package_path * "/src/platforms/intel/db-accelerators.Intel.csv")
- Threads.@spawn global accelerator_dict_amd = readDB(package_path * "/src/platforms/amd/db-accelerators.AMD.csv")
- Threads.@spawn global accelerator_dict_nvidia = readDB(package_path * "/src/platforms/nvidia/db-accelerators.NVIDIA.csv")
+ Threads.@spawn global accelerator_dict_intel = readDB(joinpath(database_path,"intel","db-accelerators.Intel.csv"))
+ Threads.@spawn global accelerator_dict_amd = readDB(joinpath(database_path,"amd/db-accelerators.AMD.csv"))
+ Threads.@spawn global accelerator_dict_nvidia = readDB(joinpath(database_path,"nvidia","db-accelerators.NVIDIA.csv"))
 
 end
 
@@ -750,7 +750,6 @@ function setup()
       println("  1) A file path pointed by a PLATFORM_DESCRIPTION environment variable;")
       println("  2) The current directory;")
       println("  3) The /etc/conf directory.")
-      println("In the interactive environment, you may call PlatformAware.reload!() to reflect changes.")
    else
       TOML.print(stdout, platform_features)
       println(stderr)
