@@ -1,5 +1,9 @@
 # PlatformAware.jl
 
+[![TagBot](https://github.com/decarvalhojunior-fh/PlatformAware.jl/actions/workflows/TagBot.yml/badge.svg)](https://github.com/decarvalhojunior-fh/PlatformAware.jl/actions/workflows/TagBot.yml)
+[![CompatHelper](https://github.com/decarvalhojunior-fh/PlatformAware.jl/actions/workflows/CompatHelper.yml/badge.svg)](https://github.com/decarvalhojunior-fh/PlatformAware.jl/actions/workflows/CompatHelper.yml)
+
+
 _A package for improving the practice of **platform-aware programming** in Julia_.
 
 It helps HPC package developers write code for different versions of computationally intensive functions (kernels) according to different assumptions about the features of the execution platform.
