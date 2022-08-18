@@ -69,12 +69,4 @@
 
     kernel(0,1,2,3;z=10,kwargs=0)
 
-    PlatformAware.setplatform!(:accelerator_count, @just 1)
-    PlatformAware.setplatform!(:accelerator_manufacturer, NVIDIA)
-
-    @platform default function kernel(x,y,args...; z=0, kwargs...)
-        println(z,": default implementation of kernel_example:")
-    end
-
-    kernel(1,2,3,4;z=11,kwargs=0)
 end
