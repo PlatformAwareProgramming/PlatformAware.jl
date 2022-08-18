@@ -127,9 +127,9 @@ abstract type NVIDIATesla_H100 <: NVIDIATesla end; export NVIDIATesla_H100
 #abstract type NVIDIATesla_H100 <: NVIDIATesla end; export NVIDIATesla_H100
 
 
-abstract type NVIDIAQuadro <: NVIDIAAccelerator end
+abstract type NVIDIAQuadro <: NVIDIAAccelerator end; export NVIDIAQuadro
 
-abstract type NVIDIAQuadro_Plex <: NVIDIAAccelerator end
+abstract type NVIDIAQuadro_Plex <: NVIDIAAccelerator end; export NVIDIAQuadro_Plex
 
 abstract type NVIDIAQuadro_2200_D2 <: NVIDIAQuadro_Plex end; export NVIDIAQuadro_2200_D2
 abstract type NVIDIAQuadro_2200_S4 <: NVIDIAQuadro_Plex end; export NVIDIAQuadro_2200_S4
@@ -137,7 +137,37 @@ abstract type NVIDIAQuadro_2200_S4 <: NVIDIAQuadro_Plex end; export NVIDIAQuadro
 
 # GeForce 
 
-abstract type NVIDIAGeForce <: NVIDIAAccelerator end
+abstract type NVIDIAGeForce <: NVIDIAAccelerator end; export NVIDIA_GeForce
+abstract type NVIDIAGeForce_GTX <: NVIDIAGeForce end; export NVIDIAGeForce_GTX
+abstract type NVIDIAGeForce_GTX16 <: NVIDIAGeForce_GTX end; export NVIDIAGeForce_GTX16
+abstract type NVIDIAGeForce_GTX20 <: NVIDIAGeForce_GTX end; export NVIDIAGeForce_GTX20
+abstract type NVIDIAGeForce_GTX30 <: NVIDIAGeForce_GTX end; export NVIDIAGeForce_GTX30
+    
+abstract type NVIDIAGeForce_GTX3090 <: NVIDIAGeForce_GTX30 end; export NVIDIAGeForce_GTX3090
+abstract type NVIDIAGeForce_GTX3090Ti <: NVIDIAGeForce_GTX30 end; export NVIDIAGeForce_GTX3090Ti
+abstract type NVIDIAGeForce_GTX3080 <: NVIDIAGeForce_GTX30 end; export NVIDIAGeForce_GTX3080
+abstract type NVIDIAGeForce_GTX3080Ti <: NVIDIAGeForce_GTX30 end; export NVIDIAGeForce_GTX3080Ti
+abstract type NVIDIAGeForce_GTX3070 <: NVIDIAGeForce_GTX30 end; export NVIDIAGeForce_GTX3070
+abstract type NVIDIAGeForce_GTX3070Ti <: NVIDIAGeForce_GTX30 end; export NVIDIAGeForce_GTX3070Ti
+abstract type NVIDIAGeForce_GTX3060 <: NVIDIAGeForce_GTX30 end; export NVIDIAGeForce_GTX3060
+abstract type NVIDIAGeForce_GTX3060Ti <: NVIDIAGeForce_GTX30 end; export NVIDIAGeForce_GTX3060Ti
+abstract type NVIDIAGeForce_GTX3050 <: NVIDIAGeForce_GTX30 end; export NVIDIAGeForce_GTX3050
+
+abstract type NVIDIAGeForce_GTX2080Ti <: NVIDIAGeForce_GTX20 end; export NVIDIAGeForce_GTX2080Ti
+abstract type NVIDIAGeForce_GTX2080 <: NVIDIAGeForce_GTX20 end; export NVIDIAGeForce_GTX2080
+abstract type NVIDIAGeForce_GTX2080Super <: NVIDIAGeForce_GTX20 end; export NVIDIAGeForce_GTX2080Super
+abstract type NVIDIAGeForce_GTX2070 <: NVIDIAGeForce_GTX20 end; export NVIDIAGeForce_GTX2070
+abstract type NVIDIAGeForce_GTX2070Super <: NVIDIAGeForce_GTX20 end; export NVIDIAGeForce_GTX2070Super
+abstract type NVIDIAGeForce_GTX2060 <: NVIDIAGeForce_GTX20 end; export NVIDIAGeForce_GTX2060
+abstract type NVIDIAGeForce_GTX2060Super <: NVIDIAGeForce_GTX20 end; export NVIDIAGeForce_GTX2060Super
+
+abstract type NVIDIAGeForce_GTX1660 <: NVIDIAGeForce_GTX16 end; export NVIDIAGeForce_GTX1660
+abstract type NVIDIAGeForce_GTX1660Ti <: NVIDIAGeForce_GTX16 end; export NVIDIAGeForce_GTX1660Ti
+abstract type NVIDIAGeForce_GTX1660Super <: NVIDIAGeForce_GTX16 end; export NVIDIAGeForce_GTX1660Super
+abstract type NVIDIAGeForce_GTX1650Super <: NVIDIAGeForce_GTX16 end; export NVIDIAGeForce_GTX1650Super
+abstract type NVIDIAGeForce_GTX1650_G5 <: NVIDIAGeForce_GTX16 end; export NVIDIAGeForce_GTX1650_G5
+abstract type NVIDIAGeForce_GTX1650_G6 <: NVIDIAGeForce_GTX16 end; export NVIDIAGeForce_GTX1650_G6
+abstract type NVIDIAGeForce_GTX1630 <: NVIDIAGeForce_GTX16 end; export NVIDIAGeForce_GTX1630
 
 abstract type NVIDIAGeForce_940MX <: Accelerator end; export GeForce_940MX
 
