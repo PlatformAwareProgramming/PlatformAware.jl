@@ -182,6 +182,7 @@ function loadFeaturesSection!(dict, actual_platform_arguments, default_platform_
 end
 
 function loadFeatures!(dict, default_platform_types, actual_platform_arguments)
+    loadDBs!()
     for key in ["node","processor","accelerator","memory","storage","interconnection"]
         loadFeaturesSection!(dict[key], actual_platform_arguments, default_platform_types) 
     end

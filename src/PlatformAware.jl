@@ -9,6 +9,7 @@ using XMLDict
 using TOML
 using JSON
 using Artifacts
+using Scratch
 
 # quantifiers
 include("quantifiers/atleast.jl")

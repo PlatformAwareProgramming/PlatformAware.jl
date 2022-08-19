@@ -23,21 +23,41 @@
    return d
  end
 
-global database_path = joinpath(pkgdir(@__MODULE__), "src","platforms")
+const processor_dict = Ref{Dict}()
+const accelerator_dict = Ref{Dict}()
 
-@sync begin
+function loadDBs!() 
 
- Threads.@spawn global processor_dict_intel = readDB(joinpath(database_path,"intel","db-processors.Intel.csv"))
- Threads.@spawn global processor_dict_amd = readDB(joinpath(database_path,"amd","db-processors.AMD.csv"))
+   database_path = @get_scratch!("database_path")
 
- Threads.@spawn global accelerator_dict_intel = readDB(joinpath(database_path,"intel","db-accelerators.Intel.csv"))
- Threads.@spawn global accelerator_dict_amd = readDB(joinpath(database_path,"amd/db-accelerators.AMD.csv"))
- Threads.@spawn global accelerator_dict_nvidia = readDB(joinpath(database_path,"nvidia","db-accelerators.NVIDIA.csv"))
+   procdb_intel_url = "https://raw.githubusercontent.com/platform-aware-programming/PlatformAware.jl/master/src/platforms/intel/db-processors.Intel.csv"
+   procdb_amd_url   = "https://raw.githubusercontent.com/platform-aware-programming/PlatformAware.jl/master/src/platforms/amd/db-processors.AMD.csv"
+   accdb_intel_url  = "https://raw.githubusercontent.com/platform-aware-programming/PlatformAware.jl/master/src/platforms/intel/db-accelerators.Intel.csv"
+   accdb_amd_url    = "https://raw.githubusercontent.com/platform-aware-programming/PlatformAware.jl/master/src/platforms/amd/db-accelerators.AMD.csv"
+   accdb_nvidia_url = "https://raw.githubusercontent.com/platform-aware-programming/PlatformAware.jl/master/src/platforms/nvidia/db-accelerators.NVIDIA.csv"
+
+   procdb_intel_fname = joinpath(database_path,basename(procdb_intel_url))
+   procdb_amd_fname = joinpath(database_path,basename(procdb_amd_url))
+   accdb_intel_fname = joinpath(database_path,basename(accdb_intel_url))
+   accdb_amd_fname = joinpath(database_path,basename(accdb_amd_url))
+   accdb_nvidia_fname = joinpath(database_path,basename(accdb_nvidia_url))
+
+   download(procdb_intel_url, procdb_intel_fname)
+   download(procdb_amd_url, procdb_amd_fname)
+   download(accdb_intel_url, accdb_intel_fname)
+   download(accdb_amd_url, accdb_amd_fname)
+   download(accdb_nvidia_url, accdb_nvidia_fname)
+
+   processor_dict_intel = readDB(procdb_intel_fname)
+   processor_dict_amd = readDB(procdb_amd_fname)
+   accelerator_dict_intel = readDB(accdb_intel_fname)
+   accelerator_dict_amd = readDB(accdb_amd_fname)
+   accelerator_dict_nvidia = readDB(accdb_nvidia_fname)
+
+   global processor_dict[] = merge(processor_dict_amd, processor_dict_intel)
+   global accelerator_dict[] = merge(accelerator_dict_intel, accelerator_dict_amd, accelerator_dict_nvidia)
 
 end
-
-global processor_dict = merge(processor_dict_amd, processor_dict_intel)
-global accelerator_dict = merge(accelerator_dict_intel, accelerator_dict_amd, accelerator_dict_nvidia)
 
 function get_info_dict(idtype)
    command = `sudo lshw -xml -quiet -C $idtype`    
@@ -250,11 +270,11 @@ end
 
 
 function identifyProcessorModel(processor_string)
-   lookupDB(processor_dict, processor_string)
+   lookupDB(processor_dict[], processor_string)
 end
 
 function identifyAcceleratorModel(accelerator_string)
-   lookupDB(accelerator_dict, accelerator_string)
+   lookupDB(accelerator_dict[], accelerator_string)
 end
 
 function lookupDB(db, key)
@@ -431,7 +451,6 @@ function identifyProcessor()
       println(stderr, "fail.")
       println(stderr, "=> Error: detecting processor features failed. Using default features.")
       println(stderr, "          You can setup processor features manually.")
-      println(stderr, error)
       return collectProcessorFeaturesDefault()
    end
 
@@ -524,7 +543,6 @@ function identifyAccelerator()
       println(stderr, "fail.")
       println(stderr, "=> Error: detecting accelerator features failed. Using default features.")
       println(stderr, "          You can setup accelerator features manually.")
-      println(stderr, error)
       return collectAcceleratorFeaturesDefault()
    end
 end
@@ -645,7 +663,7 @@ function identifyMemory()
       println(stderr, "fail.")
       println(stderr, "=> Error: detecting primary memory features failed. Using default features.")
       println(stderr, "          You can setup primary memory features manually.")
-      println(stderr,error)
+
       return collectMemoryFeaturesDefault()
    end
 
@@ -701,7 +719,6 @@ function identifyStorage()
       println(stderr, "fail.")
       println(stderr, "=> Error: detection of storage features failed. Using default features.")
       println(stderr, "          You can setup storage features manually.")
-      println(stderr, error)
 
       # default
       storage_features["storage_type"] = "unset"
