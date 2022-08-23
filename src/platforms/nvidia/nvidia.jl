@@ -8,15 +8,23 @@ abstract type NVIDIA <: Manufacturer end; export NVIDIA
 
 abstract type NVIDIAArchitecture <: AcceleratorArchitecture end;  export Tesla
 
-abstract type Tesla <: NVIDIAArchitecture end;  export Tesla
-abstract type Fermi <: NVIDIAArchitecture end;  export Fermi
-abstract type Kepler <: NVIDIAArchitecture end;  export Kepler
-abstract type Maxwell <: NVIDIAArchitecture end;  export Maxwell
-abstract type Pascal <: NVIDIAArchitecture end;  export Pascal
-abstract type Volta <: NVIDIAArchitecture end;  export Volta
-abstract type Turing <: NVIDIAArchitecture end;  export Turing
-abstract type Ampere <: NVIDIAArchitecture end;  export Ampere
-abstract type Hopper <: NVIDIAArchitecture end;  export Hopper
+abstract type Farenheit <: NVIDIAArchitecture end;  export Kelvin
+abstract type Celsius <: Farenheit end;  export Kelvin
+abstract type Kelvin <: Celsius end;  export Kelvin
+abstract type Rankine <: Kelvin end;  export Rankine
+abstract type Curie <: Rankine end;  export Curie
+abstract type Tesla <: Curie end;  export Tesla
+abstract type Tesla2 <: Tesla end;  export Tesla2
+abstract type Fermi <: Tesla2 end;  export Fermi
+abstract type Kepler <: Fermi end;  export Kepler
+abstract type Kepler2 <: Kepler end;  export Kepler2
+abstract type Maxwell <: Kepler2 end;  export Maxwell
+abstract type Maxwell2 <: Maxwell end;  export Maxwell2
+abstract type Pascal <: Maxwell2 end;  export Pascal
+abstract type Volta <: Pascal end;  export Volta
+abstract type Turing <: Volta end;  export Turing
+abstract type Ampere <: Turing end;  export Ampere
+abstract type Hopper <: Ampere end;  export Hopper
 
 # GPU processors
 
