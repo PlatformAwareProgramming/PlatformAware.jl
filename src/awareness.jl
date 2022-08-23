@@ -14,7 +14,6 @@
          for k in ks
             d = get!(d,k,Dict()) 
          end
-         println(ls)
          d[l[2]] = tuple(l[2:length(l)]...)
          d = d2
       end
