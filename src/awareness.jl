@@ -4,7 +4,7 @@
 
  function readDB(filename)
 
-   d = Dict()
+   d = Vector()
    i=0
    for ls in readlines(filename)
       if i>0
@@ -12,9 +12,19 @@
          ks = split(l[1],';')
          d2 = d
          for k in ks
-            d = get!(d,k,Dict()) 
+            next_d = nothing
+            for (key,value) in d
+               if (k == key)
+                  next_d = value      
+               end
+            end
+            if (isnothing(next_d))
+               next_d = Vector()
+               push!(d,(k,next_d))
+            end
+            d = next_d
          end
-         d[l[2]] = tuple(l[2:length(l)]...)
+         push!(d,(l[2],tuple(l[2:length(l)]...)))
          d = d2
       end
       i = i + 1
@@ -23,8 +33,50 @@
    return d
  end
 
-const processor_dict = Ref{Dict}()
-const accelerator_dict = Ref{Dict}()
+ function lookupDB(db, key)
+
+   d = db
+
+   while typeof(d) <: Vector
+
+      ks = d
+
+      found = false
+      for (k,v) in ks 
+         if (occursin(k,key))
+            d = v; found = true
+            break
+         end
+      end
+      if !found return nothing end
+   end
+
+   return d
+
+end
+
+const processor_dict = Ref{Vector}()
+const accelerator_dict = Ref{Vector}()
+
+function try_download(url,fname)
+   try
+      if (isfile(fname))
+         cp(fname,fname * ".backup", force=true)
+      end
+      download(url, fname)
+   catch e
+      print(stderr,"error downloading ", url, ".")
+      if (isfile(fname) || isfile(fname * ".backup"))
+         println(stderr," Using existing file ", fname)
+         if (!isfile(fname))
+            cp(fname * ".backup", fname)
+         end
+      else
+         println(stderr," Check internet connection and try again.")
+         rethrow(e)
+      end
+   end
+end
 
 function loadDBs!() 
 
@@ -36,17 +88,23 @@ function loadDBs!()
    accdb_amd_url    = "https://raw.githubusercontent.com/platform-aware-programming/PlatformAware.jl/master/src/platforms/amd/db-accelerators.AMD.csv"
    accdb_nvidia_url = "https://raw.githubusercontent.com/platform-aware-programming/PlatformAware.jl/master/src/platforms/nvidia/db-accelerators.NVIDIA.csv"
 
-   procdb_intel_fname = joinpath(database_path,basename(procdb_intel_url))
+#   procdb_intel_fname = "/home/heron/Dropbox/Copy/ufc_mdcc_hpc/PlatformAware/PlatformAware.jl/src/platforms/intel/db-processors.Intel.csv" #joinpath(database_path,basename(procdb_intel_url))
+#   procdb_amd_fname = "/home/heron/Dropbox/Copy/ufc_mdcc_hpc/PlatformAware/PlatformAware.jl/src/platforms/amd/db-processors.AMD.csv" #joinpath(database_path,basename(procdb_amd_url))
+#   accdb_intel_fname = "/home/heron/Dropbox/Copy/ufc_mdcc_hpc/PlatformAware/PlatformAware.jl/src/platforms/intel/db-accelerators.Intel.csv" #joinpath(database_path,basename(accdb_intel_url))
+#   accdb_amd_fname = "/home/heron/Dropbox/Copy/ufc_mdcc_hpc/PlatformAware/PlatformAware.jl/src/platforms/amd/db-accelerators.AMD.csv" #joinpath(database_path,basename(accdb_amd_url))
+#   accdb_nvidia_fname = "/home/heron/Dropbox/Copy/ufc_mdcc_hpc/PlatformAware/PlatformAware.jl/src/platforms/nvidia/db-accelerators.NVIDIA.csv" #joinpath(database_path,basename(accdb_nvidia_url))
+
+   procdb_intel_fname =  joinpath(database_path,basename(procdb_intel_url))
    procdb_amd_fname = joinpath(database_path,basename(procdb_amd_url))
    accdb_intel_fname = joinpath(database_path,basename(accdb_intel_url))
    accdb_amd_fname = joinpath(database_path,basename(accdb_amd_url))
    accdb_nvidia_fname = joinpath(database_path,basename(accdb_nvidia_url))
 
-   download(procdb_intel_url, procdb_intel_fname)
-   download(procdb_amd_url, procdb_amd_fname)
-   download(accdb_intel_url, accdb_intel_fname)
-   download(accdb_amd_url, accdb_amd_fname)
-   download(accdb_nvidia_url, accdb_nvidia_fname)
+   try_download(procdb_intel_url, procdb_intel_fname)
+   try_download(procdb_amd_url, procdb_amd_fname)
+   try_download(accdb_intel_url, accdb_intel_fname)
+   try_download(accdb_amd_url, accdb_amd_fname)
+   try_download(accdb_nvidia_url, accdb_nvidia_fname)
 
    processor_dict_intel = readDB(procdb_intel_fname)
    processor_dict_amd = readDB(procdb_amd_fname)
@@ -54,8 +112,8 @@ function loadDBs!()
    accelerator_dict_amd = readDB(accdb_amd_fname)
    accelerator_dict_nvidia = readDB(accdb_nvidia_fname)
 
-   global processor_dict[] = merge(processor_dict_amd, processor_dict_intel)
-   global accelerator_dict[] = merge(accelerator_dict_intel, accelerator_dict_amd, accelerator_dict_nvidia)
+   global processor_dict[] = vcat(processor_dict_amd, processor_dict_intel)
+   global accelerator_dict[] = vcat(accelerator_dict_intel, accelerator_dict_amd, accelerator_dict_nvidia)
 
 end
 
@@ -277,27 +335,7 @@ function identifyAcceleratorModel(accelerator_string)
    lookupDB(accelerator_dict[], accelerator_string)
 end
 
-function lookupDB(db, key)
 
-   d = db
-
-   while typeof(d) <: Dict
-
-      ks = keys(d)
-
-      found = false
-      for k in ks 
-         if (occursin(k,key))
-            d = d[k]; found = true
-            break
-         end
-      end
-      if !found return nothing end
-   end
-
-   return d
-
-end
 
 function getCoreClockString(clock_string)
    if (!isnothing(clock_string))
