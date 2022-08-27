@@ -10,6 +10,7 @@ using TOML
 using JSON
 using Artifacts
 using Scratch
+using Downloads
 
 # quantifiers
 include("quantifiers/atleast.jl")

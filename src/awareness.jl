@@ -63,16 +63,16 @@ function try_download(url,fname)
       if (isfile(fname))
          cp(fname,fname * ".backup", force=true)
       end
-      download(url, fname)
+      Downloads.download(url, fname)
    catch e
-      print(stderr,"error downloading ", url, ".")
+      @info "error downloading $url."
       if (isfile(fname) || isfile(fname * ".backup"))
-         println(stderr," Using existing file ", fname)
+         @info " Using existing file $fname"
          if (!isfile(fname))
             cp(fname * ".backup", fname)
          end
       else
-         println(stderr," Check internet connection and try again.")
+         @info " Check internet connection and try again."
          rethrow(e)
       end
    end
@@ -864,18 +864,16 @@ function setup()
                                close(fn)
                           end 
             end
-      println()      
-      println("Platform.toml file was created in the current folder.")
-      println("You can move it to your preferred target.")
-      println("Platform.toml will be searched in the following locations:")
-      println("  1) A file path pointed by a PLATFORM_DESCRIPTION environment variable;")
-      println("  2) The current directory;")
-      println("  3) The /etc directory.")
+      @info "Platform.toml file was created in the current folder."
+      @info "You can move it to your preferred target."
+      @info "Platform.toml will be searched in the following locations:"
+      @info "  1) A file path pointed by a PLATFORM_DESCRIPTION environment variable;"
+      @info "  2) The current directory;"
+      @info "  3) The /etc directory."
    else
       TOML.print(stdout, platform_features)
-      println(stderr)
-      println(stderr, "Platform description file already exists in the current folder (Platform.toml).")
-      println(stderr, "You must delete or move it before creating a new one.")
+      @info "Platform description file already exists in the current folder (Platform.toml)."
+      @info "You must delete or move it before creating a new one."
    end
    
 end

@@ -2,24 +2,30 @@
 # Licensed under the MIT License. See LICENCE in the project root.
 # ------------------------------------------------------------------
 
-#
-#abstract type AtLeast0 end                     # 0
-#
-#multiplier_super = 0
-#magnitude_ = ""
-#for magnitude in ['n', 'u', 'm', ' ', 'K', 'M', 'G', 'T', 'P', 'E']
-#    for multiplier in [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
-#        magnitude_super = multiplier == 1 ? magnitude_ : magnitude   
-#        code = "abstract type AtLeast" * string(multiplier) * magnitude * " <: AtLeast" * string(multiplier_super) * magnitude_super * " end"        
-#        eval(Meta.parse(code))
-#        multiplier_super = multiplier
-#    end
-#    magnitude_ = magnitude
-#end
-#
-#abstract type AtLeastInf <: AtLeast512E end
+# automated declaration of at-least quantifier types
+
+abstract type AtLeast0 end                     
+
+let mul_super = 0
+    mag_ = ""
+    for mag in ["n", "u", "m", "", "K", "M", "G", "T", "P", "E"]
+        for mul in [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
+            mag_super = mul == 1 ? mag_ : mag   
+            nm1 = Symbol("AtLeast" * string(mul) * mag)
+            nm2 = Symbol("AtLeast" * string(mul_super) * mag_super)
+            @eval abstract type $nm1 <: $nm2 end
+            @eval export $nm1
+            mul_super = mul
+        end
+        mag_ = mag
+    end
+end
+
+abstract type AtLeastInf <: AtLeast512E end
 
 
+
+#=
 # abstract quantities of resources (magnitude order)
 
 abstract type AtLeast0 end                     # 0
@@ -137,3 +143,5 @@ abstract type AtLeast512E <: AtLeast256E end   # 2^69
 # ...
 
 abstract type AtLeastInf <: AtLeast512E end    # ∞
+
+=#

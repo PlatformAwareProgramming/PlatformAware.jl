@@ -70,7 +70,7 @@ function readPlatormDescription()
     # read the platform description file (default to the current directory)
     filename = get(ENV,"PLATFORM_DESCRIPTION","Platform.toml")
     
-    println("reading platform description at " * filename);
+    @info "reading platform description at $filename"
 
     platform_description_toml =   
          try
@@ -85,9 +85,9 @@ function readPlatormDescription()
                 close(io)
                 contents
             catch
-                println(stderr,"The platform description file (Platform.toml) was not found.")
-                println(stderr,"Using default platform features (calling default kernels).")
-                println(stderr,"A Platform.toml file may be created by calling PlatformAware.setup()")
+                @info "The platform description file (Platform.toml) was not found."
+                @info "Using default platform features (calling default kernels)."
+                @info "A Platform.toml file may be created by calling PlatformAware.setup()"
 
                 io = joinpath(artifact"default_platform_description", "DefaultPlatform.toml")                
                 read(io,String)
@@ -99,25 +99,31 @@ end
 
 function get_quantifier_from_number(n)
 
-    magnitude = Dict(0 => "", 1 => "K", 2 => "M", 3 => "G", 4 => "T", 5 => "P", 6 => "E")
+    if n>0
 
-    l = log(2,n)
-    a = round(l)
-    b = isinteger(l) ? a : a + 1;    
+        magnitude = Dict(0 => "", 1 => "K", 2 => "M", 3 => "G", 4 => "T", 5 => "P", 6 => "E")
 
-    # the following loop separates a and b in multiplier*magnitude (see the POPL's paper).
+        l = log(2,n)
+        a = round(l)
+        b = isinteger(l) ? a : a + 1;    
 
-    # let A = 2^a
-    m=0
-    while a>9 
-        # loop invariant: A = 2^a * 2^(10*m)
-        a = a - 10
-        b = b - 10
-        m = m + 1
+        # the following loop separates a and b in multiplier*magnitude (see the POPL's paper).
+
+        # let A = 2^a
+        m=0
+        while a>9 
+            # loop invariant: A = 2^a * 2^(10*m)
+            a = a - 10
+            b = b - 10
+            m = m + 1
+        end
+
+        a_str = "AtLeast" * string(Integer(2^a)) * magnitude[m]
+        b_str = "AtMost" * string(Integer(2^b)) * magnitude[m]
+    else
+        a_str = "AtLeast0"
+        b_str = "AtMost0"
     end
-
-    a_str = "AtLeast" * string(Integer(2^a)) * magnitude[m]
-    b_str = "AtMost" * string(Integer(2^b)) * magnitude[m]
 
     a_type = getfield(@__MODULE__, Meta.parse(a_str))
     b_type = getfield(@__MODULE__, Meta.parse(b_str))

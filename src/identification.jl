@@ -195,10 +195,10 @@ macro platform(t,f)
     elseif (t == :parameter && getaddparameter())
         platform_parameter_macro!(f)
     elseif (t == :parameter && !getaddparameter())
-        println("cannot add parameters after including the first kernel method")
+        @info "cannot add parameters after including the first kernel method"
     else
-        println("usage: platform [default | aware] <function declaration>")
-        println("       platform parameter :(<parameter name>)")
+        @info "usage: platform [default | aware] <function declaration>"
+        @info "       platform parameter :(<parameter name>)"
     end
  end
 

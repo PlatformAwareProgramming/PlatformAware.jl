@@ -2,28 +2,33 @@
 # Licensed under the MIT License. See LICENCE in the project root.
 # ------------------------------------------------------------------
 
-#abstract type AtMostInf end                     # 0
 
-#multiplier_super = "Inf"
-#magnitude_ = ""
-#for magnitude in reverse(['n', 'u', 'm', ' ', 'K', 'M', 'G', 'T', 'P', 'E'])
-#    for multiplier in reverse([1, 2, 4, 8, 16, 32, 64, 128, 256, 512])
-#        magnitude_super = multiplier == 512 ? magnitude_ : magnitude   
-#        code = "abstract type AtMost" * string(multiplier) * magnitude * " <: AtMost" * string(multiplier_super) * magnitude_super * " end"        
-#        eval(Meta.parse(code)); println(code)
-#        multiplier_super = multiplier
-#    end
-#    magnitude_ = magnitude
-#end
-#
-#abstract type AtMost0 <: AtMost1n end
+# automated declaration of at-most quantifier types
+
+abstract type AtMostInf end                     
+
+let mul_super = "Inf" ,
+    mag_ = "" ;
+    for mag in reverse(["n", "u", "m", "", "K", "M", "G", "T", "P", "E"])
+        for mul in reverse([1, 2, 4, 8, 16, 32, 64, 128, 256, 512])
+            mag_super = mul==512 ? mag_ : mag
+            nm1 = Symbol("AtMost" * string(mul) * mag)
+            nm2 = Symbol("AtMost" * string(mul_super) * mag_super)
+            @eval abstract type $nm1 <: $nm2 end
+            mul_super = mul
+        end
+        mag_ = mag
+    end
+end
+
+abstract type AtMost0 <: AtMost1n end
 
 
-# abstract quantities of resources (magnitude order)
+
+
+#=
 
 abstract type AtMostInf end                             # ∞
-
-# ...
 
 abstract type AtMost512E <: AtMostInf end               # 2^69
 abstract type AtMost256E <: AtMost512E end              # 2^68
@@ -136,4 +141,7 @@ abstract type AtMost2n <: AtMost4n end                  # 2^-29
 abstract type AtMost1n <: AtMost2n end                  # 2^-30
 
 abstract type AtMost0 <: AtMost1n end                   # 0
+
+=#
+
 
