@@ -26,7 +26,6 @@ abstract type AtLeastInf <: AtLeast512E end
 
 
 #=
-# abstract quantities of resources (magnitude order)
 
 abstract type AtLeast0 end                     # 0
 
