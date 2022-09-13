@@ -5,6 +5,7 @@
     #= for the first 5 kernels =#
     @platform parameter accelerator_count
     @platform parameter accelerator_manufacturer
+    @platform parameter accelerator_api
     @platform parameter node_count
     @platform parameter processor
     @platform parameter accelerator_architecture
@@ -30,7 +31,8 @@
         println(z,": kernel for 1 accelerators of unspecified kind")
     end
     @platform aware function kernel({accelerator_count::(@atleast 1),
-                                     accelerator_manufacturer::NVIDIA},
+                                     accelerator_manufacturer::NVIDIA,
+                                     accelerator_api::(@api OpenCL 3.0)},
                                     x,y,args...; z=2, kwargs...)
         println(z,": kernel for 1 NVIDIA accelerators")
     end

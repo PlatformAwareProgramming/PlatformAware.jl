@@ -2,7 +2,7 @@
 # Licensed under the MIT License. See LICENCE in the project root.
 # ------------------------------------------------------------------
 
-@enum FeatureType qualifier=1 quantifier
+@enum FeatureType qualifier=1 api_qualifier quantifier
 
 global feature_type = Dict(
     :node_count => quantifier,
@@ -47,7 +47,7 @@ global feature_type = Dict(
     :accelerator_manufacturer => qualifier,
     :accelerator_type => qualifier,
     :accelerator_architecture => qualifier,
-    :accelerator_api => qualifier,
+    :accelerator_api => api_qualifier,
     :accelerator_memorysize => quantifier,
     :accelerator_tdp => quantifier,
     :accelerator => qualifier,
@@ -168,6 +168,43 @@ function check_blank_feature(parameter_id, feature, default_platform_types)
     end
 end
 
+function identifyAPI_oldversion(api_string)
+
+    dt = AcceleratorBackend
+
+    api_type = get_qualifier(api_string)
+
+    if (startswith(api_string, "CUDA"))        return @eval Tuple{$api_type,$dt,$dt,$dt,$dt,$dt,$dt}
+    elseif (startswith(api_string, "OpenCL"))  return @eval Tuple{$dt,$api_type,$dt,$dt,$dt,$dt,$dt}
+    elseif (startswith(api_string, "OpenACC")) return @eval Tuple{$dt,$dt,$api_type,$dt,$dt,$dt,$dt}
+    elseif (startswith(api_string, "OneAPI"))  return @eval Tuple{$dt,$dt,$dt,$api_type,$dt,$dt,$dt}
+    elseif (startswith(api_string, "OpenGL"))  return @eval Tuple{$dt,$dt,$dt,$dt,$api_type,$dt,$dt}
+    elseif (startswith(api_string, "Vulkan"))  return @eval Tuple{$dt,$dt,$dt,$dt,$dt,$api_type,$dt}
+    elseif (startswith(api_string, "DirectX")) return @eval Tuple{$dt,$dt,$dt,$dt,$dt,$dt,$api_type}
+    else return @eval Tuple{$dt,$dt,$dt,$dt,$dt,$dt}
+    end
+ 
+ end
+
+function get_api_qualifier(api_string, default_platform_types)
+
+    apis = split(api_string,';')
+ 
+    if length(apis) == 1
+       return identifyAPI_oldversion(api_string)
+    end
+ 
+    cuda_api = get_qualifier(apis[1] in ["na","unset","unknown","ignore"] ? "AcceleratorBackend" : apis[1])
+    opencl_api = get_qualifier(apis[2] in ["na","unset","unknown","ignore"] ? "AcceleratorBackend" : apis[2])
+    openacc_api = get_qualifier(apis[3] in ["na","unset","unknown","ignore"] ? "AcceleratorBackend" : apis[3])
+    oneapi_api = get_qualifier(apis[4] in ["na","unset","unknown","ignore"] ? "AcceleratorBackend" : apis[4])
+    opengl_api = get_qualifier(apis[5] in ["na","unset","unknown","ignore"] ? "AcceleratorBackend" : apis[5])
+    vulkan_api = get_qualifier(apis[6] in ["na","unset","unknown","ignore"] ? "AcceleratorBackend" : apis[6])
+    directx_api = get_qualifier(apis[7] in ["na","unset","unknown","ignore"] ? "AcceleratorBackend" : apis[7])
+ 
+    @eval Tuple{$cuda_api,$opencl_api,$openacc_api,$oneapi_api,$opengl_api,$vulkan_api,$directx_api}
+ 
+ end
 
 function loadFeaturesSection!(dict, actual_platform_arguments, default_platform_types)
 
@@ -179,7 +216,7 @@ function loadFeaturesSection!(dict, actual_platform_arguments, default_platform_
         p = Meta.parse(parameter_id)
         v0 = check_blank_feature(p, feature, default_platform_types)
         v = if (isnothing(v0))
-                feature_type[p] == qualifier ? get_qualifier(feature) : get_quantifier(feature) 
+                feature_type[p] == qualifier ? get_qualifier(feature) :  feature_type[p] == api_qualifier ? get_api_qualifier(feature, default_platform_types) : get_quantifier(feature) 
             else
                 v0
             end
@@ -189,7 +226,7 @@ end
 
 function loadFeatures!(dict, default_platform_types, actual_platform_arguments)
     loadDBs!()
-    for key in ["node","processor","accelerator","memory","storage","interconnection"]
+    for key in ["node", "processor", "accelerator", "memory", "storage", "interconnection"]
         loadFeaturesSection!(dict[key], actual_platform_arguments, default_platform_types) 
     end
 end

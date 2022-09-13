@@ -11,9 +11,9 @@ abstract type OpenCL_1_2 <: OpenCL_1_1 end
 abstract type OpenCL_2_0 <: OpenCL_1_2 end
 abstract type OpenCL_2_1 <: OpenCL_2_0 end
 abstract type OpenCL_2_2 <: OpenCL_2_1 end
-abstract type OpenCL_3 <: OpenCL_2_2 end
+abstract type OpenCL_3_0 <: OpenCL_2_2 end
 
-export OpenCL_API, OpenCL_1_0, OpenCL_1_1, OpenCL_1_2, OpenCL_2_0, OpenCL_2_1, OpenCL_2_2, OpenCL_3
+export OpenCL_API, OpenCL_1_0, OpenCL_1_1, OpenCL_1_2, OpenCL_2_0, OpenCL_2_1, OpenCL_2_2, OpenCL_3_0
 
 # SIMD extensions
 
