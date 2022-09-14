@@ -174,16 +174,22 @@ function identifyAPI_oldversion(api_string)
 
     api_type = get_qualifier(api_string)
 
-    if (startswith(api_string, "CUDA"))        return @eval Tuple{$api_type,$dt,$dt,$dt,$dt,$dt,$dt}
-    elseif (startswith(api_string, "OpenCL"))  return @eval Tuple{$dt,$api_type,$dt,$dt,$dt,$dt,$dt}
-    elseif (startswith(api_string, "OpenACC")) return @eval Tuple{$dt,$dt,$api_type,$dt,$dt,$dt,$dt}
-    elseif (startswith(api_string, "OneAPI"))  return @eval Tuple{$dt,$dt,$dt,$api_type,$dt,$dt,$dt}
-    elseif (startswith(api_string, "OpenGL"))  return @eval Tuple{$dt,$dt,$dt,$dt,$api_type,$dt,$dt}
-    elseif (startswith(api_string, "Vulkan"))  return @eval Tuple{$dt,$dt,$dt,$dt,$dt,$api_type,$dt}
-    elseif (startswith(api_string, "DirectX")) return @eval Tuple{$dt,$dt,$dt,$dt,$dt,$dt,$api_type}
-    else return @eval Tuple{$dt,$dt,$dt,$dt,$dt,$dt}
+
+    
+    if (startswith(api_string, "CUDA"))        return Tuple{api_type,dt,dt,dt,dt,dt,dt}
+    elseif (startswith(api_string, "OpenCL"))  return Tuple{dt,api_type,dt,dt,dt,dt,dt}
+    elseif (startswith(api_string, "OpenACC")) return Tuple{dt,dt,api_type,dt,dt,dt,dt}
+    elseif (startswith(api_string, "OneAPI"))  return Tuple{dt,dt,dt,api_type,dt,dt,dt}
+    elseif (startswith(api_string, "OpenGL"))  return Tuple{dt,dt,dt,dt,api_type,dt,dt}
+    elseif (startswith(api_string, "Vulkan"))  return Tuple{dt,dt,dt,dt,dt,api_type,dt}
+    elseif (startswith(api_string, "DirectX")) return Tuple{dt,dt,dt,dt,dt,dt,api_type}
+    else return Tuple{dt,dt,dt,dt,dt,dt}
     end
  
+
+    #Tuple{Any,Any,Any,Any,Any,Any,Any}
+
+
  end
 
 function get_api_qualifier(api_string, default_platform_types)
@@ -202,7 +208,8 @@ function get_api_qualifier(api_string, default_platform_types)
     vulkan_api = get_qualifier(apis[6] in ["na","unset","unknown","ignore"] ? "AcceleratorBackend" : apis[6])
     directx_api = get_qualifier(apis[7] in ["na","unset","unknown","ignore"] ? "AcceleratorBackend" : apis[7])
  
-    @eval Tuple{$cuda_api,$opencl_api,$openacc_api,$oneapi_api,$opengl_api,$vulkan_api,$directx_api}
+    Tuple{cuda_api,opencl_api,openacc_api,oneapi_api,opengl_api,vulkan_api,directx_api}
+    #Tuple{Any,Any,Any,Any,Any,Any,Any}
  
  end
 
