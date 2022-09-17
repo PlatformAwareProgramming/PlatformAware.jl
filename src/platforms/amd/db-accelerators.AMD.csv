@@ -1,4 +1,4 @@
-,,accelerator,accelerator_type,accelerator_manufacturer,accelerator_api,accelerator_architecture,accelerator_memorysize,accelerator_tdp
+,,accelerator,accelerator_type,accelerator_manufacturer,accelerator_api,accelerator_architecture,accelerator_memory_size,accelerator_tdp
 ATI;Radeon;HD,5970,ATI_AMDRadeon_HD_5970,GPU,AMD,OpenCL_1_2,TeraScale2,2GB,294
 ATI;Radeon;HD,5870,ATI_AMDRadeon_HD_5870,GPU,AMD,OpenCL_1_2,TeraScale2,1GB,188
 ATI;Radeon;HD,5850,ATI_AMDRadeon_HD_5850,GPU,AMD,OpenCL_1_2,TeraScale2,1GB,151

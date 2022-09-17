@@ -15,6 +15,29 @@ abstract type OpenCL_3_0 <: OpenCL_2_2 end
 
 export OpenCL_API, OpenCL_1_0, OpenCL_1_1, OpenCL_1_2, OpenCL_2_0, OpenCL_2_1, OpenCL_2_2, OpenCL_3_0
 
+# OpenGL
+abstract type OpenGL_API <: AcceleratorBackend end
+abstract type OpenGL_4_6 <: OpenGL_API end
+
+export OpenGL_API, OpenGL_4_6
+
+# Vulkan
+abstract type Vulkan_API <: AcceleratorBackend end
+abstract type Vulkan_1_1 <: Vulkan_API end
+abstract type Vulkan_1_2 <: Vulkan_1_1 end
+abstract type Vulkan_1_3 <: Vulkan_1_2 end
+
+export Vulkan_API, Vulkan_1_1, Vulkan_1_2, Vulkan_1_3
+
+# DirectX
+
+abstract type DirectX_API <: AcceleratorBackend end
+abstract type DirectX_11_0 <: DirectX_API end
+abstract type DirectX_12_1 <: DirectX_11_0 end
+abstract type DirectX_12_2 <: DirectX_12_1 end
+
+export DirectX_API, DirectX_11_0, DirectX_12_1, DirectX_12_2
+
 # SIMD extensions
 
 abstract type Now3D <: ProcessorSIMD end
@@ -92,4 +115,5 @@ abstract type ISA_IA_64 <: ProcessorISA end
     
 
 export ISA_x86_32, ISA_x86, ISA_x86_64, ISA_AMD_64, ISA_x86_64_v1, ISA_x86_64_v2, ISA_x86_64_v3, ISA_x86_64_v4, ISA_IA_64
+
 

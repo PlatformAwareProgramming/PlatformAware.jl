@@ -58,7 +58,35 @@ abstract type GA102 <: NVIDIAGPUProcessor end; export GA102
 abstract type GA102_890_A1 <: GA102 end; export GA102_890_A1
 abstract type GA107 <: NVIDIAGPUProcessor end; export GA107
 abstract type GH100 <: NVIDIAGPUProcessor end; export GH100
-	
+abstract type AD102 <: NVIDIAGPUProcessor end; export AD102
+abstract type AD103 <: NVIDIAGPUProcessor end; export AD103
+abstract type AD104 <: NVIDIAGPUProcessor end; export AD104
+abstract type GA103S <: NVIDIAGPUProcessor end; export GA103S
+abstract type GA104 <: NVIDIAGPUProcessor end; export GA104
+abstract type GA106 <: NVIDIAGPUProcessor end; export GA106
+abstract type GA107S <: NVIDIAGPUProcessor end; export GA107S
+abstract type GF108 <: NVIDIAGPUProcessor end; export GF108
+abstract type GF119 <: NVIDIAGPUProcessor end; export GF119
+abstract type GK106 <: NVIDIAGPUProcessor end; export GK106
+abstract type GK107 <: NVIDIAGPUProcessor end; export GK107
+abstract type GK208B <: NVIDIAGPUProcessor end; export GK208B
+abstract type GM108 <: NVIDIAGPUProcessor end; export GM108
+abstract type GM108M <: NVIDIAGPUProcessor end; export GM108M
+abstract type GM20B <: NVIDIAGPUProcessor end; export GM20B
+abstract type GP106 <: NVIDIAGPUProcessor end; export GP106
+abstract type GP107 <: NVIDIAGPUProcessor end; export GP107
+abstract type GP108 <: NVIDIAGPUProcessor end; export GP108
+abstract type GP108B <: NVIDIAGPUProcessor end; export GP108B
+abstract type GP10B <: NVIDIAGPUProcessor end; export GP10B
+abstract type GV10B <: NVIDIAGPUProcessor end; export GV10B
+abstract type TU102 <: NVIDIAGPUProcessor end; export TU102
+abstract type TU104 <: NVIDIAGPUProcessor end; export TU104
+abstract type TU104B <: NVIDIAGPUProcessor end; export TU104B
+abstract type TU106 <: NVIDIAGPUProcessor end; export TU106
+abstract type TU106B <: NVIDIAGPUProcessor end; export TU106B
+abstract type TU116 <: NVIDIAGPUProcessor end; export TU116
+abstract type TU117 <: NVIDIAGPUProcessor end; export TU117
+abstract type TU117B <: NVIDIAGPUProcessor end; export TU117B
 
 # CUDA API
 
@@ -67,15 +95,19 @@ abstract type CUDA_API <: AcceleratorBackend end; export CUDA_API
 abstract type CUDA_1_0 <: CUDA_API end; const CUDA1 = CUDA_1_0; export CUDA_1_0, CUDA1
 abstract type CUDA_1_3 <: CUDA_1_0  end; export CUDA_1_3
 abstract type CUDA_2_0 <: CUDA_1_3 end; const CUDA2 = CUDA_2_0; export CUDA_2_0, CUDA2
-abstract type CUDA_3_0 <: CUDA_2_0 end; const CUDA3 = CUDA_3_0; export CUDA_3_0, CUDA3
+abstract type CUDA_2_1 <: CUDA_2_0 end; export CUDA_2_1
+abstract type CUDA_3_0 <: CUDA_2_1 end; const CUDA3 = CUDA_3_0; export CUDA_3_0, CUDA3
 abstract type CUDA_3_5 <: CUDA_3_0 end; export CUDA_3_5
 abstract type CUDA_3_7 <: CUDA_3_5 end; export CUDA_3_7
 abstract type CUDA_5_0 <: CUDA_3_7 end; export CUDA_5_2
 abstract type CUDA_5_2 <: CUDA_5_0 end; export CUDA_5_0
-abstract type CUDA_6_0 <: CUDA_5_2 end; const CUDA6 = CUDA_6_0; export CUDA_6_0, CUDA6
+abstract type CUDA_5_3 <: CUDA_5_2 end; export CUDA_5_3
+abstract type CUDA_6_0 <: CUDA_5_3 end; const CUDA6 = CUDA_6_0; export CUDA_6_0, CUDA6
 abstract type CUDA_6_1 <: CUDA_6_0 end; export CUDA_6_1
-abstract type CUDA_7_0 <: CUDA_6_1 end; const CUDA7 = CUDA_7_0; export CUDA_7_0, CUDA7
-abstract type CUDA_7_5 <: CUDA_7_0 end; export CUDA_7_5
+abstract type CUDA_6_2 <: CUDA_6_1 end; export CUDA_6_2
+abstract type CUDA_7_0 <: CUDA_6_2 end; const CUDA7 = CUDA_7_0; export CUDA_7_0, CUDA7
+abstract type CUDA_7_2 <: CUDA_7_0 end; export CUDA_7_2
+abstract type CUDA_7_5 <: CUDA_7_2 end; export CUDA_7_5
 abstract type CUDA_8_0 <: CUDA_7_5 end; const CUDA8 = CUDA_8_0; export CUDA_8_0, CUDA8
 abstract type CUDA_8_6 <: CUDA_8_0 end; export CUDA_8_6
 abstract type CUDA_9_0 <: CUDA_8_6 end; const CUDA9 = CUDA_9_0; export CUDA_9_0, CUDA9

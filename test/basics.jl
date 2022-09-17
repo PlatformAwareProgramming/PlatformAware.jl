@@ -17,7 +17,7 @@
     @platform parameter interconnection_bandwidth
     @platform parameter interconnection_latency
     @platform parameter accelerator_type
-    @platform parameter accelerator_memorysize
+    @platform parameter accelerator_memory_size
     @platform parameter processor_simd
 
     # define a kernel
@@ -32,7 +32,7 @@
     end
     @platform aware function kernel({accelerator_count::(@atleast 1),
                                      accelerator_manufacturer::NVIDIA,
-                                     accelerator_api::(@api OpenCL 3.0)},
+                                     accelerator_api::(@api CUDA 3.0)},
                                     x,y,args...; z=2, kwargs...)
         println(z,": kernel for 1 NVIDIA accelerators")
     end
@@ -60,7 +60,7 @@
     end
     @platform aware function kernel({accelerator_count::(@atleast 1),
                                      accelerator_type::FPGA,
-                                     accelerator_memorysize::(@atleast 16G),
+                                     accelerator_memory_size::(@atleast 16G),
                                      processor_simd::AVX512,
                                      node_memory_size::(@atleast 256G)
                                     },

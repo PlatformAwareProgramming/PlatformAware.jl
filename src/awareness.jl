@@ -88,23 +88,23 @@ function loadDBs!()
    accdb_amd_url    = "https://raw.githubusercontent.com/platform-aware-programming/PlatformAware.jl/master/src/platforms/amd/db-accelerators.AMD.csv"
    accdb_nvidia_url = "https://raw.githubusercontent.com/platform-aware-programming/PlatformAware.jl/master/src/platforms/nvidia/db-accelerators.NVIDIA.csv"
 
-#   procdb_intel_fname = "/home/heron/Dropbox/Copy/ufc_mdcc_hpc/PlatformAware/PlatformAware.jl/src/platforms/intel/db-processors.Intel.csv" #joinpath(database_path,basename(procdb_intel_url))
-#   procdb_amd_fname = "/home/heron/Dropbox/Copy/ufc_mdcc_hpc/PlatformAware/PlatformAware.jl/src/platforms/amd/db-processors.AMD.csv" #joinpath(database_path,basename(procdb_amd_url))
-#   accdb_intel_fname = "/home/heron/Dropbox/Copy/ufc_mdcc_hpc/PlatformAware/PlatformAware.jl/src/platforms/intel/db-accelerators.Intel.csv" #joinpath(database_path,basename(accdb_intel_url))
-#   accdb_amd_fname = "/home/heron/Dropbox/Copy/ufc_mdcc_hpc/PlatformAware/PlatformAware.jl/src/platforms/amd/db-accelerators.AMD.csv" #joinpath(database_path,basename(accdb_amd_url))
-#   accdb_nvidia_fname = "/home/heron/Dropbox/Copy/ufc_mdcc_hpc/PlatformAware/PlatformAware.jl/src/platforms/nvidia/db-accelerators.NVIDIA.csv" #joinpath(database_path,basename(accdb_nvidia_url))
+   procdb_intel_fname = "/home/heron/Dropbox/Copy/ufc_mdcc_hpc/PlatformAware/PlatformAware.jl/src/platforms/intel/db-processors.Intel.csv" #joinpath(database_path,basename(procdb_intel_url))
+   procdb_amd_fname = "/home/heron/Dropbox/Copy/ufc_mdcc_hpc/PlatformAware/PlatformAware.jl/src/platforms/amd/db-processors.AMD.csv" #joinpath(database_path,basename(procdb_amd_url))
+   accdb_intel_fname = "/home/heron/Dropbox/Copy/ufc_mdcc_hpc/PlatformAware/PlatformAware.jl/src/platforms/intel/db-accelerators.Intel.csv" #joinpath(database_path,basename(accdb_intel_url))
+   accdb_amd_fname = "/home/heron/Dropbox/Copy/ufc_mdcc_hpc/PlatformAware/PlatformAware.jl/src/platforms/amd/db-accelerators.AMD.csv" #joinpath(database_path,basename(accdb_amd_url))
+   accdb_nvidia_fname = "/home/heron/Dropbox/Copy/ufc_mdcc_hpc/PlatformAware/PlatformAware.jl/src/platforms/nvidia/db-accelerators.NVIDIA.csv" #joinpath(database_path,basename(accdb_nvidia_url))
 
-   procdb_intel_fname =  joinpath(database_path,basename(procdb_intel_url))
-   procdb_amd_fname = joinpath(database_path,basename(procdb_amd_url))
-   accdb_intel_fname = joinpath(database_path,basename(accdb_intel_url))
-   accdb_amd_fname = joinpath(database_path,basename(accdb_amd_url))
-   accdb_nvidia_fname = joinpath(database_path,basename(accdb_nvidia_url))
+#   procdb_intel_fname =  joinpath(database_path,basename(procdb_intel_url))
+#   procdb_amd_fname = joinpath(database_path,basename(procdb_amd_url))
+#   accdb_intel_fname = joinpath(database_path,basename(accdb_intel_url))
+#   accdb_amd_fname = joinpath(database_path,basename(accdb_amd_url))
+#   accdb_nvidia_fname = joinpath(database_path,basename(accdb_nvidia_url))
 
-   try_download(procdb_intel_url, procdb_intel_fname)
-   try_download(procdb_amd_url, procdb_amd_fname)
-   try_download(accdb_intel_url, accdb_intel_fname)
-   try_download(accdb_amd_url, accdb_amd_fname)
-   try_download(accdb_nvidia_url, accdb_nvidia_fname)
+#  try_download(procdb_intel_url, procdb_intel_fname)
+#   try_download(procdb_amd_url, procdb_amd_fname)
+#   try_download(accdb_intel_url, accdb_intel_fname)
+#   try_download(accdb_amd_url, accdb_amd_fname)
+#   try_download(accdb_nvidia_url, accdb_nvidia_fname)
 
    processor_dict_intel = readDB(procdb_intel_fname)
    processor_dict_amd = readDB(procdb_amd_fname)
@@ -543,8 +543,11 @@ function collectAcceleratorFeatures(l)
       device["accelerator_manufacturer"] = acc_info[4]
       device["accelerator_api"] = acc_info[5]
       device["accelerator_architecture"] = acc_info[6]
-      device["accelerator_memorysize"] = acc_info[7]
+      device["accelerator_memory_size"] = acc_info[7]
       device["accelerator_tdp"] = acc_info[8]
+      device["accelerator_processor_count"] = length(acc_info) > 8 ? acc_info[9] : "unset"
+      device["accelerator_processor"] = length(acc_info) > 9 ? acc_info[10] : "unset"
+      device["accelerator_memory_type"] = length(acc_info) > 10 ? acc_info[11] : "unset"
 
        i = i + 1
    end
@@ -562,8 +565,11 @@ function collectAcceleratorFeaturesDefault()
       default_features["accelerator_manufacturer"] = "unset"
       default_features["accelerator_api"] = "unset"
       default_features["accelerator_architecture"] = "unset"
-      default_features["accelerator_memorysize"] = "unset"
+      default_features["accelerator_memory_size"] = "unset"
       default_features["accelerator_tdp"] = "unset"
+      default_features["accelerator_processor"] = "unset"
+      default_features["accelerator_processor_count"] = "unset"
+      default_features["accelerator_memory_type"] = "unset"
 
     return default_features
 end
