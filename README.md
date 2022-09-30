@@ -144,24 +144,24 @@ Finally, we present the complete code for _src/MyFFT.jl_, with the implementatio
 ```julia
 module MyFFT
 
-    import PlatformAware
+    using PlatformAware
 
     @platform parameter clear
     @platform parameter accelerator_count
     @platform parameter accelerator_api
 
     @platform default which_api() = :fftw
-    @platform aware which_api({accelerator_count::(@atleast 1), accelerator_api::(@api CUDA)}) = :clfft
-    @platform aware which_api({accelerator_count::(@atleast 1), accelerator_api::(@api OpenCL)}) = :cufft
+    @platform aware which_api({accelerator_count::(@atleast 1), accelerator_api::(@api CUDA)}) = :cufft
+    @platform aware which_api({accelerator_count::(@atleast 1), accelerator_api::(@api OpenCL)}) = :clfft
 
     api = which_api()
     if (api == :cufft) 
-        import CUDA; const cufft = CUDA.FFT
+        using CUDA; const cufft = CUDA.CUFFT
     elseif (api == :clfft) 
-        import OpenCL; const cl = OpenCL
-        import CLFFT; const clfft = CLFFT
+        using OpenCL
+        using CLFFT; const clfft = CLFFT
     else # api == :fftw 
-        import FFTW; const fftw = FFTW
+        using FFTW; const fftw = FFTW
     end
 
     # Fallback kernel
@@ -169,23 +169,23 @@ module MyFFT
 
     # OpenCL kernel
     @platform aware function fft({accelerator_count::(@atleast 1), accelerator_api::(@api OpenCL)}, X)
+        T = eltype(X)
         _, ctx, queue = cl.create_compute_context()
-        bufX = cl.Buffer(Complex64, ctx, :copy, hostbuf=X)
-        p = clfft.Plan(Complex64, ctx, size(X))
+        bufX = cl.Buffer(T, ctx, :copy, hostbuf=X)
+        p = clfft.Plan(T, ctx, size(X))
         clfft.set_layout!(p, :interleaved, :interleaved)
         clfft.set_result!(p, :inplace)
         clfft.bake!(p, queue)
         clfft.enqueue_transform(p, :forward, [queue], bufX, nothing)
-        cl.read(queue, bufX)
+        reshape(cl.read(queue, bufX), size(X))
     end
 
     # CUDA kernel
-    @platform aware fft({accelerator_count::(@atleast 1), accelerator_api::(@api CUDA)},X) = cufft.fft(X)
+    @platform aware fft({accelerator_count::(@atleast 1), accelerator_api::(@api CUDA)},X) = cufft.fft(X |> CuArray)
 
     export fft
 
 end # module MyFFT
-
 ```
 
 ## A general guideline
