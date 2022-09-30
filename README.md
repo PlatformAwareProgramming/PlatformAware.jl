@@ -57,7 +57,7 @@ import Pkg; Pkg.add("PlatormAware")
 Alternatively, in the ```pkg``` environment:
 
 ```julia
-add PlatformAware
+] add PlatformAware
 ```
 Now, load the _PlatfomAware.jl_ package (```using PlatformAware``` or ```import PlatformAware```) and read the output message:
 
