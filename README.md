@@ -188,6 +188,8 @@ module MyFFT
 end # module MyFFT
 ```
 
+## Running and testing _fft_ kernels
+
 ## A general guideline
 
 Therefore, we suggest the following general guideline for package developers who want to take advantage of _PlatformWare.jl_.
