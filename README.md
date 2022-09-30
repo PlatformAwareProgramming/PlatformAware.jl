@@ -39,15 +39,17 @@ fftconv(X,K) = fft(X) .* conj.(fft(K))
 
 Let's follow a sequence of steps to implement a version of _MyFFT.jl_ that relies on _PlatformAware.jl_ to make it possible the ```fft``` function to take advantage of a GPU device whether it is the present in the underlying execution platform.
 
-First, in the Julia REPL, enter the ```pkg``` environment by typing the "]" symbol. Then, like in the screenshot below, run ```generate MyFFT.jl``` to create a new project called _MyFFT.jl_ and, after exiting the ```pkg``` environment, run ```cd("MyFFT.jl")``` to move to the directory of the created project.
+First, in the Julia REPL, enter the ```pkg``` environment by typing the "]" symbol. Then, like in the screenshot below, run ```generate MyFFT.jl``` to create a new project called _MyFFT.jl_ and, after exiting the ```pkg``` environment by typing the backscape key 🔙, run ```cd("MyFFT.jl")``` to move to the directory of the created project.
 
+![f1](docs/src/images/f1.png)
 
+These operations create a standard _"hello world"_ project, with the contents of the following snapshot:
 
-These operations create a standard _"hello world"_ project, with the contents of the following snapshot.
+![f2](docs/src/images/f2.png)
 
 ### Installing PlatformAware.jl
 
-It is necessary to install the _PlatormAware.jl_ packages by executing the following command:
+It is necessary to install the _PlatormAware.jl_ packages by executing the following command in the Julia REPL:
 
 ```julia 
 import Pkg; Pkg.add("PlatormAware")
@@ -57,21 +59,15 @@ Alternatively, in the ```pkg``` environment:
 ```julia
 add PlatformAware
 ```
-Now, load the _PlatfomAware.jl_ package and read the output message:
+Now, load the _PlatfomAware.jl_ package (```using PlatformAware``` or ```import PlatformAware```) and read the output message:
 
+![f3](docs/src/images/f3.png)
 
-
-The output message says that the _Platform.toml_, which describes the features of the underlying platform, does not exist. Also, it explains how it can be generated, by executing ```PlatformAware.setup()```. It will create the _Platform.toml_ file in the current folder. Despite being automatically generated, _Platform.toml_ is written in a human editable format. So, users may modify it to add non detected platform features or ignore detected features.
-
-
-
-
-
-
+It informs that the _Platform.toml_, which describes the features of the underlying platform, does not exist. Also, it explains how the platform description file can be generated in the current folder, by executing ```PlatformAware.setup()```. Despite being automatically generated, _Platform.toml_ is written in a human-editable format. So, it may be modified by users in order to add non detected platform features or ignore detected features.
 
 ### Sketching the MyFFT.jl code
 
-In order to implement the _fft_ kernel function, we edit  the _src/MyFFT.jl_ file. First, let's sketch the code of the three _fft_ kernel methods:
+In order to implement the _fft_ kernel function, we edit  the _src/MyFFT.jl_ file. First, we sketch the code of the _fft_ kernel methods:
 
 ```julia
 module MyFFT
@@ -97,20 +93,20 @@ module MyFFT
 end
 ```
 
-The sequence of ```@platorm parameter``` macro declarations specify the set of platform parameters that will be used by the following kernel method declarations, i.e.,  the assumptions that will be made to distinguish them.  You may look at [this table](https://docs.google.com/spreadsheets/d/1n-c4b7RxUduaKV43XrTnt54w-SR1AXgVNI7dN2OkEUc/edit?usp=sharing) to see a list of all supported _**platform parameters**_. By default, the are all included. In the case of ```fft```,  kernel methods are distinguished using only two parameters: ```accelerator_count``` and ```accelerator_api```. They denote, respectively, assumptions regarding the number of accelerator devices and the native API they support.
+The sequence of ```@platorm parameter``` macro declarations specify the set of platform parameters that will be used by the following kernel method declarations, i.e.,  the assumptions that will be made to distinguish them.  You may look at [this table](https://docs.google.com/spreadsheets/d/1n-c4b7RxUduaKV43XrTnt54w-SR1AXgVNI7dN2OkEUc/edit?usp=sharing) to see a list of all supported _**platform parameters**_. By default, they are all included. In the case of ```fft```,  kernel methods are distinguished using only two parameters: ```accelerator_count``` and ```accelerator_api```. They denote, respectively, assumptions regarding the number of accelerator devices and the native API they support.
 
 The ```@platorm default``` macro declares the _default kernel method_, which will be called case neither of assumptions of other kernel methods declared using ```@platform aware``` macro calls are valid. The default kernel must be unique to avoid ambiguity. 
 
-Finally, kernels for accelerators that support OpenCL and CUDA APIs are declared using ```@platform aware``` macro. 
+Finally, kernels for accelerators that support OpenCL and CUDA APIs are declared using ```@platform aware``` macro. The list of platform parameters are declared just before the regular parameters, like ```X```, enclosed in brackets. Their types denote assumptions. For instance, ```@atleast 1``` denotes a quantifier representing one or more units of a resource, whereas ```@api CUDA``` and ```@api OpenCL``` denote qualifier types that make reference to CUDA and OpenCL APIs.
 
 ### Alternative dependencies
 
-Before to adding the code of the kernels, let's add the code of dependencies. It can be done directly by the following code, just after the ```using PlatformAware```:
+Before to add the code of the kernels, we add the code of dependencies. It can be done directly by the following code, just after ```using PlatformAware```:
 
 ```julia
-    import CUDA
-    import OpenCL
-    import FFTW
+import CUDA
+import OpenCL
+import FFTW
 ```
 However,  as we can take advantage of platform-aware features to load dependencies selectively. For that, we declare a kernel function called ```which_api```, declared just after the sequence of ```@platform parameter``` declarations:
 
@@ -154,7 +150,7 @@ module MyFFT
         import CUDA; const cufft = CUDA.FFT
     elseif (api == :clfft) 
         import OpenCL; const cl = OpenCL
-		import CLFFF; const clfft = CLFFT
+	import CLFFF; const clfft = CLFFT
     else # api == :fftw 
         import FFTW; const fftw = FFTW
     end
@@ -185,20 +181,11 @@ end # module MyFFT
 
 ### Guideline
 
-
-The following is a guideline that can be followed by HPC package developers to do _platform-aware programming_ using _PlatformAware.jl_.
+The following is a general guideline for package developers to use _PlatformWare.jl_.
 
 1. Identify the _kernel functions_, that is, the functions with high computational requirements in your package, which are the natural candidates to exploit parallel computing or acceleration resources, or both.
 
-2. Provide a default method for each kernel function, which will execute in any execution platform. This is generally a serial CPU fallback implementation. For that, the developer must use the ```@platform default``` macro. For example, the code below introduces a default method for ```myConvolution```, a kernel of a package interested in performing image convolutions. It could be implemented using the ```conv``` operation of [_DSP.jl_](https://github.com/JuliaDSP/DSP.jl) or the ```imfilter``` operation of [_ImageFiltering.jl_](https://juliaimages.org/ImageFiltering.jl/stable/).
-
-```julia
-@platform default function myConvolution(img, krn)
-  # fallback CPU code follows 
-  ...
-end
-```
-
+2. Provide a default (fallback) method for each kernel function, using the ```@platform default``` macro.
 
 3. Identify the target execution platforms to which you want to provide specialized methods for each kernel function. You can choose a set of execution platforms for all kernels, or you can select one or more platforms for each kernel independently. For helping your choice, look at the following information sources:
    - the [table of supported _platform **parameters**_](https://docs.google.com/spreadsheets/d/1n-c4b7RxUduaKV43XrTnt54w-SR1AXgVNI7dN2OkEUc/edit?usp=sharing), which will help you to know which assumptions _PlatformAware.jl_ already allow you to make about the target execution platorm;
@@ -207,36 +194,11 @@ end
       - Intel [accelerators](https://github.com/decarvalhojunior-fh/PlatformAware.jl/blob/master/src/platforms/intel/db-accelerators.Intel.csv) and [processors](https://github.com/decarvalhojunior-fh/PlatformAware.jl/blob/master/src/platforms/intel/db-processors.Intel.csv);
       - NVIDIA [accelerators](https://github.com/decarvalhojunior-fh/PlatformAware.jl/blob/master/src/platforms/nvidia/db-accelerators.NVIDIA.csv).
 
-> _**NOTE**: The idea is to update these databases as new processors and accelerators are released by vendors, as well as create databases for other vendors. In addition, it is intended to include other features in the future, according to user feedback. Users are invited to report errors in the databases, as well as include missing fields and suggest accelerators/processors of interest that are not included.._
-
 4. For each platform you select, define a set of assumptions about its features that will guide your implementation decisions. In fact, it is possible to define different assumptions for the same platform, leading to multiple implementations of a kernel for the same platform. For example, you might decide to implement different parallel algorithms to solve a problem according to the number of nodes and the interconnection characteristics of a cluster.
 
-5. Provide platform-aware methods for each kernel function using the ```@platform aware``` macro. For example, the code below introduces two kernel methods. The first one is selected when the execution platform has a NVIDIA GPU of Turing architecture, so that the developer may use CUDA with compute capability 7.5 safely to implement the kernel. In turn, the second one is selected for any other GPU model, implementing the kernel by means of portable interfaces like _OpenCL.jl_ or _oneAPI.jl_. Observe the syntax for declaring platform assumptions, explicitly typing platform parameters with platform types to guide multiple dispatch. The set of platform parameters is enclosed in curly braces, in any order, and positioned just before the regular kernel parameters (```img``` and ```krn```).
+5. Provide platform-aware methods for each kernel function using the ```@platform aware``` macro.
 
-```julia
-@platform aware function myConvolution({accelerator_count::(@atleast 1), 
-                                        accelerator_architecture::Turing,
-                                        accelerator_manufacturer::NVIDIA}, img, krn)
-  # CUDA.jl code follows ...
-  ...
-end
-
-@platform aware function myConvolution({accelerator_count::(@atleast 1),
-                                        accelerator_type::GPU}, img, krn)
-  # OpenCL.jl or oneAPI.jl code follows ...
-  ...
-end
-```
-
-6. After implementing and testing all platform-aware methods, you have a list of platform parameters that were used to make assumptions about the target execution platform(s). You can optionally instruct the _PlatformAware.jl_ to use only that parameters by using the ``@platform parameter`` macro. For example, the following code selects only the platform parameters used in the above examples. This code must be placed before the first call to the ```@platform default``` and ```@platform aware```macros.
-
-```julia
-@platform parameter clear
-@platform parameter accelerator_count
-@platform parameter accelerator_architecture
-@platform parameter accelerator_manufacturer
-@platform parameter accelerator_type
-```
+6. After implementing and testing all platform-aware methods, you have a list of platform parameters that were used to make assumptions about the target execution platform(s). You can optionally instruct the _PlatformAware.jl_ to use only that parameters by using the ``@platform parameter`` macro. 
 
 # Contributing
 
@@ -250,4 +212,5 @@ _PlatformAware.jl_ is licensed under the [MIT License](https://github.com/decarv
 
 [build-img]: https://img.shields.io/github/workflow/status/JuliaEarth/ImageQuilting.jl/CI
 [build-url]: https://github.com/decarvalhojunior-fh/PlatformAware.jl/actions
+
 
