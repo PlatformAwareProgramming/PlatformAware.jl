@@ -108,7 +108,8 @@ import CUDA
 import OpenCL
 import FFTW
 ```
-However,  as we can take advantage of platform-aware features to load dependencies selectively. For that, we declare a kernel function called ```which_api```, declared just after the sequence of ```@platform parameter``` declarations:
+
+However, we can take advantage of platform-aware features to load dependencies selectively in order to accelerate the loading of the _MyFFT.jl_ package. For that, we declare a kernel function called ```which_api```, declared just after the sequence of ```@platform parameter``` declarations:
 
 ```julia
 @platform default which_api() = :fftw
@@ -127,7 +128,6 @@ elseif (api == :clfft)
 else # api == :fftw 
     import FFTW
 end
-
 ```
 
 Finally, we present the complete code of _MyFFT.jl_, by implementing the kernel methods:
@@ -212,5 +212,6 @@ _PlatformAware.jl_ is licensed under the [MIT License](https://github.com/decarv
 
 [build-img]: https://img.shields.io/github/workflow/status/JuliaEarth/ImageQuilting.jl/CI
 [build-url]: https://github.com/decarvalhojunior-fh/PlatformAware.jl/actions
+
 
 
