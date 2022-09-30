@@ -98,7 +98,7 @@ The programmer must be careful not to declare kernel methods with overlapping as
 
 ## Other dependencies
 
-Before adding the code for the kernels, add the code to load their dependencies. This can be done directly by adding the following code to the _src/MyFFT.jl_ file, right after ```import Platformatware```:
+Before adding the code for the kernels, add the code to load their dependencies. This can be done directly by adding the following code to the _src/MyFFT.jl_ file, right after ```import PlatformAware```:
 
 ```julia
 import CUDA
@@ -107,21 +107,20 @@ import CLFFT
 import FFTW
 ```
 
-Also, you should add _CUDA.jl_, _OpenCL.jl_, _CLFFT.jl_, and _FFFT.jl_ as dependencies of _MyFFT.jl_. To do this, execute the following commands in the Julia REPL after entering the ```pkg``` mode (by typing ```]```):
+Also, you should add _CUDA.jl_, _OpenCL.jl_, _CLFFT.jl_, and _FFFT.jl_ as dependencies of _MyFFT.jl_. To do this, execute the following commands in the Julia REPL:
 
 ```julia
-add CUDA
-add OpenCL
-add CLFFT
-add FFTW
+] add CUDA OpenCL CLFFT FFTW
 ```
+
+> **NOTE**: [_CLFFT.jl_](https://github.com/JuliaGPU/CLFFT.jl) is not available on JuliaHub due to compatibility issues with recent versions of Julia. We're working with the CLFFT.jl maintainers to address this issue. If you have an error with the CLFFT dependency, point to our _CLFFT.jl_ fork by running ```add https://github.com/JuliaGPU/CLFFT.jl#master```. 
 
 As a performance optimization, we can take advantage of platform-aware features to selectively load dependencies, speeding up the loading of _MyFFT.jl_. To do this, we first declare a kernel function called ```which_api``` in _src/MyFFT.jl_, right after the ```@platform parameter``` declaration:
 
 ```julia
 @platform default which_api() = :fftw
-@platform aware which_api({accelerator_api::(@api CUDA)}) = :clfft
-@platform aware which_api({accelerator_api::(@api OpenCL)}) = :cufft
+@platform aware which_api({accelerator_api::(@api CUDA)}) = :cufft
+@platform aware which_api({accelerator_api::(@api OpenCL)}) = :clfft
 ```
 
 Next, we add the code for selective dependency loading:
@@ -137,7 +136,7 @@ else # api == :fftw
     import FFTW
 end
 ```
-## Complete code of _src/MyFFT.jl_
+## Full _src/MyFFT.jl_ code
 
 Finally, we present the complete code for _src/MyFFT.jl_, with the implementation of the kernel methods:
 
@@ -212,11 +211,11 @@ To test _fft_ in a convolution, open a Julia REPL session in the _MyFFT.jl_ dire
  fftconv(img,krn) 
 ```
 
-The _fft_ kernel method that corresponds to the current _Platform.toml_ will be selected. If _Platform.toml_ was not created before, the default kernel method will be selected. The reader can consult _Platform.toml_ to find out about the automatically calculated platform featurers. Additionally, the reader can see the selected FFT API in the logging messages after ```using MyFFT```. 
+The _fft_ kernel method that corresponds to the current _Platform.toml_ will be selected. If _Platform.toml_ was not created before, the default kernel method will be selected. The reader can consult the _Platform.toml_ file to find out about the platform features detected by _PlatformAware.setup()_. The reader can also see the selected FFT API in the logging messages after ```using MyFFT```. 
 
-By carefully modifying the _Platform.toml_ file, the reader can test all kernel methods. For example, if it has an NVIDIA GPU that was recognized by _PlatformAware.setup()_, its ```accelerator_api``` entry in _Platform.toml_ must include the supported CUDA and OpenCL versions. This may lead to an ambiguity error, as multiple dispatch will not be able to distinguish between the OpenCL and CUDA kernel methods based on the ```accelerator_api``` parameter alone. In this case, there are two alternatives:
+By carefully modifying the _Platform.toml_ file, the reader can test all kernel methods. For example, if an NVIDIA GPU was recognized by _PlatformAware.setup()_, the ```accelerator_api``` entry in _Platform.toml_ will probably include the supported CUDA and OpenCL versions. For example, for an NVIDIA GeForce 940MX, ```accelerator_api = "CUDA_5_0;OpenCL_3_0;unset;unset;unset;unset;unset"```. This may lead to an ambiguity error, as multiple dispatch will not be able to distinguish between the OpenCL and CUDA kernel methods based on the ```accelerator_api``` parameter alone. In this case, there are two alternatives:
 
-* To edit _Platform.toml_ by setting CUDA or OpenCL platform type to ```unset```;
+* To edit _Platform.toml_ by setting CUDA or OpenCL platform type (e.g. ```CUDA_5_0``` or ```OpenCL_3_0```) to ```unset``` in the ```accelerator_api``` entry, making it possible to select manually the kernel method that will be selected;
 * To modify the CUDA kernel signature by including, for example, ```accelerator_manufacturer::NVIDIA``` in the list of platform parameters, so that NVIDIA GPUs will give preference to CUDA and OpenCL will be applied to accelerators of other vendors (recommended).
 
 
