@@ -190,6 +190,24 @@ end # module MyFFT
 
 ## Running and testing the _fft_ kernel methods
 
+To test _fft_ in a convolution, open a Julia REPL session in the _MyFFT.jl_ directory and execute the following commands:
+
+```julia
+ import Pkg; Pkg.activate(".")
+ using MyFFT
+ 
+ function fftconv(img,krn) 
+   padkrn = zeros(size(img))
+   copyto!(padkrn,CartesianIndices(krn),krn,CartesianIndices(krn))
+   fft(img) .* conj.(fft(padkrn))  
+ end
+ 
+ img = rand(Float64,(20,20,20))  # image
+ krn = rand(Float64,(4,4,4))     # kernel
+ 
+ fftconv(img,krn) 
+```
+
 ## A general guideline
 
 Therefore, we suggest the following general guideline for package developers who want to take advantage of _PlatformWare.jl_.
@@ -223,6 +241,3 @@ _PlatformAware.jl_ is licensed under the [MIT License](https://github.com/decarv
 
 [build-img]: https://img.shields.io/github/workflow/status/JuliaEarth/ImageQuilting.jl/CI
 [build-url]: https://github.com/decarvalhojunior-fh/PlatformAware.jl/actions
-
-
-
