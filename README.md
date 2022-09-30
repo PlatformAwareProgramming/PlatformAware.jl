@@ -16,16 +16,16 @@ Platform-aware programming is especially suitable when the developer is interest
 
 For example, suppose a package developer is interested in providing a specialized kernel implementation for [NVIDIA A100 Tensor Core GPUs](https://www.nvidia.com/en-us/data-center/a100), meeting the demand from users of a specific cloud provider offering virtual machines with accelerators of this model. The developer would like to use CUDA programming with this device's supported *computing capability* (8.0). However, other users may require support from other cloud providers that support different accelerator models, from different vendors (for example, [AMD Instinct™ MI210](https://www.amd.com/en/products/server-accelerators/amd-instinct-mi210) and [Intel® Agilex™ F-Series FPGA and SoC FPGA]( https://www.intel.com/content/www/us/en/products/details/fpga/agilex/f-series.html)). In this scenario, the developer will face the challenge of coding and deploying for multiple devices. This is a typical platform-aware programming scenario where _PlatformAware.jl_ should be useful, which is becoming increasingly common as the use of heterogeneous computing platforms increases to accelerate AI and data analytics applications.
 
-# Target users
+## Target users
 
 _PlatformAware.jl_ is aimed primarily at **_package developers_** dealing with HPC concerns, especially using heterogenous computing resources.
 We assume that **_package users_** are only interested in using package operations without being concerned about how they are implemented.
 
-## Usage
+# Usage tutorial
 
 We present a simple example that readers may reproduce to test _PlatformAware.jl_ features. 
 
-Cconsider the problem of performing a convolution operation using a Fast Fourier Transform (FFT). To do this, the user can implement a ```fftconv``` function that uses a ```fft``` function offered by a user-defined package called _MyFFT.jl_, capable of performing the FFT on an accelerator (e.g., GPU) if it is present.
+Consider the problem of performing a convolution operation using a Fast Fourier Transform (FFT). To do this, the user can implement a ```fftconv``` function that uses a ```fft``` function offered by a user-defined package called _MyFFT.jl_, capable of performing the FFT on an accelerator (e.g., GPU) if it is present.
 
 ```julia
 using MyFFT
@@ -33,7 +33,7 @@ fftconv(X,K) = fft(X) .* conj.(fft(K))
 ```
 This tutorial shows how to create _MyFFT.jl_, demonstrating the basics of how to install _PlatformAware.jl_ and how to use it to create a platform-aware package.
 
-### Creating the _MyFFT.jl_ project
+## Creating the _MyFFT.jl_ project
 
 In the Julia REPL, as shown in the screenshot below, run ```] generate MyFFT.jl``` to create a new project called _MyFFT.jl_, run ```🔙cd("MyFFT.jl")``` to move to the directory of the created project, and ```] activate .``` to enable the current project (_MyFFT.jl_) in the current Julia REPL session.
 
@@ -43,7 +43,7 @@ These operations create a standard _"hello world"_ project, with the contents of
 
 ![f2](docs/src/images/f2.png)
 
-### Installing _PlatformAware.jl_
+## Installing _PlatformAware.jl_
 
 Before coding the platform-aware package, it is necessary to add _PlatormAware.jl_ as a dependency of _MyFFT.jl_ by running the following command in the Julia REPL:
 
@@ -60,7 +60,7 @@ _Platform.toml_ is the _platform description file_, containing a set of key-valu
 _Platform.toml_ is written in a human-editable format. Therefore, it can be modified by users to add undetected platform features or ignore detected features.
 
 
-### Sketching the _MyFFT.jl_ code
+## Sketching the _MyFFT.jl_ code
 
 In order to implement the _fft_ kernel function, we edit  the _src/MyFFT.jl_ file. First, we sketch the code of the _fft_ kernel methods:
 
@@ -96,7 +96,7 @@ Finally, the kernels for accelerators that support OpenCL and CUDA APIs are decl
 
 The programmer must be careful not to declare kernel methods with overlapping assumptions in order to avoid ambiguities. 
 
-### Other dependencies
+## Other dependencies
 
 Before adding the code for the kernels, add the code to load their dependencies. This can be done directly by adding the following code to the _src/MyFFT.jl_ file, right after ```import Platformatware```:
 
@@ -137,6 +137,7 @@ else # api == :fftw
     import FFTW
 end
 ```
+## Complete code of _src/MyFFT.jl_
 
 Finally, we present the complete code for _src/MyFFT.jl_, with the implementation of the kernel methods:
 
@@ -187,7 +188,7 @@ end # module MyFFT
 
 ```
 
-### A general guideline
+## A general guideline
 
 Therefore, we suggest the following general guideline for package developers who want to take advantage of _PlatformWare.jl_.
 
