@@ -155,6 +155,8 @@ module MyFFT
     @platform aware which_api({accelerator_count::(@atleast 1), accelerator_api::(@api OpenCL)}) = :clfft
 
     api = which_api()
+    @info "seleted FFT API" api
+    
     if (api == :cufft) 
         using CUDA; const cufft = CUDA.CUFFT
     elseif (api == :clfft) 
@@ -190,7 +192,9 @@ end # module MyFFT
 
 ## Running and testing the _fft_ kernel methods
 
-To test _fft_ in a convolution, open a Julia REPL session in the _MyFFT.jl_ directory and execute the following commands:
+To test _fft_ in a convolution, open a Julia REPL session in the _MyFFT.jl_ directory and execute the following commands: 
+
+> **NOTE**: If you receive an ambiguity error after executing _fftconv_, don't panic ! Read the next paragraphs. 
 
 ```julia
  import Pkg; Pkg.activate(".")
@@ -207,6 +211,14 @@ To test _fft_ in a convolution, open a Julia REPL session in the _MyFFT.jl_ dire
  
  fftconv(img,krn) 
 ```
+
+The _fft_ kernel method that corresponds to the current _Platform.toml_ will be selected. If _Platform.toml_ was not created before, the default kernel method will be selected. The reader can consult _Platform.toml_ to find out about the automatically calculated platform featurers. Additionally, the reader can see the selected FFT API in the logging messages after ```using MyFFT```. 
+
+By carefully modifying the _Platform.toml_ file, the reader can test all kernel methods. For example, if it has an NVIDIA GPU that was recognized by _PlatformAware.setup()_, its ```accelerator_api``` entry in _Platform.toml_ must include the supported CUDA and OpenCL versions. This may lead to an ambiguity error, as multiple dispatch will not be able to distinguish between the OpenCL and CUDA kernel methods based on the ```accelerator_api``` parameter alone. In this case, there are two alternatives:
+
+* To edit _Platform.toml_ by setting CUDA or OpenCL platform type to ```unset```;
+* To modify the CUDA kernel signature by including, for example, ```accelerator_manufacturer::NVIDIA``` in the list of platform parameters, so that NVIDIA GPUs will give preference to CUDA and OpenCL will be applied to accelerators of other vendors (recommended).
+
 
 ## A general guideline
 
