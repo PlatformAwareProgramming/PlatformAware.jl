@@ -8,9 +8,6 @@ _A package for improving the practice of **platform-aware programming** in Julia
 
 It helps HPC package developers write code for different versions of computationally intensive functions (kernels) according to different assumptions about the features of the execution platform.
 
-
-> _**NOTE**: This package is in the experimental stage. Although virtually all of the key features are implemented, more comprehensive testing is still needed, in addition to implementing some features. Interested users are invited to help us improve its implementation by making suggestions and reporting their experiences and found issues._
-
 # What is platform-aware programming ?
 
 We define platform-aware programming as the practice of coding computationally intensive functions, called _kernels_, using the most appropriate abstractions and programming interfaces, as well as performance tuning techniques, to take better advantage of the features of the target execution platform. This is a well-known practice in programming for HPC applications.
@@ -28,18 +25,17 @@ We assume that **_package users_** are only interested in using package operatio
 
 We present a simple example that readers may reproduce to test _PlatformAware.jl_ features. 
 
-Consider the problem of performing a convolution operation by means of a Fast Fourier Transform (FFT). For that, the user implements an ```fftconv``` function that uses a ```fft``` function offerered by a package called _MyFFT.jl_:
+Cconsider the problem of performing a convolution operation using a Fast Fourier Transform (FFT). To do this, the user can implement a ```fftconv``` function that uses a ```fft``` function offered by a user-defined package called _MyFFT.jl_, capable of performing the FFT on an accelerator (e.g., GPU) if it is present.
 
 ```julia
 using MyFFT
 fftconv(X,K) = fft(X) .* conj.(fft(K)) 
 ```
+This tutorial shows how to create _MyFFT.jl_, demonstrating the basics of how to install _PlatformAware.jl_ and how to use it to create a platform-aware package.
 
-### Creating the MyFFT.jl project
+### Creating the _MyFFT.jl_ project
 
-Let's follow a sequence of steps to implement a version of _MyFFT.jl_ that relies on _PlatformAware.jl_ to make it possible the ```fft``` function to take advantage of a GPU device whether it is the present in the underlying execution platform.
-
-First, in the Julia REPL, enter the ```pkg``` environment by typing the "]" symbol. Then, like in the screenshot below, run ```generate MyFFT.jl``` to create a new project called _MyFFT.jl_ and, after exiting the ```pkg``` environment by typing the backscape key 🔙, run ```cd("MyFFT.jl")``` to move to the directory of the created project.
+In the Julia REPL, as shown in the screenshot below, run ```] generate MyFFT.jl``` to create a new project called _MyFFT.jl_, run ```🔙cd("MyFFT.jl")``` to move to the directory of the created project, and ```] activate .``` to enable the current project (_MyFFT.jl_) in the current Julia REPL session.
 
 ![f1](docs/src/images/f1.png)
 
@@ -47,14 +43,9 @@ These operations create a standard _"hello world"_ project, with the contents of
 
 ![f2](docs/src/images/f2.png)
 
-### Installing PlatformAware.jl
+### Installing _PlatformAware.jl_
 
-It is necessary to install the _PlatormAware.jl_ packages by executing the following command in the Julia REPL:
-
-```julia 
-import Pkg; Pkg.add("PlatormAware")
-```
-Alternatively, in the ```pkg``` environment:
+Before coding the platform-aware package, it is necessary to add _PlatormAware.jl_ as a dependency of _MyFFT.jl_ by running the following command in the Julia REPL:
 
 ```julia
 ] add PlatformAware
@@ -63,9 +54,13 @@ Now, load the _PlatfomAware.jl_ package (```using PlatformAware``` or ```import 
 
 ![f3](docs/src/images/f3.png)
 
-It informs that the _Platform.toml_, which describes the features of the underlying platform, does not exist. Also, it explains how the platform description file can be generated in the current folder, by executing ```PlatformAware.setup()```. Despite being automatically generated, _Platform.toml_ is written in a human-editable format. So, it may be modified by users in order to add non detected platform features or ignore detected features.
 
-### Sketching the MyFFT.jl code
+_Platform.toml_ is the _platform description file_, containing a set of key-value pairs, each describing a feature of the underlying platform. It must be created by the user running ```PlatformWare.setup()```, which performs a sequence of feature detection operations on the platform. 
+
+_Platform.toml_ is written in a human-editable format. Therefore, it can be modified by users to add undetected platform features or ignore detected features.
+
+
+### Sketching the _MyFFT.jl_ code
 
 In order to implement the _fft_ kernel function, we edit  the _src/MyFFT.jl_ file. First, we sketch the code of the _fft_ kernel methods:
 
@@ -93,23 +88,35 @@ module MyFFT
 end
 ```
 
-The sequence of ```@platorm parameter``` macro declarations specify the set of platform parameters that will be used by the following kernel method declarations, i.e.,  the assumptions that will be made to distinguish them.  You may look at [this table](https://docs.google.com/spreadsheets/d/1n-c4b7RxUduaKV43XrTnt54w-SR1AXgVNI7dN2OkEUc/edit?usp=sharing) to see a list of all supported _**platform parameters**_. By default, they are all included. In the case of ```fft```,  kernel methods are distinguished using only two parameters: ```accelerator_count``` and ```accelerator_api```. They denote, respectively, assumptions regarding the number of accelerator devices and the native API they support.
+The sequence of ```@platorm parameter``` macro declarations specifies the set of platform parameters that will be used by subsequent kernel method declarations, that is, the assumptions that will be made to distinguish them. You can refer to [this table](https://docs.google.com/spreadsheets/d/1n-c4b7RxUduaKV43XrTnt54w-SR1AXgVNI7dN2OkEUc/edit?usp=sharing) for a list of all supported _**platform parameters**_. By default, they are all included. In the case of ```fft```, the kernel methods are differentiated using only two parameters: ```accelerator_count``` and ```accelerator_api```. They denote, respectively, assumptions about the number of accelerator devices and the native API they support.
 
-The ```@platorm default``` macro declares the _default kernel method_, which will be called case neither of assumptions of other kernel methods declared using ```@platform aware``` macro calls are valid. The default kernel must be unique to avoid ambiguity. 
+The ```@platorm default``` macro declares the _default kernel method_, which will be called if none of the assumptions of other kernel methods declared using ```@platform aware``` macro calls are valid. The default kernel must be unique to avoid ambiguity. 
 
-Finally, kernels for accelerators that support OpenCL and CUDA APIs are declared using ```@platform aware``` macro. The list of platform parameters are declared just before the regular parameters, like ```X```, enclosed in brackets. Their types denote assumptions. For instance, ```@atleast 1``` denotes a quantifier representing one or more units of a resource, whereas ```@api CUDA``` and ```@api OpenCL``` denote qualifier types that make reference to CUDA and OpenCL APIs.
+Finally, the kernels for accelerators that support OpenCL and CUDA APIs are declared using the macro ```@platform aware```. The list of platform parameters is declared just before the regular parameters, such as ```X```, in braces. Their types denote assumptions. For example, ```@atleast 1``` denotes a quantifier representing one or more units of a resource, while``` @api CUDA``` and ```@api OpenCL``` denote types of qualifiers that refer to the CUDA and OpenCL APIs.
 
-### Alternative dependencies
+The programmer must be careful not to declare kernel methods with overlapping assumptions in order to avoid ambiguities. 
 
-Before to add the code of the kernels, we add the code of dependencies. It can be done directly by the following code, just after ```using PlatformAware```:
+### Other dependencies
+
+Before adding the code for the kernels, add the code to load their dependencies. This can be done directly by adding the following code to the _src/MyFFT.jl_ file, right after ```import Platformatware```:
 
 ```julia
 import CUDA
 import OpenCL
+import CLFFT
 import FFTW
 ```
 
-However, we can take advantage of platform-aware features to load dependencies selectively in order to accelerate the loading of the _MyFFT.jl_ package. For that, we declare a kernel function called ```which_api```, declared just after the sequence of ```@platform parameter``` declarations:
+Also, you should add _CUDA.jl_, _OpenCL.jl_, _CLFFT.jl_, and _FFFT.jl_ as dependencies of _MyFFT.jl_. To do this, execute the following commands in the Julia REPL after entering the ```pkg``` mode (by typing ```]```):
+
+```julia
+add CUDA
+add OpenCL
+add CLFFT
+add FFTW
+```
+
+As a performance optimization, we can take advantage of platform-aware features to selectively load dependencies, speeding up the loading of _MyFFT.jl_. To do this, we first declare a kernel function called ```which_api``` in _src/MyFFT.jl_, right after the ```@platform parameter``` declaration:
 
 ```julia
 @platform default which_api() = :fftw
@@ -117,7 +124,7 @@ However, we can take advantage of platform-aware features to load dependencies s
 @platform aware which_api({accelerator_api::(@api OpenCL)}) = :cufft
 ```
 
-Then, we write code to selective dependency loading:
+Next, we add the code for selective dependency loading:
 
 ```julia
 api = which_api()
@@ -125,32 +132,33 @@ if (api == :cufft)
     import CUDA
 elseif (api == :clfft) 
     import OpenCL
+    import CLFFT
 else # api == :fftw 
     import FFTW
 end
 ```
 
-Finally, we present the complete code of _MyFFT.jl_, by implementing the kernel methods:
+Finally, we present the complete code for _src/MyFFT.jl_, with the implementation of the kernel methods:
 
 ```julia
-
 module MyFFT
 
     import PlatformAware
 
     @platform parameter clear
+    @platform parameter accelerator_count
     @platform parameter accelerator_api
 
     @platform default which_api() = :fftw
-    @platform aware which_api({accelerator_api::(@api CUDA)}) = :clfft
-    @platform aware which_api({accelerator_api::(@api OpenCL)}) = :cufft
+    @platform aware which_api({accelerator_count::(@atleast 1), accelerator_api::(@api CUDA)}) = :clfft
+    @platform aware which_api({accelerator_count::(@atleast 1), accelerator_api::(@api OpenCL)}) = :cufft
 
-    api = which_api
+    api = which_api()
     if (api == :cufft) 
         import CUDA; const cufft = CUDA.FFT
     elseif (api == :clfft) 
         import OpenCL; const cl = OpenCL
-	import CLFFF; const clfft = CLFFT
+        import CLFFT; const clfft = CLFFT
     else # api == :fftw 
         import FFTW; const fftw = FFTW
     end
@@ -159,7 +167,7 @@ module MyFFT
     @platform default fft(X) = fftw.fft(X)
 
     # OpenCL kernel
-    @platform aware function fft({accelerator_api::(@api OpenCL)}, X)
+    @platform aware function fft({accelerator_count::(@atleast 1), accelerator_api::(@api OpenCL)}, X)
         _, ctx, queue = cl.create_compute_context()
         bufX = cl.Buffer(Complex64, ctx, :copy, hostbuf=X)
         p = clfft.Plan(Complex64, ctx, size(X))
@@ -171,7 +179,7 @@ module MyFFT
     end
 
     # CUDA kernel
-    @platform aware fft({accelerator_api::(@api CUDA)},X) = cufft.fft(X)
+    @platform aware fft({accelerator_count::(@atleast 1), accelerator_api::(@api CUDA)},X) = cufft.fft(X)
 
     export fft
 
@@ -179,11 +187,11 @@ end # module MyFFT
 
 ```
 
-### Guideline
+### A general guideline
 
-The following is a general guideline for package developers to use _PlatformWare.jl_.
+Therefore, we suggest the following general guideline for package developers who want to take advantage of _PlatformWare.jl_.
 
-1. Identify the _kernel functions_, that is, the functions with high computational requirements in your package, which are the natural candidates to exploit parallel computing or acceleration resources, or both.
+1. Identify the _kernel functions_, that is, the functions with high computational requirements in your package, which are the natural candidates to exploit parallel computing, acceleration resources, or both.
 
 2. Provide a default (fallback) method for each kernel function, using the ```@platform default``` macro.
 
