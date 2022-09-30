@@ -188,7 +188,7 @@ module MyFFT
 end # module MyFFT
 ```
 
-## Running and testing _fft_ kernels
+## Running and testing the _fft_ kernel methods
 
 ## A general guideline
 
