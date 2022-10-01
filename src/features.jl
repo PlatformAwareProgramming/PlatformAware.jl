@@ -92,8 +92,12 @@ function readPlatormDescription()
                 @info "Using default platform features (calling default kernels)."
                 @info "A Platform.toml file may be created by calling PlatformAware.setup()"
 
-                io = joinpath(artifact"default_platform_description", "DefaultPlatform.toml")                
-                read(io,String)
+                dpf_path = @get_scratch!("default_platform_path")
+                dpf_url = "https://raw.githubusercontent.com/PlatformAwareProgramming/PlatformAware.jl/master/src/platforms/default/Platform.toml"
+                dpf_fname =  joinpath(dpf_path, basename(dpf_url))
+                try_download(dpf_url, dpf_fname)
+
+                read(dpf_fname,String)
             end
          end
     
