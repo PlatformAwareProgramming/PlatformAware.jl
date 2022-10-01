@@ -1,6 +1,0 @@
-[default_platform_description]
-git-tree-sha1 = "623bf141124a13e42821e8224c8926c8f489c7a6"
-
-    [[default_platform_description.download]]
-    sha256 = "ed1c3c3d6da146c76e66d1ec7a7c098978162c3c1f10001fc255b3388bd110cd"
-    url = "https://gist.github.com/decarvalhojunior-fh/4fa474fb0f6300a9f11fc570aa062fae/raw/623bf141124a13e42821e8224c8926c8f489c7a6.tar.gz"

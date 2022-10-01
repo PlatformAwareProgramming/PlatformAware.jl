@@ -8,7 +8,6 @@ using CpuId
 using XMLDict
 using TOML
 using JSON
-using Artifacts
 using Scratch
 using Downloads
 
