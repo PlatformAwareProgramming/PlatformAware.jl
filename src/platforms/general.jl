@@ -18,7 +18,6 @@ abstract type CloudProvider <: Provider end
 
 abstract type MachineFamily end
 abstract type MachineType end
-abstract type MachineSize end
 
 # locale
 
