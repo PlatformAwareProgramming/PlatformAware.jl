@@ -11,37 +11,39 @@ using JSON
 using Scratch
 using Downloads
 
-# quantifiers
-include("quantifiers/atleast.jl")
-include("quantifiers/atmost.jl")
-include("quantifiers/macros.jl")
-
-# platform types
-include("platforms/general.jl")
-include("platforms/common.jl")
-include("platforms/ec2/ec2.jl")
-include("platforms/gcp/gcp.jl")
-include("platforms/nvidia/nvidia.jl")
-include("platforms/intel/intel.jl")
-include("platforms/intel/intel_accelerators_xeonphi.jl")
-include("platforms/intel/intel_processors_atom.jl")
-include("platforms/intel/intel_processors_celeron.jl")
-include("platforms/intel/intel_processors_core.jl")
-include("platforms/intel/intel_processors_itanium.jl")
-include("platforms/intel/intel_processors_pentium.jl")
-include("platforms/intel/intel_processors_xeon.jl")
-include("platforms/amd/amd_processors.jl")
-include("platforms/amd/amd_accelerators.jl")
-include("platforms/xilinx/xilinx.jl")
-
 include("utils.jl")
 
-# main functionality (@platform macro and default types)
-include("features.jl")
-include("identification.jl")
+# features (platform types)
+include("features/features.jl")     # platform types base
+include("features/detection.jl")    # feature detection
 
-# platform identification
-include("awareness.jl")
+# quantifiers
+include("features/quantifiers/atleast.jl")
+include("features/quantifiers/atmost.jl")
+include("features/quantifiers/macros.jl")
+
+# qualifiers
+include("features/qualifiers/general.jl")
+include("features/qualifiers/common.jl")
+include("features/qualifiers/ec2/ec2.jl")
+include("features/qualifiers/gcp/gcp.jl")
+include("features/qualifiers/nvidia/nvidia.jl")
+include("features/qualifiers/intel/intel.jl")
+include("features/qualifiers/intel/intel_accelerators_xeonphi.jl")
+include("features/qualifiers/intel/intel_processors_atom.jl")
+include("features/qualifiers/intel/intel_processors_celeron.jl")
+include("features/qualifiers/intel/intel_processors_core.jl")
+include("features/qualifiers/intel/intel_processors_itanium.jl")
+include("features/qualifiers/intel/intel_processors_pentium.jl")
+include("features/qualifiers/intel/intel_processors_xeon.jl")
+include("features/qualifiers/amd/amd_processors.jl")
+include("features/qualifiers/amd/amd_accelerators.jl")
+include("features/qualifiers/xilinx/xilinx.jl")
+
+
+# main functionality (@platform macro and default types)
+include("platform.jl")
+
 
 function __init__()
     load!()
@@ -55,6 +57,9 @@ export
     @just,
     @unlimited,
     @api,
+    PlatformFeature,
+    QuantifierFeature,
+    QualifierFeature,
     Query,
     Yes,
     No,
@@ -63,7 +68,6 @@ export
     CloudProvider,
     MachineFamily,
     MachineType,
-    MachineSize,
     Locale,
     Manufacturer,
     ProcessorMicroarchitecture,
