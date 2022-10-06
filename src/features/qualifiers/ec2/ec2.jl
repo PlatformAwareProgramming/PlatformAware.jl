@@ -106,16 +106,6 @@ abstract type EC2Type_C5AD_4xLarge <: EC2Type_C5AD end
 abstract type EC2Type_C5AD_8xLarge <: EC2Type_C5AD end
 abstract type EC2Type_C5AD_Large <: EC2Type_C5AD end
 abstract type EC2Type_C5AD_xLarge <: EC2Type_C5AD end
-
-abstract type EC2Type_C5AD <: EC2Type end
-abstract type EC2Type_C5AD_12xLarge <: EC2Type_C5AD end
-abstract type EC2Type_C5AD_16xLarge <: EC2Type_C5AD end
-abstract type EC2Type_C5AD_24xLarge <: EC2Type_C5AD end
-abstract type EC2Type_C5AD_2xLarge <: EC2Type_C5AD end
-abstract type EC2Type_C5AD_4xLarge <: EC2Type_C5AD end
-abstract type EC2Type_C5AD_8xLarge <: EC2Type_C5AD end
-abstract type EC2Type_C5AD_Large <: EC2Type_C5AD end
-abstract type EC2Type_C5AD_xLarge <: EC2Type_C5AD end
 abstract type EC2Type_C5D <: EC2Type end
 abstract type EC2Type_C5D_12xLarge <: EC2Type_C5D end
 abstract type EC2Type_C5D_18xLarge <: EC2Type_C5D end
