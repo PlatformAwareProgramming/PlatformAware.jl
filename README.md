@@ -1,7 +1,7 @@
 # PlatformAware.jl
 
-[![TagBot](https://github.com/decarvalhojunior-fh/PlatformAware.jl/actions/workflows/TagBot.yml/badge.svg)](https://github.com/decarvalhojunior-fh/PlatformAware.jl/actions/workflows/TagBot.yml)
-[![CompatHelper](https://github.com/decarvalhojunior-fh/PlatformAware.jl/actions/workflows/CompatHelper.yml/badge.svg)](https://github.com/decarvalhojunior-fh/PlatformAware.jl/actions/workflows/CompatHelper.yml)
+[![TagBot](https://github.com/PlatformAwareProgramming/PlatformAware.jl/actions/workflows/TagBot.yml/badge.svg)](https://github.com/decarvalhojunior-fh/PlatformAware.jl/actions/workflows/TagBot.yml)
+[![CompatHelper](https://github.com/PlatformAwareProgramming/PlatformAware.jl/actions/workflows/CompatHelper.yml/badge.svg)](https://github.com/PlatformAwareProgramming/PlatformAware.jl/actions/workflows/CompatHelper.yml)
 
 
 _A package for improving the practice of **platform-aware programming** in Julia_.
@@ -230,9 +230,9 @@ Therefore, we suggest the following general guideline for package developers who
 3. Identify the target execution platforms to which you want to provide specialized methods for each kernel function. You can choose a set of execution platforms for all kernels, or you can select one or more platforms for each kernel independently. For helping your choice, look at the following information sources:
    - the [table of supported _platform **parameters**_](https://docs.google.com/spreadsheets/d/1n-c4b7RxUduaKV43XrTnt54w-SR1AXgVNI7dN2OkEUc/edit?usp=sharing), which will help you to know which assumptions _PlatformAware.jl_ already allow you to make about the target execution platorm;
    - the database of supported _platform **features**_, where the features of the models of processors and accelerators that are currently suported by _PlatformAware.jl_ are described:
-      - AMD [accelerators](https://github.com/decarvalhojunior-fh/PlatformAware.jl/blob/master/src/features/qualifiers/amd/db-accelerators.AMD.csv) and [processors](https://github.com/decarvalhojunior-fh/PlatformAware.jl/blob/master/src/features/qualifiers/amd/db-processors.AMD.csv);
-      - Intel [accelerators](https://github.com/decarvalhojunior-fh/PlatformAware.jl/blob/master/src/features/qualifiers/intel/db-accelerators.Intel.csv) and [processors](https://github.com/decarvalhojunior-fh/PlatformAware.jl/blob/master/src/features/qualifiers/intel/db-processors.Intel.csv);
-      - NVIDIA [accelerators](https://github.com/decarvalhojunior-fh/PlatformAware.jl/blob/master/src/features/qualifiers/nvidia/db-accelerators.NVIDIA.csv).
+      - AMD [accelerators](https://github.com/PlatformAwareProgramming/PlatformAware.jl/blob/master/src/features/qualifiers/amd/db-accelerators.AMD.csv) and [processors](https://github.com/PlatformAwareProgramming/PlatformAware.jl/blob/master/src/features/qualifiers/amd/db-processors.AMD.csv);
+      - Intel [accelerators](https://github.com/PlatformAwareProgramming/PlatformAware.jl/blob/master/src/features/qualifiers/intel/db-accelerators.Intel.csv) and [processors](https://github.com/PlatformAwareProgramming/PlatformAware.jl/blob/master/src/features/qualifiers/intel/db-processors.Intel.csv);
+      - NVIDIA [accelerators](https://github.com/PlatformAwareProgramming/PlatformAware.jl/blob/master/src/features/qualifiers/nvidia/db-accelerators.NVIDIA.csv).
 
 4. For each platform you select, define a set of assumptions about its features that will guide your implementation decisions. In fact, it is possible to define different assumptions for the same platform, leading to multiple implementations of a kernel for the same platform. For example, you might decide to implement different parallel algorithms to solve a problem according to the number of nodes and the interconnection characteristics of a cluster.
 
@@ -244,11 +244,11 @@ Therefore, we suggest the following general guideline for package developers who
 
 Contributions are very welcome, as are feature requests and suggestions.
 
-Please [open an issue](https://github.com/decarvalhojunior-fh/PlatformAware.jl) if you encounter any problems.
+Please [open an issue](https://github.com/PlatformAwareProgramming/PlatformAware.jl) if you encounter any problems.
 
 # License
 
-_PlatformAware.jl_ is licensed under the [MIT License](https://github.com/decarvalhojunior-fh/PlatformAware.jl/blob/master/LICENSE) 
+_PlatformAware.jl_ is licensed under the [MIT License](https://github.com/PlatformAwareProgramming/PlatformAware.jl/blob/master/LICENSE) 
 
 [build-img]: https://img.shields.io/github/workflow/status/JuliaEarth/ImageQuilting.jl/CI
-[build-url]: https://github.com/decarvalhojunior-fh/PlatformAware.jl/actions
+[build-url]: https://github.com/PlatformAwareProgramming/PlatformAware.jl/actions
