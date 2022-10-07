@@ -2,6 +2,9 @@
 # Licensed under the MIT License. See LICENCE in the project root.
 # ------------------------------------------------------------------
 
+using HTTP
+using JSON
+
 # maintainer types
 abstract type AmazonEC2 <: CloudProvider end; export AmazonEC2
 
@@ -773,3 +776,14 @@ abstract type EC2Type_H1_2xLarge <: EC2Type_H1 end
 abstract type EC2Type_H1_4xLarge <: EC2Type_H1 end
 abstract type EC2Type_H1_8xLarge <: EC2Type_H1 end
 abstract type EC2Type_H1_16xLarge <: EC2Type_H1 end
+
+## 
+function get_instance_info()
+        try
+                instance_info = JSON.parse(String(HTTP.request("GET", "http://169.254.169.254/latest/dynamic/instance-identity/document").body))
+                return instance_info["instanceType"], instance_info["region"]
+        catch e
+                println("Not able to fetch cloud instance meta-data, if you are running this on a cloud platform instance, consider manu    ally editing the Platform.toml configurantion file.")
+                return nothing
+        end
+end
