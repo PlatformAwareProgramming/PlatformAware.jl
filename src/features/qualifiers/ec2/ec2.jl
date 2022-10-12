@@ -784,8 +784,6 @@ function get_instance_info(::Type{<:AmazonEC2})
         global instance_id = JSON.parse(String(HTTP.request("GET", "http://169.254.169.254/latest/dynamic/instance-identity/document").body))
         # return instance_info["instanceType"], instance_info["region"]
     catch e
-        @info e
-        println("Not able to fetch cloud instance metadata, if you are running this on a cloud platform instance, consider manually editing the Platform.toml configurantion file.")
         return nothing
     end
 
@@ -844,5 +842,7 @@ function getNodeFeatures(provider::Type{<:AmazonEC2}, node_features)
         node_features["node_machinetype"] = instance_info["node_machinesize"] 
         node_features["node_vcpus_count"] = instance_info["node_vcpus_count"]     
     end
+
+    return instance_info
 end
     

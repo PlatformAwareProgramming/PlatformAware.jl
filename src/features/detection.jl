@@ -739,9 +739,12 @@ function identifyNode()
    node_features["node_vcpus_count"] = "unset"
    
    for p in subtypes(CloudProvider)
-      getNodeFeatures(p, node_features)
+      print(string(p) * "?")
+      ok = getNodeFeatures(p, node_features)
+      if (isnothing(ok)) print("No") else print("Yes") end; print("...")
    end
 
+   println(stderr, "ok")
    return node_features
 end
 
