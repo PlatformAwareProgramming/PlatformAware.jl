@@ -785,7 +785,7 @@ function get_instance_info(::Type{<:AmazonEC2})
         # return instance_info["instanceType"], instance_info["region"]
 
         database_path = @get_scratch!("database_path")
-        machinetypedb_ec2_url = "https://raw.githubusercontent.com/platform-aware-programming/PlatformAware.jl/master/src/features/qualifiers/ec2/db-machinetypes.ec2.csv"
+        machinetypedb_ec2_url = "https://raw.githubusercontent.com/PlatformAwareProgramming/PlatformAware.jl/aws_ec2/src/features/qualifiers/ec2/db-machinetypes.ec2.csv"
         machinetypedb_ec2_fname =  joinpath(database_path,basename(procdb_intel_url))
         try_download(machinetypedb_ec2_url, machinetypedb_ec2_fname)
         machinetype_dict_ec2 = readDB2(procdb_intel_fname)
