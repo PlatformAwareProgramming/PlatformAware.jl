@@ -781,21 +781,22 @@ abstract type EC2Type_H1_16xLarge <: EC2Type_H1 end
 ## 
 function get_instance_info(::Type{<:AmazonEC2})
     try
-        instance_id = JSON.parse(String(HTTP.request("GET", "http://169.254.169.254/latest/dynamic/instance-identity/document").body))
+        global instance_id = JSON.parse(String(HTTP.request("GET", "http://169.254.169.254/latest/dynamic/instance-identity/document").body))
         # return instance_info["instanceType"], instance_info["region"]
-
-        database_path = @get_scratch!("database_path")
-        machinetypedb_ec2_url = "https://raw.githubusercontent.com/PlatformAwareProgramming/PlatformAware.jl/aws_ec2/src/features/qualifiers/ec2/db-machinetypes.ec2.csv"
-        machinetypedb_ec2_fname =  joinpath(database_path,basename(procdb_intel_url))
-        try_download(machinetypedb_ec2_url, machinetypedb_ec2_fname)
-        machinetype_dict_ec2 = readDB2(procdb_intel_fname)
-        instance_info = machinetype_dict_ec2[instance_id["instanceType"]]
-
-        return instance_info
     catch e
+        @info e
         println("Not able to fetch cloud instance metadata, if you are running this on a cloud platform instance, consider manually editing the Platform.toml configurantion file.")
         return nothing
     end
+
+    database_path = @get_scratch!("database_path")
+    machinetypedb_ec2_url = "https://raw.githubusercontent.com/PlatformAwareProgramming/PlatformAware.jl/aws_ec2/src/features/qualifiers/ec2/db-machinetypes.ec2.csv"
+    machinetypedb_ec2_fname =  joinpath(database_path,basename(machinetypedb_ec2_url))
+    try_download(machinetypedb_ec2_url, machinetypedb_ec2_fname)
+    machinetype_dict_ec2 = readDB2(machinetypedb_ec2_fname)
+    instance_info = machinetype_dict_ec2[instance_id["instanceType"]]
+
+    return instance_info
 end
 
 
@@ -840,7 +841,7 @@ function getNodeFeatures(provider::Type{<:AmazonEC2}, node_features)
         node_features["node_virtual"] = "Yes"
         node_features["node_dedicated"] = "Yes"            # ???
         node_features["node_machinefamily"] = instance_info["node_machinefamily"]
-        node_features["node_machinetype"] = instance_info["node_machinetype"] 
+        node_features["node_machinetype"] = instance_info["node_machinesize"] 
         node_features["node_vcpus_count"] = instance_info["node_vcpus_count"]     
     end
 end
