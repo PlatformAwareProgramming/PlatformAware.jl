@@ -10,6 +10,7 @@ using TOML
 using JSON
 using Scratch
 using Downloads
+using InteractiveUtils
 
 include("utils.jl")
 
