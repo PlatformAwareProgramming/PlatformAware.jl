@@ -827,9 +827,6 @@ EC2InstanceZoneDict = Dict(
         # ...
     )
 
-
-
-
 function getNodeFeatures(provider::Type{<:AmazonEC2}, node_features)
 
     instance_info = get_instance_info(provider)

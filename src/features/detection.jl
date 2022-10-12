@@ -741,7 +741,7 @@ function identifyNode()
    for p in subtypes(CloudProvider)
       print(stderr, string(p) * "?")
       ok = getNodeFeatures(p, node_features)
-      if (isnothing(ok)) print(stderr, "No") else print(stderr, "Yes") end; print(stderr, ",")
+      if (isnothing(ok)) print(stderr, "No") else print(stderr, "Yes") end; print(stderr, ", ")
    end
    print(stderr, "... ok")
    return node_features
