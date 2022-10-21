@@ -484,9 +484,9 @@ function identifyProcessor()
          get!(cdict,c[:id],c[:value])
       end
       processor_core_count = parse(Int64,cdict["enabledcores"])
-      processor_core_threadscount = parse(Int64,cdict["threads"])
+      processor_core_threads_count = parse(Int64,cdict["threads"])
 
-      push!(l,(p["product"],processor_core_count, processor_core_threadscount,lc))
+      push!(l,(p["product"],processor_core_count, processor_core_threads_count,lc))
        
    end
 
@@ -784,17 +784,17 @@ function identifyNode()
    println(stderr, "=> Note: detection of node features (cluster and cloud computing) not yet implemented. Using default features.")
    println(stderr, "         You can setup node features manually.")
 
-   interconnection_features = Dict()
+   node_features = Dict()
 
-   interconnection_features["node_count"] = 1
-   interconnection_features["node_provider"] = "OnPremise"
-   interconnection_features["node_virtual"] = "No"
-   interconnection_features["node_dedicated"] = "No"
-   interconnection_features["node_machinefamily"] = "unset"
-   interconnection_features["node_machinetype"] = "unset"
-   interconnection_features["node_vcpus_count"] = "unset"
+   node_features["node_count"] = 1
+   node_features["node_provider"] = "OnPremise"
+   node_features["node_virtual"] = "No"
+   node_features["node_dedicated"] = "No"
+   node_features["node_machinefamily"] = "unset"
+   node_features["node_machinetype"] = "unset"
+   node_features["node_vcpus_count"] = "unset"
 
-   return interconnection_features
+   return node_features
 end
 
 function addNodeFeatures!(platform_features, node_features)

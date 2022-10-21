@@ -1,4 +1,4 @@
-,,processor_core_count,processor_clock,processor_core_threadscount,processor_isa,processor_simd,processor_microarchitecture,processor,processor_manufacturer,processor_tdp,processor_core_L1_size,processor_core_L2_size,processor_L3_size
+,,processor_core_count,processor_clock,processor_core_threads_count,processor_isa,processor_simd,processor_microarchitecture,processor,processor_manufacturer,processor_tdp,processor_core_L1_size,processor_core_L2_size,processor_L3_size
 Intel;Xeon;W,3275M,28,2.50G,56,64-bit,AVX-512,CascadeLake,IntelXeon_W_3275M,Intel,205,unset,unset,unset
 Intel;Xeon;W,3265M,24,2.70G,48,64-bit,AVX-512,CascadeLake,IntelXeon_W_3265M,Intel,205,unset,unset,unset
 Intel;Xeon;W,3245M,16,3.20G,32,64-bit,AVX-512,CascadeLake,IntelXeon_W_3245M,Intel,205,unset,unset,unset

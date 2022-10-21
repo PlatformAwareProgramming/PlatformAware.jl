@@ -3,10 +3,10 @@
 # ------------------------------------------------------------------
 
 mutable struct PlatformFeatures
-    default_platform_types_all
-    default_platform_types
-    actual_platform_arguments_all
-    actual_platform_arguments    
+    platform_feature_default_all
+    platform_feature_default
+    platform_feature_all
+    platform_feature    
     function PlatformFeatures()
         new(Dict(),Dict(),Dict(),Dict())
     end
@@ -28,6 +28,7 @@ defT =[
     :node_memory_bandwidth => Tuple{AtLeast0,AtMostInf},
     :node_memory_type => MemoryType,
     :node_memory_frequency => Tuple{AtLeast1,AtMostInf},
+    :node_coworker_count => WorkerCount, # number of worker processes (i.e., julia -p N)
     :processor_count => Tuple{AtLeast1,AtMostInf},
     :processor_manufacturer => Manufacturer,
     :processor_microarchitecture => ProcessorMicroarchitecture,
@@ -78,63 +79,101 @@ defT =[
     :storage_interface => StorageInterface
 ]
 
-state.default_platform_types_all = Dict(defT...)
-state.default_platform_types = copy(state.default_platform_types_all)
+state.platform_feature_default_all = Dict(defT...)
+state.platform_feature_default = copy(state.platform_feature_default_all)
+
+function setupWorkers(platform_description_dict, platform_feature)
+    try
+        colocated_procs = procs(myid())
+
+        node_coworker_count = if (1 in colocated_procs)
+                                 length(colocated_procs) - 1
+                              else
+                                 length(colocated_procs)
+                              end
+
+        vcount = platform_description_dict[:node_vcpus_count]
+        pcount = platform_description_dict[:processor_count]
+        ccount = pcount * platform_description_dict[:processor_core_count]
+        tcount = ccount * platform_description_dict[:processor_core_threads_count]
+
+        if vcount == node_coworker_count && platform_description_dict[:maintainer] == CloudProvider
+            platform_feature[:node_coworker_count] = PerVCPU
+        elseif (node_coworker_count = 0)
+            platform_feature[:node_coworker_count] = NoCoworkers
+        elseif node_coworker_count == 1
+            platform_feature[:node_coworker_count] = PerNode
+        elseif pcount == node_coworker_count
+            platform_feature[:node_coworker_count] = PerProcessor
+        elseif ccount == node_coworker_count
+            platform_feature[:node_coworker_count] = PerCore
+        elseif tcount == node_coworker_count
+            platform_feature[:node_coworker_count] = PerThread
+        else
+            platform_feature[:node_coworker_count] = Unmapped
+        end
+    catch _
+        platform_feature[:node_coworker_count] = NoCoworkers
+    end
+end
 
 function load!()
-    empty!(state.actual_platform_arguments_all)
+    empty!(state.platform_feature_all)
     platform_description_dict = readPlatormDescription()
-    loadFeatures!(platform_description_dict, state.default_platform_types_all, state.actual_platform_arguments_all)
+    platform_description_dict["node"]["node_count"] = try Distributed.nworkers() catch _ 1 end
+    loadFeatures!(platform_description_dict, state.platform_feature_default_all, state.platform_feature_all)
 
-    empty!(state.actual_platform_arguments)
-    for (k,v) in state.actual_platform_arguments_all
-        state.actual_platform_arguments[k] = v
+    setupWorkers(platform_description_dict, state.platform_feature_all)
+
+    empty!(state.platform_feature)
+    for (k,v) in state.platform_feature_all
+        state.platform_feature[k] = v
     end
 end
 
 # load!()
 
 function setplatform!(parameter_id, actual_type)
-    state.actual_platform_arguments[parameter_id] = actual_type
+    state.platform_feature[parameter_id] = actual_type
     (parameter_id,actual_type)
 end
 
 function getplatform(parameter_id)
-    state.actual_platform_arguments[parameter_id]
+    state.platform_feature[parameter_id]
 end
 
 function getplatform()
-    state.actual_platform_arguments
+    state.platform_feature
 end
 
-function empty_actual_platform_arguments!()
-    empty!(state.actual_platform_arguments)
-    empty!(state.default_platform_types)
+function empty_platform_feature!()
+    empty!(state.platform_feature)
+    empty!(state.platform_feature_default)
 end
 
-function reset_actual_platform_arguments!()
-    for (k,v) in state.actual_platform_arguments_all
-        state.actual_platform_arguments[k] = v
+function reset_platform_feature!()
+    for (k,v) in state.platform_feature_all
+        state.platform_feature[k] = v
     end
     for (k,v) in platform_types_all
-        state.default_platform_types[k] = v
+        state.platform_feature_default[k] = v
     end
-    keys(state.actual_platform_arguments)
+    keys(state.platform_feature)
 end
 
 function include_actual_platform_argument!(f)
-    state.actual_platform_arguments[f] = state.actual_platform_arguments_all[f]
-    state.default_platform_types[f] = state.default_platform_types_all[f]
-    keys(state.actual_platform_arguments)
+    state.platform_feature[f] = state.platform_feature_all[f]
+    state.platform_feature_default[f] = state.platform_feature_default_all[f]
+    keys(state.platform_feature)
 end
 
 
 function platform_parameter_macro!(f)
 
     if (f == :clear)
-        empty_actual_platform_arguments!()
+        empty_platform_feature!()
     elseif (f == :all)
-        reset_actual_platform_arguments!()
+        reset_platform_feature!()
     else
         check_all(f)
         include_actual_platform_argument!(f)
@@ -149,9 +188,9 @@ function platform_parameters_kernel(p_list)
 
     # replace default types to required types in kernel platform parameters
     r = []
-    for k in keys(state.actual_platform_arguments)
+    for k in keys(state.platform_feature)
          found = get(p_dict, k, nothing)
-         v = state.default_platform_types[k]
+         v = state.platform_feature_default[k]
          push!(r, isnothing(found) ? :(::Type{<:$v}) : :(::Type{<:$found}))
     end
 
@@ -159,14 +198,14 @@ function platform_parameters_kernel(p_list)
 end
 
 function check_all(parameter_id)
-    if (!haskey(state.actual_platform_arguments_all,parameter_id))
+    if (!haskey(state.platform_feature_all,parameter_id))
         throw(parameter_id)
     end
     parameter_id
 end
 
 function check(parameter_id)
-    if (!haskey(state.actual_platform_arguments,parameter_id))
+    if (!haskey(state.platform_feature,parameter_id))
         throw(parameter_id)
     end
     parameter_id
@@ -225,7 +264,7 @@ function build_entry_signature(fsign::Expr)
     keyword_parameters = length(call_node_args) > 1 && typeof(call_node_args[1]) == Expr && call_node_args[1].head == :parameters ? popfirst!(call_node_args).args : []
     # takes a dictionary mapping par->actual_type and returns an expression :(par::actual_type)
     # the remaining elements in call_node_args are the kernel parameters.
-    platform_parameters = map(p->Expr(:kw,Expr(:(::),p[1],Type{<:state.default_platform_types[p[1]]}),p[2]), collect(state.actual_platform_arguments))
+    platform_parameters = map(p->Expr(:kw,Expr(:(::),p[1],Type{<:state.platform_feature_default[p[1]]}),p[2]), collect(state.platform_feature))
     # rebuild the keyword parameters node for the entry function, including the platform_parameters
     keyword_parameters_node = Expr(:parameters, platform_parameters..., keyword_parameters...)
     # collect the identifiers of the kernel parameters
@@ -239,7 +278,7 @@ end
 
 function build_entry_body(fname, fargs, kargs)
     # takes the identifiers of the platform parameters
-    pargs = keys(state.actual_platform_arguments)
+    pargs = keys(state.platform_feature)
     # builds the :parameters node for the keyword arguments of the kernel invocation (kargs), since the identifiers must be refferenced.
     kargs = Expr(:parameters, map(p -> Expr(:kw, p, p), kargs)...)
     # returns the :call node for the kernel invocation (note that platform arguments comes before kernel arguments)

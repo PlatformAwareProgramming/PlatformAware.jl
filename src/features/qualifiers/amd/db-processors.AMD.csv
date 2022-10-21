@@ -1,4 +1,4 @@
-,,processor_core_count,processor_clock,processor_core_threadscount,processor_isa,processor_simd,processor_microarchitecture,processor,processor_manufacturer,processor_tdp,processor_core_L1_size,processor_core_L2_size,processor_L3_size,node_memory_bandwidth,node_memory_type
+,,processor_core_count,processor_clock,processor_core_threads_count,processor_isa,processor_simd,processor_microarchitecture,processor,processor_manufacturer,processor_tdp,processor_core_L1_size,processor_core_L2_size,processor_L3_size,node_memory_bandwidth,node_memory_type
 AMD;Turion,TL64,2,2.2G,2,64-bit,MMX;Now3Dx;SSE;SSE2;SSE3,unset,AMDTurion_TL64,AMD,35,unset,1MB,unset,667M,DDR2
 AMD;Turion,TL60,2,2.0G,2,64-bit,MMX;Now3Dx;SSE;SSE2;SSE3,unset,AMDTurion_TL60,AMD,31,unset,1MB,unset,667M,DDR2
 AMD;Turion,TL56,2,1.8G,2,64-bit,MMX;Now3Dx;SSE;SSE2;SSE3,unset,AMDTurion_TL56,AMD,31,unset,unset,unset,unset,unset

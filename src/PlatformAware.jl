@@ -57,7 +57,7 @@ export
     @just,
     @unlimited,
     @api,
-    PlatformFeature,
+    PlatformType,
     QuantifierFeature,
     QualifierFeature,
     Query,

@@ -113,7 +113,16 @@ abstract type ISA_x86_64_v4 <: ISA_x86_64_v3 end
 
 abstract type ISA_IA_64 <: ProcessorISA end
     
-
 export ISA_x86_32, ISA_x86, ISA_x86_64, ISA_AMD_64, ISA_x86_64_v1, ISA_x86_64_v2, ISA_x86_64_v3, ISA_x86_64_v4, ISA_IA_64
 
 
+abstract type WorkerCount end
+abstract type NoCoworkers <: WorkerCount end
+abstract type PerNode <: WorkerCount end
+abstract type PerProcessor <: WorkerCount end
+abstract type PerCore <: WorkerCount end
+abstract type PerThread <: WorkerCount end
+abstract type PerVCPU <: WorkerCount end
+abstract type Unmapped <: WorkerCount end
+
+export PerNode, PerProcessor, PerCore, PerThread, PerVCPU
