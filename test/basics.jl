@@ -30,11 +30,17 @@
                                     x,y,args...; z=1, kwargs...)
         println(z,": kernel for 1 accelerators of unspecified kind")
     end
-    @platform aware function kernel({accelerator_count::(@atleast 1),
+    @platform aware function kernel({accelerator_count::@atleast(1,C),
                                      accelerator_manufacturer::NVIDIA,
                                      accelerator_api::(@api CUDA 3.0)},
-                                    x,y,args...; z=2, kwargs...)
-        println(z,": kernel for 1 NVIDIA accelerators")
+                                    x::@atleast(1),y,args...; z=2, kwargs...) where C
+        println(z,": kernel 1 for $C NVIDIA accelerators")
+    end
+    @platform aware function kernel({accelerator_count::@atleast(1,C),
+                                     accelerator_manufacturer::NVIDIA,
+                                     accelerator_api::(@api CUDA 3.0)},
+                                    x::@atleast(16),y,args...; z=2, kwargs...) where C
+        println(z,": kernel 2 for $C NVIDIA accelerators")
     end
     @platform aware function kernel({node_count::(@atleast 32),
                                      processor::IntelCore_i7_7500U},
@@ -69,6 +75,7 @@
         println(z,": a processor with AVX512 SIMD support, and 256GB of primary memory.")
     end
 
-    kernel(0,1,2,3;z=10,kwargs=0)
+    kernel(@quantifier(7),1,2,3;z=10,kwargs=0)
+    kernel(@quantifier(18),1,2,3;z=10,kwargs=0)
 
 end

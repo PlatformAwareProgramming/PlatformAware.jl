@@ -51,6 +51,7 @@ end
   
 export 
     @platform,
+    @quantifier,
     @atleast,
     @atmost,
     @between,

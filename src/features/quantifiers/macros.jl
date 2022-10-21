@@ -2,26 +2,52 @@
 # Licensed under the MIT License. See LICENCE in the project root.
 # ------------------------------------------------------------------
 
+macro quantifier(n)
+    get_quantifier(n)
+end
+
 macro atleast(n)
     N = n==:∞ || n==:inf ? "AtLeastInf" : "AtLeast" * string(n) 
-    Meta.parse("Tuple{" * N * ",AtMostInf}")
+    Meta.parse("Type{<:Tuple{$N,AtMostInf,X} where X}")
+end
+
+macro atleast(n,x)
+    N = n==:∞ || n==:inf ? "AtLeastInf" : "AtLeast" * string(n) 
+    esc(Meta.parse("Type{<:Tuple{$N,AtMostInf,$(x)}}"))
 end
 
 macro atmost(n)
     N = n==:∞ || n==:inf ? "AtMostInf" : "AtMost" * string(n);
-    Meta.parse("Tuple{AtLeast0," * N * "}")
+    Meta.parse("Type{<:Tuple{AtLeast0,$N,X} where X}")
+end
+
+macro atmost(n,x)
+    N = n==:∞ || n==:inf ? "AtMostInf" : "AtMost" * string(n);
+    Meta.parse("Type{<:Tuple{AtLeast0,$N,$(x)}}")
 end
 
 macro between(m,n)
     M = m==:∞ || n==:inf ? "AtLeastInf" : "AtLeast" * string(m)
     N = n==:∞ || n==:inf ? "AtMostInf" : "AtMost" * string(n)
-    Meta.parse("Tuple{" * M * "," * N * "}")
+    Meta.parse("Type{<:Tuple{$M,$N,X} where X}")
+end
+
+macro between(m,n,x)
+    M = m==:∞ || n==:inf ? "AtLeastInf" : "AtLeast" * string(m)
+    N = n==:∞ || n==:inf ? "AtMostInf" : "AtMost" * string(n)
+    Meta.parse("Type{<:Tuple{$M,$N,$(x)}}")
 end
 
 macro just(m)
     M = m==:∞ || m==:inf ? "AtLeastInf" : "AtLeast" * string(m)
     N = m==:∞ || m==:inf ? "AtMostInf" : "AtMost" * string(m)
-    Meta.parse("Tuple{" * M * "," * N * "}")
+    Meta.parse("Type{<:Tuple{$M,$N,X} where X}")
+end
+
+macro just(m,x)
+    M = m==:∞ || m==:inf ? "AtLeastInf" : "AtLeast" * string(m)
+    N = m==:∞ || m==:inf ? "AtMostInf" : "AtMost" * string(m)
+    Meta.parse("Type{<:Tuple{$M,$N,$(x)}}")
 end
 
 macro unrestricted()

@@ -5,7 +5,7 @@
 
 # automated declaration of at-most quantifier types
 
-abstract type AtMostInf  <: QuantifierFeature end                     
+abstract type AtMostInf  <: QuantifierFeature end; export AtMostInf                     
 
 let mul_super = "Inf" ,
     mag_ = "" ;
@@ -15,13 +15,14 @@ let mul_super = "Inf" ,
             nm1 = Symbol("AtMost" * string(mul) * mag)
             nm2 = Symbol("AtMost" * string(mul_super) * mag_super)
             @eval abstract type $nm1 <: $nm2 end
+            @eval export $nm1
             mul_super = mul
         end
         mag_ = mag
     end
 end
 
-abstract type AtMost0 <: AtMost1n end
+abstract type AtMost0 <: AtMost1n end; export AtMost0
 
 
 
