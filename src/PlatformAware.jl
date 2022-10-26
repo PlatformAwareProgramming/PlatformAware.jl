@@ -64,7 +64,7 @@ export
     Query,
     Yes,
     No,
-    Maintainer,
+    Provider,
     OnPremise,
     CloudProvider,
     MachineFamily,
