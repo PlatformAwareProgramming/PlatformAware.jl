@@ -15,3 +15,7 @@ abstract type GoogleCloud <: CloudProvider end; export GoogleCloud
 
 
 # machine size types
+
+function getNodeFeatures(provider::Type{<:GoogleCloud}, node_features)
+    nothing
+end

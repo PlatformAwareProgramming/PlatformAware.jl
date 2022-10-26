@@ -2,58 +2,7 @@
 # Licensed under the MIT License. See LICENCE in the project root.
 # ------------------------------------------------------------------
 
- function readDB(filename)
-
-   d = Vector()
-   i=0
-   for ls in readlines(filename)
-      if i>0
-         l = split(ls,',')
-         ks = split(l[1],';')
-         d2 = d
-         for k in ks
-            next_d = nothing
-            for (key,value) in d
-               if (k == key)
-                  next_d = value      
-               end
-            end
-            if (isnothing(next_d))
-               next_d = Vector()
-               push!(d,(k,next_d))
-            end
-            d = next_d
-         end
-         push!(d,(l[2],tuple(l[2:length(l)]...)))
-         d = d2
-      end
-      i = i + 1
-   end
  
-   return d
- end
-
- function lookupDB(db, key)
-
-   d = db
-
-   while typeof(d) <: Vector
-
-      ks = d
-
-      found = false
-      for (k,v) in ks 
-         if (occursin(k,key))
-            d = v; found = true
-            break
-         end
-      end
-      if !found return nothing end
-   end
-
-   return d
-
-end
 
 const processor_dict = Ref{Vector}()
 const accelerator_dict = Ref{Vector}()
@@ -777,12 +726,7 @@ function identityInterconnection()
    return interconnection_features
 end
 
-# TODO
 function identifyNode()
-
-   println(stderr, "fail.")
-   println(stderr, "=> Note: detection of node features (cluster and cloud computing) not yet implemented. Using default features.")
-   println(stderr, "         You can setup node features manually.")
 
    node_features = Dict()
 
@@ -793,7 +737,13 @@ function identifyNode()
    node_features["node_machinefamily"] = "unset"
    node_features["node_machinetype"] = "unset"
    node_features["node_vcpus_count"] = "unset"
-
+   
+   for p in subtypes(CloudProvider)
+      print(stderr, string(p) * "?")
+      ok = getNodeFeatures(p, node_features)
+      if (isnothing(ok)) print(stderr, "No") else print(stderr, "Yes") end; print(stderr, ", ")
+   end
+   print(stderr, "... ok")
    return node_features
 end
 
