@@ -11,11 +11,11 @@ function loadDBs!()
 
    database_path = @get_scratch!("database_path")
 
-   procdb_intel_url = "https://raw.githubusercontent.com/platform-aware-programming/PlatformAware.jl/master/src/features/qualifiers/intel/db-processors.Intel.csv"
-   procdb_amd_url   = "https://raw.githubusercontent.com/platform-aware-programming/PlatformAware.jl/master/src/features/qualifiers/amd/db-processors.AMD.csv"
-   accdb_intel_url  = "https://raw.githubusercontent.com/platform-aware-programming/PlatformAware.jl/master/src/features/qualifiers/intel/db-accelerators.Intel.csv"
-   accdb_amd_url    = "https://raw.githubusercontent.com/platform-aware-programming/PlatformAware.jl/master/src/features/qualifiers/amd/db-accelerators.AMD.csv"
-   accdb_nvidia_url = "https://raw.githubusercontent.com/platform-aware-programming/PlatformAware.jl/master/src/features/qualifiers/nvidia/db-accelerators.NVIDIA.csv"
+   procdb_intel_url = "https://raw.githubusercontent.com/PlatformAwareProgramming/PlatformAware.jl/master/src/features/qualifiers/intel/db-processors.Intel.csv"
+   procdb_amd_url   = "https://raw.githubusercontent.com/PlatformAwareProgramming/PlatformAware.jl/master/src/features/qualifiers/amd/db-processors.AMD.csv"
+   accdb_intel_url  = "https://raw.githubusercontent.com/PlatformAwareProgramming/PlatformAware.jl/master/src/features/qualifiers/intel/db-accelerators.Intel.csv"
+   accdb_amd_url    = "https://raw.githubusercontent.com/PlatformAwareProgramming/PlatformAware.jl/master/src/features/qualifiers/amd/db-accelerators.AMD.csv"
+   accdb_nvidia_url = "https://raw.githubusercontent.com/PlatformAwareProgramming/PlatformAware.jl/master/src/features/qualifiers/nvidia/db-accelerators.NVIDIA.csv"
 
 #   procdb_intel_fname = "/home/heron/Dropbox/Copy/ufc_mdcc_hpc/PlatformAware/PlatformAware.jl/src/features/qualifiers/intel/db-processors.Intel.csv" #joinpath(database_path,basename(procdb_intel_url))
 #   procdb_amd_fname = "/home/heron/Dropbox/Copy/ufc_mdcc_hpc/PlatformAware/PlatformAware.jl/src/features/qualifiers/amd/db-processors.AMD.csv" #joinpath(database_path,basename(procdb_amd_url))
@@ -433,9 +433,9 @@ function identifyProcessor()
          get!(cdict,c[:id],c[:value])
       end
       processor_core_count = parse(Int64,cdict["enabledcores"])
-      processor_core_threadscount = parse(Int64,cdict["threads"])
+      processor_core_threads_count = parse(Int64,cdict["threads"])
 
-      push!(l,(p["product"],processor_core_count, processor_core_threadscount,lc))
+      push!(l,(p["product"],processor_core_count, processor_core_threads_count,lc))
        
    end
 

@@ -2,10 +2,10 @@
 # Licensed under the MIT License. See LICENCE in the project root.
 # ------------------------------------------------------------------
 
-abstract type PlatformFeature end
+abstract type PlatformType end
 
-abstract type QuantifierFeature <: PlatformFeature end
-abstract type QualifierFeature <: PlatformFeature end
+abstract type QuantifierFeature <: PlatformType end
+abstract type QualifierFeature <: PlatformType end
 
 @enum FeatureType qualifier=1 api_qualifier quantifier
 
@@ -22,6 +22,7 @@ global feature_type = Dict(
     :node_memory_bandwidth => quantifier,
     :node_memory_type => qualifier,
     :node_memory_frequency => quantifier,
+    :node_coworker_count => qualifier,
     :processor_count => quantifier,
     :processor_manufacturer => qualifier,
     :processor_microarchitecture => qualifier,
@@ -111,26 +112,31 @@ end
 function get_quantifier_from_number(n)
 
     if n>0
-
         magnitude = Dict(0 => "", 1 => "K", 2 => "M", 3 => "G", 4 => "T", 5 => "P", 6 => "E")
 
         l = log(2,n)
-        a = round(l)
+        a = floor(l)
         b = isinteger(l) ? a : a + 1;    
 
         # the following loop separates a and b in multiplier*magnitude (see the POPL's paper).
 
         # let A = 2^a
-        m=0
+        m1=0
         while a>9 
             # loop invariant: A = 2^a * 2^(10*m)
             a = a - 10
-            b = b - 10
-            m = m + 1
+            m1 = m1 + 1
         end
 
-        a_str = "AtLeast" * string(Integer(2^a)) * magnitude[m]
-        b_str = "AtMost" * string(Integer(2^b)) * magnitude[m]
+        m2=0
+        while b>9 
+            # loop invariant: A = 2^a * 2^(10*m)
+            b = b - 10
+            m2 = m2 + 1
+        end
+
+        a_str = "AtLeast" * string(Integer(2^a)) * magnitude[m1]
+        b_str = "AtMost" * string(Integer(2^b)) * magnitude[m2]
     else
         a_str = "AtLeast0"
         b_str = "AtMost0"
@@ -138,7 +144,7 @@ function get_quantifier_from_number(n)
 
     a_type = getfield(@__MODULE__, Meta.parse(a_str))
     b_type = getfield(@__MODULE__, Meta.parse(b_str))
-    Tuple{a_type,b_type}
+    Tuple{a_type,b_type,n}
 end
 
 
@@ -165,15 +171,15 @@ function get_qualifier(feature)
     getfield(@__MODULE__, Meta.parse(feature))
 end
 
-function check_blank_feature(parameter_id, feature, default_platform_types)
+function check_blank_feature(parameter_id, feature, platform_feature_default)
     if (feature == "na")
-        default_platform_types[parameter_id]
+        platform_feature_default[parameter_id]
     elseif (feature == "unset")
-        default_platform_types[parameter_id]
+        platform_feature_default[parameter_id]
     elseif (feature == "unknown")
-        default_platform_types[parameter_id]
+        platform_feature_default[parameter_id]
     elseif (feature == "ignore")
-        default_platform_types[parameter_id]
+        platform_feature_default[parameter_id]
     else
         nothing
     end
@@ -203,7 +209,7 @@ function identifyAPI_oldversion(api_string)
 
  end
 
-function get_api_qualifier(api_string, default_platform_types)
+function get_api_qualifier(api_string, platform_feature_default)
 
     apis = split(api_string,';')
  
@@ -224,7 +230,7 @@ function get_api_qualifier(api_string, default_platform_types)
  
  end
 
-function loadFeaturesSection!(dict, actual_platform_arguments, default_platform_types)
+function loadFeaturesSection!(dict, platform_feature, platform_feature_default)
 
     if ("0" in keys(dict))
         dict = dict["0"]
@@ -232,19 +238,19 @@ function loadFeaturesSection!(dict, actual_platform_arguments, default_platform_
 
     for (parameter_id, feature) in dict
         p = Meta.parse(parameter_id)
-        v0 = check_blank_feature(p, feature, default_platform_types)
+        v0 = check_blank_feature(p, feature, platform_feature_default)
         v = if (isnothing(v0))
-                feature_type[p] == qualifier ? get_qualifier(feature) :  feature_type[p] == api_qualifier ? get_api_qualifier(feature, default_platform_types) : get_quantifier(feature) 
+                feature_type[p] == qualifier ? get_qualifier(feature) :  feature_type[p] == api_qualifier ? get_api_qualifier(feature, platform_feature_default) : get_quantifier(feature) 
             else
                 v0
             end
-        actual_platform_arguments[p]= v
+        platform_feature[p]= v
     end
 end
 
-function loadFeatures!(dict, default_platform_types, actual_platform_arguments)
+function loadFeatures!(dict, platform_feature_default, platform_feature)
     loadDBs!()
     for key in ["node", "processor", "accelerator", "memory", "storage", "interconnection"]
-        loadFeaturesSection!(dict[key], actual_platform_arguments, default_platform_types) 
+        loadFeaturesSection!(dict[key], platform_feature, platform_feature_default) 
     end
 end

@@ -4,7 +4,7 @@
 
 # automated declaration of at-least quantifier types
 
-abstract type AtLeast0 <: QuantifierFeature end                     
+abstract type AtLeast0 <: QuantifierFeature end; export AtLeast0                     
 
 let mul_super = 0
     mag_ = ""

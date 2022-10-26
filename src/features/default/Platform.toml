@@ -7,7 +7,6 @@
 
 [node]
 
-node_count = 1
 node_provider = "OnPremise"
 node_virtual = "No"
 node_dedicated = "Yes"  
