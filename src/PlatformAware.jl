@@ -11,6 +11,7 @@ using JSON
 using Scratch
 using Downloads
 using InteractiveUtils
+using HTTP
 
 include("utils.jl")
 

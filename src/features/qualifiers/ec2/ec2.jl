@@ -2,9 +2,6 @@
 # Licensed under the MIT License. See LICENCE in the project root.
 # ------------------------------------------------------------------
 
-using HTTP
-using JSON
-
 
 # maintainer types
 abstract type AmazonEC2 <: CloudProvider end; export AmazonEC2
