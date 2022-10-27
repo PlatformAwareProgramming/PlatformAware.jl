@@ -778,7 +778,7 @@ abstract type EC2Type_H1_16xLarge <: EC2Type_H1 end
 ## 
 function get_instance_info(::Type{<:AmazonEC2})
     try
-        global instance_id = JSON.parse(String(HTTP.request("GET", "http://169.254.169.254/latest/dynamic/instance-identity/document").body))
+        global instance_id = JSON.parse(String(HTTP.request("GET", "http://169.254.169.254/latest/dynamic/instance-identity/document"; connect_timeout=10, readtimeout=10).body))
         # return instance_info["instanceType"], instance_info["region"]
     catch e
         return nothing

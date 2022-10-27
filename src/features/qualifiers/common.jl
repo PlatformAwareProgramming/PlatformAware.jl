@@ -64,13 +64,33 @@ export Now3D, Now3Dx, MMX, SSE, SSE_2, SSE2, SSE_3, SSE3, SSSE_3, SSSE3, SSE_4, 
 # Memory types
 
 abstract type RAM <: MemoryType end
-abstract type DDR2 <: RAM end
-abstract type DDR3 <: RAM end
-abstract type DDR3L <: DDR3 end
-abstract type DDR4 <: RAM end
-abstract type LPDDR4 <: DDR4 end
+abstract type SDRAM <: RAM end
 
-export RAM, DDR2, DDR3, DDR33L, DDR4, LPDDR4
+abstract type DDR2 <: SDRAM end
+abstract type DDR3 <: SDRAM end
+abstract type DDR3L <: SDRAM end
+abstract type DDR4 <: SDRAM end
+abstract type LPDDR4 <: SDRAM end
+abstract type LPDDR4X <: SDRAM end
+abstract type DDR5 <: SDRAM end
+abstract type LPDDR5 <: SDRAM end
+
+abstract type DDR_SDRAM <: SDRAM end
+abstract type GDDR2 <: SDRAM end
+abstract type GDDR3 <: SDRAM end
+abstract type GDDR4 <: SDRAM end
+abstract type GDDR5 <: SDRAM end
+abstract type GDDR5X <: SDRAM end
+abstract type GDDR6 <: SDRAM end
+abstract type GDDR6X <: SDRAM end
+
+abstract type HBM2 <: SDRAM end
+abstract type HBM2e <: SDRAM end
+abstract type HBM3 <: SDRAM end
+abstract type HBM_PIM <: SDRAM end
+
+export RAM, DDR2, DDR3, DDR33L, DDR4, LPDDR4, LPDDR4X, DDR5, LPDDR5
+export DDR_SDRAM, GDDR2, GDDR3, GDDR4, GDDR5, GDDR5X, GDDR6, GDDR6X
 
 # Storage types
 abstract type SSD <: StorageType end

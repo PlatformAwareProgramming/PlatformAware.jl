@@ -190,8 +190,6 @@ function identifyAPI_oldversion(api_string)
     dt = AcceleratorBackend
 
     api_type = get_qualifier(api_string)
-
-
     
     if (startswith(api_string, "CUDA"))        return Tuple{api_type,dt,dt,dt,dt,dt,dt}
     elseif (startswith(api_string, "OpenCL"))  return Tuple{dt,api_type,dt,dt,dt,dt,dt}
@@ -202,10 +200,6 @@ function identifyAPI_oldversion(api_string)
     elseif (startswith(api_string, "DirectX")) return Tuple{dt,dt,dt,dt,dt,dt,api_type}
     else return Tuple{dt,dt,dt,dt,dt,dt}
     end
- 
-
-    #Tuple{Any,Any,Any,Any,Any,Any,Any}
-
 
  end
 
@@ -226,14 +220,13 @@ function get_api_qualifier(api_string, platform_feature_default)
     directx_api = get_qualifier(apis[7] in ["na","unset","unknown","ignore"] ? "AcceleratorBackend" : apis[7])
  
     Tuple{cuda_api,opencl_api,openacc_api,oneapi_api,opengl_api,vulkan_api,directx_api}
-    #Tuple{Any,Any,Any,Any,Any,Any,Any}
  
  end
 
 function loadFeaturesSection!(dict, platform_feature, platform_feature_default)
 
-    if ("0" in keys(dict))
-        dict = dict["0"]
+    if ("1" in keys(dict))
+        dict = dict["1"]
     end
 
     for (parameter_id, feature) in dict
