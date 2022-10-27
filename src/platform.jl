@@ -238,6 +238,8 @@ macro platform(t,f)
         platform_parameter_macro!(f)
     elseif (t == :parameter && !getaddparameter())
         @info "cannot add parameters after including the first kernel method"
+    elseif (t == :assumption)
+        return :($f)
     else
         @info "usage: platform [default | aware] <function declaration>"
         @info "       platform parameter :(<parameter name>)"
@@ -303,7 +305,17 @@ function build_kernel_signature(fsign::Expr)
     fname = popfirst!(call_node_args)
     keyword_parameters_node = length(call_node_args) > 0 && typeof(call_node_args[1]) == Expr && call_node_args[1].head == :parameters ? popfirst!(call_node_args) : nothing
     # takes the platform parameters of the kernel
-    aware_parameters_args = length(call_node_args) > 0 && typeof(call_node_args[1]) == Expr && call_node_args[1].head == :braces ? popfirst!(call_node_args).args : [] 
+    #aware_parameters_args = length(call_node_args) > 0 && typeof(call_node_args[1]) == Expr && call_node_args[1].head == :braces ? popfirst!(call_node_args).args : [] 
+    aware_parameters_args = []
+    if length(call_node_args) > 0
+        if typeof(call_node_args[1]) == Expr && call_node_args[1].head == :braces 
+            aware_parameters_args = popfirst!(call_node_args).args
+        #elseif typeof(call_node_args[1]) == Symbol 
+        #    arg = popfirst!(call_node_args)
+        #    aware_parameters_args = @eval arg
+        end
+    end
+
     # inserts the kernel's platform parameters into the list platform parameters.
     ppars = platform_parameters_kernel(aware_parameters_args)
     new_call_node_args = isnothing(keyword_parameters_node) ? [fname, ppars..., call_node_args...] : [fname, keyword_parameters_node, ppars..., call_node_args...]

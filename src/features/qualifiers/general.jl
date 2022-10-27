@@ -12,7 +12,7 @@ abstract type No <: Query end
 # maintainer
 
 abstract type Provider <: QualifierFeature end
-abstract type OnPremise <: Provider end
+abstract type OnPremises <: Provider end
 abstract type CloudProvider <: Provider end
 
 # machine

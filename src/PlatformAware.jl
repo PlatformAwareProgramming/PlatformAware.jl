@@ -67,7 +67,7 @@ export
     Yes,
     No,
     Provider,
-    OnPremise,
+    OnPremises,
     CloudProvider,
     MachineFamily,
     MachineType,

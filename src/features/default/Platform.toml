@@ -7,7 +7,7 @@
 
 [node]
 
-node_provider = "OnPremise"
+node_provider = "OnPremises"
 node_virtual = "No"
 node_dedicated = "Yes"  
 node_machinefamily = "na"  

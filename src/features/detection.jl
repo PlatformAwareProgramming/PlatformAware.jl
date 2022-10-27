@@ -731,7 +731,7 @@ function identifyNode()
    node_features = Dict()
 
    node_features["node_count"] = 1
-   node_features["node_provider"] = "OnPremise"
+   node_features["node_provider"] = "OnPremises"
    node_features["node_virtual"] = "No"
    node_features["node_dedicated"] = "No"
    node_features["node_machinefamily"] = "unset"
