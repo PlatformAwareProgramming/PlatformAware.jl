@@ -60,13 +60,9 @@ function identifyComponent(idtype)
    node = dict["list"]["node"]
    if (typeof(node) == Vector{Any})
       for v in enumerate(node)
-         #if ("product" in keys(v[2]))
-         #   push!(l, v[2]["product"])
-         #end
          push!(l,v[2])
       end
    else
-      #push!(l,node["product"])
       push!(l,node)
    end
    return l
@@ -455,7 +451,7 @@ function collectAcceleratorFeatures(l)
    # Return the first display device that is an accelerator.
    # This is valid only for GPUs.
    i = 1
-   for acc_brand in l 
+   for acc_brand in keys(l) 
       
       # looking at the database
       acc_info = identifyAcceleratorModel(replace(acc_brand,"[" => "", "]" => "", "(" => "", ")" => "" ))   
@@ -466,7 +462,7 @@ function collectAcceleratorFeatures(l)
       device = Dict()
       accelerator_features[string(i)] = device
 
-      device["accelerator_count"] = 1
+      device["accelerator_count"] = l[acc_brand]
       device["accelerator"] = acc_info[2]
       device["accelerator_type"] = acc_info[3]
       device["accelerator_manufacturer"] = acc_info[4]
@@ -506,9 +502,10 @@ end
 function identifyAccelerator()
    try
       
-      l = Vector()
+      l = Dict()
       for d in identifyComponent("display")
-         push!(l,d["vendor"] * " " * d["product"])
+         k = "$(d["vendor"]) $(d["product"])"
+         l[k] = haskey(l,k) ? l[k] + 1 : 1
       end
 
       accelerator_features = collectAcceleratorFeatures(l)
