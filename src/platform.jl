@@ -123,13 +123,13 @@ function load!()
     platform_description_dict = readPlatormDescription()
     platform_description_dict["node"]["node_count"] = try Distributed.nworkers() catch _ 1 end
     loadFeatures!(platform_description_dict, state.platform_feature_default_all, state.platform_feature_all)
-
     setupWorkers(platform_description_dict, state.platform_feature_all)
 
     empty!(state.platform_feature)
     for (k,v) in state.platform_feature_all
         state.platform_feature[k] = v
     end
+    
 end
 
 # load!()
@@ -162,7 +162,7 @@ function reset_platform_feature!()
     keys(state.platform_feature)
 end
 
-function include_actual_platform_argument!(f)
+function include_platform_feature!(f)
     state.platform_feature[f] = state.platform_feature_all[f]
     state.platform_feature_default[f] = state.platform_feature_default_all[f]
     keys(state.platform_feature)
@@ -177,7 +177,7 @@ function platform_parameter_macro!(f)
         reset_platform_feature!()
     else
         check_all(f)
-        include_actual_platform_argument!(f)
+        include_platform_feature!(f)
     end
  end
 

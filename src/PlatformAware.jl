@@ -12,6 +12,7 @@ using Scratch
 using Downloads
 using InteractiveUtils
 using HTTP
+using Distributed
 
 include("utils.jl")
 
@@ -41,7 +42,6 @@ include("features/qualifiers/intel/intel_processors_xeon.jl")
 include("features/qualifiers/amd/amd_processors.jl")
 include("features/qualifiers/amd/amd_accelerators.jl")
 include("features/qualifiers/xilinx/xilinx.jl")
-
 
 # main functionality (@platform macro and default types)
 include("platform.jl")
