@@ -38,6 +38,7 @@ abstract type Processor end
 
 # accelerator
 
+abstract type AcceleratorInterconnect <: QualifierFeature end
 abstract type AcceleratorType <: QualifierFeature end
 abstract type AcceleratorArchitecture <: QualifierFeature end
 abstract type AcceleratorBackend <: QualifierFeature end
@@ -52,6 +53,15 @@ abstract type IPU <: XPU end
 abstract type FPGA <: AcceleratorType end
 
 abstract type MIC <: AcceleratorType end
+
+abstract type PCIe <: AcceleratorInterconnect end
+abstract type NVLink <: AcceleratorInterconnect end
+abstract type NVLink_V1 <: NVLink end
+abstract type NVLink_V2 <: NVLink end
+abstract type NVLink_SLI <: NVLink end
+abstract type NVSwitch <: AcceleratorInterconnect end
+abstract type GPUDirect <: AcceleratorInterconnect end
+
 
 #interconnection
 abstract type InterconnectionTopology <: QualifierFeature end

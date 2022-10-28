@@ -50,6 +50,7 @@ global feature_type = Dict(
     :processor => qualifier,
     :accelerator_count => quantifier,
     :accelerator_manufacturer => qualifier,
+    :accelerator_interconnect => qualifier,
     :accelerator_type => qualifier,
     :accelerator_architecture => qualifier,
     :accelerator_api => api_qualifier,

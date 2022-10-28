@@ -488,6 +488,7 @@ function collectAcceleratorFeaturesDefault()
       default_features["accelerator"] = "unset"
       default_features["accelerator_type"] = "unset"
       default_features["accelerator_manufacturer"] = "unset"
+      default_features["accelerator_interconnect"] = "unset"
       default_features["accelerator_api"] = "unset"
       default_features["accelerator_architecture"] = "unset"
       default_features["accelerator_memory_size"] = "unset"

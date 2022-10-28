@@ -57,6 +57,7 @@ defT =[
     :accelerator_count => Tuple{AtLeast0,AtMostInf,Q} where Q,
     :accelerator_type => AcceleratorType,
     :accelerator_manufacturer => Manufacturer,
+    :accelerator_interconnect => AcceleratorInterconnect,
     :accelerator_api => Tuple{AcceleratorBackend,AcceleratorBackend,AcceleratorBackend,AcceleratorBackend,AcceleratorBackend,AcceleratorBackend,AcceleratorBackend},
     :accelerator_architecture => AcceleratorArchitecture,
     :accelerator_memory_size => Tuple{AtLeast0,AtMostInf,Q} where Q,

@@ -36,6 +36,7 @@ accelerator = "unset"
 accelerator_count = 0
 accelerator_type = "unset"
 accelerator_manufacturer = "unset"
+accelerator_interconnect = "unset"
 accelerator_api = "unset"
 accelerator_architecture = "unset"
 accelerator_memory_size = "unset"
