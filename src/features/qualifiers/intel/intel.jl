@@ -15,6 +15,7 @@ abstract type IntelMicroarchitecture <: ProcessorMicroarchitecture end
 abstract type Westmere <: IntelMicroarchitecture end
 abstract type Saltwell <: IntelMicroarchitecture end
 abstract type SandyBridge <: IntelMicroarchitecture end
+abstract type SandyBridgeEP <: SandyBridge end
 abstract type IvyBridge <: IntelMicroarchitecture end
 abstract type Silvermont <: IntelMicroarchitecture end
 abstract type Haswell <: IntelMicroarchitecture end

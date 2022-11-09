@@ -280,21 +280,21 @@ function identifySIMD_CpuId()
       elseif CpuId.cpufeature(:AVX2)
          return string(:AVX2)
       elseif CpuId.cpufeature(:SSE41)
-         return string(:SSE41)
+         return "SSE_4_1"
       elseif CpuId.cpufeature(:SSE42)
-         return string(:SSE42)
+         return "SSE_4_2"
       elseif CpuId.cpufeature(:SSSE3)
-         return string(:SSSE3)
+         return "SSSE_3"
       elseif CpuId.cpufeature(:SSE3)
-         return string(:SSE3)
+         return "SSE_3"
       elseif CpuId.cpufeature(:SSE2)
-         return string(:SSE2)
+         return "SSE_2"
       elseif CpuId.cpufeature(:SSE)
-         return string(:SSE)
+         return "SSE"
       elseif CpuId.cpufeature(:MMX)
-         return string(:MMX)
+         return "MMX"
       else
-         return string(:ProcessorSIMD)
+         return "ProcessorSIMD"
    end
 end
 
@@ -509,7 +509,11 @@ function identifyAccelerator()
          l[k] = haskey(l,k) ? l[k] + 1 : 1
       end
 
-      accelerator_features = collectAcceleratorFeatures(l)
+      accelerator_features = if (length(l) > 0)
+                                 collectAcceleratorFeatures(l)
+                             else
+                                 collectAcceleratorFeaturesDefault()
+                             end
       println(stderr, "ok")
       return accelerator_features
    catch error
@@ -729,6 +733,7 @@ function identifyNode()
    node_features = Dict()
 
    node_features["node_count"] = 1
+   node_features["node_threads_count"] = 1
    node_features["node_provider"] = "OnPremises"
    node_features["node_virtual"] = "No"
    node_features["node_dedicated"] = "No"

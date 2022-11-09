@@ -829,6 +829,7 @@ function getNodeFeatures(provider::Type{<:AmazonEC2}, node_features)
     instance_info = get_instance_info(provider)
     if (!isnothing(instance_info))
         node_features["node_count"] = 1
+        node_features["node_threads_count"] = 1
         node_features["node_provider"] = "AmazonEC2"
         node_features["node_virtual"] = "Yes"
         node_features["node_dedicated"] = "Yes"            # ???

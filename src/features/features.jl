@@ -11,6 +11,7 @@ abstract type QualifierFeature <: PlatformType end
 
 global feature_type = Dict(
     :node_count => quantifier,
+    :node_threads_count => quantifier,
     :node_provider => qualifier,
     :node_virtual => qualifier,
     :node_dedicated => qualifier,

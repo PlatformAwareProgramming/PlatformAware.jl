@@ -17,6 +17,7 @@ state = PlatformFeatures()
 
 defT =[
     :node_count => Tuple{AtLeast1,AtMostInf,Q} where Q,
+    :node_threads_count => Tuple{AtLeast1,AtMostInf,Q} where Q,
     :node_provider => Provider,
     :node_virtual => Query,
     :node_dedicated => Query,
@@ -122,6 +123,7 @@ function load!()
     empty!(state.platform_feature_all)
     platform_description_dict = readPlatormDescription()
     platform_description_dict["node"]["node_count"] = try Distributed.nworkers() catch _ 1 end
+    platform_description_dict["node"]["node_threads_count"] = try Threads.nthreads() catch _ 1 end
     loadFeatures!(platform_description_dict, state.platform_feature_default_all, state.platform_feature_all)
     setupWorkers(platform_description_dict, state.platform_feature_all)
 
