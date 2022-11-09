@@ -32,6 +32,7 @@ abstract type CometLake <: IntelMicroarchitecture end
 abstract type IceLake <: IntelMicroarchitecture end
 abstract type Tremont <: IntelMicroarchitecture end
 abstract type TigerLake <: IntelMicroarchitecture end
+abstract type CascadeLake <: IntelMicroarchitecture end
 abstract type WillowCove <: IntelMicroarchitecture end
 abstract type AlderLake <: IntelMicroarchitecture end
 abstract type CypressCove <: IntelMicroarchitecture end
@@ -49,6 +50,7 @@ abstract type Montecito <: IntelMicroarchitecture end
 export Westmere,
     Saltwell,
     SandyBridge,
+    SandyBridgeEP,
     IvyBridge,
     Silvermont,
     Haswell,
@@ -57,6 +59,7 @@ export Westmere,
     Skylake,
     Goldmont,
     KabyLake,
+    CascadeLake,
     GoldmontPlus,
     CoffeeLake,
     CannonLake,
