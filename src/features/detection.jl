@@ -408,12 +408,13 @@ end
 function identifyProcessor()
    try      
       processor_features = collectProcessorFeatures_CpuId() 
-      println(stderr, "ok")
+
+      @info "Main processor detection succesful."
+      
       return processor_features
-   catch error
-      println(stderr, "fail.")
-      println(stderr, "=> Error: detecting processor features failed. Using default features.")
-      println(stderr, "          You can setup processor features manually.")
+   catch 
+      @warn "Main processor detection failed."
+      @info "Detection of main processors failed. Using default features. You can setup manually."
       return collectProcessorFeaturesDefault()
    end
 
@@ -477,7 +478,7 @@ function collectAcceleratorFeatures(l)
        i = i + 1
    end
 
-   return i == 2 ? accelerator_features["1"] : accelerator_features
+   return i > 1 ? accelerator_features["1"] : accelerator_features
 end
 
 function collectAcceleratorFeaturesDefault()
@@ -509,17 +510,18 @@ function identifyAccelerator()
          l[k] = haskey(l,k) ? l[k] + 1 : 1
       end
 
-      accelerator_features = if (length(l) > 0)
+      accelerator_features = if (!isempty(l))
                                  collectAcceleratorFeatures(l)
                              else
                                  collectAcceleratorFeaturesDefault()
                              end
-      println(stderr, "ok")
+
+      @info "Accelerator detection successful"
+
       return accelerator_features
-   catch error
-      println(stderr, "fail.")
-      println(stderr, "=> Error: detecting accelerator features failed. Using default features.")
-      println(stderr, "          You can setup accelerator features manually.")
+   catch 
+      @warn "Accelerator detection failed."
+      @info "Detection of accelerators failed. Using default features. You can setup manually."
       return collectAcceleratorFeaturesDefault()
    end
 end
@@ -554,7 +556,7 @@ function getMemorySize(mem_size)
       multiplier = Dict("KB" => 2^10, "MB" => 2^20, "GB" => 2^30, "TB" => 2^40, nothing => 1)
       return parse(Int64,match(r"^[-+]?[0-9]*\.?[0-9]+",mem_size).match) * multiplier[size_unit]
    catch error
-      println(stderr,error)
+      @warn string(error)
       return "unknown"
    end
    
@@ -567,7 +569,7 @@ function getMemorySpeed(mem_speed)
       multiplier = Dict("MT/s" => 1, "GT/s" => 2^10, "MHz" => 1, "GHz" => 2^10, nothing => 1)
       return parse(Int64,match(r"^[-+]?[0-9]*\.?[0-9]+",mem_speed).match) * multiplier[speed_unit]
    catch error
-      println(stderr,error)
+      @warn string(error)
       return "unknown"
    end
 end
@@ -633,13 +635,14 @@ function identifyMemory()
       end
       
       memory_features = collectMemoryFeatures(d1)
-      println(stderr, "ok")
+      
+      @info "Memory detection successfull."
+
       return memory_features
 
-   catch error
-      println(stderr, "fail.")
-      println(stderr, "=> Error: detecting primary memory features failed. Using default features.")
-      println(stderr, "          You can setup primary memory features manually.")
+   catch 
+      @warn "Memory detection failed."
+      @info "Detection of memory features failed. Using default features. You can setup manually."
 
       return collectMemoryFeaturesDefault()
    end
@@ -692,10 +695,12 @@ function identifyStorage()
             i = i + 1
          end
       end
-   catch error
-      println(stderr, "fail.")
-      println(stderr, "=> Error: detection of storage features failed. Using default features.")
-      println(stderr, "          You can setup storage features manually.")
+
+      @info "Storage detection successfull."
+
+   catch 
+      @warn "Storage detection failed."
+      @info "Detection of storage features failed. Using default features. You can setup manually."
 
       # default
       storage_features["storage_type"] = "unset"
@@ -712,9 +717,9 @@ end
 # TODO
 function identityInterconnection()
 
-   println(stderr, "fail.")
-   println(stderr, "=> Note: detection of interconnection features (cluster computing) not yet implemented. Using default features. You can setup manually.")
-   println(stderr, "         You can setup interconnection features manually.")
+   @warn "Interconnection detection failed"
+   @info "Detection of interconnection features (for cluster computing) not yet implemented. Using default features."
+   @info "You can setup interconnection features manually."
 
    interconnection_features = Dict()
 
@@ -742,11 +747,15 @@ function identifyNode()
    node_features["node_vcpus_count"] = "unset"
    
    for p in subtypes(CloudProvider)
-      print(stderr, string(p) * "?")
+      @info "Checking $(string(p)) provider."
       ok = getNodeFeatures(p, node_features)
-      if (isnothing(ok)) print(stderr, "No") else print(stderr, "Yes") end; print(stderr, ", ")
+      if (isnothing(ok)) 
+         @info "$(string(p)) provider failed"
+      else 
+         @info "$(string(p)) provider succesful"
+      end; 
    end
-   print(stderr, "... ok")
+   @info "Node identification complete."
    return node_features
 end
 
@@ -777,34 +786,38 @@ end
 
 function setup()
 
-   print("identifying node... "); node_features = identifyNode()
-   print("identifying processor... "); processor_features = identifyProcessor()
-   print("identifying accelerator... "); accelerator_features = identifyAccelerator()
-   print("identifying memory... "); memory_features = identifyMemory()
-   print("identifying storage... "); storage_features = identifyStorage()
-   print("identifying interconnection... "); interconnection_features = identityInterconnection()
-
    platform_features = Dict()
 
-   addNodeFeatures!(platform_features, node_features)
-   addProcessorFeatures!(platform_features, processor_features)
-   addAcceleratorFeatures!(platform_features, accelerator_features)
-   addMemoryFeatures!(platform_features, memory_features)
-   addStorageFeatures!(platform_features, storage_features)
-   addInterconnectionFeatures!(platform_features, interconnection_features)
+   node_features = nothing
 
-   println(stderr)
+   @sync begin
+      @async begin @info "Started node identification."; node_features = identifyNode() end
+      @async begin
+         @info "Started processor detection."; processor_features = identifyProcessor(); 
+         @info "Started accelerator detection."; accelerator_features = identifyAccelerator()
+         @info "Started memory system detection."; memory_features = identifyMemory()
+         @info "Started storage detection."; storage_features = identifyStorage()
+         @info "Started interconnection detection."; interconnection_features = identityInterconnection()
+
+         addProcessorFeatures!(platform_features, processor_features)
+         addAcceleratorFeatures!(platform_features, accelerator_features)
+         addMemoryFeatures!(platform_features, memory_features)
+         addStorageFeatures!(platform_features, storage_features)
+         addInterconnectionFeatures!(platform_features, interconnection_features)
+      end
+   end
+   
+   addNodeFeatures!(platform_features, node_features)
 
    if (!isfile("Platform.toml"))
       @sync begin
-         Threads.@spawn TOML.print(stdout, platform_features)
          Threads.@spawn begin 
                                fn = open("Platform.toml","w")
                                TOML.print(fn, platform_features)
                                close(fn)
                           end 
             end
-      @info "Platform.toml file was created in the current folder."
+      @info "The platform description file (Platform.toml) was created in the current folder."
       @info "You can move it to your preferred target."
       @info "Platform.toml will be searched in the following locations:"
       @info "  1) A file path pointed by a PLATFORM_DESCRIPTION environment variable;"
@@ -812,8 +825,8 @@ function setup()
       @info "  3) The /etc directory."
    else
       TOML.print(stdout, platform_features)
-      @info "Platform description file already exists in the current folder (Platform.toml)."
-      @info "You must delete or move it before creating a new one."
+      @info "A platform description file (Platform.toml) already exists in the current folder. It will not be removed or overwritten." 
+      @info "You can see above the Platform.toml content calculated by the feature detection processing."
    end
    
 end
