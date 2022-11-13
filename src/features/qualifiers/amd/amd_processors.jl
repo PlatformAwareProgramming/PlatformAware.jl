@@ -35,7 +35,6 @@ abstract type Excavator <: AMDMicroarchitecture end
 abstract type Jaguar <: AMDMicroarchitecture end
 abstract type Puma <: AMDMicroarchitecture end
 
-
 # Families 
 
 abstract type AMD_ASeries <: AMDProcessor end	    # AMD A-Series Processors

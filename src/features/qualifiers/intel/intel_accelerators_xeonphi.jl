@@ -2,16 +2,15 @@
 # Licensed under the MIT License. See LICENCE in the project root.
 # ------------------------------------------------------------------
 
-abstract type IntelXeonPhi <: IntelAccelerator end
+abstract type KnightsLanding <: IntelAcceleratorArchitecture end; export KnightsLanding 
+abstract type KnightsCorner <: IntelAcceleratorArchitecture end; export KnightsCorner
+abstract type KnightsMill <: IntelAcceleratorArchitecture end; export KnightsMill
 
-abstract type IntelXeonPhi_72x5 <: IntelXeonPhi end
-abstract type IntelXeonPhi_x100 <: IntelXeonPhi end
-abstract type IntelXeonPhi_x200 <: IntelXeonPhi end
+abstract type IntelXeonPhi <: IntelAccelerator end; export IntelXeonPhi
 
-export IntelXeonPhi,
-       IntelXeonPhi_72x5,
-       IntelXeonPhi_x100,
-       IntelXeonPhi_x200
+abstract type IntelXeonPhi_72x5 <: IntelXeonPhi end; export IntelXeonPhi_72x5
+abstract type IntelXeonPhi_x100 <: IntelXeonPhi end; export IntelXeonPhi_x100
+abstract type IntelXeonPhi_x200 <: IntelXeonPhi end; export IntelXeonPhi_x200
 
 abstract type IntelXeonPhi_7120A <: IntelXeonPhi_x100 end; export IntelXeonPhi_7120A
 abstract type IntelXeonPhi_7120D <: IntelXeonPhi_x100 end; export IntelXeonPhi_7120D

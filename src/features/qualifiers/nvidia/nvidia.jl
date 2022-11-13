@@ -6,7 +6,7 @@
 
 abstract type NVIDIA <: Manufacturer end; export NVIDIA
 
-abstract type NVIDIAArchitecture <: AcceleratorArchitecture end;  export Tesla
+abstract type NVIDIAArchitecture <: AcceleratorArchitecture end; export NVIDIAArchitecture
 
 abstract type Farenheit <: NVIDIAArchitecture end;  export Kelvin
 abstract type Celsius <: Farenheit end;  export Kelvin
