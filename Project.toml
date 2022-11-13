@@ -1,7 +1,7 @@
 name = "PlatformAware"
 uuid = "e7c50b67-2c03-471e-9cf2-69e515d86ecf"
 authors = ["Francisco Heron de Carvalho Junior <heron@dc.ufc.br> and contributors"]
-version = "0.4.2"
+version = "0.4.3"
 
 [deps]
 AbstractTrees = "1520ce14-60c1-5f80-bbc7-55ef81b5835c"

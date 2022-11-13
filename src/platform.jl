@@ -130,8 +130,7 @@ function load!()
     empty!(state.platform_feature)
     for (k,v) in state.platform_feature_all
         state.platform_feature[k] = v
-    end
-    
+    end 
 end
 
 # load!()
@@ -170,7 +169,6 @@ function include_platform_feature!(f)
     keys(state.platform_feature)
 end
 
-
 function platform_parameter_macro!(f)
 
     if (f == :clear)
@@ -182,7 +180,6 @@ function platform_parameter_macro!(f)
         include_platform_feature!(f)
     end
  end
-
 
 function platform_parameters_kernel(p_list)
 
@@ -224,7 +221,6 @@ end
 function getaddparameter()
     return can_add_parameter[]
 end
-
 
 macro platform(t,f)
     if (t == :default)
@@ -291,7 +287,6 @@ function build_entry_body(fname, fargs, kargs)
     Expr(:call, fname, kargs, pargs..., fargs...)
 end
 
-
 # build_kernel_function
 
 function build_kernel_function(f::Expr)
@@ -324,7 +319,6 @@ function build_kernel_signature(fsign::Expr)
     new_call_node_args = isnothing(keyword_parameters_node) ? [fname, ppars..., call_node_args...] : [fname, keyword_parameters_node, ppars..., call_node_args...]
     Expr(:where, Expr(:call, new_call_node_args...), where_vars...)
 end
-
 
 # utility functions
 
