@@ -37,11 +37,11 @@ This tutorial shows how to create _MyFFT.jl_, demonstrating the basics of how to
 
 In the Julia REPL, as shown in the screenshot below, run ```] generate MyFFT.jl``` to create a new project called _MyFFT.jl_, run ```🔙cd("MyFFT.jl")``` to move to the directory of the created project, and ```] activate .``` to enable the current project (_MyFFT.jl_) in the current Julia REPL session.
 
-![f1](docs/src/images/f1.png)
+![f1](https://raw.githubusercontent.com/PlatformAwareProgramming/PlatformAware.jl/master/docs/src/images/f1.png)
 
 These operations create a standard _"hello world"_ project, with the contents of the following snapshot:
 
-![f2](docs/src/images/f2.png)
+![f2](https://raw.githubusercontent.com/PlatformAwareProgramming/PlatformAware.jl/master/docs/src/images/f2.png)
 
 ## Installing _PlatformAware.jl_
 
@@ -52,7 +52,7 @@ Before coding the platform-aware package, it is necessary to add _PlatormAware.j
 ```
 Now, load the _PlatfomAware.jl_ package (```using PlatformAware``` or ```import PlatformAware```) and read the output message:
 
-![f3](docs/src/images/f3.png)
+![f3](https://raw.githubusercontent.com/PlatformAwareProgramming/PlatformAware.jl/master/docs/src/images/f3.png)
 
 
 _Platform.toml_ is the _platform description file_, containing a set of key-value pairs, each describing a feature of the underlying platform. It must be created by the user running ```PlatformWare.setup()```, which performs a sequence of feature detection operations on the platform. 
