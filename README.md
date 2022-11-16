@@ -1,5 +1,4 @@
 # PlatformAware.jl
-
 [![TagBot](https://github.com/PlatformAwareProgramming/PlatformAware.jl/actions/workflows/TagBot.yml/badge.svg)](https://github.com/decarvalhojunior-fh/PlatformAware.jl/actions/workflows/TagBot.yml)
 [![CompatHelper](https://github.com/PlatformAwareProgramming/PlatformAware.jl/actions/workflows/CompatHelper.yml/badge.svg)](https://github.com/PlatformAwareProgramming/PlatformAware.jl/actions/workflows/CompatHelper.yml)
 
@@ -69,10 +68,10 @@ module MyFFT
 
   import PlatformAware
 
-  # setup platorm parameters
-  @platform parameter clear
-  @platform parameter accelerator_count
-  @platform parameter accelerator_api
+  # setup platorm features (parameters)
+  @platform feature clear
+  @platform feature accelerator_count
+  @platform feature accelerator_api
 
   # Fallback kernel
   @platform default fft(X) = ...
@@ -88,7 +87,7 @@ module MyFFT
 end
 ```
 
-The sequence of ```@platorm parameter``` macro declarations specifies the set of platform parameters that will be used by subsequent kernel method declarations, that is, the assumptions that will be made to distinguish them. You can refer to [this table](https://docs.google.com/spreadsheets/d/1n-c4b7RxUduaKV43XrTnt54w-SR1AXgVNI7dN2OkEUc/edit?usp=sharing) for a list of all supported _**platform parameters**_. By default, they are all included. In the case of ```fft```, the kernel methods are differentiated using only two parameters: ```accelerator_count``` and ```accelerator_api```. They denote, respectively, assumptions about the number of accelerator devices and the native API they support.
+The sequence of ```@platorm feature``` macro declarations specifies the set of platform parameters that will be used by subsequent kernel method declarations, that is, the assumptions that will be made to distinguish them. You can refer to [this table](https://docs.google.com/spreadsheets/d/1n-c4b7RxUduaKV43XrTnt54w-SR1AXgVNI7dN2OkEUc/edit?usp=sharing) for a list of all supported _**platform parameters**_. By default, they are all included. In the case of ```fft```, the kernel methods are differentiated using only two parameters: ```accelerator_count``` and ```accelerator_api```. They denote, respectively, assumptions about the number of accelerator devices and the native API they support.
 
 The ```@platorm default``` macro declares the _default kernel method_, which will be called if none of the assumptions of other kernel methods declared using ```@platform aware``` macro calls are valid. The default kernel must be unique to avoid ambiguity. 
 
@@ -115,7 +114,7 @@ Also, you should add _CUDA.jl_, _OpenCL.jl_, _CLFFT.jl_, and _FFFT.jl_ as depend
 
 > **NOTE**: [_CLFFT.jl_](https://github.com/JuliaGPU/CLFFT.jl) is not available on JuliaHub due to compatibility issues with recent versions of Julia. We're working with the CLFFT.jl maintainers to address this issue. If you have an error with the CLFFT dependency, point to our _CLFFT.jl_ fork by running ```add https://github.com/JuliaGPU/CLFFT.jl#master```. 
 
-As a performance optimization, we can take advantage of platform-aware features to selectively load dependencies, speeding up the loading of _MyFFT.jl_. To do this, we first declare a kernel function called ```which_api``` in _src/MyFFT.jl_, right after the ```@platform parameter``` declaration:
+As a performance optimization, we can take advantage of platform-aware features to selectively load dependencies, speeding up the loading of _MyFFT.jl_. To do this, we first declare a kernel function called ```which_api``` in _src/MyFFT.jl_, right after the ```@platform feature``` declaration:
 
 ```julia
 @platform default which_api() = :fftw
@@ -145,9 +144,9 @@ module MyFFT
 
     using PlatformAware
 
-    @platform parameter clear
-    @platform parameter accelerator_count
-    @platform parameter accelerator_api
+    @platform feature clear
+    @platform feature accelerator_count
+    @platform feature accelerator_api
 
     @platform default which_api() = :fftw
     @platform aware which_api({accelerator_count::(@atleast 1), accelerator_api::(@api CUDA)}) = :cufft
@@ -238,7 +237,7 @@ Therefore, we suggest the following general guideline for package developers who
 
 5. Provide platform-aware methods for each kernel function using the ```@platform aware``` macro.
 
-6. After implementing and testing all platform-aware methods, you have a list of platform parameters that were used to make assumptions about the target execution platform(s). You can optionally instruct the _PlatformAware.jl_ to use only that parameters by using the ``@platform parameter`` macro. 
+6. After implementing and testing all platform-aware methods, you have a list of platform parameters that were used to make assumptions about the target execution platform(s). You can optionally instruct the _PlatformAware.jl_ to use only that parameters by using the ``@platform feature`` macro. 
 
 # Contributing
 
