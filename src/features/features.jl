@@ -205,7 +205,7 @@ function identifyAPI_oldversion(api_string)
 
  end
 
-function get_api_qualifier(api_string, platform_feature_default)
+function get_api_qualifier(api_string)
 
     apis = split(api_string,';')
  
@@ -233,14 +233,24 @@ function loadFeaturesSection!(dict, platform_feature, platform_feature_default)
 
     for (parameter_id, feature) in dict
         p = Meta.parse(parameter_id)
-        v0 = check_blank_feature(p, feature, platform_feature_default)
+        #=v0 = check_blank_feature(p, feature, platform_feature_default)
         v = if (isnothing(v0))
                 feature_type[p] == qualifier ? get_qualifier(feature) :  feature_type[p] == api_qualifier ? get_api_qualifier(feature, platform_feature_default) : get_quantifier(feature) 
             else
                 v0
-            end
-        platform_feature[p]= v
+            end=#
+        
+        platform_feature[p]= getFeature(p, feature, platform_feature_default)
     end
+end
+
+function getFeature(p, feature, platform_feature_default)
+    v0 = check_blank_feature(p, feature, platform_feature_default)
+    return if (isnothing(v0))
+              feature_type[p] == qualifier ? get_qualifier(feature) :  feature_type[p] == api_qualifier ? get_api_qualifier(feature) : get_quantifier(feature) 
+           else
+              v0
+           end
 end
 
 function loadFeatures!(dict, platform_feature_default, platform_feature)

@@ -60,6 +60,8 @@ export
     @just,
     @unlimited,
     @api,
+    platform_feature,
+    platform_features,
     PlatformType,
     QuantifierFeature,
     QualifierFeature,

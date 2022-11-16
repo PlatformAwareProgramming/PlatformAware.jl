@@ -1,24 +1,24 @@
 @testset "Basics" begin
 
-    @platform parameter clear
+    @platform feature clear
 
     #= for the first 5 kernels =#
-    @platform parameter accelerator_count
-    @platform parameter accelerator_manufacturer
-    @platform parameter accelerator_api
-    @platform parameter node_count
-    @platform parameter processor
-    @platform parameter accelerator_architecture
+    @platform feature accelerator_count
+    @platform feature accelerator_manufacturer
+    @platform feature accelerator_api
+    @platform feature node_count
+    @platform feature processor
+    @platform feature accelerator_architecture
 
     #= for all kernels =#
-    @platform parameter node_memory_size
-    @platform parameter processor_count
-    @platform parameter processor_core_count
-    @platform parameter interconnection_bandwidth
-    @platform parameter interconnection_latency
-    @platform parameter accelerator_type
-    @platform parameter accelerator_memory_size
-    @platform parameter processor_simd
+    @platform feature node_memory_size
+    @platform feature processor_count
+    @platform feature processor_core_count
+    @platform feature interconnection_bandwidth
+    @platform feature interconnection_latency
+    @platform feature accelerator_type
+    @platform feature accelerator_memory_size
+    @platform feature processor_simd
 
     # define a kernel
     @platform default function kernel(x,y,args...; z=0, kwargs...)

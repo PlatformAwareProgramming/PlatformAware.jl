@@ -135,16 +135,16 @@ end
 
 # load!()
 
-function setplatform!(parameter_id, actual_type)
+function update_platform_feature!(parameter_id, actual_type)
     state.platform_feature[parameter_id] = actual_type
     (parameter_id,actual_type)
 end
 
-function getplatform(parameter_id)
+function platform_feature(parameter_id)
     state.platform_feature[parameter_id]
 end
 
-function getplatform()
+function platform_features()
     state.platform_feature
 end
 
@@ -157,7 +157,29 @@ function reset_platform_feature!()
     for (k,v) in state.platform_feature_all
         state.platform_feature[k] = v
     end
-    for (k,v) in platform_types_all
+    for (k,v) in state.platform_feature_default_all
+        state.platform_feature_default[k] = v
+    end
+    keys(state.platform_feature)
+end
+
+function all_platform_feature!()
+    for (k,v) in state.platform_feature_all
+        if (!haskey(state.platform_feature, k))
+           state.platform_feature[k] = v
+        end
+    end
+    for (k,v) in state.platform_feature_default_all
+        state.platform_feature_default[k] = v
+    end
+    keys(state.platform_feature)
+end
+
+function default_platform_feature!()
+    for (k,v) in state.platform_feature_default_all
+        state.platform_feature[k] = v
+    end
+    for (k,v) in state.platform_feature_default_all
         state.platform_feature_default[k] = v
     end
     keys(state.platform_feature)
@@ -169,15 +191,21 @@ function include_platform_feature!(f)
     keys(state.platform_feature)
 end
 
-function platform_parameter_macro!(f)
-
+function platform_parameter_macro!(f, x)
     if (f == :clear)
         empty_platform_feature!()
     elseif (f == :all)
+        all_platform_feature!()
+    elseif (f == :reset)
         reset_platform_feature!()
-    else
+    elseif (f == :default)
+        default_platform_feature!()
+    elseif (isnothing(x))
         check_all(f)
         include_platform_feature!(f)
+    else
+        check_all(f)
+        update_platform_feature!(f,getFeature(f, string(x), state.platform_feature_default_all))
     end
  end
 
@@ -233,16 +261,32 @@ macro platform(t,f)
     elseif (t == :aware)
         denyaddparameter!()
         return esc(build_kernel_function(f))
-    elseif (t == :parameter && getaddparameter())
-        platform_parameter_macro!(f)
-    elseif (t == :parameter && !getaddparameter())
+    elseif ((t == :parameter || t == :feature) && getaddparameter())
+        platform_parameter_macro!(f, nothing)
+    elseif ((t == :parameter || t == :feature) && !getaddparameter())
         @info "cannot add parameters after including the first kernel method"
     elseif (t == :assumption)
         return :($f)
     else
-        @info "usage: platform [default | aware] <function declaration>"
-        @info "       platform parameter :(<parameter name>)"
+        platform_syntax_message()
     end
+ end
+
+ macro platform(t,f,x)
+    if ((t == :parameter || t == :feature) && getaddparameter())
+        platform_parameter_macro!(f,x)
+    elseif ((t == :parameter || t == :feature) && !getaddparameter())
+        @info "cannot add parameters after including the first kernel method"
+    else
+        platform_syntax_message()
+    end
+ end
+
+ function platform_syntax_message()
+    @info "usage: @platform [default | aware] <function declaration>"
+    @info "       @platform feature [clear | all | reset]"
+    @info "       @platform feature <feature name>"
+    @info "       @platform feature <feature name> new_feature"
  end
 
  # build_entry_function
