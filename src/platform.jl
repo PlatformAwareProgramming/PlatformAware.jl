@@ -191,7 +191,7 @@ function include_platform_feature!(f)
     keys(state.platform_feature)
 end
 
-function platform_parameter_macro!(f, x)
+function platform_parameter_macro!(f)
     if (f == :clear)
         empty_platform_feature!()
     elseif (f == :all)
@@ -200,12 +200,16 @@ function platform_parameter_macro!(f, x)
         reset_platform_feature!()
     elseif (f == :default)
         default_platform_feature!()
-    elseif (isnothing(x))
+    elseif typeof(f) == Symbol
         check_all(f)
         include_platform_feature!(f)
-    else
+    elseif f.head == :(::)
+        x = f.args[2]
+        f = f.args[1]
         check_all(f)
         update_platform_feature!(f,getFeature(f, string(x), state.platform_feature_default_all))
+    else
+        platform_syntax_message()
     end
  end
 
@@ -250,35 +254,36 @@ function getaddparameter()
     return can_add_parameter[]
 end
 
-macro platform(t,f)
-    if (t == :default)
-        # @platform default creates an entry function, called from outside, and a (default) kernel function 
-        denyaddparameter!()
-        e = build_entry_function(f)
-        k = build_kernel_function(f)
-        return esc(:($e;$k))
-        #return k
-    elseif (t == :aware)
-        denyaddparameter!()
-        return esc(build_kernel_function(f))
-    elseif ((t == :parameter || t == :feature) && getaddparameter())
-        platform_parameter_macro!(f, nothing)
-    elseif ((t == :parameter || t == :feature) && !getaddparameter())
-        @info "cannot add parameters after including the first kernel method"
-    elseif (t == :assumption)
-        assumptions_dict[][f.args[1]] = f.args[2]
-        return nothing
-    else
-        platform_syntax_message()
-    end
- end
+macro platform(t, f, ff...)
 
- macro platform(t,f,x)
-    if ((t == :parameter || t == :feature) && getaddparameter())
-        platform_parameter_macro!(f,x)
-    elseif ((t == :parameter || t == :feature) && !getaddparameter())
-        @info "cannot add parameters after including the first kernel method"
-    else
+    try
+        if (length(ff) > 0)
+            platform_syntax_message()
+            return
+        end
+
+        if (t == :default)
+            # @platform default creates an entry function, called from outside, and a (default) kernel function 
+            denyaddparameter!()
+            e = build_entry_function(f)
+            k = build_kernel_function(f)
+            return esc(:($e;$k))
+            #return k
+        elseif (t == :aware)
+            denyaddparameter!()
+            return esc(build_kernel_function(f))
+        elseif ((t == :parameter || t == :feature) && getaddparameter())
+            platform_parameter_macro!(f)
+        elseif ((t == :parameter || t == :feature) && !getaddparameter())
+            @info "cannot add parameters after including the first kernel method"
+        elseif (t == :assumption)
+            assumptions_dict[][f.args[1]] = f.args[2]
+            return nothing
+        else
+            platform_syntax_message()
+        end
+    catch e
+        @error e
         platform_syntax_message()
     end
  end
