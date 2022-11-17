@@ -266,7 +266,8 @@ macro platform(t,f)
     elseif ((t == :parameter || t == :feature) && !getaddparameter())
         @info "cannot add parameters after including the first kernel method"
     elseif (t == :assumption)
-        return :($f)
+        assumptions_dict[][f.args[1]] = f.args[2]
+        return nothing
     else
         platform_syntax_message()
     end
@@ -281,6 +282,8 @@ macro platform(t,f)
         platform_syntax_message()
     end
  end
+
+ const assumptions_dict = Ref(Dict{Symbol,Expr}())
 
  function platform_syntax_message()
     @info "usage: @platform [default | aware] <function declaration>"
@@ -344,17 +347,17 @@ end
 function build_kernel_signature(fsign::Expr)
     fsign_args = copy(fsign.args)
     (call_node_args, where_vars) = fsign.head == :where ? (popfirst!(fsign_args).args, fsign_args) : (fsign_args, []) 
+
     fname = popfirst!(call_node_args)
     keyword_parameters_node = length(call_node_args) > 0 && typeof(call_node_args[1]) == Expr && call_node_args[1].head == :parameters ? popfirst!(call_node_args) : nothing
     # takes the platform parameters of the kernel
-    #aware_parameters_args = length(call_node_args) > 0 && typeof(call_node_args[1]) == Expr && call_node_args[1].head == :braces ? popfirst!(call_node_args).args : [] 
     aware_parameters_args = []
     if length(call_node_args) > 0
         if typeof(call_node_args[1]) == Expr && call_node_args[1].head == :braces 
             aware_parameters_args = popfirst!(call_node_args).args
-        #elseif typeof(call_node_args[1]) == Symbol 
-        #    arg = popfirst!(call_node_args)
-        #    aware_parameters_args = @eval arg
+        elseif typeof(call_node_args[1]) == Expr && call_node_args[1].head == :$ 
+            aware_parameters_args = assumptions_dict[][call_node_args[1].args[1]].args 
+            popfirst!(call_node_args)
         end
     end
 

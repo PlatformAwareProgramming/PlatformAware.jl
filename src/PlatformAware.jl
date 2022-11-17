@@ -60,6 +60,7 @@ export
     @just,
     @unlimited,
     @api,
+    @assumption,
     platform_feature,
     platform_features,
     PlatformType,
