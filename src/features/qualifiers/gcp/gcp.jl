@@ -21,7 +21,7 @@ function getMachineType(provider::Type{<:GoogleCloud})
 	machine_type_url = "http://metadata.google.internal/computeMetadata/v1/instance/machine-type"
 	machine_type = 
 		try
-			return String(HTTP.request("GET", machine_type_url, ["Metadata-Flavor" => "Google"]))
+			return last(split(String(HTTP.request("GET", machine_type_url, ["Metadata-Flavor" => "Google"]).body), "/"))
 		catch e
 			return nothing
 		end
@@ -31,7 +31,7 @@ function getDiskInfo(provider::Type{<:GoogleCloud})
 	disk_info_url = "http://metadata.google.internal/computeMetadata/v1/instance/disks/?recursive=true"
 	disk_info = 
 		try
-			return String(HTTP.request("GET", disk_info_url, ["Metadata-Flavor" => "Google"]))
+			return JSON.parse(String(HTTP.request("GET", disk_info_url, ["Metadata-Flavor" => "Google"]).body))
 		catch e
 			return nothing
 		end
