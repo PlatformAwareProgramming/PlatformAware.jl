@@ -16,6 +16,10 @@ abstract type GoogleCloud <: CloudProvider end; export GoogleCloud
 
 # machine size types
 
+function getNodeFeatures(provider::Type{<:GoogleCloud}, node_features)
+	nothing
+end
+
 function getMachineType(provider::Type{<:GoogleCloud})
 
 	machine_type_url = "http://metadata.google.internal/computeMetadata/v1/instance/machine-type"
