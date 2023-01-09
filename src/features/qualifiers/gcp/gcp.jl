@@ -261,7 +261,7 @@ abstract type GCPType_A2_Highgpu1G <: GCPType_A2 end
 abstract type GCPType_A2_Highgpu2G <: GCPType_A2 end
 abstract type GCPType_A2_Highgpu4G <: GCPType_A2 end
 abstract type GCPType_A2_Highgpu8G <: GCPType_A2 end
-abstract type GCPType_A2_Highgpu16G <: GCPType_A2 end
+abstract type GCPType_A2_Megagpu16G <: GCPType_A2 end
 
 abstract type GCPType_A2_Ultragpu1G <: GCPType_A2 end
 abstract type GCPType_A2_Ultragpu2G <: GCPType_A2 end
