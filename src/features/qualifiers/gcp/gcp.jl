@@ -256,6 +256,7 @@ abstract type GCPType_M3_Megamem128 <: GCPType_M3 end
 # accelerator optimized machine types
 
 abstract type GCPType_A2 <: GCPType end
+abstract type GCPType_G2 <: GCPType end
 
 abstract type GCPType_A2_Highgpu1G <: GCPType_A2 end
 abstract type GCPType_A2_Highgpu2G <: GCPType_A2 end
@@ -267,6 +268,15 @@ abstract type GCPType_A2_Ultragpu1G <: GCPType_A2 end
 abstract type GCPType_A2_Ultragpu2G <: GCPType_A2 end
 abstract type GCPType_A2_Ultragpu4G <: GCPType_A2 end
 abstract type GCPType_A2_Ultragpu8G <: GCPType_A2 end
+
+abstract type GCPType_G2_Standard4 <: GCPType_G2 end
+abstract type GCPType_G2_Standard8 <: GCPType_G2 end
+abstract type GCPType_G2_Standard12 <: GCPType_G2 end
+abstract type GCPType_G2_Standard16 <: GCPType_G2 end
+abstract type GCPType_G2_Standard24 <: GCPType_G2 end
+abstract type GCPType_G2_Standard32 <: GCPType_G2 end
+abstract type GCPType_G2_Standard48 <: GCPType_G2 end
+abstract type GCPType_G2_Standard96 <: GCPType_G2 end
 
 # machine size types
 
