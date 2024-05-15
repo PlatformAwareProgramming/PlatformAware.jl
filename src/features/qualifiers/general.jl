@@ -76,7 +76,6 @@ abstract type StorageInterface <: QualifierFeature end
 
 abstract type MemoryType <: QualifierFeature end
 
-
 # cache
 
 abstract type CacheMapping <: QualifierFeature end

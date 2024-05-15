@@ -213,6 +213,7 @@ Intel;Xeon;E5;2687W,v3,10,3.10G,20,64-bit,AVX2,Haswell,IntelXeon_E5_2687WV3,Inte
 Intel;Xeon;E5;2687W,v2,8,3.40G,16,64-bit,AVX,IvyBridge,IntelXeon_E5_2687WV2,Intel,150,unset,unset,unset
 Intel;Xeon;E5;2687W,,8,3.10G,16,64-bit,AVX,SandyBridge,IntelXeon_E5_2687W,Intel,150,unset,unset,unset
 Intel;Xeon;E5;2686,v4,18,2.30G,36,64-bit,AVX2,Broadwell,IntelXeon_E5_2686V4,Intel,145,1152K,4.5M,45M
+Intel;Xeon;E5;2686,v5,18,2.30G,36,64-bit,AVX2,Broadwell,IntelXeon_E5_2686V4,Intel,145,1152K,4.5M,45M
 Intel;Xeon;E5;2683,v4,16,2.10G,32,64-bit,AVX2,Broadwell,IntelXeon_E5_2683V4,Intel,120,unset,unset,unset
 Intel;Xeon;E5;2683,v3,14,2.00G,28,64-bit,AVX2,Haswell,IntelXeon_E5_2683V3,Intel,120,unset,unset,unset
 Intel;Xeon;E5;2680,v4,14,2.40G,28,64-bit,AVX2,Broadwell,IntelXeon_E5_2680V4,Intel,120,unset,unset,unset
@@ -611,6 +612,7 @@ Intel;Xeon;D,1521,4,2.40G,8,64-bit,AVX2,Broadwell,IntelXeon_D_1521,Intel,45,unse
 Intel;Xeon;D,1520,4,2.20G,8,64-bit,AVX2,Broadwell,IntelXeon_D_1520,Intel,45,unset,unset,unset
 Intel;Xeon;D,1518,4,2.20G,8,64-bit,AVX2,Broadwell,IntelXeon_D_1518,Intel,35,unset,unset,unset
 Intel;Xeon,8380H,28,2.90G,56,64-bit,AVX-512,CooperLake,IntelXeon_8380H,Intel,250,unset,unset,unset
+Intel;Xeon,8375C,32,2.90G,64,64-bit,SSE4.2;AVX;AVX2;AVX-512,IceLake,IntelXeon_8375C,Intel,300,unset,unset,unset
 Intel;Xeon,8376HL,28,2.60G,56,64-bit,SSE4.2;AVX;AVX2;AVX-512,CooperLake,IntelXeon_8376HL,Intel,205,unset,unset,unset
 Intel;Xeon,8376H,28,2.60G,56,64-bit,SSE4.2;AVX;AVX2;AVX-512,CooperLake,IntelXeon_8376H,Intel,205,unset,unset,unset
 Intel;Xeon,8368Q,38,2.60G,76,64-bit,SSE4.2;AVX;AVX2;AVX-512,IceLake,IntelXeon_8368Q,Intel,270,unset,unset,unset
@@ -627,9 +629,13 @@ Intel;Xeon,8352M,32,2.30G,64,64-bit,SSE4.2;AVX;AVX2;AVX-512,IceLake,IntelXeon_83
 Intel;Xeon,8351N,36,2.40G,72,64-bit,SSE4.2;AVX;AVX2;AVX-512,IceLake,IntelXeon_8351N,Intel,225,unset,unset,unset
 Intel;Xeon,8280L,28,2.70G,56,64-bit,SSE4.2;AVX;AVX2;AVX-512,CascadeLake,IntelXeon_8280L,Intel,205,unset,unset,unset
 Intel;Xeon,8276L,28,2.20G,56,64-bit,SSE4.2;AVX;AVX2;AVX-512,CascadeLake,IntelXeon_8276L,Intel,165,unset,unset,unset
+Intel;Xeon,8275L,24,3.00G,48,64-bit,SSE4.2;AVX;AVX2;AVX-512,CascadeLake,IntelXeon_8275CL,Intel,240,1536K,24M,35.75
 Intel;Xeon,8275CL,24,3.00G,48,64-bit,SSE4.2;AVX;AVX2;AVX-512,CascadeLake,IntelXeon_8275CL,Intel,240,1536K,24M,35.75
 Intel;Xeon,8260Y,24,2.40G,48,64-bit,SSE4.2;AVX;AVX2;AVX-512,CascadeLake,IntelXeon_8260Y,Intel,165,unset,unset,unset
 Intel;Xeon,8260L,24,2.40G,48,64-bit,SSE4.2;AVX;AVX2;AVX-512,CascadeLake,IntelXeon_8260L,Intel,165,unset,unset,unset
+Intel;Xeon,8259,24,2.10G,48,64-bit,SSE4.2;AVX;AVX2;AVX-512,CascadeLake,IntelXeon_8259CL,Intel,210,1536K,24M,35.75M
+Intel;Xeon,8252,12,3.8G,24,64-bit,SSE4.2;AVX;AVX2;AVX-512,CascadeLake,IntelXeon_8252,Intel,240,256K,4M,99M
+Intel;Xeon,8252C,12,3.8G,24,64-bit,SSE4.2;AVX;AVX2;AVX-512,CascadeLake,IntelXeon_8252C,Intel,240,256K,4M,99M
 Intel;Xeon,8259CL,24,2.10G,48,64-bit,SSE4.2;AVX;AVX2;AVX-512,CascadeLake,IntelXeon_8259CL,Intel,210,1536K,24M,35.75M
 Intel;Xeon,8176F,28,2.10G,56,64-bit,SSE4.2;AVX;AVX2;AVX-512,Skylake,IntelXeon_8176F,Intel,173,unset,unset,unset
 Intel;Xeon,8160T,24,2.10G,48,64-bit,SSE4.2;AVX;AVX2;AVX-512,Skylake,IntelXeon_8160T,Intel,150,unset,unset,unset

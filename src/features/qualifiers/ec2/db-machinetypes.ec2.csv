@@ -351,7 +351,7 @@ m6id.large,EC2Family_General,EC2Type_M6ID,EC2Type_M6ID_Large,8.0G,2,0,0,4.00G,0,
 m6id.metal,EC2Family_General,EC2Type_M6ID,EC2Type_M6ID_Metal,512.0G,128,0,0,4.00G,0,na,Intel Xeon 8375C,7600G,NVMe SSD,40000.0M,50G,5000.0M,Yes,160000
 m6id.xlarge,EC2Family_General,EC2Type_M6ID,EC2Type_M6ID_xLarge,16.0G,4,0,0,4.00G,0,na,Intel Xeon 8375C,237G,SSD,10000.0M,Up to 12.5G,1250.0M,Yes,40000
 mac1.metal,EC2Family_General,EC2Type_MAC1,EC2Type_MAC1_Metal,32.0G,12,0,0,2.67G,0,na,Intel Core i7-8700B,EBS only,na,8000.0M,25G,1000.0M,na,55000
-mac2.metal,EC2Family_General,EC2Type_MAC2,EC2Type_MAC2_Metal,16.0G,12,0,0,1.33G,0,na,"Apple M1 chip with 8-core, 8-core GPU, and 16-core Neural Engine",EBS only,na,unset,10G,0M,na,0
+mac2.metal,EC2Family_General,EC2Type_MAC2,EC2Type_MAC2_Metal,16.0G,12,0,0,1.33G,0,na,Apple M1 chip with 8-core, 8-core GPU, and 16-core Neural Engine",EBS only,na,unset,10G,0M,na,0
 p2.16xlarge,EC2Family_Accelerated,EC2Type_P2,EC2Type_P2_16xLarge,732.0G,64,201,3.141,11.44G,16,NVIDIA Tesla K80,Intel Xeon E5-2686 v4,EBS only,na,10000.0M,25G,1250.0M,na,65000
 p2.8xlarge,EC2Family_Accelerated,EC2Type_P2,EC2Type_P2_8xLarge,488.0G,32,97,3.031,15.25G,8,NVIDIA Tesla K80,Intel Xeon E5-2686 v4,EBS only,na,5000.0M,10G,625.0M,na,32500
 p2.xlarge,EC2Family_Accelerated,EC2Type_P2,EC2Type_P2_xLarge,61.0G,4,16,4,15.25G,1,NVIDIA Tesla K80,Intel Xeon E5-2686 v4,EBS only,na,750.0M,High,93.75M,na,6000
