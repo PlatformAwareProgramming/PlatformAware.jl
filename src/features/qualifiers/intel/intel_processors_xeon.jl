@@ -22,6 +22,7 @@ abstract type IntelXeon_E5 <: IntelXeon_E end
 abstract type IntelXeon_E5_v2 <: IntelXeon_E5 end
 abstract type IntelXeon_E5_v3 <: IntelXeon_E5 end
 abstract type IntelXeon_E5_v4 <: IntelXeon_E5 end
+abstract type IntelXeon_E5_v5 <: IntelXeon_E5 end
 
 abstract type IntelXeon_E7 <: IntelXeon_E end
 abstract type IntelXeon_E7_v2 <: IntelXeon_E7 end
@@ -45,6 +46,7 @@ export IntelXeon,
        IntelXeon_E5_v2,
        IntelXeon_E5_v3,
        IntelXeon_E5_v4,
+       IntelXeon_E5_v5,
        IntelXeon_E7,
        IntelXeon_E7_v2,
        IntelXeon_E7_v3,
@@ -184,6 +186,7 @@ abstract type IntelXeon_E_2286M <: IntelXeon_E end; export IntelXeon_E_2286M
     abstract type IntelXeon_6348H <: IntelXeon_Scalable_g3 end; export IntelXeon_6348H
     abstract type IntelXeon_8353H <: IntelXeon_Scalable_g3 end; export IntelXeon_8353H
     abstract type IntelXeon_8354H <: IntelXeon_Scalable_g3 end; export IntelXeon_8354H
+    abstract type IntelXeon_8375 <: IntelXeon_Scalable_g3 end; export IntelXeon8375
     abstract type IntelXeon_8376H <: IntelXeon_Scalable_g3 end; export IntelXeon_8376H
     abstract type IntelXeon_8376HL <: IntelXeon_Scalable_g3 end; export IntelXeon_8376HL
     abstract type IntelXeon_8380H <: IntelXeon_Scalable_g3 end; export IntelXeon_8380H
@@ -243,6 +246,7 @@ abstract type IntelXeon_E_2286M <: IntelXeon_E end; export IntelXeon_E_2286M
     abstract type IntelXeon_6252N <: IntelXeon_Scalable_g2 end; export IntelXeon_6252N
     abstract type IntelXeon_6254 <: IntelXeon_Scalable_g2 end; export IntelXeon_6254
     abstract type IntelXeon_6262V <: IntelXeon_Scalable_g2 end; export IntelXeon_6262V
+    abstract type IntelXeon_8252 <: IntelXeon_Scalable_g2 end; export IntelXeon_8252
     abstract type IntelXeon_8253 <: IntelXeon_Scalable_g2 end; export IntelXeon_8253
     abstract type IntelXeon_8256 <: IntelXeon_Scalable_g2 end; export IntelXeon_8256
     abstract type IntelXeon_8259 <: IntelXeon_Scalable_g2 end; export IntelXeon_8259
@@ -251,6 +255,7 @@ abstract type IntelXeon_E_2286M <: IntelXeon_E end; export IntelXeon_E_2286M
     abstract type IntelXeon_8260Y <: IntelXeon_Scalable_g2 end; export IntelXeon_8260Y
     abstract type IntelXeon_8268 <: IntelXeon_Scalable_g2 end; export IntelXeon_8268
     abstract type IntelXeon_8270 <: IntelXeon_Scalable_g2 end; export IntelXeon_8270
+    abstract type IntelXeon_8275 <: IntelXeon_Scalable_g2 end; export IntelXeon_8275
     abstract type IntelXeon_8275CL <: IntelXeon_Scalable_g2 end; export IntelXeon_8275CL
     abstract type IntelXeon_8276 <: IntelXeon_Scalable_g2 end; export IntelXeon_8276
     abstract type IntelXeon_8276L <: IntelXeon_Scalable_g2 end; export IntelXeon_8276L
@@ -550,6 +555,7 @@ abstract type IntelXeon_E_2286M <: IntelXeon_E end; export IntelXeon_E_2286M
     abstract type IntelXeon_E5_2667V4 <: IntelXeon_E5_v4 end; export IntelXeon_E5_2667V4
     abstract type IntelXeon_E5_2680V4 <: IntelXeon_E5_v4 end; export IntelXeon_E5_2680V4
     abstract type IntelXeon_E5_2683V4 <: IntelXeon_E5_v4 end; export IntelXeon_E5_2683V4
+    abstract type IntelXeon_E5_2686V5 <: IntelXeon_E5_v5 end; export IntelXeon_E5_2686V5
     abstract type IntelXeon_E5_2686V4 <: IntelXeon_E5_v4 end; export IntelXeon_E5_2686V4
     abstract type IntelXeon_E5_2687WV4 <: IntelXeon_E5_v4 end; export IntelXeon_E5_2687WV4
     abstract type IntelXeon_E5_2690V4 <: IntelXeon_E5_v4 end; export IntelXeon_E5_2690V4

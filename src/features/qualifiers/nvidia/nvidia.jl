@@ -8,8 +8,8 @@ abstract type NVIDIA <: Manufacturer end; export NVIDIA
 
 abstract type NVIDIAArchitecture <: AcceleratorArchitecture end; export NVIDIAArchitecture
 
-abstract type Farenheit <: NVIDIAArchitecture end;  export Kelvin
-abstract type Celsius <: Farenheit end;  export Kelvin
+abstract type Farenheit <: NVIDIAArchitecture end;  export Farenheit
+abstract type Celsius <: Farenheit end;  export Celsius
 abstract type Kelvin <: Celsius end;  export Kelvin
 abstract type Rankine <: Kelvin end;  export Rankine
 abstract type Curie <: Rankine end;  export Curie

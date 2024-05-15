@@ -299,7 +299,7 @@ macro platform(t, f, ff...)
 
  # build_entry_function
 
-function build_entry_function(f::Expr)
+    function build_entry_function(f::Expr)
     # builds the entry function signature
     (fname, fargs, kargs, fsign) = build_entry_signature(f.args[1])
     # builds the entry function body
@@ -333,7 +333,7 @@ end
 function build_entry_body(fname, fargs, kargs)
     # takes the identifiers of the platform parameters
     pargs = keys(state.platform_feature)
-    # builds the :parameters node for the keyword arguments of the kernel invocation (kargs), since the identifiers must be refferenced.
+    # builds the :parameters node for the keyword arguments of the kernel invocation (kargs), since the identifiers must be reerenced.
     kargs = Expr(:parameters, map(p -> Expr(:kw, p, p), kargs)...)
     # returns the :call node for the kernel invocation (note that platform arguments comes before kernel arguments)
     Expr(:call, fname, kargs, pargs..., fargs...)

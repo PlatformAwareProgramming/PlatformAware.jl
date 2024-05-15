@@ -776,7 +776,7 @@ abstract type EC2Type_H1_8xLarge <: EC2Type_H1 end
 abstract type EC2Type_H1_16xLarge <: EC2Type_H1 end
 
 ## 
-function get_instance_info(::Type{<:AmazonEC2})
+function get_instance_info(provider::Type{<:AmazonEC2})
     instance_id = try
                         JSON.parse(String(HTTP.request("GET", "http://169.254.169.254/latest/dynamic/instance-identity/document"; connect_timeout=5, readtimeout=5).body))
                         # return instance_info["instanceType"], instance_info["region"]
@@ -784,16 +784,29 @@ function get_instance_info(::Type{<:AmazonEC2})
                         return nothing
                   end
 
-    database_path = @get_scratch!("database_path")
-    machinetypedb_ec2_url = "https://raw.githubusercontent.com/PlatformAwareProgramming/PlatformAware.jl/aws_ec2/src/features/qualifiers/ec2/db-machinetypes.ec2.csv"
-    machinetypedb_ec2_fname =  joinpath(database_path,basename(machinetypedb_ec2_url))
-    try_download(machinetypedb_ec2_url, machinetypedb_ec2_fname)
-    machinetype_dict_ec2 = readDB2(machinetypedb_ec2_fname)
+    #database_path = @get_scratch!("database_path")
+    #machinetypedb_ec2_url = "https://raw.githubusercontent.com/PlatformAwareProgramming/PlatformAware.jl/aws_ec2/src/features/qualifiers/ec2/db-machinetypes.ec2.csv"
+    #machinetypedb_ec2_fname =  joinpath(database_path,basename(machinetypedb_ec2_url))
+    #try_download(machinetypedb_ec2_url, machinetypedb_ec2_fname)
+    #machinetype_dict_ec2 = readDB2(machinetypedb_ec2_fname)
+
+    machinetype_dict_ec2 = readCloudInstancesDB(provider)
     instance_info = machinetype_dict_ec2[instance_id["instanceType"]]
 
     return instance_info
 end
 
+function readCloudInstancesDB(::Type{<:AmazonEC2})
+
+    database_path = @get_scratch!("database_path")
+    machinetypedb_ec2_url = "https://raw.githubusercontent.com/PlatformAwareProgramming/PlatformAware.jl/aws_ec2/src/features/qualifiers/ec2/db-machinetypes.ec2.csv"
+    machinetypedb_ec2_fname =  joinpath(database_path,basename(machinetypedb_ec2_url))
+    try_download(machinetypedb_ec2_url, machinetypedb_ec2_fname)
+    machinetype_dict_ec2 = readDB2(machinetypedb_ec2_fname)
+
+    return machinetype_dict_ec2
+
+end
 
 
 
