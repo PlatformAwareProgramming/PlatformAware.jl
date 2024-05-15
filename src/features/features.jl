@@ -246,7 +246,7 @@ end
 
 function getFeature(p, feature, platform_feature_default)
     v0 = check_blank_feature(p, feature, platform_feature_default)
-    return if (isnothing(v0))
+    return if isnothing(v0)
               feature_type[p] == qualifier ? get_qualifier(feature) :  feature_type[p] == api_qualifier ? get_api_qualifier(feature) : get_quantifier(feature) 
            else
               v0

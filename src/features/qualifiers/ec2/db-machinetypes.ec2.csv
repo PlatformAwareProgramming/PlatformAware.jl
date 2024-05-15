@@ -1,4 +1,4 @@
-api_name,node_machinefamily,node_machinetype,node_machinesize,node_memory_size,node_vcpus_count,node_ecu_count,ecu_per_vcpu,memory_per_vcpu,accelerator_count,accelerator,processor,storage_size,storage_type,storage_bandwidth,network_performance,storage_throughput,storage_trim_support,storage_iops
+api_name,node_machinefamily,node_machinetype,node_machinesize,node_memory_size,node_vcpus_count,node_ecu_count,ecu_per_vcpu,memory_per_vcpu,accelerator_count,accelerator,processor,storage_size,storage_type,storage_bandwidth,interconnection_bandwidth,storage_throughput,storage_trim_support,storage_iops
 a1.2xlarge,EC2Family_General,EC2Type_A1,EC2Type_A1_2xLarge,16.0G,8,0,0,2.00G,0,na,AWS Graviton,EBS only,na,3500.0M,Up to 10G,437.5M,na,20000
 a1.4xlarge,EC2Family_General,EC2Type_A1,EC2Type_A1_4xLarge,32.0G,16,0,0,2.00G,0,na,AWS Graviton,EBS only,na,3500.0M,Up to 10G,437.5M,na,20000
 a1.large,EC2Family_General,EC2Type_A1,EC2Type_A1_Large,4.0G,2,0,0,2.00G,0,na,AWS Graviton,EBS only,na,3500.0M,Up to 10G,437.5M,na,20000
