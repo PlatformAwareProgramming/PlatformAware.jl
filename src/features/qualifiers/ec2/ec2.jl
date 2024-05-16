@@ -879,7 +879,8 @@ end
 function readCloudInstancesDB(::Type{<:AmazonEC2})
 
     database_path = @get_scratch!("database_path")
-    machinetypedb_ec2_url = "https://raw.githubusercontent.com/PlatformAwareProgramming/PlatformAware.jl/aws_ec2/src/features/qualifiers/ec2/db-machinetypes.ec2.csv"
+    @info database_path
+    machinetypedb_ec2_url = "https://raw.githubusercontent.com/PlatformAwareProgramming/PlatformAware.jl/master/src/features/qualifiers/ec2/db-machinetypes.ec2.csv"
     machinetypedb_ec2_fname =  joinpath(database_path,basename(machinetypedb_ec2_url))
     #machinetypedb_ec2_fname = "/home/heron/Dropbox/Copy/ufc_mdcc_hpc/PlatformAware/PlatformAware.jl/src/features/qualifiers/ec2/db-machinetypes.ec2.csv"
     try_download(machinetypedb_ec2_url, machinetypedb_ec2_fname)
