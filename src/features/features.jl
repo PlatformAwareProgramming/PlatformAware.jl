@@ -9,6 +9,8 @@ abstract type QualifierFeature <: PlatformType end
 
 @enum FeatureType qualifier=1 api_qualifier quantifier
 
+export FeatureType
+
 global feature_type = Dict(
     :node_count => quantifier,
     :node_threads_count => quantifier,
@@ -111,7 +113,9 @@ function readPlatormDescription()
         TOML.parse(platform_description_toml)    
 end
 
-function get_quantifier_from_number(n)
+get_quantifier_from_number(n) = get_quantifier_from_number(n,'.')
+    
+function get_quantifier_from_number(n, d)
 
     if n>0
         magnitude = Dict(0 => "", 1 => "K", 2 => "M", 3 => "G", 4 => "T", 5 => "P", 6 => "E")
@@ -120,25 +124,32 @@ function get_quantifier_from_number(n)
         a = floor(l)
         b = isinteger(l) ? a : a + 1;    
 
-        # the following loop separates a and b in multiplier*magnitude (see the POPL's paper).
+        # the following loop separates a and b in multiplier*magnitude.
 
-        # let A = 2^a
-        m1=0
-        while a>9 
-            # loop invariant: A = 2^a * 2^(10*m)
-            a = a - 10
-            m1 = m1 + 1
+        if d == '<'
+            a_str = "AtLeast0"
+        else
+            # let A = 2^a
+            m1=0
+            while a>9 
+                # loop invariant: A = 2^a * 2^(10*m)
+                a = a - 10
+                m1 = m1 + 1
+            end
+            a_str = "AtLeast" * string(Integer(2^a)) * magnitude[m1]
         end
 
-        m2=0
-        while b>9 
-            # loop invariant: A = 2^a * 2^(10*m)
-            b = b - 10
-            m2 = m2 + 1
+        if d == '>'
+            b_str = "AtMostInf"
+        else
+            m2=0
+            while b>9 
+                # loop invariant: A = 2^a * 2^(10*m)
+                b = b - 10
+                m2 = m2 + 1
+            end
+            b_str = "AtMost" * string(Integer(2^b)) * magnitude[m2]
         end
-
-        a_str = "AtLeast" * string(Integer(2^a)) * magnitude[m1]
-        b_str = "AtMost" * string(Integer(2^b)) * magnitude[m2]
     else
         a_str = "AtLeast0"
         b_str = "AtMost0"
@@ -149,22 +160,28 @@ function get_quantifier_from_number(n)
     Tuple{a_type,b_type,n}
 end
 
+mag_mult = Dict('K' => 2^10, 'M' => 2^20, 'G' => 2^30, 'T' => 2^40, 'P'=> 2^50, 'E' => 2^60)
 
-function get_quantifier_from_string(n)
+function get_quantifier_from_string(nn)
    
-    mag_mult = Dict('K' => 2^10, 'M' => 2^20, 'G' => 2^30, 'T' => 2^40, 'P'=> 2^50, 'E' => 2^60)
+    d = nn[1]
+    if d in ['<','>']
+        n = nn[2:length(nn)] 
+    else
+        n = nn
+    end    
 
     m = n[length(n)] 
     v1 = get(mag_mult,m,1)
     v0 = v1 == 1 ? parse(Float64,n) : parse(Float64,n[1:length(n)-1])
 
-    get_quantifier_from_number(v0*v1)
+    get_quantifier_from_number(v0*v1, d)
 end
 
 function get_quantifier(feature)
     if (typeof(feature) <: Number)
         get_quantifier_from_number(feature)
-    elseif (typeof(feature) == String)
+    else #if (typeof(feature) == String)
         get_quantifier_from_string(feature)
     end
 end
@@ -232,22 +249,20 @@ function loadFeaturesSection!(dict, platform_feature, platform_feature_default)
     end
 
     for (parameter_id, feature) in dict
-        p = Meta.parse(parameter_id)
-        #=v0 = check_blank_feature(p, feature, platform_feature_default)
-        v = if (isnothing(v0))
-                feature_type[p] == qualifier ? get_qualifier(feature) :  feature_type[p] == api_qualifier ? get_api_qualifier(feature, platform_feature_default) : get_quantifier(feature) 
-            else
-                v0
-            end=#
-        
-        platform_feature[p]= getFeature(p, feature, platform_feature_default)
+        p = Meta.parse(parameter_id)        
+        platform_feature[p]= getFeature(p, feature, platform_feature_default, feature_type)
     end
 end
 
-function getFeature(p, feature, platform_feature_default)
+function getFeature(p, feature, platform_feature_default, feature_type)
+    try
+        return getfield(@__MODULE__, Meta.parse(feature))
+    catch(_)
+    end
+
     v0 = check_blank_feature(p, feature, platform_feature_default)
     return if isnothing(v0)
-              feature_type[p] == qualifier ? get_qualifier(feature) :  feature_type[p] == api_qualifier ? get_api_qualifier(feature) : get_quantifier(feature) 
+              feature_type[p] == qualifier ? get_qualifier(feature) : feature_type[p] == api_qualifier ? get_api_qualifier(feature) : get_quantifier(feature) 
            else
               v0
            end

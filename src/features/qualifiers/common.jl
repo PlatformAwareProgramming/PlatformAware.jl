@@ -93,28 +93,28 @@ export RAM, DDR2, DDR3, DDR33L, DDR4, LPDDR4, LPDDR4X, DDR5, LPDDR5
 export DDR_SDRAM, GDDR2, GDDR3, GDDR4, GDDR5, GDDR5X, GDDR6, GDDR6X
 
 # Storage types
-abstract type SSD <: StorageType end
-abstract type HDD <: StorageType end
+abstract type StorageType_SSD <: StorageType end
+abstract type StorageType_HDD <: StorageType end
 
-export SSD, HDD
+export Storage_SSD, Storage_HDD
 
 # Storage interfaces
-abstract type SATA <: StorageInterface end
-abstract type IDE <: StorageInterface end; const PATA = IDE
-abstract type SAS <: StorageInterface end
-abstract type SCSI <: StorageInterface end
-abstract type FC <: StorageInterface end
+abstract type StorageInterface_SATA <: StorageInterface end
+abstract type StorageInterface_IDE <: StorageInterface end; const StorageInterface_PATA = StorageInterface_IDE
+abstract type StorageInterface_SAS <: StorageInterface end
+abstract type StorageInterface_SCSI <: StorageInterface end
+abstract type StorageInterface_FC <: StorageInterface end
 
-export SATA, IDE, SAS, SCSI, FC
+export StorageInterface_SATA, StorageInterface_IDE, StorageInterface_SAS, StorageInterface_SCSI, StorageInterface_FC
 
 # cache mappings
 
-abstract type Direct <: CacheMapping end
-abstract type FullyAssociative <: CacheMapping end
-abstract type SetAssociative8 <: CacheMapping end
-abstract type SetAssociative12 <: CacheMapping end
+abstract type CacheMapping_Direct <: CacheMapping end
+abstract type CacheMapping_FullyAssociative <: CacheMapping end
+abstract type CacheMapping_SetAssociative8 <: CacheMapping end
+abstract type CacheMapping_SetAssociative12 <: CacheMapping end
 
-export Direct, FullyAssociative,  SetAssociative8, SetAssociative12
+export CacheMapping_Direct, CacheMapping_FullyAssociative, CacheMapping_SetAssociative8, CacheMapping_SetAssociative12
 
 
 # processor ISA

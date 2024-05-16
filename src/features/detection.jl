@@ -679,7 +679,7 @@ function identifyStorage()
             storage_device = Dict()
             storage_features[string(i)] = storage_device
 
-            storage_type = device["rota"] ? "HDD" : "SSD"; 
+            storage_type = device["rota"] ? "StorageType_HDD" : "StorageType_SSD"; 
             storage_interface = isnothing(device["tran"]) ? "unknown" : uppercase(device["tran"])
             storage_size = device["size"]
             storage_latency = "unset"  

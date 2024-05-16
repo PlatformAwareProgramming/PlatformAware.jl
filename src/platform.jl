@@ -207,7 +207,7 @@ function platform_parameter_macro!(f)
         x = f.args[2]
         f = f.args[1]
         check_all(f)
-        update_platform_feature!(f,getFeature(f, string(x), state.platform_feature_default_all))
+        update_platform_feature!(f,getFeature(f, string(x), state.platform_feature_default_all, feature_type))
     else
         platform_syntax_message()
     end
@@ -222,7 +222,8 @@ function platform_parameters_kernel(p_list)
     r = []
     for k in keys(state.platform_feature)
          found = get(p_dict, k, nothing)
-         found_v = !isnothing(found) && !(typeof(found) == Symbol) && ((found.head == :curly && length(found.args) == 2 && found.args[1] == :Type) || (found.head == :macrocall && length(found.args) > 0 && found.args[1] in [Symbol("@atleast"), Symbol("@atmost"), Symbol("@between"), Symbol("@just"), Symbol("@unrestricted")])) ? :(::$found) : :(::Type{<:$found})
+#         found_v = !isnothing(found) && !(typeof(found) == Symbol) && ((found.head == :curly && length(found.args) == 2 && found.args[1] == :Type) || (found.head == :macrocall && length(found.args) > 0 && found.args[1] in [Symbol("@atleast"), Symbol("@atmost"), Symbol("@between"), Symbol("@just"), Symbol("@unrestricted")])) ? :(::$found) : :(::Type{<:$found})
+         found_v = :(::Type{<:$found})
          v = state.platform_feature_default[k]
          push!(r, isnothing(found) ? :(::Type{<:$v}) : found_v)
     end

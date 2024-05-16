@@ -61,6 +61,10 @@ abstract type EC2Type_T3A_Medium <: EC2Type_T3A end
 abstract type EC2Type_T3A_xLarge <: EC2Type_T3A end
 abstract type EC2Type_T3A_2xLarge <: EC2Type_T3A end
 
+abstract type EC2Type_T1 <: EC2Type end
+
+abstract type EC2Type_T1_Micro <: EC2Type_T1 end
+
 abstract type EC2Type_T2 <: EC2Type end
 
 abstract type EC2Type_T2_Nano <: EC2Type_T2 end
@@ -206,6 +210,24 @@ abstract type EC2Type_M5ZN_3xLarge <: EC2Type_M5ZN end
 abstract type EC2Type_M5ZN_6xLarge <: EC2Type_M5ZN end
 abstract type EC2Type_M5ZN_12xLarge <: EC2Type_M5ZN end
 
+abstract type EC2Type_M1 <: EC2Type end
+abstract type EC2Type_M1_Small <: EC2Type_M1 end
+abstract type EC2Type_M1_Medium <: EC2Type_M1 end
+abstract type EC2Type_M1_Large <: EC2Type_M1 end
+abstract type EC2Type_M1_xLarge <: EC2Type_M1 end
+
+abstract type EC2Type_M2 <: EC2Type end
+abstract type EC2Type_M2_xLarge <: EC2Type_M2 end
+abstract type EC2Type_M2_2xLarge <: EC2Type_M2 end
+abstract type EC2Type_M2_4xLarge <: EC2Type_M2 end
+
+abstract type EC2Type_M3 <: EC2Type end
+abstract type EC2Type_M3_Medium <: EC2Type_M3 end
+abstract type EC2Type_M3_Large <: EC2Type_M3 end
+abstract type EC2Type_M3_xLarge <: EC2Type_M3 end
+abstract type EC2Type_M3_2xLarge <: EC2Type_M3 end
+abstract type EC2Type_M3_4xLarge <: EC2Type_M3 end
+
 abstract type EC2Type_M4 <: EC2Type end
 
 abstract type EC2Type_M4_Large <: EC2Type_M4 end
@@ -225,6 +247,13 @@ abstract type EC2Type_A1_2xLarge <: EC2Type_A1 end
 abstract type EC2Type_A1_4xLarge <: EC2Type_A1 end
 
 ## compute optimized instances
+
+abstract type EC2Type_CR1 <: EC2Type end
+abstract type EC2Type_CR1_8xLarge <: EC2Type_CR1 end
+
+abstract type EC2Type_CC2 <: EC2Type end
+abstract type EC2Type_CC2_8xLarge <: EC2Type_CC2 end
+
 
 abstract type EC2Type_C7G <: EC2Type end
 
@@ -372,6 +401,22 @@ abstract type EC2Type_C4_2xLarge <: EC2Type_C4 end
 abstract type EC2Type_C4_4xLarge <: EC2Type_C4 end
 abstract type EC2Type_C4_8xLarge <: EC2Type_C4 end
 
+abstract type EC2Type_C3 <: EC2Type end
+
+abstract type EC2Type_C3_Large <: EC2Type_C3 end
+abstract type EC2Type_C3_xLarge <: EC2Type_C3 end
+abstract type EC2Type_C3_2xLarge <: EC2Type_C3 end
+abstract type EC2Type_C3_4xLarge <: EC2Type_C3 end
+abstract type EC2Type_C3_8xLarge <: EC2Type_C3 end
+
+
+abstract type EC2Type_C1 <: EC2Type end
+
+abstract type EC2Type_C1_Large <: EC2Type_C1 end
+abstract type EC2Type_C1_Medium <: EC2Type_C1 end
+abstract type EC2Type_C1_xLarge <: EC2Type_C1 end
+
+
 ## memory optimized instances
 
 abstract type EC2Type_R6 <: EC2Type end
@@ -510,6 +555,15 @@ abstract type EC2Type_R5DN_8xLarge <: EC2Type_R5DN end
 abstract type EC2Type_R5DN_12xLarge <: EC2Type_R5DN end
 abstract type EC2Type_R5DN_16xLarge <: EC2Type_R5DN end
 abstract type EC2Type_R5DN_24xLarge <: EC2Type_R5DN end
+
+abstract type EC2Type_R3 <: EC2Type end
+
+abstract type EC2Type_R3_Large <: EC2Type_R3 end
+abstract type EC2Type_R3_xLarge <: EC2Type_R3 end
+abstract type EC2Type_R3_2xLarge <: EC2Type_R3 end
+abstract type EC2Type_R3_4xLarge <: EC2Type_R3 end
+abstract type EC2Type_R3_8xLarge <: EC2Type_R3 end
+
 
 abstract type EC2Type_R4 <: EC2Type end
 
@@ -683,6 +737,12 @@ abstract type EC2Type_G3_16xLarge <: EC2Type_G3 end
 
 abstract type EC2Type_G3S_xLarge <: EC2Type_G3S end
 
+
+abstract type EC2Type_G2 <: EC2Type end
+abstract type EC2Type_G2_2xLarge <: EC2Type_G2 end
+abstract type EC2Type_G2_8xLarge <: EC2Type_G2 end
+
+
 abstract type EC2Type_F1 <: EC2Type end
 
 abstract type EC2Type_F1_2xLarge <: EC2Type_F1 end
@@ -726,6 +786,7 @@ abstract type EC2Type_I4I_8xLarge <: EC2Type_I4I end
 abstract type EC2Type_I4I_16xLarge <: EC2Type_I4I end
 abstract type EC2Type_I4I_32xLarge <: EC2Type_I4I end
 
+
 abstract type EC2Type_I3 <: EC2Type end
 abstract type EC2Type_I3EN <: EC2Type_I3 end
 
@@ -745,6 +806,13 @@ abstract type EC2Type_I3EN_3xLarge <: EC2Type_I3EN end
 abstract type EC2Type_I3EN_6xLarge <: EC2Type_I3EN end
 abstract type EC2Type_I3EN_12xLarge <: EC2Type_I3EN end
 abstract type EC2Type_I3EN_24xLarge <: EC2Type_I3EN end
+
+abstract type EC2Type_I2 <: EC2Type end
+abstract type EC2Type_I2_Large <: EC2Type_I2 end
+abstract type EC2Type_I2_xLarge <: EC2Type_I2 end
+abstract type EC2Type_I2_2xLarge <: EC2Type_I2 end
+abstract type EC2Type_I2_4xLarge <: EC2Type_I2 end
+abstract type EC2Type_I2_8xLarge <: EC2Type_I2 end
 
 abstract type EC2Type_D2 <: EC2Type end
 
@@ -775,6 +843,24 @@ abstract type EC2Type_H1_4xLarge <: EC2Type_H1 end
 abstract type EC2Type_H1_8xLarge <: EC2Type_H1 end
 abstract type EC2Type_H1_16xLarge <: EC2Type_H1 end
 
+abstract type EC2Type_HS1 <: EC2Type end
+
+abstract type EC2Type_HS1_8xLarge <: EC2Type_HS1 end
+
+# storage types
+
+abstract type StorageType_EC2_EBSOnly <: StorageType end
+abstract type StorageType_EC2_NVMeSSD <: StorageType_SSD end
+
+# network performance
+
+abstract type NetworkPerformance_EC2 end
+abstract type NetworkPerformance_EC2_Low <: NetworkPerformance_EC2 end
+abstract type NetworkPerformance_EC2_High <: NetworkPerformance_EC2 end
+abstract type NetworkPerformance_EC2_Moderate <: NetworkPerformance_EC2 end
+abstract type NetworkPerformance_EC2_LowModerate <: NetworkPerformance_EC2 end
+
+
 ## 
 function get_instance_info(provider::Type{<:AmazonEC2})
     instance_id = try
@@ -783,12 +869,6 @@ function get_instance_info(provider::Type{<:AmazonEC2})
                   catch e
                         return nothing
                   end
-
-    #database_path = @get_scratch!("database_path")
-    #machinetypedb_ec2_url = "https://raw.githubusercontent.com/PlatformAwareProgramming/PlatformAware.jl/aws_ec2/src/features/qualifiers/ec2/db-machinetypes.ec2.csv"
-    #machinetypedb_ec2_fname =  joinpath(database_path,basename(machinetypedb_ec2_url))
-    #try_download(machinetypedb_ec2_url, machinetypedb_ec2_fname)
-    #machinetype_dict_ec2 = readDB2(machinetypedb_ec2_fname)
 
     machinetype_dict_ec2 = readCloudInstancesDB(provider)
     instance_info = machinetype_dict_ec2[instance_id["instanceType"]]
@@ -800,8 +880,9 @@ function readCloudInstancesDB(::Type{<:AmazonEC2})
 
     database_path = @get_scratch!("database_path")
     machinetypedb_ec2_url = "https://raw.githubusercontent.com/PlatformAwareProgramming/PlatformAware.jl/aws_ec2/src/features/qualifiers/ec2/db-machinetypes.ec2.csv"
-    machinetypedb_ec2_fname =  joinpath(database_path,basename(machinetypedb_ec2_url))
-    try_download(machinetypedb_ec2_url, machinetypedb_ec2_fname)
+    #machinetypedb_ec2_fname =  joinpath(database_path,basename(machinetypedb_ec2_url))
+    machinetypedb_ec2_fname = "/home/heron/Dropbox/Copy/ufc_mdcc_hpc/PlatformAware/PlatformAware.jl/src/features/qualifiers/ec2/db-machinetypes.ec2.csv"
+    #try_download(machinetypedb_ec2_url, machinetypedb_ec2_fname)
     machinetype_dict_ec2 = readDB2(machinetypedb_ec2_fname)
 
     return machinetype_dict_ec2

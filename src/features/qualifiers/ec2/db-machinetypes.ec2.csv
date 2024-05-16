@@ -1,568 +1,568 @@
-api_name,node_machinefamily,node_machinetype,node_machinesize,node_memory_size,node_vcpus_count,node_ecu_count,ecu_per_vcpu,memory_per_vcpu,accelerator_count,accelerator,processor,storage_size,storage_type,storage_bandwidth,network_performance,storage_throughput,storage_trim_support,storage_iops
-a1.2xlarge,EC2Family_General,EC2Type_A1,EC2Type_A1_2xLarge,16.0G,8,0,0,2.00G,0,na,AWS Graviton,EBS only,na,3500.0M,Up to 10G,437.5M,na,20000
-a1.4xlarge,EC2Family_General,EC2Type_A1,EC2Type_A1_4xLarge,32.0G,16,0,0,2.00G,0,na,AWS Graviton,EBS only,na,3500.0M,Up to 10G,437.5M,na,20000
-a1.large,EC2Family_General,EC2Type_A1,EC2Type_A1_Large,4.0G,2,0,0,2.00G,0,na,AWS Graviton,EBS only,na,3500.0M,Up to 10G,437.5M,na,20000
-a1.medium,EC2Family_General,EC2Type_A1,EC2Type_A1_Medium,2.0G,1,0,0,2.00G,0,na,AWS Graviton,EBS only,na,3500.0M,Up to 10G,437.5M,na,20000
-a1.metal,EC2Family_General,EC2Type_A1,EC2Type_A1_Metal,32.0G,16,0,0,2.00G,0,na,AWS Graviton,EBS only,na,3500.0M,Up to 10G,437.5M,na,20000
-a1.xlarge,EC2Family_General,EC2Type_A1,EC2Type_A1_xLarge,8.0G,4,0,0,2.00G,0,na,AWS Graviton,EBS only,na,3500.0M,Up to 10G,437.5M,na,20000
-c1.medium,EC2Family_Compute,EC2Type_C1,EC2Type_C1_Medium,1.7G,2,5,2.5,0.85G,0,na,Intel Xeon Family,350G,HDD,unset,Moderate,0M,na,0
-c1.xlarge,EC2Family_Compute,EC2Type_C1,EC2Type_C1_xLarge,7.0G,8,20,2.5,0.88G,0,na,Intel Xeon Family,1680G,HDD,1000.0M,High,125.0M,na,8000
-c3.2xlarge,EC2Family_Compute,EC2Type_C3,EC2Type_C3_2xLarge,15.0G,8,28,3.5,1.88G,0,na,Intel Xeon E5-2680 v2,160G,SSD,1000.0M,High,125.0M,No,8000
-c3.4xlarge,EC2Family_Compute,EC2Type_C3,EC2Type_C3_4xLarge,30.0G,16,55,3.438,1.88G,0,na,Intel Xeon E5-2680 v2,320G,SSD,2000.0M,High,250.0M,No,16000
-c3.8xlarge,EC2Family_Compute,EC2Type_C3,EC2Type_C3_8xLarge,60.0G,32,108,3.375,1.88G,0,na,Intel Xeon E5-2680 v2,640G,SSD,unset,10G,0M,No,0
-c3.large,EC2Family_Compute,EC2Type_C3,EC2Type_C3_Large,3.75G,2,7,3.5,1.88G,0,na,Intel Xeon E5-2680 v2,32G,SSD,unset,Moderate,0M,No,0
-c3.xlarge,EC2Family_Compute,EC2Type_C3,EC2Type_C3_xLarge,7.5G,4,14,3.5,1.88G,0,na,Intel Xeon E5-2680 v2,80G,SSD,500.0M,Moderate,62.5M,No,4000
-c4.2xlarge,EC2Family_Compute,EC2Type_C4,EC2Type_C4_2xLarge,15.0G,8,31,3.875,1.88G,0,na,Intel Xeon E5-2666 v3,EBS only,na,1000.0M,High,125.0M,na,8000
-c4.4xlarge,EC2Family_Compute,EC2Type_C4,EC2Type_C4_4xLarge,30.0G,16,62,3.875,1.88G,0,na,Intel Xeon E5-2666 v3,EBS only,na,2000.0M,High,250.0M,na,16000
-c4.8xlarge,EC2Family_Compute,EC2Type_C4,EC2Type_C4_8xLarge,60.0G,36,132,3.667,1.67G,0,na,Intel Xeon E5-2666 v3,EBS only,na,4000.0M,10G,500.0M,na,32000
-c4.large,EC2Family_Compute,EC2Type_C4,EC2Type_C4_Large,3.75G,2,8,4,1.88G,0,na,Intel Xeon E5-2666 v3,EBS only,na,500.0M,Moderate,62.5M,na,4000
-c4.xlarge,EC2Family_Compute,EC2Type_C4,EC2Type_C4_xLarge,7.5G,4,16,4,1.88G,0,na,Intel Xeon E5-2666 v3,EBS only,na,750.0M,High,93.75M,na,6000
-c5.12xlarge,EC2Family_Compute,EC2Type_C5,EC2Type_C5_12xLarge,96.0G,48,188,3.917,2.00G,0,na,Intel Xeon Platinum 8275L,EBS only,na,9500.0M,12G,1187.5M,na,40000
-c5.18xlarge,EC2Family_Compute,EC2Type_C5,EC2Type_C5_18xLarge,144.0G,72,281,3.903,2.00G,0,na,Intel Xeon Platinum 8124M,EBS only,na,19000.0M,25G,2375.0M,na,80000
-c5.24xlarge,EC2Family_Compute,EC2Type_C5,EC2Type_C5_24xLarge,192.0G,96,375,3.906,2.00G,0,na,Intel Xeon Platinum 8275L,EBS only,na,19000.0M,25G,2375.0M,na,80000
-c5.2xlarge,EC2Family_Compute,EC2Type_C5,EC2Type_C5_2xLarge,16.0G,8,39,4.875,2.00G,0,na,Intel Xeon Platinum 8124M,EBS only,na,4750.0M,Up to 10G,593.75M,na,20000
-c5.4xlarge,EC2Family_Compute,EC2Type_C5,EC2Type_C5_4xLarge,32.0G,16,73,4.562,2.00G,0,na,Intel Xeon Platinum 8124M,EBS only,na,4750.0M,Up to 10G,593.75M,na,20000
-c5.9xlarge,EC2Family_Compute,EC2Type_C5,EC2Type_C5_9xLarge,72.0G,36,139,3.861,2.00G,0,na,Intel Xeon Platinum 8124M,EBS only,na,9500.0M,10G,1187.5M,na,40000
-c5.large,EC2Family_Compute,EC2Type_C5,EC2Type_C5_Large,4.0G,2,10,5,2.00G,0,na,Intel Xeon Platinum 8124M,EBS only,na,4750.0M,Up to 10G,593.75M,na,20000
-c5.metal,EC2Family_Compute,EC2Type_C5,EC2Type_C5_Metal,192.0G,96,375,3.906,2.00G,0,na,Intel Xeon Platinum 8275L,EBS only,na,19000.0M,25G,2375.0M,na,80000
-c5.xlarge,EC2Family_Compute,EC2Type_C5,EC2Type_C5_xLarge,8.0G,4,20,5,2.00G,0,na,Intel Xeon Platinum 8124M,EBS only,na,4750.0M,Up to 10G,593.75M,na,20000
-c5a.12xlarge,EC2Family_Compute,EC2Type_C5A,EC2Type_C5A_12xLarge,96.0G,48,0,0,2.00G,0,na,AMD EPYC 7R32,EBS only,na,4750.0M,12G,594.0M,na,20000
-c5a.16xlarge,EC2Family_Compute,EC2Type_C5A,EC2Type_C5A_16xLarge,128.0G,64,0,0,2.00G,0,na,AMD EPYC 7R32,EBS only,na,6300.0M,20G,788.0M,na,26700
-c5a.24xlarge,EC2Family_Compute,EC2Type_C5A,EC2Type_C5A_24xLarge,192.0G,96,0,0,2.00G,0,na,AMD EPYC 7R32,EBS only,na,9500.0M,20G,1188.0M,na,40000
-c5a.2xlarge,EC2Family_Compute,EC2Type_C5A,EC2Type_C5A_2xLarge,16.0G,8,0,0,2.00G,0,na,AMD EPYC 7R32,EBS only,na,3170.0M,Up to 10G,396.0M,na,13300
-c5a.4xlarge,EC2Family_Compute,EC2Type_C5A,EC2Type_C5A_4xLarge,32.0G,16,0,0,2.00G,0,na,AMD EPYC 7R32,EBS only,na,3170.0M,Up to 10G,396.0M,na,13300
-c5a.8xlarge,EC2Family_Compute,EC2Type_C5A,EC2Type_C5A_8xLarge,64.0G,32,0,0,2.00G,0,na,AMD EPYC 7R32,EBS only,na,3170.0M,10G,396.0M,na,13300
-c5a.large,EC2Family_Compute,EC2Type_C5A,EC2Type_C5A_Large,4.0G,2,0,0,2.00G,0,na,AMD EPYC 7R32,EBS only,na,3170.0M,Up to 10G,396.0M,na,13300
-c5a.xlarge,EC2Family_Compute,EC2Type_C5A,EC2Type_C5A_xLarge,8.0G,4,0,0,2.00G,0,na,AMD EPYC 7R32,EBS only,na,3170.0M,Up to 10G,396.0M,na,13300
-c5ad.12xlarge,EC2Family_Compute,EC2Type_C5AD,EC2Type_C5AD_12xLarge,96.0G,48,0,0,2.00G,0,na,AMD EPYC 7R32,1800G,NVMe SSD,4750.0M,12G,594.0M,Yes,20000
-c5ad.16xlarge,EC2Family_Compute,EC2Type_C5AD,EC2Type_C5AD_16xLarge,128.0G,64,0,0,2.00G,0,na,AMD EPYC 7R32,2400G,NVMe SSD,6300.0M,20G,788.0M,Yes,26700
-c5ad.24xlarge,EC2Family_Compute,EC2Type_C5AD,EC2Type_C5AD_24xLarge,192.0G,96,0,0,2.00G,0,na,AMD EPYC 7R32,3800G,NVMe SSD,9500.0M,20G,1188.0M,Yes,40000
-c5ad.2xlarge,EC2Family_Compute,EC2Type_C5AD,EC2Type_C5AD_2xLarge,16.0G,8,0,0,2.00G,0,na,AMD EPYC 7R32,300G,SSD,3170.0M,Up to 10G,396.0M,Yes,13300
-c5ad.4xlarge,EC2Family_Compute,EC2Type_C5AD,EC2Type_C5AD_4xLarge,32.0G,16,0,0,2.00G,0,na,AMD EPYC 7R32,600G,NVMe SSD,3170.0M,Up to 10G,396.0M,Yes,13300
-c5ad.8xlarge,EC2Family_Compute,EC2Type_C5AD,EC2Type_C5AD_8xLarge,64.0G,32,0,0,2.00G,0,na,AMD EPYC 7R32,1200G,NVMe SSD,3170.0M,10G,396.0M,Yes,13300
-c5ad.large,EC2Family_Compute,EC2Type_C5AD,EC2Type_C5AD_Large,4.0G,2,0,0,2.00G,0,na,AMD EPYC 7R32,75G,SSD,3170.0M,Up to 10G,396.0M,Yes,13300
-c5ad.xlarge,EC2Family_Compute,EC2Type_C5AD,EC2Type_C5AD_xLarge,8.0G,4,0,0,2.00G,0,na,AMD EPYC 7R32,150G,SSD,3170.0M,Up to 10G,396.0M,Yes,13300
-c5d.12xlarge,EC2Family_Compute,EC2Type_C5D,EC2Type_C5D_12xLarge,96.0G,48,188,3.917,2.00G,0,na,Intel Xeon Platinum 8275L,1800G,NVMe SSD,9500.0M,12G,1187.5M,Yes,40000
-c5d.18xlarge,EC2Family_Compute,EC2Type_C5D,EC2Type_C5D_18xLarge,144.0G,72,281,3.903,2.00G,0,na,Intel Xeon Platinum 8124M,1800G,NVMe SSD,19000.0M,25G,2375.0M,Yes,80000
-c5d.24xlarge,EC2Family_Compute,EC2Type_C5D,EC2Type_C5D_24xLarge,192.0G,96,375,3.906,2.00G,0,na,Intel Xeon Platinum 8275L,3600G,NVMe SSD,19000.0M,25G,2375.0M,Yes,80000
-c5d.2xlarge,EC2Family_Compute,EC2Type_C5D,EC2Type_C5D_2xLarge,16.0G,8,39,4.875,2.00G,0,na,Intel Xeon Platinum 8124M,200G,SSD,4750.0M,Up to 10G,593.75M,Yes,20000
-c5d.4xlarge,EC2Family_Compute,EC2Type_C5D,EC2Type_C5D_4xLarge,32.0G,16,73,4.562,2.00G,0,na,Intel Xeon Platinum 8124M,400G,SSD,4750.0M,Up to 10G,593.75M,Yes,20000
-c5d.9xlarge,EC2Family_Compute,EC2Type_C5D,EC2Type_C5D_9xLarge,72.0G,36,139,3.861,2.00G,0,na,Intel Xeon Platinum 8124M,900G,SSD,9500.0M,10G,1187.5M,Yes,40000
-c5d.large,EC2Family_Compute,EC2Type_C5D,EC2Type_C5D_Large,4.0G,2,10,5,2.00G,0,na,Intel Xeon Platinum 8124M,50G,SSD,4750.0M,Up to 10G,593.75M,Yes,20000
-c5d.metal,EC2Family_Compute,EC2Type_C5D,EC2Type_C5D_Metal,192.0G,96,375,3.906,2.00G,0,na,Intel Xeon Platinum 8275L,3600G,NVMe SSD,19000.0M,25G,2375.0M,Yes,80000
-c5d.xlarge,EC2Family_Compute,EC2Type_C5D,EC2Type_C5D_xLarge,8.0G,4,20,5,2.00G,0,na,Intel Xeon Platinum 8124M,100G,SSD,4750.0M,Up to 10G,593.75M,Yes,20000
-c5n.18xlarge,EC2Family_Compute,EC2Type_C5N,EC2Type_C5N_18xLarge,192.0G,72,281,3.903,2.67G,0,na,Intel Xeon Platinum 8124M,EBS only,na,19000.0M,100G,2375.0M,na,80000
-c5n.2xlarge,EC2Family_Compute,EC2Type_C5N,EC2Type_C5N_2xLarge,21.0G,8,39,4.875,2.62G,0,na,Intel Xeon Platinum 8124M,EBS only,na,4750.0M,Up to 25G,593.75M,na,20000
-c5n.4xlarge,EC2Family_Compute,EC2Type_C5N,EC2Type_C5N_4xLarge,42.0G,16,73,4.562,2.62G,0,na,Intel Xeon Platinum 8124M,EBS only,na,4750.0M,Up to 25G,593.75M,na,20000
-c5n.9xlarge,EC2Family_Compute,EC2Type_C5N,EC2Type_C5N_9xLarge,96.0G,36,139,3.861,2.67G,0,na,Intel Xeon Platinum 8124M,EBS only,na,9500.0M,50G,1187.5M,na,40000
-c5n.large,EC2Family_Compute,EC2Type_C5N,EC2Type_C5N_Large,5.25G,2,10,5,2.62G,0,na,Intel Xeon Platinum 8124M,EBS only,na,4750.0M,Up to 25G,593.75M,na,20000
-c5n.metal,EC2Family_Compute,EC2Type_C5N,EC2Type_C5N_Metal,192.0G,72,0,0,2.67G,0,na,Intel Xeon Platinum 8124M,EBS only,na,19000.0M,100G,2375.0M,na,80000
-c5n.xlarge,EC2Family_Compute,EC2Type_C5N,EC2Type_C5N_xLarge,10.5G,4,20,5,2.62G,0,na,Intel Xeon Platinum 8124M,EBS only,na,4750.0M,Up to 25G,593.75M,na,20000
-c6a.12xlarge,EC2Family_Compute,EC2Type_C6A,EC2Type_C6A_12xLarge,96.0G,48,0,0,2.00G,0,na,AMD EPYC 7R13,EBS only,na,10000.0M,18.75G,1250.0M,na,40000
-c6a.16xlarge,EC2Family_Compute,EC2Type_C6A,EC2Type_C6A_16xLarge,128.0G,64,0,0,2.00G,0,na,AMD EPYC 7R13,EBS only,na,13300.0M,25G,1662.5M,na,53333
-c6a.24xlarge,EC2Family_Compute,EC2Type_C6A,EC2Type_C6A_24xLarge,192.0G,96,0,0,2.00G,0,na,AMD EPYC 7R13,EBS only,na,20000.0M,37.5G,2500.0M,na,80000
-c6a.2xlarge,EC2Family_Compute,EC2Type_C6A,EC2Type_C6A_2xLarge,16.0G,8,0,0,2.00G,0,na,AMD EPYC 7R13,EBS only,na,6666.664M,Up to 12.5G,833.333M,na,26667
-c6a.32xlarge,EC2Family_Compute,EC2Type_C6A,EC2Type_C6A_32xLarge,256.0G,128,0,0,2.00G,0,na,AMD EPYC 7R13,EBS only,na,26666.664M,50G,3333.333M,na,100000
-c6a.48xlarge,EC2Family_Compute,EC2Type_C6A,EC2Type_C6A_48xLarge,384.0G,192,0,0,2.00G,0,na,AMD EPYC 7R13,EBS only,na,40000.0M,50G,5000.0M,na,160000
-c6a.4xlarge,EC2Family_Compute,EC2Type_C6A,EC2Type_C6A_4xLarge,32.0G,16,0,0,2.00G,0,na,AMD EPYC 7R13,EBS only,na,6666.664M,Up to 12.5G,833.333M,na,26667
-c6a.8xlarge,EC2Family_Compute,EC2Type_C6A,EC2Type_C6A_8xLarge,64.0G,32,0,0,2.00G,0,na,AMD EPYC 7R13,EBS only,na,6666.664M,12.5G,833.333M,na,26667
-c6a.large,EC2Family_Compute,EC2Type_C6A,EC2Type_C6A_Large,4.0G,2,0,0,2.00G,0,na,AMD EPYC 7R13,EBS only,na,6666.664M,Up to 12.5G,833.333M,na,26667
-c6a.metal,EC2Family_Compute,EC2Type_C6A,EC2Type_C6A_Metal,384.0G,192,0,0,2.00G,0,na,AMD EPYC 7R13,EBS only,na,40000.0M,50G,5000.0M,na,160000
-c6a.xlarge,EC2Family_Compute,EC2Type_C6A,EC2Type_C6A_xLarge,8.0G,4,0,0,2.00G,0,na,AMD EPYC 7R13,EBS only,na,6666.664M,Up to 12.5G,833.333M,na,26667
-c6g.12xlarge,EC2Family_Compute,EC2Type_C6G,EC2Type_C6G_12xLarge,96.0G,48,0,0,2.00G,0,na,AWS Graviton2,EBS only,na,14250.0M,20G,1781.25M,na,50000
-c6g.16xlarge,EC2Family_Compute,EC2Type_C6G,EC2Type_C6G_16xLarge,128.0G,64,0,0,2.00G,0,na,AWS Graviton2,EBS only,na,19000.0M,25G,2375.0M,na,80000
-c6g.2xlarge,EC2Family_Compute,EC2Type_C6G,EC2Type_C6G_2xLarge,16.0G,8,0,0,2.00G,0,na,AWS Graviton2,EBS only,na,4750.0M,Up to 10G,593.75M,na,20000
-c6g.4xlarge,EC2Family_Compute,EC2Type_C6G,EC2Type_C6G_4xLarge,32.0G,16,0,0,2.00G,0,na,AWS Graviton2,EBS only,na,4750.0M,Up to 10G,593.75M,na,20000
-c6g.8xlarge,EC2Family_Compute,EC2Type_C6G,EC2Type_C6G_8xLarge,64.0G,32,0,0,2.00G,0,na,AWS Graviton2,EBS only,na,9500.0M,12G,1187.5M,na,40000
-c6g.large,EC2Family_Compute,EC2Type_C6G,EC2Type_C6G_Large,4.0G,2,0,0,2.00G,0,na,AWS Graviton2,EBS only,na,4750.0M,Up to 10G,593.75M,na,20000
-c6g.medium,EC2Family_Compute,EC2Type_C6G,EC2Type_C6G_Medium,2.0G,1,0,0,2.00G,0,na,AWS Graviton2,EBS only,na,4750.0M,Up to 10G,593.75M,na,20000
-c6g.metal,EC2Family_Compute,EC2Type_C6G,EC2Type_C6G_Metal,128.0G,64,0,0,2.00G,0,na,AWS Graviton2,EBS only,na,19000.0M,25G,2375.0M,na,80000
-c6g.xlarge,EC2Family_Compute,EC2Type_C6G,EC2Type_C6G_xLarge,8.0G,4,0,0,2.00G,0,na,AWS Graviton2,EBS only,na,4750.0M,Up to 10G,593.75M,na,20000
-c6gd.12xlarge,EC2Family_Compute,EC2Type_C6GD,EC2Type_C6GD_12xLarge,96.0G,48,0,0,2.00G,0,na,AWS Graviton2,2850G,NVMe SSD,14250.0M,20G,1781.25M,Yes,50000
-c6gd.16xlarge,EC2Family_Compute,EC2Type_C6GD,EC2Type_C6GD_16xLarge,128.0G,64,0,0,2.00G,0,na,AWS Graviton2,3800G,NVMe SSD,19000.0M,25G,2375.0M,Yes,80000
-c6gd.2xlarge,EC2Family_Compute,EC2Type_C6GD,EC2Type_C6GD_2xLarge,16.0G,8,0,0,2.00G,0,na,AWS Graviton2,474G,SSD,4750.0M,Up to 10G,593.75M,Yes,20000
-c6gd.4xlarge,EC2Family_Compute,EC2Type_C6GD,EC2Type_C6GD_4xLarge,32.0G,16,0,0,2.00G,0,na,AWS Graviton2,950G,SSD,4750.0M,Up to 10G,593.75M,Yes,20000
-c6gd.8xlarge,EC2Family_Compute,EC2Type_C6GD,EC2Type_C6GD_8xLarge,64.0G,32,0,0,2.00G,0,na,AWS Graviton2,1900G,SSD,9500.0M,12G,1187.5M,Yes,40000
-c6gd.large,EC2Family_Compute,EC2Type_C6GD,EC2Type_C6GD_Large,4.0G,2,0,0,2.00G,0,na,AWS Graviton2,118G,SSD,4750.0M,Up to 10G,593.75M,Yes,20000
-c6gd.medium,EC2Family_Compute,EC2Type_C6GD,EC2Type_C6GD_Medium,2.0G,1,0,0,2.00G,0,na,AWS Graviton2,59G,SSD,4750.0M,Up to 10G,593.75M,Yes,20000
-c6gd.metal,EC2Family_Compute,EC2Type_C6GD,EC2Type_C6GD_Metal,128.0G,64,0,0,2.00G,0,na,AWS Graviton2,3800G,NVMe SSD,19000.0M,25G,2375.0M,Yes,80000
-c6gd.xlarge,EC2Family_Compute,EC2Type_C6GD,EC2Type_C6GD_xLarge,8.0G,4,0,0,2.00G,0,na,AWS Graviton2,237G,SSD,4750.0M,Up to 10G,593.75M,Yes,20000
-c6gn.12xlarge,EC2Family_Compute,EC2Type_C6GN,EC2Type_C6GN_12xLarge,96.0G,48,0,0,2.00G,0,na,AWS Graviton2,EBS only,na,28500.0M,75G,3562.5M,na,120000
-c6gn.16xlarge,EC2Family_Compute,EC2Type_C6GN,EC2Type_C6GN_16xLarge,128.0G,64,0,0,2.00G,0,na,AWS Graviton2,EBS only,na,38000.0M,100G,4750.0M,na,160000
-c6gn.2xlarge,EC2Family_Compute,EC2Type_C6GN,EC2Type_C6GN_2xLarge,16.0G,8,0,0,2.00G,0,na,AWS Graviton2,EBS only,na,9500.0M,Up to 25G,1187.5M,na,40000
-c6gn.4xlarge,EC2Family_Compute,EC2Type_C6GN,EC2Type_C6GN_4xLarge,32.0G,16,0,0,2.00G,0,na,AWS Graviton2,EBS only,na,9500.0M,Up to 25G,1187.5M,na,40000
-c6gn.8xlarge,EC2Family_Compute,EC2Type_C6GN,EC2Type_C6GN_8xLarge,64.0G,32,0,0,2.00G,0,na,AWS Graviton2,EBS only,na,19000.0M,50G,2375.0M,na,80000
-c6gn.large,EC2Family_Compute,EC2Type_C6GN,EC2Type_C6GN_Large,4.0G,2,0,0,2.00G,0,na,AWS Graviton2,EBS only,na,9500.0M,Up to 25G,1187.5M,na,40000
-c6gn.medium,EC2Family_Compute,EC2Type_C6GN,EC2Type_C6GN_Medium,2.0G,1,0,0,2.00G,0,na,AWS Graviton2,EBS only,na,9500.0M,Up to 16G,1187.5M,na,40000
-c6gn.xlarge,EC2Family_Compute,EC2Type_C6GN,EC2Type_C6GN_xLarge,8.0G,4,0,0,2.00G,0,na,AWS Graviton2,EBS only,na,9500.0M,Up to 25G,1187.5M,na,40000
-c6i.12xlarge,EC2Family_Compute,EC2Type_C6I,EC2Type_C6I_12xLarge,96.0G,48,0,0,2.00G,0,na,Intel Xeon 8375C,EBS only,na,15000.0M,18.75G,1875.0M,na,60000
-c6i.16xlarge,EC2Family_Compute,EC2Type_C6I,EC2Type_C6I_16xLarge,128.0G,64,0,0,2.00G,0,na,Intel Xeon 8375C,EBS only,na,20000.0M,25G,2500.0M,na,80000
-c6i.24xlarge,EC2Family_Compute,EC2Type_C6I,EC2Type_C6I_24xLarge,192.0G,96,0,0,2.00G,0,na,Intel Xeon 8375C,EBS only,na,30000.0M,37.5G,3750.0M,na,120000
-c6i.2xlarge,EC2Family_Compute,EC2Type_C6I,EC2Type_C6I_2xLarge,16.0G,8,0,0,2.00G,0,na,Intel Xeon 8375C,EBS only,na,10000.0M,Up to 12.5G,1250.0M,na,40000
-c6i.32xlarge,EC2Family_Compute,EC2Type_C6I,EC2Type_C6I_32xLarge,256.0G,128,0,0,2.00G,0,na,Intel Xeon 8375C,EBS only,na,40000.0M,50G,5000.0M,na,160000
-c6i.4xlarge,EC2Family_Compute,EC2Type_C6I,EC2Type_C6I_4xLarge,32.0G,16,0,0,2.00G,0,na,Intel Xeon 8375C,EBS only,na,10000.0M,Up to 12.5G,1250.0M,na,40000
-c6i.8xlarge,EC2Family_Compute,EC2Type_C6I,EC2Type_C6I_8xLarge,64.0G,32,0,0,2.00G,0,na,Intel Xeon 8375C,EBS only,na,10000.0M,12.5G,1250.0M,na,40000
-c6i.large,EC2Family_Compute,EC2Type_C6I,EC2Type_C6I_Large,4.0G,2,0,0,2.00G,0,na,Intel Xeon 8375C,EBS only,na,10000.0M,Up to 12.5G,1250.0M,na,40000
-c6i.metal,EC2Family_Compute,EC2Type_C6I,EC2Type_C6I_Metal,256.0G,128,0,0,2.00G,0,na,Intel Xeon 8375C,EBS only,na,40000.0M,50G,5000.0M,na,160000
-c6i.xlarge,EC2Family_Compute,EC2Type_C6I,EC2Type_C6I_xLarge,8.0G,4,0,0,2.00G,0,na,Intel Xeon 8375C,EBS only,na,10000.0M,Up to 12.5G,1250.0M,na,40000
-c6id.12xlarge,EC2Family_Compute,EC2Type_C6ID,EC2Type_C6ID_12xLarge,96.0G,48,0,0,2.00G,0,na,Intel Xeon 8375C,2850G,NVMe SSD,15000.0M,18.75G,1875.0M,Yes,60000
-c6id.16xlarge,EC2Family_Compute,EC2Type_C6ID,EC2Type_C6ID_16xLarge,128.0G,64,0,0,2.00G,0,na,Intel Xeon 8375C,3800G,NVMe SSD,20000.0M,25G,2500.0M,Yes,80000
-c6id.24xlarge,EC2Family_Compute,EC2Type_C6ID,EC2Type_C6ID_24xLarge,192.0G,96,0,0,2.00G,0,na,Intel Xeon 8375C,5700G,NVMe SSD,30000.0M,37.5G,3750.0M,Yes,120000
-c6id.2xlarge,EC2Family_Compute,EC2Type_C6ID,EC2Type_C6ID_2xLarge,16.0G,8,0,0,2.00G,0,na,Intel Xeon 8375C,474G,SSD,10000.0M,Up to 12.5G,1250.0M,Yes,40000
-c6id.32xlarge,EC2Family_Compute,EC2Type_C6ID,EC2Type_C6ID_32xLarge,256.0G,128,0,0,2.00G,0,na,Intel Xeon 8375C,7600G,NVMe SSD,40000.0M,50G,5000.0M,Yes,160000
-c6id.4xlarge,EC2Family_Compute,EC2Type_C6ID,EC2Type_C6ID_4xLarge,32.0G,16,0,0,2.00G,0,na,Intel Xeon 8375C,950G,SSD,10000.0M,Up to 12.5G,1250.0M,Yes,40000
-c6id.8xlarge,EC2Family_Compute,EC2Type_C6ID,EC2Type_C6ID_8xLarge,64.0G,32,0,0,2.00G,0,na,Intel Xeon 8375C,1900G,SSD,10000.0M,12.5G,1250.0M,Yes,40000
-c6id.large,EC2Family_Compute,EC2Type_C6ID,EC2Type_C6ID_Large,4.0G,2,0,0,2.00G,0,na,Intel Xeon 8375C,118G,SSD,10000.0M,Up to 12.5G,1250.0M,Yes,40000
-c6id.metal,EC2Family_Compute,EC2Type_C6ID,EC2Type_C6ID_Metal,256.0G,128,0,0,2.00G,0,na,Intel Xeon 8375C,7600G,NVMe SSD,40000.0M,50G,5000.0M,Yes,160000
-c6id.xlarge,EC2Family_Compute,EC2Type_C6ID,EC2Type_C6ID_xLarge,8.0G,4,0,0,2.00G,0,na,Intel Xeon 8375C,237G,SSD,10000.0M,Up to 12.5G,1250.0M,Yes,40000
-c7g.12xlarge,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_12xLarge,96.0G,48,0,0,2.00G,0,na,AWS Graviton3,EBS only,na,15000.0M,22.5G,1875.0M,na,60000
-c7g.16xlarge,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_16xLarge,128.0G,64,0,0,2.00G,0,na,AWS Graviton3,EBS only,na,20000.0M,30G,2500.0M,na,80000
-c7g.2xlarge,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_2xLarge,16.0G,8,0,0,2.00G,0,na,AWS Graviton3,EBS only,na,10000.0M,Up to 15G,1250.0M,na,40000
-c7g.4xlarge,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_4xLarge,32.0G,16,0,0,2.00G,0,na,AWS Graviton3,EBS only,na,10000.0M,Up to 15G,1250.0M,na,40000
-c7g.8xlarge,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_8xLarge,64.0G,32,0,0,2.00G,0,na,AWS Graviton3,EBS only,na,10000.0M,15G,1250.0M,na,40000
-c7g.large,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_Large,4.0G,2,0,0,2.00G,0,na,AWS Graviton3,EBS only,na,10000.0M,Up to 12.5G,1250.0M,na,40000
-c7g.medium,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_Medium,2.0G,1,0,0,2.00G,0,na,AWS Graviton3,EBS only,na,10000.0M,Up to 12.5G,1250.0M,na,40000
-c7g.xlarge,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_xLarge,8.0G,4,0,0,2.00G,0,na,AWS Graviton3,EBS only,na,10000.0M,Up to 12.5G,1250.0M,na,40000
-cc2.8xlarge,N/A,EC2Type_CC2,EC2Type_CC2_8xLarge,60.5G,32,88,2.75,1.89G,0,na,Intel Xeon E5-2670,3360G,HDD,unset,10G,0M,na,0
-cr1.8xlarge,N/A,EC2Type_CR1,EC2Type_CR1_8xLarge,244.0G,32,88,2.75,7.62G,0,na,Intel Xeon E5-2670,240G,SSD,unset,10G,0M,No,0
-d2.2xlarge,EC2Family_Storage,EC2Type_D2,EC2Type_D2_2xLarge,61.0G,8,28,3.5,7.62G,0,na,Intel Xeon E5-2676 v3,12000G,HDD,1000.0M,High,125.0M,na,8000
-d2.4xlarge,EC2Family_Storage,EC2Type_D2,EC2Type_D2_4xLarge,122.0G,16,56,3.5,7.62G,0,na,Intel Xeon E5-2676 v3,24000G,HDD,2000.0M,High,250.0M,na,16000
-d2.8xlarge,EC2Family_Storage,EC2Type_D2,EC2Type_D2_8xLarge,244.0G,36,116,3.222,6.78G,0,na,Intel Xeon E5-2676 v3,48000G,HDD,4000.0M,10G,500.0M,na,32000
-d2.xlarge,EC2Family_Storage,EC2Type_D2,EC2Type_D2_xLarge,30.5G,4,14,3.5,7.62G,0,na,Intel Xeon E5-2676 v3,6000G,HDD,750.0M,Moderate,93.75M,na,6000
-d3.2xlarge,EC2Family_Storage,EC2Type_D3,EC2Type_D3_2xLarge,64.0G,8,0,0,8.00G,0,na,Intel Xeon Platinum 8259,11880G,HDD,2800.0M,Up to 15G,350.0M,na,15000
-d3.4xlarge,EC2Family_Storage,EC2Type_D3,EC2Type_D3_4xLarge,128.0G,16,0,0,8.00G,0,na,Intel Xeon Platinum 8259,23760G,HDD,2800.0M,Up to 15G,350.0M,na,15000
-d3.8xlarge,EC2Family_Storage,EC2Type_D3,EC2Type_D3_8xLarge,256.0G,32,0,0,8.00G,0,na,Intel Xeon Platinum 8259,47520G,HDD,5000.0M,25G,625.0M,na,30000
-d3.xlarge,EC2Family_Storage,EC2Type_D3,EC2Type_D3_xLarge,32.0G,4,0,0,8.00G,0,na,Intel Xeon Platinum 8259,5940G,HDD,2800.0M,Up to 15G,350.0M,na,15000
-d3en.12xlarge,EC2Family_Storage,EC2Type_D3EN,EC2Type_D3EN_12xLarge,192.0G,48,0,0,4.00G,0,na,Intel Xeon Platinum 8259,335520G,HDD,7000.0M,75G,875.0M,na,40000
-d3en.2xlarge,EC2Family_Storage,EC2Type_D3EN,EC2Type_D3EN_2xLarge,32.0G,8,0,0,4.00G,0,na,Intel Xeon Platinum 8259,55920G,HDD,2800.0M,Up to 25G,350.0M,na,15000
-d3en.4xlarge,EC2Family_Storage,EC2Type_D3EN,EC2Type_D3EN_4xLarge,64.0G,16,0,0,4.00G,0,na,Intel Xeon Platinum 8259,111840G,HDD,2800.0M,25G,350.0M,na,15000
-d3en.6xlarge,EC2Family_Storage,EC2Type_D3EN,EC2Type_D3EN_6xLarge,96.0G,24,0,0,4.00G,0,na,Intel Xeon Platinum 8259,167760G,HDD,unset,40G,0M,na,0
-d3en.8xlarge,EC2Family_Storage,EC2Type_D3EN,EC2Type_D3EN_8xLarge,128.0G,32,0,0,4.00G,0,na,Intel Xeon Platinum 8259,223680G,HDD,5000.0M,50G,625.0M,na,30000
-d3en.xlarge,EC2Family_Storage,EC2Type_D3EN,EC2Type_D3EN_xLarge,16.0G,4,0,0,4.00G,0,na,Intel Xeon Platinum 8259,27960G,HDD,2800.0M,Up to 25G,350.0M,na,15000
-dl1.24xlarge,EC2Family_Accelerated,EC2Type_DL1,EC2Type_DL1_24xLarge,768.0G,96,0,0,8.00G,0,na,Intel Xeon Platinum 8275L,4TB,NVMe SSD,19000.0M,4x 100G,2375.0M,No,80000
-f1.16xlarge,EC2Family_Accelerated,EC2Type_F1,EC2Type_F1_16xLarge,976.0G,64,201,3.141,15.25G,8,Xilinx Virtex UltraScale+ VU9P,Intel Xeon E5-2686 v4,3760G,NVMe SSD,14000.0M,25G,1750.0M,Yes,75000
-f1.2xlarge,EC2Family_Accelerated,EC2Type_F1,EC2Type_F1_2xLarge,122.0G,8,31,3.875,15.25G,1,Xilinx Virtex UltraScale+ VU9P,Intel Xeon E5-2686 v4,470G,SSD,1700.0M,Up to 10G,212.5M,Yes,12000
-f1.4xlarge,EC2Family_Accelerated,EC2Type_F1,EC2Type_F1_4xLarge,244.0G,16,58,3.625,15.25G,2,Xilinx Virtex UltraScale+ VU9P,Intel Xeon E5-2686 v4,940G,SSD,3500.0M,Up to 10G,437.5M,Yes,44000
-g2.2xlarge,EC2Family_Accelerated,EC2Type_G2,EC2Type_G2_2xLarge,15.0G,8,26,3.25,1.88G,1,NVIDIA GRID K520,Intel Xeon E5-2670,60G,SSD,1000.0M,Moderate,125.0M,No,8000
-g2.8xlarge,EC2Family_Accelerated,EC2Type_G2,EC2Type_G2_8xLarge,60.0G,32,104,3.25,1.88G,4,NVIDIA GRID K520,Intel Xeon E5-2670,240G,SSD,unset,High,0M,No,0
-g3.16xlarge,EC2Family_Accelerated,EC2Type_G3,EC2Type_G3_16xLarge,488.0G,64,201,3.141,7.62G,4,NVIDIA Tesla M60,Intel Xeon E5-2686 v4,EBS only,na,14000.0M,25G,1750.0M,na,80000
-g3.4xlarge,EC2Family_Accelerated,EC2Type_G3,EC2Type_G3_4xLarge,122.0G,16,58,3.625,7.62G,1,NVIDIA Tesla M60,Intel Xeon E5-2686 v4,EBS only,na,3500.0M,Up to 10G,437.5M,na,20000
-g3.8xlarge,EC2Family_Accelerated,EC2Type_G3,EC2Type_G3_8xLarge,244.0G,32,97,3.031,7.62G,2,NVIDIA Tesla M60,Intel Xeon E5-2686 v4,EBS only,na,7000.0M,10G,875.0M,na,40000
-g3s.xlarge,EC2Family_Accelerated,EC2Type_G3S,EC2Type_G3S_xLarge,30.5G,4,13,3.25,7.62G,1,NVIDIA Tesla M60,Intel Xeon E5-2686 v4,EBS only,na,850.0M,Up to 10G,106.25M,na,5000
-g4ad.16xlarge,EC2Family_Accelerated,EC2Type_G4AD,EC2Type_G4AD_16xLarge,256.0G,64,0,0,4.00G,4,AMD Radeon Pro V520,AMD EPYC 7R32,2400G,NVMe SSD,6300.0M,25G,787.5M,Yes,26667
-g4ad.2xlarge,EC2Family_Accelerated,EC2Type_G4AD,EC2Type_G4AD_2xLarge,32.0G,8,0,0,4.00G,1,AMD Radeon Pro V520,AMD EPYC 7R32,300G,SSD,3170.0M,Up to 10G,396.25M,Yes,13333
-g4ad.4xlarge,EC2Family_Accelerated,EC2Type_G4AD,EC2Type_G4AD_4xLarge,64.0G,16,0,0,4.00G,1,AMD Radeon Pro V520,AMD EPYC 7R32,600G,SSD,3170.0M,Up to 10G,396.25M,Yes,13333
-g4ad.8xlarge,EC2Family_Accelerated,EC2Type_G4AD,EC2Type_G4AD_8xLarge,128.0G,32,0,0,4.00G,2,AMD Radeon Pro V520,AMD EPYC 7R32,1200G,SSD,3170.0M,15G,396.25M,Yes,13333
-g4ad.xlarge,EC2Family_Accelerated,EC2Type_G4AD,EC2Type_G4AD_xLarge,16.0G,4,0,0,4.00G,1,AMD Radeon Pro V520,AMD EPYC 7R32,150G,SSD,3170.0M,Up to 10G,396.25M,Yes,13333
-g4dn.12xlarge,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_12xLarge,192.0G,48,0,0,4.00G,4,NVIDIA T4 Tensor Core,Intel Xeon Family,900G,SSD,9500.0M,50G,1187.5M,Yes,40000
-g4dn.16xlarge,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_16xLarge,256.0G,64,0,0,4.00G,1,NVIDIA T4 Tensor Core,Intel Xeon Family,900G,SSD,9500.0M,50G,1187.5M,Yes,40000
-g4dn.2xlarge,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_2xLarge,32.0G,8,0,0,4.00G,1,NVIDIA T4 Tensor Core,Intel Xeon Family,225G,SSD,3500.0M,Up to 25G,437.5M,Yes,20000
-g4dn.4xlarge,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_4xLarge,64.0G,16,0,0,4.00G,1,NVIDIA T4 Tensor Core,Intel Xeon Family,225G,SSD,4750.0M,Up to 25G,593.75M,Yes,20000
-g4dn.8xlarge,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_8xLarge,128.0G,32,0,0,4.00G,1,NVIDIA T4 Tensor Core,Intel Xeon Family,900G,SSD,9500.0M,50G,1187.5M,Yes,40000
-g4dn.metal,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_Metal,384.0G,96,0,0,4.00G,8,NVIDIA T4 Tensor Core,Intel Xeon Family,1800G,NVMe SSD,19000.0M,100G,2375.0M,Yes,80000
-g4dn.xlarge,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_xLarge,16.0G,4,0,0,4.00G,1,NVIDIA T4 Tensor Core,Intel Xeon Family,125G,SSD,3500.0M,Up to 25G,437.5M,Yes,20000
-g5.12xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_12xLarge,192.0G,48,0,0,4.00G,4,NVIDIA A10G,AMD EPYC 7R32,3800G,SSD,16000.0M,40G,2000.0M,Yes,65000
-g5.16xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_16xLarge,256.0G,64,0,0,4.00G,1,NVIDIA A10G,AMD EPYC 7R32,1900G,SSD,16000.0M,25G,2000.0M,Yes,65000
-g5.24xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_24xLarge,384.0G,96,0,0,4.00G,4,NVIDIA A10G,AMD EPYC 7R32,3800G,SSD,19000.0M,50G,2375.0M,Yes,80000
-g5.2xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_2xLarge,32.0G,8,0,0,4.00G,1,NVIDIA A10G,AMD EPYC 7R32,450G,SSD,3500.0M,Up to 10G,437.5M,Yes,15000
-g5.48xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_48xLarge,768.0G,192,0,0,4.00G,8,NVIDIA A10G,AMD EPYC 7R32,7600G,NVMe SSD,19000.0M,100G,2375.0M,Yes,80000
-g5.4xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_4xLarge,64.0G,16,0,0,4.00G,1,NVIDIA A10G,AMD EPYC 7R32,600G,SSD,4750.0M,Up to 25G,593.75M,Yes,20000
-g5.8xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_8xLarge,128.0G,32,0,0,4.00G,1,NVIDIA A10G,AMD EPYC 7R32,900G,SSD,16000.0M,25G,2000.0M,Yes,65000
-g5.xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_xLarge,16.0G,4,0,0,4.00G,1,NVIDIA A10G,AMD EPYC 7R32,250G,SSD,3500.0M,Up to 10G,437.5M,Yes,15000
-g5g.16xlarge,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_16xLarge,128.0G,64,0,0,2.00G,2,NVIDIA T4G Tensor Core,AWS Graviton2,EBS only,na,19000.0M,25G,2375.0M,na,80000
-g5g.2xlarge,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_2xLarge,16.0G,8,0,0,2.00G,1,NVIDIA T4G Tensor Core,AWS Graviton2,EBS only,na,4750.0M,Up to 10G,593.75M,na,20000
-g5g.4xlarge,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_4xLarge,32.0G,16,0,0,2.00G,1,NVIDIA T4G Tensor Core,AWS Graviton2,EBS only,na,4750.0M,Up to 10G,593.75M,na,20000
-g5g.8xlarge,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_8xLarge,64.0G,32,0,0,2.00G,1,NVIDIA T4G Tensor Core,AWS Graviton2,EBS only,na,9500.0M,12G,1187.5M,na,40000
-g5g.metal,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_Metal,128.0G,64,0,0,2.00G,2,NVIDIA T4G Tensor Core,AWS Graviton2,EBS only,na,19000.0M,25G,2375.0M,na,80000
-g5g.xlarge,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_xLarge,8.0G,4,0,0,2.00G,1,NVIDIA T4G Tensor Core,AWS Graviton2,EBS only,na,4750.0M,Up to 10G,593.75M,na,20000
-h1.16xlarge,EC2Family_Storage,EC2Type_H1,EC2Type_H1_16xLarge,256.0G,64,201,3.141,4.00G,0,na,Intel Xeon E5-2686 v4,16000G,HDD,14000.0M,25G,1750.0M,na,80000
-h1.2xlarge,EC2Family_Storage,EC2Type_H1,EC2Type_H1_2xLarge,32.0G,8,31,3.875,4.00G,0,na,Intel Xeon E5-2686 v4,2000G,HDD,1750.0M,Up to 10G,218.75M,na,12000
-h1.4xlarge,EC2Family_Storage,EC2Type_H1,EC2Type_H1_4xLarge,64.0G,16,58,3.625,4.00G,0,na,Intel Xeon E5-2686 v4,4000G,HDD,3500.0M,Up to 10G,437.5M,na,20000
-h1.8xlarge,EC2Family_Storage,EC2Type_H1,EC2Type_H1_8xLarge,128.0G,32,97,3.031,4.00G,0,na,Intel Xeon E5-2686 v4,8000G,HDD,7000.0M,10G,875.0M,na,40000
-hpc6a.48xlarge,EC2Family_Compute,EC2Type_HPC6A,EC2Type_HPC6A_48xLarge,384.0G,96,,,4.00G,0,na,AMD EPYC 7R13,,,,25G,,,
-hs1.8xlarge,EC2Family_Storage,EC2Type_HS1,EC2Type_HS1_8xLarge,117.0G,16,35,2.188,7.31G,0,na,Intel Xeon E5-2650,48000G,HDD,unset,10G,0M,na,0
-i2.2xlarge,EC2Family_Storage,EC2Type_I2,EC2Type_I2_2xLarge,61.0G,8,27,3.375,7.62G,0,na,Intel Xeon E5-2670 v2,1600G,SSD,1000.0M,High,125.0M,Yes,8000
-i2.4xlarge,EC2Family_Storage,EC2Type_I2,EC2Type_I2_4xLarge,122.0G,16,53,3.312,7.62G,0,na,Intel Xeon E5-2670 v2,3200G,SSD,2000.0M,High,250.0M,Yes,16000
-i2.8xlarge,EC2Family_Storage,EC2Type_I2,EC2Type_I2_8xLarge,244.0G,32,104,3.25,7.62G,0,na,Intel Xeon E5-2670 v2,6400G,SSD,unset,10G,0M,Yes,0
-i2.large,EC2Family_Storage,EC2Type_I2,EC2Type_I2_Large,15.0G,2,7,3.5,7.50G,0,na,Intel Xeon E5-2670 v2,EBS only,na,unset,Moderate,0M,na,0
-i2.xlarge,EC2Family_Storage,EC2Type_I2,EC2Type_I2_xLarge,30.5G,4,14,3.5,7.62G,0,na,Intel Xeon E5-2670 v2,800G,SSD,500.0M,Moderate,62.5M,Yes,4000
-i3.16xlarge,EC2Family_Storage,EC2Type_I3,EC2Type_I3_16xLarge,488.0G,64,201,3.141,7.62G,0,na,Intel Xeon E5-2686 v4,15200G,NVMe SSD,14000.0M,25G,1750.0M,Yes,65000
-i3.2xlarge,EC2Family_Storage,EC2Type_I3,EC2Type_I3_2xLarge,61.0G,8,31,3.875,7.62G,0,na,Intel Xeon E5-2686 v4,1900G,SSD,1700.0M,Up to 10G,212.5M,Yes,12000
-i3.4xlarge,EC2Family_Storage,EC2Type_I3,EC2Type_I3_4xLarge,122.0G,16,58,3.625,7.62G,0,na,Intel Xeon E5-2686 v4,3800G,NVMe SSD,3500.0M,Up to 10G,437.5M,Yes,16000
-i3.8xlarge,EC2Family_Storage,EC2Type_I3,EC2Type_I3_8xLarge,244.0G,32,97,3.031,7.62G,0,na,Intel Xeon E5-2686 v4,7600G,NVMe SSD,7000.0M,10G,875.0M,Yes,32500
-i3.large,EC2Family_Storage,EC2Type_I3,EC2Type_I3_Large,15.25G,2,8,4,7.62G,0,na,Intel Xeon E5-2686 v4,475G,SSD,425.0M,Up to 10G,53.13M,Yes,3000
-i3.metal,EC2Family_Storage,EC2Type_I3,EC2Type_I3_Metal,512.0G,72,208,2.889,7.11G,0,na,Intel Xeon E5-2686 v4,15200G,NVMe SSD,19000.0M,25G,2375.0M,Yes,80000
-i3.xlarge,EC2Family_Storage,EC2Type_I3,EC2Type_I3_xLarge,30.5G,4,16,4,7.62G,0,na,Intel Xeon E5-2686 v4,950G,SSD,850.0M,Up to 10G,106.25M,Yes,6000
-i3en.12xlarge,EC2Family_Storage,EC2Type_I3EN,EC2Type_I3EN_12xLarge,384.0G,48,168,3.5,8.00G,0,na,Intel Xeon Platinum 8175,30000G,NVMe SSD,9500.0M,50G,1187.5M,Yes,40000
-i3en.24xlarge,EC2Family_Storage,EC2Type_I3EN,EC2Type_I3EN_24xLarge,768.0G,96,337,3.51,8.00G,0,na,Intel Xeon Platinum 8175,60000G,NVMe SSD,19000.0M,100G,2375.0M,Yes,80000
-i3en.2xlarge,EC2Family_Storage,EC2Type_I3EN,EC2Type_I3EN_2xLarge,64.0G,8,37,4.625,8.00G,0,na,Intel Xeon Platinum 8175,5000G,NVMe SSD,4750.0M,Up to 25G,593.75M,Yes,20000
-i3en.3xlarge,EC2Family_Storage,EC2Type_I3EN,EC2Type_I3EN_3xLarge,96.0G,12,0,0,8.00G,0,na,Intel Xeon Platinum 8175,7500G,SSD,4750.0M,Up to 25G,593.75M,Yes,20000
-i3en.6xlarge,EC2Family_Storage,EC2Type_I3EN,EC2Type_I3EN_6xLarge,192.0G,24,0,0,8.00G,0,na,Intel Xeon Platinum 8175,15000G,NVMe SSD,4750.0M,25G,593.75M,Yes,20000
-i3en.large,EC2Family_Storage,EC2Type_I3EN,EC2Type_I3EN_Large,16.0G,2,10,5,8.00G,0,na,Intel Xeon Platinum 8175,1250G,SSD,4750.0M,Up to 25G,593.75M,Yes,20000
-i3en.metal,EC2Family_Storage,EC2Type_I3EN,EC2Type_I3EN_Metal,768.0G,96,0,0,8.00G,0,na,Intel Xeon Platinum 8175,60000G,NVMe SSD,19000.0M,100G,2375.0M,Yes,80000
-i3en.xlarge,EC2Family_Storage,EC2Type_I3EN,EC2Type_I3EN_xLarge,32.0G,4,0,0,8.00G,0,na,Intel Xeon Platinum 8175,2500G,SSD,4750.0M,Up to 25G,593.75M,Yes,20000
-i4i.16xlarge,EC2Family_Storage,EC2Type_I4I,EC2Type_I4I_16xLarge,512.0G,64,0,0,8.00G,0,na,Intel Xeon 8375C,15000G,NVMe SSD,20000.0M,37.5G,2500.0M,Yes,80000
-i4i.2xlarge,EC2Family_Storage,EC2Type_I4I,EC2Type_I4I_2xLarge,64.0G,8,0,0,8.00G,0,na,Intel Xeon 8375C,1875G,SSD,10000.0M,Up to 12G,1250.0M,Yes,40000
-i4i.32xlarge,EC2Family_Storage,EC2Type_I4I,EC2Type_I4I_32xLarge,1024.0G,128,0,0,8.00G,0,na,Intel Xeon 8375C,30000G,NVMe SSD,40000.0M,75G,5000.0M,Yes,160000
-i4i.4xlarge,EC2Family_Storage,EC2Type_I4I,EC2Type_I4I_4xLarge,128.0G,16,0,0,8.00G,0,na,Intel Xeon 8375C,3750G,SSD,10000.0M,Up to 25G,1250.0M,Yes,40000
-i4i.8xlarge,EC2Family_Storage,EC2Type_I4I,EC2Type_I4I_8xLarge,256.0G,32,0,0,8.00G,0,na,Intel Xeon 8375C,7500G,NVMe SSD,10000.0M,18.75G,1250.0M,Yes,40000
-i4i.large,EC2Family_Storage,EC2Type_I4I,EC2Type_I4I_Large,16.0G,2,0,0,8.00G,0,na,Intel Xeon 8375C,468G,SSD,10000.0M,Up to 10G,1250.0M,Yes,40000
-i4i.metal,EC2Family_Storage,EC2Type_I4I,EC2Type_I4I_Metal,1024.0G,128,0,0,8.00G,0,na,Intel Xeon 8375C,30000G,NVMe SSD,40000.0M,75G,5000.0M,Yes,160000
-i4i.xlarge,EC2Family_Storage,EC2Type_I4I,EC2Type_I4I_xLarge,32.0G,4,0,0,8.00G,0,na,Intel Xeon 8375C,937G,SSD,10000.0M,Up to 10G,1250.0M,Yes,40000
-im4gn.16xlarge,EC2Family_Storage,EC2Type_IM4GN,EC2Type_IM4GN_16xLarge,256.0G,64,0,0,4.00G,0,na,AWS Graviton2,30000G,NVMe SSD,38000.0M,100G,4750.0M,Yes,160000
-im4gn.2xlarge,EC2Family_Storage,EC2Type_IM4GN,EC2Type_IM4GN_2xLarge,32.0G,8,0,0,4.00G,0,na,AWS Graviton2,3750G,SSD,9500.0M,Up to 25G,1187.5M,Yes,40000
-im4gn.4xlarge,EC2Family_Storage,EC2Type_IM4GN,EC2Type_IM4GN_4xLarge,64.0G,16,0,0,4.00G,0,na,AWS Graviton2,7500G,SSD,9500.0M,25G,1187.5M,Yes,40000
-im4gn.8xlarge,EC2Family_Storage,EC2Type_IM4GN,EC2Type_IM4GN_8xLarge,128.0G,32,0,0,4.00G,0,na,AWS Graviton2,15000G,NVMe SSD,19000.0M,50G,2375.0M,Yes,80000
-im4gn.large,EC2Family_Storage,EC2Type_IM4GN,EC2Type_IM4GN_Large,8.0G,2,0,0,4.00G,0,na,AWS Graviton2,937G,SSD,9500.0M,Up to 25G,1187.5M,Yes,40000
-im4gn.xlarge,EC2Family_Storage,EC2Type_IM4GN,EC2Type_IM4GN_xLarge,16.0G,4,0,0,4.00G,0,na,AWS Graviton2,1875G,SSD,9500.0M,Up to 25G,1187.5M,Yes,40000
-inf1.24xlarge,EC2Family_Accelerated,EC2Type_INF1,EC2Type_INF1_24xLarge,192.0G,96,0,0,2.00G,0,na,Intel Xeon Platinum 8275CL,EBS only,na,19000.0M,100G,2375.0M,na,80000
-inf1.2xlarge,EC2Family_Accelerated,EC2Type_INF1,EC2Type_INF1_2xLarge,16.0G,8,0,0,2.00G,0,na,Intel Xeon Platinum 8275CL,EBS only,na,4750.0M,Up to 25G,593.75M,na,20000
-inf1.6xlarge,EC2Family_Accelerated,EC2Type_INF1,EC2Type_INF1_6xLarge,48.0G,24,0,0,2.00G,0,na,Intel Xeon Platinum 8275CL,EBS only,na,4750.0M,25G,593.75M,na,20000
-inf1.xlarge,EC2Family_Accelerated,EC2Type_INF1,EC2Type_INF1_xLarge,8.0G,4,0,0,2.00G,0,na,Intel Xeon Platinum 8275CL,EBS only,na,4750.0M,Up to 25G,593.75M,na,20000
-is4gen.2xlarge,EC2Family_Storage,EC2Type_IS4GEN,EC2Type_IS4GEN_2xLarge,48.0G,8,0,0,6.00G,0,na,AWS Graviton2,7500G,SSD,9500.0M,Up to 25G,1187.5M,Yes,40000
-is4gen.4xlarge,EC2Family_Storage,EC2Type_IS4GEN,EC2Type_IS4GEN_4xLarge,96.0G,16,0,0,6.00G,0,na,AWS Graviton2,15000G,NVMe SSD,9500.0M,25G,1187.5M,Yes,40000
-is4gen.8xlarge,EC2Family_Storage,EC2Type_IS4GEN,EC2Type_IS4GEN_8xLarge,192.0G,32,0,0,6.00G,0,na,AWS Graviton2,30000G,NVMe SSD,19000.0M,50G,2375.0M,Yes,80000
-is4gen.large,EC2Family_Storage,EC2Type_IS4GEN,EC2Type_IS4GEN_Large,12.0G,2,0,0,6.00G,0,na,AWS Graviton2,1875G,SSD,9500.0M,Up to 25G,1187.5M,Yes,40000
-is4gen.medium,EC2Family_Storage,EC2Type_IS4GEN,EC2Type_IS4GEN_Medium,6.0G,1,0,0,6.00G,0,na,AWS Graviton2,937G,SSD,9500.0M,Up to 25G,1187.5M,Yes,40000
-is4gen.xlarge,EC2Family_Storage,EC2Type_IS4GEN,EC2Type_IS4GEN_xLarge,24.0G,4,0,0,6.00G,0,na,AWS Graviton2,3750G,SSD,9500.0M,Up to 25G,1187.5M,Yes,40000
-m1.large,EC2Family_General,EC2Type_M1,EC2Type_M1_Large,7.5G,2,4,2,3.75G,0,na,Intel Xeon Family,840G,HDD,500.0M,Moderate,62.5M,na,4000
-m1.medium,EC2Family_General,EC2Type_M1,EC2Type_M1_Medium,3.75G,1,2,2,3.75G,0,na,Intel Xeon Family,410G,HDD,unset,Moderate,0M,na,0
-m1.small,EC2Family_General,EC2Type_M1,EC2Type_M1_Small,1.7G,1,1,1,1.70G,0,na,Intel Xeon Family,160G,HDD,unset,Low,0M,na,0
-m1.xlarge,EC2Family_General,EC2Type_M1,EC2Type_M1_xLarge,15.0G,4,8,2,3.75G,0,na,Intel Xeon Family,1680G,HDD,1000.0M,High,125.0M,na,8000
-m2.2xlarge,EC2Family_General,EC2Type_M2,EC2Type_M2_2xLarge,34.2G,4,13,3.25,8.55G,0,na,Intel Xeon Family,850G,HDD,500.0M,Moderate,62.5M,na,4000
-m2.4xlarge,EC2Family_General,EC2Type_M2,EC2Type_M2_4xLarge,68.4G,8,26,3.25,8.55G,0,na,Intel Xeon Family,1680G,HDD,1000.0M,High,125.0M,na,8000
-m2.xlarge,EC2Family_General,EC2Type_M2,EC2Type_M2_xLarge,17.1G,2,6.5,3.25,8.55G,0,na,Intel Xeon Family,420G,HDD,unset,Moderate,0M,na,0
-m3.2xlarge,EC2Family_General,EC2Type_M3,EC2Type_M3_2xLarge,30.0G,8,26,3.25,3.75G,0,na,Intel Xeon E5-2670 v2,160G,SSD,1000.0M,High,125.0M,No,8000
-m3.large,EC2Family_General,EC2Type_M3,EC2Type_M3_Large,7.5G,2,6.5,3.25,3.75G,0,na,Intel Xeon E5-2670 v2,32G,SSD,unset,Moderate,0M,No,0
-m3.medium,EC2Family_General,EC2Type_M3,EC2Type_M3_Medium,3.75G,1,3,3,3.75G,0,na,Intel Xeon E5-2670 v2,4G,SSD,unset,Moderate,0M,No,0
-m3.xlarge,EC2Family_General,EC2Type_M3,EC2Type_M3_xLarge,15.0G,4,13,3.25,3.75G,0,na,Intel Xeon E5-2670 v2,80G,SSD,500.0M,High,62.5M,No,4000
-m4.10xlarge,EC2Family_General,EC2Type_M4,EC2Type_M4_10xLarge,160.0G,40,124.5,3.112,4.00G,0,na,Intel Xeon E5-2676 v3,EBS only,na,8000.0M,10G,500.0M,na,32000
-m4.16xlarge,EC2Family_General,EC2Type_M4,EC2Type_M4_16xLarge,256.0G,64,188,2.938,4.00G,0,na,Intel Xeon E5-2686 v4,EBS only,na,10000.0M,25G,1250.0M,na,65000
-m4.2xlarge,EC2Family_General,EC2Type_M4,EC2Type_M4_2xLarge,32.0G,8,26,3.25,4.00G,0,na,Intel Xeon E5-2676 v3,EBS only,na,1000.0M,High,125.0M,na,8000
-m4.4xlarge,EC2Family_General,EC2Type_M4,EC2Type_M4_4xLarge,64.0G,16,53.5,3.344,4.00G,0,na,Intel Xeon E5-2676 v3,EBS only,na,2000.0M,High,250.0M,na,16000
-m4.large,EC2Family_General,EC2Type_M4,EC2Type_M4_Large,8.0G,2,6.5,3.25,4.00G,0,na,Intel Xeon E5-2676 v3,EBS only,na,450.0M,Moderate,56.25M,na,3600
-m4.xlarge,EC2Family_General,EC2Type_M4,EC2Type_M4_xLarge,16.0G,4,13,3.25,4.00G,0,na,Intel Xeon E5-2676 v3,EBS only,na,750.0M,High,93.75M,na,6000
-m5.12xlarge,EC2Family_General,EC2Type_M5,EC2Type_M5_12xLarge,192.0G,48,168,3.5,4.00G,0,na,Intel Xeon Platinum 8175,EBS only,na,9500.0M,10G,1187.5M,na,40000
-m5.16xlarge,EC2Family_General,EC2Type_M5,EC2Type_M5_16xLarge,256.0G,64,256,4,4.00G,0,na,Intel Xeon Platinum 8175,EBS only,na,13600.0M,20G,1700.0M,na,60000
-m5.24xlarge,EC2Family_General,EC2Type_M5,EC2Type_M5_24xLarge,384.0G,96,337,3.51,4.00G,0,na,Intel Xeon Platinum 8175,EBS only,na,19000.0M,25G,2375.0M,na,80000
-m5.2xlarge,EC2Family_General,EC2Type_M5,EC2Type_M5_2xLarge,32.0G,8,37,4.625,4.00G,0,na,Intel Xeon Platinum 8175,EBS only,na,4750.0M,Up to 10G,593.75M,na,18750
-m5.4xlarge,EC2Family_General,EC2Type_M5,EC2Type_M5_4xLarge,64.0G,16,70,4.375,4.00G,0,na,Intel Xeon Platinum 8175,EBS only,na,4750.0M,Up to 10G,593.75M,na,18750
-m5.8xlarge,EC2Family_General,EC2Type_M5,EC2Type_M5_8xLarge,128.0G,32,128,4,4.00G,0,na,Intel Xeon Platinum 8175,EBS only,na,6800.0M,10G,850.0M,na,30000
-m5.large,EC2Family_General,EC2Type_M5,EC2Type_M5_Large,8.0G,2,10,5,4.00G,0,na,Intel Xeon Platinum 8175,EBS only,na,4750.0M,Up to 10G,593.75M,na,18750
-m5.metal,EC2Family_General,EC2Type_M5,EC2Type_M5_Metal,384.0G,96,345,3.594,4.00G,0,na,Intel Xeon Platinum 8175,EBS only,na,19000.0M,25G,2375.0M,na,80000
-m5.xlarge,EC2Family_General,EC2Type_M5,EC2Type_M5_xLarge,16.0G,4,16,4,4.00G,0,na,Intel Xeon Platinum 8175,EBS only,na,4750.0M,Up to 10G,593.75M,na,18750
-m5a.12xlarge,EC2Family_General,EC2Type_M5A,EC2Type_M5A_12xLarge,192.0G,48,0,0,4.00G,0,na,AMD EPYC 7571,EBS only,na,6780.0M,10G,847.5M,na,30000
-m5a.16xlarge,EC2Family_General,EC2Type_M5A,EC2Type_M5A_16xLarge,256.0G,64,0,0,4.00G,0,na,AMD EPYC 7571,EBS only,na,9500.0M,12G,1187.5M,na,40000
-m5a.24xlarge,EC2Family_General,EC2Type_M5A,EC2Type_M5A_24xLarge,384.0G,96,0,0,4.00G,0,na,AMD EPYC 7571,EBS only,na,13570.0M,20G,1696.25M,na,60000
-m5a.2xlarge,EC2Family_General,EC2Type_M5A,EC2Type_M5A_2xLarge,32.0G,8,0,0,4.00G,0,na,AMD EPYC 7571,EBS only,na,2880.0M,Up to 10G,360.0M,na,16000
-m5a.4xlarge,EC2Family_General,EC2Type_M5A,EC2Type_M5A_4xLarge,64.0G,16,0,0,4.00G,0,na,AMD EPYC 7571,EBS only,na,2880.0M,Up to 10G,360.0M,na,16000
-m5a.8xlarge,EC2Family_General,EC2Type_M5A,EC2Type_M5A_8xLarge,128.0G,32,0,0,4.00G,0,na,AMD EPYC 7571,EBS only,na,4750.0M,Up to 10G,593.75M,na,20000
-m5a.large,EC2Family_General,EC2Type_M5A,EC2Type_M5A_Large,8.0G,2,0,0,4.00G,0,na,AMD EPYC 7571,EBS only,na,2880.0M,Up to 10G,360.0M,na,16000
-m5a.xlarge,EC2Family_General,EC2Type_M5A,EC2Type_M5A_xLarge,16.0G,4,0,0,4.00G,0,na,AMD EPYC 7571,EBS only,na,2880.0M,Up to 10G,360.0M,na,16000
-m5ad.12xlarge,EC2Family_General,EC2Type_M5AD,EC2Type_M5AD_12xLarge,192.0G,48,0,0,4.00G,0,na,AMD EPYC 7571,1800G,NVMe SSD,6780.0M,10G,847.5M,Yes,30000
-m5ad.16xlarge,EC2Family_General,EC2Type_M5AD,EC2Type_M5AD_16xLarge,256.0G,64,0,0,4.00G,0,na,AMD EPYC 7571,2400G,NVMe SSD,9500.0M,12G,1187.5M,Yes,40000
-m5ad.24xlarge,EC2Family_General,EC2Type_M5AD,EC2Type_M5AD_24xLarge,384.0G,96,0,0,4.00G,0,na,AMD EPYC 7571,3600G,NVMe SSD,13570.0M,20G,1696.25M,Yes,60000
-m5ad.2xlarge,EC2Family_General,EC2Type_M5AD,EC2Type_M5AD_2xLarge,32.0G,8,0,0,4.00G,0,na,AMD EPYC 7571,300G,SSD,2880.0M,Up to 10G,360.0M,Yes,16000
-m5ad.4xlarge,EC2Family_General,EC2Type_M5AD,EC2Type_M5AD_4xLarge,64.0G,16,0,0,4.00G,0,na,AMD EPYC 7571,600G,NVMe SSD,2880.0M,Up to 10G,360.0M,Yes,16000
-m5ad.8xlarge,EC2Family_General,EC2Type_M5AD,EC2Type_M5AD_8xLarge,128.0G,32,0,0,4.00G,0,na,AMD EPYC 7571,1200G,NVMe SSD,4750.0M,Up to 10G,593.75M,Yes,20000
-m5ad.large,EC2Family_General,EC2Type_M5AD,EC2Type_M5AD_Large,8.0G,2,0,0,4.00G,0,na,AMD EPYC 7571,75G,SSD,2880.0M,Up to 10G,360.0M,Yes,16000
-m5ad.xlarge,EC2Family_General,EC2Type_M5AD,EC2Type_M5AD_xLarge,16.0G,4,0,0,4.00G,0,na,AMD EPYC 7571,150G,SSD,2880.0M,Up to 10G,360.0M,Yes,16000
-m5d.12xlarge,EC2Family_General,EC2Type_M5D,EC2Type_M5D_12xLarge,192.0G,48,168,3.5,4.00G,0,na,Intel Xeon Platinum 8175,1800G,NVMe SSD,9500.0M,10G,1187.5M,Yes,40000
-m5d.16xlarge,EC2Family_General,EC2Type_M5D,EC2Type_M5D_16xLarge,256.0G,64,256,4,4.00G,0,na,Intel Xeon Platinum 8175,2400G,NVMe SSD,13600.0M,20G,1700.0M,Yes,60000
-m5d.24xlarge,EC2Family_General,EC2Type_M5D,EC2Type_M5D_24xLarge,384.0G,96,337,3.51,4.00G,0,na,Intel Xeon Platinum 8175,3600G,NVMe SSD,19000.0M,25G,2375.0M,Yes,80000
-m5d.2xlarge,EC2Family_General,EC2Type_M5D,EC2Type_M5D_2xLarge,32.0G,8,37,4.625,4.00G,0,na,Intel Xeon Platinum 8175,300G,SSD,4750.0M,Up to 10G,593.75M,Yes,18750
-m5d.4xlarge,EC2Family_General,EC2Type_M5D,EC2Type_M5D_4xLarge,64.0G,16,70,4.375,4.00G,0,na,Intel Xeon Platinum 8175,600G,NVMe SSD,4750.0M,Up to 10G,593.75M,Yes,18750
-m5d.8xlarge,EC2Family_General,EC2Type_M5D,EC2Type_M5D_8xLarge,128.0G,32,128,4,4.00G,0,na,Intel Xeon Platinum 8175,1200G,NVMe SSD,6800.0M,10G,850.0M,Yes,30000
-m5d.large,EC2Family_General,EC2Type_M5D,EC2Type_M5D_Large,8.0G,2,10,5,4.00G,0,na,Intel Xeon Platinum 8175,75G,SSD,4750.0M,Up to 10G,593.75M,Yes,18750
-m5d.metal,EC2Family_General,EC2Type_M5D,EC2Type_M5D_Metal,384.0G,96,345,3.594,4.00G,0,na,Intel Xeon Platinum 8175,3600G,NVMe SSD,19000.0M,25G,2375.0M,Yes,80000
-m5d.xlarge,EC2Family_General,EC2Type_M5D,EC2Type_M5D_xLarge,16.0G,4,16,4,4.00G,0,na,Intel Xeon Platinum 8175,150G,SSD,4750.0M,Up to 10G,593.75M,Yes,18750
-m5dn.12xlarge,EC2Family_General,EC2Type_M5DN,EC2Type_M5DN_12xLarge,192.0G,48,0,0,4.00G,0,na,Intel Xeon Platinum 8259,1800G,NVMe SSD,9500.0M,50G,1187.5M,Yes,40000
-m5dn.16xlarge,EC2Family_General,EC2Type_M5DN,EC2Type_M5DN_16xLarge,256.0G,64,0,0,4.00G,0,na,Intel Xeon Platinum 8259,2400G,NVMe SSD,13600.0M,75G,1700.0M,Yes,60000
-m5dn.24xlarge,EC2Family_General,EC2Type_M5DN,EC2Type_M5DN_24xLarge,384.0G,96,0,0,4.00G,0,na,Intel Xeon Platinum 8259,3600G,NVMe SSD,19000.0M,100G,2375.0M,Yes,80000
-m5dn.2xlarge,EC2Family_General,EC2Type_M5DN,EC2Type_M5DN_2xLarge,32.0G,8,0,0,4.00G,0,na,Intel Xeon Platinum 8259,300G,SSD,4750.0M,Up to 25G,593.75M,Yes,18750
-m5dn.4xlarge,EC2Family_General,EC2Type_M5DN,EC2Type_M5DN_4xLarge,64.0G,16,0,0,4.00G,0,na,Intel Xeon Platinum 8259,600G,NVMe SSD,4750.0M,Up to 25G,593.75M,Yes,18750
-m5dn.8xlarge,EC2Family_General,EC2Type_M5DN,EC2Type_M5DN_8xLarge,128.0G,32,0,0,4.00G,0,na,Intel Xeon Platinum 8259,1200G,NVMe SSD,6800.0M,25G,850.0M,Yes,30000
-m5dn.large,EC2Family_General,EC2Type_M5DN,EC2Type_M5DN_Large,8.0G,2,0,0,4.00G,0,na,Intel Xeon Platinum 8259,75G,SSD,4750.0M,Up to 25G,593.75M,Yes,18750
-m5dn.metal,EC2Family_General,EC2Type_M5DN,EC2Type_M5DN_Metal,384.0G,96,0,0,4.00G,0,na,Intel Xeon Platinum 8259,3600G,NVMe SSD,19000.0M,100G,2375.0M,Yes,80000
-m5dn.xlarge,EC2Family_General,EC2Type_M5DN,EC2Type_M5DN_xLarge,16.0G,4,0,0,4.00G,0,na,Intel Xeon Platinum 8259,150G,SSD,4750.0M,Up to 25G,593.75M,Yes,18750
-m5n.12xlarge,EC2Family_General,EC2Type_M5N,EC2Type_M5N_12xLarge,192.0G,48,0,0,4.00G,0,na,Intel Xeon Platinum 8259,EBS only,na,9500.0M,50G,1187.5M,na,40000
-m5n.16xlarge,EC2Family_General,EC2Type_M5N,EC2Type_M5N_16xLarge,256.0G,64,0,0,4.00G,0,na,Intel Xeon Platinum 8259,EBS only,na,13600.0M,75G,1700.0M,na,60000
-m5n.24xlarge,EC2Family_General,EC2Type_M5N,EC2Type_M5N_24xLarge,384.0G,96,0,0,4.00G,0,na,Intel Xeon Platinum 8259,EBS only,na,19000.0M,100G,2375.0M,na,80000
-m5n.2xlarge,EC2Family_General,EC2Type_M5N,EC2Type_M5N_2xLarge,32.0G,8,0,0,4.00G,0,na,Intel Xeon Platinum 8259,EBS only,na,4750.0M,Up to 25G,593.75M,na,18750
-m5n.4xlarge,EC2Family_General,EC2Type_M5N,EC2Type_M5N_4xLarge,64.0G,16,0,0,4.00G,0,na,Intel Xeon Platinum 8259,EBS only,na,4750.0M,Up to 25G,593.75M,na,18750
-m5n.8xlarge,EC2Family_General,EC2Type_M5N,EC2Type_M5N_8xLarge,128.0G,32,0,0,4.00G,0,na,Intel Xeon Platinum 8259,EBS only,na,6800.0M,25G,850.0M,na,30000
-m5n.large,EC2Family_General,EC2Type_M5N,EC2Type_M5N_Large,8.0G,2,0,0,4.00G,0,na,Intel Xeon Platinum 8259,EBS only,na,4750.0M,Up to 25G,593.75M,na,18750
-m5n.metal,EC2Family_General,EC2Type_M5N,EC2Type_M5N_Metal,384.0G,96,0,0,4.00G,0,na,Intel Xeon Platinum 8259,EBS only,na,19000.0M,100G,2375.0M,na,80000
-m5n.xlarge,EC2Family_General,EC2Type_M5N,EC2Type_M5N_xLarge,16.0G,4,0,0,4.00G,0,na,Intel Xeon Platinum 8259,EBS only,na,4750.0M,Up to 25G,593.75M,na,18750
-m5zn.12xlarge,EC2Family_General,EC2Type_M5ZN,EC2Type_M5ZN_12xLarge,192.0G,48,0,0,4.00G,0,na,Intel Xeon Platinum 8252,EBS only,na,19000.0M,100G,2375.0M,na,80000
-m5zn.2xlarge,EC2Family_General,EC2Type_M5ZN,EC2Type_M5ZN_2xLarge,32.0G,8,0,0,4.00G,0,na,Intel Xeon Platinum 8252,EBS only,na,3170.0M,Up to 25G,396.25M,na,13333
-m5zn.3xlarge,EC2Family_General,EC2Type_M5ZN,EC2Type_M5ZN_3xLarge,48.0G,12,0,0,4.00G,0,na,Intel Xeon Platinum 8252,EBS only,na,4750.0M,Up to 25G,593.75M,na,20000
-m5zn.6xlarge,EC2Family_General,EC2Type_M5ZN,EC2Type_M5ZN_6xLarge,96.0G,24,0,0,4.00G,0,na,Intel Xeon Platinum 8252,EBS only,na,9500.0M,50G,1187.5M,na,40000
-m5zn.large,EC2Family_General,EC2Type_M5ZN,EC2Type_M5ZN_Large,8.0G,2,0,0,4.00G,0,na,Intel Xeon Platinum 8252,EBS only,na,3170.0M,Up to 25G,396.25M,na,13333
-m5zn.metal,EC2Family_General,EC2Type_M5ZN,EC2Type_M5ZN_Metal,192.0G,48,0,0,4.00G,0,na,Intel Xeon Platinum 8252,EBS only,na,19000.0M,100G,2375.0M,na,80000
-m5zn.xlarge,EC2Family_General,EC2Type_M5ZN,EC2Type_M5ZN_xLarge,16.0G,4,0,0,4.00G,0,na,Intel Xeon Platinum 8252,EBS only,na,3170.0M,Up to 25G,396.25M,na,13333
-m6a.12xlarge,EC2Family_General,EC2Type_M6A,EC2Type_M6A_12xLarge,192.0G,48,0,0,4.00G,0,na,AMD EPYC 7R13,EBS only,na,10000.0M,18.75G,1250.0M,na,40000
-m6a.16xlarge,EC2Family_General,EC2Type_M6A,EC2Type_M6A_16xLarge,256.0G,64,0,0,4.00G,0,na,AMD EPYC 7R13,EBS only,na,13300.0M,25G,1662.5M,na,53333
-m6a.24xlarge,EC2Family_General,EC2Type_M6A,EC2Type_M6A_24xLarge,384.0G,96,0,0,4.00G,0,na,AMD EPYC 7R13,EBS only,na,20000.0M,37.5G,2500.0M,na,80000
-m6a.2xlarge,EC2Family_General,EC2Type_M6A,EC2Type_M6A_2xLarge,32.0G,8,0,0,4.00G,0,na,AMD EPYC 7R13,EBS only,na,6666.666664M,Up to 12.5G,833.333333M,na,26667
-m6a.32xlarge,EC2Family_General,EC2Type_M6A,EC2Type_M6A_32xLarge,512.0G,128,0,0,4.00G,0,na,AMD EPYC 7R13,EBS only,na,26666.666664M,50G,3333.333333M,na,100000
-m6a.48xlarge,EC2Family_General,EC2Type_M6A,EC2Type_M6A_48xLarge,768.0G,192,0,0,4.00G,0,na,AMD EPYC 7R13,EBS only,na,40000.0M,50G,5000.0M,na,160000
-m6a.4xlarge,EC2Family_General,EC2Type_M6A,EC2Type_M6A_4xLarge,64.0G,16,0,0,4.00G,0,na,AMD EPYC 7R13,EBS only,na,6666.666664M,Up to 12.5G,833.333333M,na,26667
-m6a.8xlarge,EC2Family_General,EC2Type_M6A,EC2Type_M6A_8xLarge,128.0G,32,0,0,4.00G,0,na,AMD EPYC 7R13,EBS only,na,6666.666664M,12.5G,833.333333M,na,26667
-m6a.large,EC2Family_General,EC2Type_M6A,EC2Type_M6A_Large,8.0G,2,0,0,4.00G,0,na,AMD EPYC 7R13,EBS only,na,6666.666664M,Up to 12.5G,833.333333M,na,26667
-m6a.metal,EC2Family_General,EC2Type_M6A,EC2Type_M6A_Metal,768.0G,192,0,0,4.00G,0,na,AMD EPYC 7R13,EBS only,na,40000.0M,50G,5000.0M,na,160000
-m6a.xlarge,EC2Family_General,EC2Type_M6A,EC2Type_M6A_xLarge,16.0G,4,0,0,4.00G,0,na,AMD EPYC 7R13,EBS only,na,6666.666664M,Up to 12.5G,833.333333M,na,26667
-m6g.12xlarge,EC2Family_General,EC2Type_M6G,EC2Type_M6G_12xLarge,192.0G,48,0,0,4.00G,0,na,AWS Graviton2,EBS only,na,14250.0M,20G,1781.25M,na,50000
-m6g.16xlarge,EC2Family_General,EC2Type_M6G,EC2Type_M6G_16xLarge,256.0G,64,0,0,4.00G,0,na,AWS Graviton2,EBS only,na,19000.0M,25G,2375.0M,na,80000
-m6g.2xlarge,EC2Family_General,EC2Type_M6G,EC2Type_M6G_2xLarge,32.0G,8,0,0,4.00G,0,na,AWS Graviton2,EBS only,na,4750.0M,Up to 10G,593.75M,na,20000
-m6g.4xlarge,EC2Family_General,EC2Type_M6G,EC2Type_M6G_4xLarge,64.0G,16,0,0,4.00G,0,na,AWS Graviton2,EBS only,na,4750.0M,Up to 10G,593.75M,na,20000
-m6g.8xlarge,EC2Family_General,EC2Type_M6G,EC2Type_M6G_8xLarge,128.0G,32,0,0,4.00G,0,na,AWS Graviton2,EBS only,na,9500.0M,12G,1187.5M,na,40000
-m6g.large,EC2Family_General,EC2Type_M6G,EC2Type_M6G_Large,8.0G,2,0,0,4.00G,0,na,AWS Graviton2,EBS only,na,4750.0M,Up to 10G,593.75M,na,20000
-m6g.medium,EC2Family_General,EC2Type_M6G,EC2Type_M6G_Medium,4.0G,1,0,0,4.00G,0,na,AWS Graviton2,EBS only,na,4750.0M,Up to 10G,593.75M,na,20000
-m6g.metal,EC2Family_General,EC2Type_M6G,EC2Type_M6G_Metal,256.0G,64,0,0,4.00G,0,na,AWS Graviton2,EBS only,na,19000.0M,25G,2375.0M,na,80000
-m6g.xlarge,EC2Family_General,EC2Type_M6G,EC2Type_M6G_xLarge,16.0G,4,0,0,4.00G,0,na,AWS Graviton2,EBS only,na,4750.0M,Up to 10G,593.75M,na,20000
-m6gd.12xlarge,EC2Family_General,EC2Type_M6GD,EC2Type_M6GD_12xLarge,192.0G,48,0,0,4.00G,0,na,AWS Graviton2,2850G,NVMe SSD,14250.0M,20G,1781.25M,Yes,50000
-m6gd.16xlarge,EC2Family_General,EC2Type_M6GD,EC2Type_M6GD_16xLarge,256.0G,64,0,0,4.00G,0,na,AWS Graviton2,3800G,NVMe SSD,19000.0M,25G,2375.0M,Yes,80000
-m6gd.2xlarge,EC2Family_General,EC2Type_M6GD,EC2Type_M6GD_2xLarge,32.0G,8,0,0,4.00G,0,na,AWS Graviton2,474G,SSD,4750.0M,Up to 10G,593.75M,Yes,20000
-m6gd.4xlarge,EC2Family_General,EC2Type_M6GD,EC2Type_M6GD_4xLarge,64.0G,16,0,0,4.00G,0,na,AWS Graviton2,950G,SSD,4750.0M,Up to 10G,593.75M,Yes,20000
-m6gd.8xlarge,EC2Family_General,EC2Type_M6GD,EC2Type_M6GD_8xLarge,128.0G,32,0,0,4.00G,0,na,AWS Graviton2,1900G,SSD,9500.0M,12G,1187.5M,Yes,40000
-m6gd.large,EC2Family_General,EC2Type_M6GD,EC2Type_M6GD_Large,8.0G,2,0,0,4.00G,0,na,AWS Graviton2,118G,SSD,4750.0M,Up to 10G,593.75M,Yes,20000
-m6gd.medium,EC2Family_General,EC2Type_M6GD,EC2Type_M6GD_Medium,4.0G,1,0,0,4.00G,0,na,AWS Graviton2,59G,SSD,4750.0M,Up to 10G,593.75M,Yes,20000
-m6gd.metal,EC2Family_General,EC2Type_M6GD,EC2Type_M6GD_Metal,256.0G,64,0,0,4.00G,0,na,AWS Graviton2,3800G,NVMe SSD,19000.0M,25G,2375.0M,Yes,80000
-m6gd.xlarge,EC2Family_General,EC2Type_M6GD,EC2Type_M6GD_xLarge,16.0G,4,0,0,4.00G,0,na,AWS Graviton2,237G,SSD,4750.0M,Up to 10G,593.75M,Yes,20000
-m6i.12xlarge,EC2Family_General,EC2Type_M6I,EC2Type_M6I_12xLarge,192.0G,48,0,0,4.00G,0,na,Intel Xeon 8375C,EBS only,na,15000.0M,18.75G,1875.0M,na,60000
-m6i.16xlarge,EC2Family_General,EC2Type_M6I,EC2Type_M6I_16xLarge,256.0G,64,0,0,4.00G,0,na,Intel Xeon 8375C,EBS only,na,20000.0M,25G,2500.0M,na,80000
-m6i.24xlarge,EC2Family_General,EC2Type_M6I,EC2Type_M6I_24xLarge,384.0G,96,0,0,4.00G,0,na,Intel Xeon 8375C,EBS only,na,30000.0M,37.5G,3750.0M,na,120000
-m6i.2xlarge,EC2Family_General,EC2Type_M6I,EC2Type_M6I_2xLarge,32.0G,8,0,0,4.00G,0,na,Intel Xeon 8375C,EBS only,na,10000.0M,Up to 12.5G,1250.0M,na,40000
-m6i.32xlarge,EC2Family_General,EC2Type_M6I,EC2Type_M6I_32xLarge,512.0G,128,0,0,4.00G,0,na,Intel Xeon 8375C,EBS only,na,40000.0M,50G,5000.0M,na,160000
-m6i.4xlarge,EC2Family_General,EC2Type_M6I,EC2Type_M6I_4xLarge,64.0G,16,0,0,4.00G,0,na,Intel Xeon 8375C,EBS only,na,10000.0M,Up to 12.5G,1250.0M,na,40000
-m6i.8xlarge,EC2Family_General,EC2Type_M6I,EC2Type_M6I_8xLarge,128.0G,32,0,0,4.00G,0,na,Intel Xeon 8375C,EBS only,na,10000.0M,12.5G,1250.0M,na,40000
-m6i.large,EC2Family_General,EC2Type_M6I,EC2Type_M6I_Large,8.0G,2,0,0,4.00G,0,na,Intel Xeon 8375C,EBS only,na,10000.0M,Up to 12.5G,1250.0M,na,40000
-m6i.metal,EC2Family_General,EC2Type_M6I,EC2Type_M6I_Metal,512.0G,128,0,0,4.00G,0,na,Intel Xeon 8375C,EBS only,na,40000.0M,50G,5000.0M,na,160000
-m6i.xlarge,EC2Family_General,EC2Type_M6I,EC2Type_M6I_xLarge,16.0G,4,0,0,4.00G,0,na,Intel Xeon 8375C,EBS only,na,10000.0M,Up to 12.5G,1250.0M,na,40000
-m6id.12xlarge,EC2Family_General,EC2Type_M6ID,EC2Type_M6ID_12xLarge,192.0G,48,0,0,4.00G,0,na,Intel Xeon 8375C,2850G,NVMe SSD,15000.0M,18.75G,1875.0M,Yes,60000
-m6id.16xlarge,EC2Family_General,EC2Type_M6ID,EC2Type_M6ID_16xLarge,256.0G,64,0,0,4.00G,0,na,Intel Xeon 8375C,3800G,NVMe SSD,20000.0M,25G,2500.0M,Yes,80000
-m6id.24xlarge,EC2Family_General,EC2Type_M6ID,EC2Type_M6ID_24xLarge,384.0G,96,0,0,4.00G,0,na,Intel Xeon 8375C,5700G,NVMe SSD,30000.0M,37.5G,3750.0M,Yes,120000
-m6id.2xlarge,EC2Family_General,EC2Type_M6ID,EC2Type_M6ID_2xLarge,32.0G,8,0,0,4.00G,0,na,Intel Xeon 8375C,474G,SSD,10000.0M,Up to 12.5G,1250.0M,Yes,40000
-m6id.32xlarge,EC2Family_General,EC2Type_M6ID,EC2Type_M6ID_32xLarge,512.0G,128,0,0,4.00G,0,na,Intel Xeon 8375C,7600G,NVMe SSD,40000.0M,50G,5000.0M,Yes,160000
-m6id.4xlarge,EC2Family_General,EC2Type_M6ID,EC2Type_M6ID_4xLarge,64.0G,16,0,0,4.00G,0,na,Intel Xeon 8375C,950G,SSD,10000.0M,Up to 12.5G,1250.0M,Yes,40000
-m6id.8xlarge,EC2Family_General,EC2Type_M6ID,EC2Type_M6ID_8xLarge,128.0G,32,0,0,4.00G,0,na,Intel Xeon 8375C,1900G,SSD,10000.0M,12.5G,1250.0M,Yes,40000
-m6id.large,EC2Family_General,EC2Type_M6ID,EC2Type_M6ID_Large,8.0G,2,0,0,4.00G,0,na,Intel Xeon 8375C,118G,SSD,10000.0M,Up to 12.5G,1250.0M,Yes,40000
-m6id.metal,EC2Family_General,EC2Type_M6ID,EC2Type_M6ID_Metal,512.0G,128,0,0,4.00G,0,na,Intel Xeon 8375C,7600G,NVMe SSD,40000.0M,50G,5000.0M,Yes,160000
-m6id.xlarge,EC2Family_General,EC2Type_M6ID,EC2Type_M6ID_xLarge,16.0G,4,0,0,4.00G,0,na,Intel Xeon 8375C,237G,SSD,10000.0M,Up to 12.5G,1250.0M,Yes,40000
-mac1.metal,EC2Family_General,EC2Type_MAC1,EC2Type_MAC1_Metal,32.0G,12,0,0,2.67G,0,na,Intel Core i7-8700B,EBS only,na,8000.0M,25G,1000.0M,na,55000
-mac2.metal,EC2Family_General,EC2Type_MAC2,EC2Type_MAC2_Metal,16.0G,12,0,0,1.33G,0,na,"Apple M1 chip with 8-core, 8-core GPU, and 16-core Neural Engine",EBS only,na,unset,10G,0M,na,0
-p2.16xlarge,EC2Family_Accelerated,EC2Type_P2,EC2Type_P2_16xLarge,732.0G,64,201,3.141,11.44G,16,NVIDIA Tesla K80,Intel Xeon E5-2686 v4,EBS only,na,10000.0M,25G,1250.0M,na,65000
-p2.8xlarge,EC2Family_Accelerated,EC2Type_P2,EC2Type_P2_8xLarge,488.0G,32,97,3.031,15.25G,8,NVIDIA Tesla K80,Intel Xeon E5-2686 v4,EBS only,na,5000.0M,10G,625.0M,na,32500
-p2.xlarge,EC2Family_Accelerated,EC2Type_P2,EC2Type_P2_xLarge,61.0G,4,16,4,15.25G,1,NVIDIA Tesla K80,Intel Xeon E5-2686 v4,EBS only,na,750.0M,High,93.75M,na,6000
-p3.16xlarge,EC2Family_Accelerated,EC2Type_P3,EC2Type_P3_16xLarge,488.0G,64,201,3.141,7.62G,8,NVIDIA Tesla V100,Intel Xeon E5-2686 v4,EBS only,na,14000.0M,25G,1750.0M,na,80000
-p3.2xlarge,EC2Family_Accelerated,EC2Type_P3,EC2Type_P3_2xLarge,61.0G,8,31,3.875,7.62G,1,NVIDIA Tesla V100,Intel Xeon E5-2686 v4,EBS only,na,1750.0M,Up to 10G,218.75M,na,10000
-p3.8xlarge,EC2Family_Accelerated,EC2Type_P3,EC2Type_P3_8xLarge,244.0G,32,97,3.031,7.62G,4,NVIDIA Tesla V100,Intel Xeon E5-2686 v4,EBS only,na,7000.0M,10G,875.0M,na,40000
-p3dn.24xlarge,EC2Family_Accelerated,EC2Type_P3DN,EC2Type_P3DN_24xLarge,768.0G,96,337,3.51,8.00G,8,NVIDIA Tesla V100,Intel Xeon Platinum 8175,1800G,NVMe SSD,19000.0M,100G,2375.0M,Yes,80000
-p4d.24xlarge,EC2Family_Accelerated,EC2Type_P4D,EC2Type_P4D_24xLarge,1152.0G,96,345,3.594,12.00G,8,NVIDIA A100,Intel Xeon Platinum 8275L,8000G,NVMe SSD,19000.0M,4x 100G,2375.0M,Yes,80000
-p4de.24xlarge,EC2Family_Accelerated,EC2Type_P4DE,EC2Type_P4DE_24xLarge,1152.0G,96,345,3.594,12.00G,8,NVIDIA A100,Intel Xeon Platinum 8275L,8000G,NVMe SSD,19000.0M,400G,2375.0M,Yes,80000
-r3.2xlarge,EC2Family_Memory,EC2Type_R3,EC2Type_R3_2xLarge,61.0G,8,26,3.25,7.62G,0,na,Intel Xeon E5-2670 v2,160G,SSD,1000.0M,High,125.0M,Yes,8000
-r3.4xlarge,EC2Family_Memory,EC2Type_R3,EC2Type_R3_4xLarge,122.0G,16,52,3.25,7.62G,0,na,Intel Xeon E5-2670 v2,320G,SSD,2000.0M,High,250.0M,Yes,16000
-r3.8xlarge,EC2Family_Memory,EC2Type_R3,EC2Type_R3_8xLarge,244.0G,32,104,3.25,7.62G,0,na,Intel Xeon E5-2670 v2,640G,SSD,unset,10G,0M,Yes,0
-r3.large,EC2Family_Memory,EC2Type_R3,EC2Type_R3_Large,15.25G,2,6.5,3.25,7.62G,0,na,Intel Xeon E5-2670 v2,32G,SSD,unset,Moderate,0M,Yes,0
-r3.xlarge,EC2Family_Memory,EC2Type_R3,EC2Type_R3_xLarge,30.5G,4,13,3.25,7.62G,0,na,Intel Xeon E5-2670 v2,80G,SSD,500.0M,Moderate,62.5M,Yes,4000
-r4.16xlarge,EC2Family_Memory,EC2Type_R4,EC2Type_R4_16xLarge,488.0G,64,201,3.141,7.62G,0,na,Intel Xeon E5-2686 v4,EBS only,na,14000.0M,25G,1750.0M,na,75000
-r4.2xlarge,EC2Family_Memory,EC2Type_R4,EC2Type_R4_2xLarge,61.0G,8,31,3.875,7.62G,0,na,Intel Xeon E5-2686 v4,EBS only,na,1700.0M,Up to 10G,212.5M,na,12000
-r4.4xlarge,EC2Family_Memory,EC2Type_R4,EC2Type_R4_4xLarge,122.0G,16,58,3.625,7.62G,0,na,Intel Xeon E5-2686 v4,EBS only,na,3500.0M,Up to 10G,437.5M,na,18750
-r4.8xlarge,EC2Family_Memory,EC2Type_R4,EC2Type_R4_8xLarge,244.0G,32,97,3.031,7.62G,0,na,Intel Xeon E5-2686 v4,EBS only,na,7000.0M,10G,875.0M,na,37500
-r4.large,EC2Family_Memory,EC2Type_R4,EC2Type_R4_Large,15.25G,2,8,4,7.62G,0,na,Intel Xeon E5-2686 v4,EBS only,na,425.0M,Up to 10G,53.13M,na,3000
-r4.xlarge,EC2Family_Memory,EC2Type_R4,EC2Type_R4_xLarge,30.5G,4,16,4,7.62G,0,na,Intel Xeon E5-2686 v4,EBS only,na,850.0M,Up to 10G,106.25M,na,6000
-r5.12xlarge,EC2Family_Memory,EC2Type_R5,EC2Type_R5_12xLarge,384.0G,48,168,3.5,8.00G,0,na,Intel Xeon Platinum 8175,EBS only,na,9500.0M,10G,1187.5M,na,40000
-r5.16xlarge,EC2Family_Memory,EC2Type_R5,EC2Type_R5_16xLarge,512.0G,64,256,4,8.00G,0,na,Intel Xeon Platinum 8175,EBS only,na,13600.0M,20G,1700.0M,na,60000
-r5.24xlarge,EC2Family_Memory,EC2Type_R5,EC2Type_R5_24xLarge,768.0G,96,337,3.51,8.00G,0,na,Intel Xeon Platinum 8175,EBS only,na,19000.0M,25G,2375.0M,na,80000
-r5.2xlarge,EC2Family_Memory,EC2Type_R5,EC2Type_R5_2xLarge,64.0G,8,37,4.625,8.00G,0,na,Intel Xeon Platinum 8175,EBS only,na,4750.0M,Up to 10G,593.75M,na,18750
-r5.4xlarge,EC2Family_Memory,EC2Type_R5,EC2Type_R5_4xLarge,128.0G,16,70,4.375,8.00G,0,na,Intel Xeon Platinum 8175,EBS only,na,4750.0M,Up to 10G,593.75M,na,18750
-r5.8xlarge,EC2Family_Memory,EC2Type_R5,EC2Type_R5_8xLarge,256.0G,32,128,4,8.00G,0,na,Intel Xeon Platinum 8175,EBS only,na,6800.0M,10G,850.0M,na,30000
-r5.large,EC2Family_Memory,EC2Type_R5,EC2Type_R5_Large,16.0G,2,10,5,8.00G,0,na,Intel Xeon Platinum 8175,EBS only,na,4750.0M,Up to 10G,593.75M,na,18750
-r5.metal,EC2Family_Memory,EC2Type_R5,EC2Type_R5_Metal,768.0G,96,347,3.615,8.00G,0,na,Intel Xeon Platinum 8175,EBS only,na,19000.0M,25G,2375.0M,na,80000
-r5.xlarge,EC2Family_Memory,EC2Type_R5,EC2Type_R5_xLarge,32.0G,4,19,4.75,8.00G,0,na,Intel Xeon Platinum 8175,EBS only,na,4750.0M,Up to 10G,593.75M,na,18750
-r5a.12xlarge,EC2Family_Memory,EC2Type_R5A,EC2Type_R5A_12xLarge,384.0G,48,0,0,8.00G,0,na,AMD EPYC 7571,EBS only,na,6780.0M,10G,847.5M,na,30000
-r5a.16xlarge,EC2Family_Memory,EC2Type_R5A,EC2Type_R5A_16xLarge,512.0G,64,0,0,8.00G,0,na,AMD EPYC 7571,EBS only,na,9500.0M,12G,1187.5M,na,40000
-r5a.24xlarge,EC2Family_Memory,EC2Type_R5A,EC2Type_R5A_24xLarge,768.0G,96,0,0,8.00G,0,na,AMD EPYC 7571,EBS only,na,13570.0M,20G,1696.25M,na,60000
-r5a.2xlarge,EC2Family_Memory,EC2Type_R5A,EC2Type_R5A_2xLarge,64.0G,8,0,0,8.00G,0,na,AMD EPYC 7571,EBS only,na,2880.0M,Up to 10G,360.0M,na,16000
-r5a.4xlarge,EC2Family_Memory,EC2Type_R5A,EC2Type_R5A_4xLarge,128.0G,16,0,0,8.00G,0,na,AMD EPYC 7571,EBS only,na,2880.0M,Up to 10G,360.0M,na,16000
-r5a.8xlarge,EC2Family_Memory,EC2Type_R5A,EC2Type_R5A_8xLarge,256.0G,32,0,0,8.00G,0,na,AMD EPYC 7571,EBS only,na,4750.0M,Up to 10G,593.75M,na,20000
-r5a.large,EC2Family_Memory,EC2Type_R5A,EC2Type_R5A_Large,16.0G,2,0,0,8.00G,0,na,AMD EPYC 7571,EBS only,na,2880.0M,Up to 10G,360.0M,na,16000
-r5a.xlarge,EC2Family_Memory,EC2Type_R5A,EC2Type_R5A_xLarge,32.0G,4,0,0,8.00G,0,na,AMD EPYC 7571,EBS only,na,2880.0M,Up to 10G,360.0M,na,16000
-r5ad.12xlarge,EC2Family_Memory,EC2Type_R5AD,EC2Type_R5AD_12xLarge,384.0G,48,0,0,8.00G,0,na,AMD EPYC 7571,1800G,NVMe SSD,6780.0M,10G,847.5M,Yes,30000
-r5ad.16xlarge,EC2Family_Memory,EC2Type_R5AD,EC2Type_R5AD_16xLarge,512.0G,64,0,0,8.00G,0,na,AMD EPYC 7571,2400G,NVMe SSD,9500.0M,12G,1187.5M,Yes,40000
-r5ad.24xlarge,EC2Family_Memory,EC2Type_R5AD,EC2Type_R5AD_24xLarge,768.0G,96,0,0,8.00G,0,na,AMD EPYC 7571,3600G,NVMe SSD,13570.0M,20G,1696.25M,Yes,60000
-r5ad.2xlarge,EC2Family_Memory,EC2Type_R5AD,EC2Type_R5AD_2xLarge,64.0G,8,0,0,8.00G,0,na,AMD EPYC 7571,300G,SSD,2880.0M,Up to 10G,360.0M,Yes,16000
-r5ad.4xlarge,EC2Family_Memory,EC2Type_R5AD,EC2Type_R5AD_4xLarge,128.0G,16,0,0,8.00G,0,na,AMD EPYC 7571,600G,NVMe SSD,2880.0M,Up to 10G,360.0M,Yes,16000
-r5ad.8xlarge,EC2Family_Memory,EC2Type_R5AD,EC2Type_R5AD_8xLarge,256.0G,32,0,0,8.00G,0,na,AMD EPYC 7571,1200G,NVMe SSD,4750.0M,Up to 10G,593.75M,Yes,20000
-r5ad.large,EC2Family_Memory,EC2Type_R5AD,EC2Type_R5AD_Large,16.0G,2,0,0,8.00G,0,na,AMD EPYC 7571,75G,SSD,2880.0M,Up to 10G,360.0M,Yes,16000
-r5ad.xlarge,EC2Family_Memory,EC2Type_R5AD,EC2Type_R5AD_xLarge,32.0G,4,0,0,8.00G,0,na,AMD EPYC 7571,150G,SSD,2880.0M,Up to 10G,360.0M,Yes,16000
-r5b.12xlarge,EC2Family_Memory,EC2Type_R5B,EC2Type_R5B_12xLarge,384.0G,48,0,0,8.00G,0,na,Intel Xeon Platinum 8259,EBS only,na,30000.0M,10G,3750.0M,na,130000
-r5b.16xlarge,EC2Family_Memory,EC2Type_R5B,EC2Type_R5B_16xLarge,512.0G,64,0,0,8.00G,0,na,Intel Xeon Platinum 8259,EBS only,na,40000.0M,20G,5000.0M,na,173333
-r5b.24xlarge,EC2Family_Memory,EC2Type_R5B,EC2Type_R5B_24xLarge,768.0G,96,0,0,8.00G,0,na,Intel Xeon Platinum 8259,EBS only,na,60000.0M,25G,7500.0M,na,260000
-r5b.2xlarge,EC2Family_Memory,EC2Type_R5B,EC2Type_R5B_2xLarge,64.0G,8,0,0,8.00G,0,na,Intel Xeon Platinum 8259,EBS only,na,10000.0M,Up to 10G,1250.0M,na,43333
-r5b.4xlarge,EC2Family_Memory,EC2Type_R5B,EC2Type_R5B_4xLarge,128.0G,16,0,0,8.00G,0,na,Intel Xeon Platinum 8259,EBS only,na,10000.0M,Up to 10G,1250.0M,na,43333
-r5b.8xlarge,EC2Family_Memory,EC2Type_R5B,EC2Type_R5B_8xLarge,256.0G,32,0,0,8.00G,0,na,Intel Xeon Platinum 8259,EBS only,na,20000.0M,10G,2500.0M,na,86667
-r5b.large,EC2Family_Memory,EC2Type_R5B,EC2Type_R5B_Large,16.0G,2,0,0,8.00G,0,na,Intel Xeon Platinum 8259,EBS only,na,10000.0M,Up to 10G,1250.0M,na,43333
-r5b.metal,EC2Family_Memory,EC2Type_R5B,EC2Type_R5B_Metal,768.0G,96,0,0,8.00G,0,na,Intel Xeon Platinum 8259,EBS only,na,60000.0M,25G,7500.0M,na,260000
-r5b.xlarge,EC2Family_Memory,EC2Type_R5B,EC2Type_R5B_xLarge,32.0G,4,0,0,8.00G,0,na,Intel Xeon Platinum 8259,EBS only,na,10000.0M,Up to 10G,1250.0M,na,43333
-r5d.12xlarge,EC2Family_Memory,EC2Type_R5D,EC2Type_R5D_12xLarge,384.0G,48,168,3.5,8.00G,0,na,Intel Xeon Platinum 8175,1800G,NVMe SSD,9500.0M,10G,1187.5M,Yes,40000
-r5d.16xlarge,EC2Family_Memory,EC2Type_R5D,EC2Type_R5D_16xLarge,512.0G,64,256,4,8.00G,0,na,Intel Xeon Platinum 8175,2400G,NVMe SSD,13600.0M,20G,1700.0M,Yes,60000
-r5d.24xlarge,EC2Family_Memory,EC2Type_R5D,EC2Type_R5D_24xLarge,768.0G,96,337,3.51,8.00G,0,na,Intel Xeon Platinum 8175,3600G,NVMe SSD,19000.0M,25G,2375.0M,Yes,80000
-r5d.2xlarge,EC2Family_Memory,EC2Type_R5D,EC2Type_R5D_2xLarge,64.0G,8,37,4.625,8.00G,0,na,Intel Xeon Platinum 8175,300G,SSD,4750.0M,Up to 10G,593.75M,Yes,18750
-r5d.4xlarge,EC2Family_Memory,EC2Type_R5D,EC2Type_R5D_4xLarge,128.0G,16,70,4.375,8.00G,0,na,Intel Xeon Platinum 8175,600G,NVMe SSD,4750.0M,Up to 10G,593.75M,Yes,18750
-r5d.8xlarge,EC2Family_Memory,EC2Type_R5D,EC2Type_R5D_8xLarge,256.0G,32,128,4,8.00G,0,na,Intel Xeon Platinum 8175,1200G,NVMe SSD,6800.0M,10G,850.0M,Yes,30000
-r5d.large,EC2Family_Memory,EC2Type_R5D,EC2Type_R5D_Large,16.0G,2,10,5,8.00G,0,na,Intel Xeon Platinum 8175,75G,SSD,4750.0M,Up to 10G,593.75M,Yes,18750
-r5d.metal,EC2Family_Memory,EC2Type_R5D,EC2Type_R5D_Metal,768.0G,96,347,3.615,8.00G,0,na,Intel Xeon Platinum 8175,3600G,NVMe SSD,19000.0M,25G,2375.0M,Yes,80000
-r5d.xlarge,EC2Family_Memory,EC2Type_R5D,EC2Type_R5D_xLarge,32.0G,4,19,4.75,8.00G,0,na,Intel Xeon Platinum 8175,150G,SSD,4750.0M,Up to 10G,593.75M,Yes,18750
-r5dn.12xlarge,EC2Family_Memory,EC2Type_R5DN,EC2Type_R5DN_12xLarge,384.0G,48,0,0,8.00G,0,na,Intel Xeon Platinum 8259,1800G,NVMe SSD,9500.0M,50G,1187.5M,Yes,40000
-r5dn.16xlarge,EC2Family_Memory,EC2Type_R5DN,EC2Type_R5DN_16xLarge,512.0G,64,0,0,8.00G,0,na,Intel Xeon Platinum 8259,2400G,NVMe SSD,13600.0M,75G,1700.0M,Yes,60000
-r5dn.24xlarge,EC2Family_Memory,EC2Type_R5DN,EC2Type_R5DN_24xLarge,768.0G,96,0,0,8.00G,0,na,Intel Xeon Platinum 8259,3600G,NVMe SSD,19000.0M,100G,2375.0M,Yes,80000
-r5dn.2xlarge,EC2Family_Memory,EC2Type_R5DN,EC2Type_R5DN_2xLarge,64.0G,8,0,0,8.00G,0,na,Intel Xeon Platinum 8259,300G,SSD,4750.0M,Up to 25G,593.75M,Yes,18750
-r5dn.4xlarge,EC2Family_Memory,EC2Type_R5DN,EC2Type_R5DN_4xLarge,128.0G,16,0,0,8.00G,0,na,Intel Xeon Platinum 8259,600G,NVMe SSD,4750.0M,Up to 25G,593.75M,Yes,18750
-r5dn.8xlarge,EC2Family_Memory,EC2Type_R5DN,EC2Type_R5DN_8xLarge,256.0G,32,0,0,8.00G,0,na,Intel Xeon Platinum 8259,1200G,NVMe SSD,6800.0M,25G,850.0M,Yes,30000
-r5dn.large,EC2Family_Memory,EC2Type_R5DN,EC2Type_R5DN_Large,16.0G,2,0,0,8.00G,0,na,Intel Xeon Platinum 8259,75G,SSD,4750.0M,Up to 25G,593.75M,Yes,18750
-r5dn.metal,EC2Family_Memory,EC2Type_R5DN,EC2Type_R5DN_Metal,768.0G,96,0,0,8.00G,0,na,Intel Xeon Platinum 8259,3600G,NVMe SSD,19000.0M,100G,2375.0M,Yes,80000
-r5dn.xlarge,EC2Family_Memory,EC2Type_R5DN,EC2Type_R5DN_xLarge,32.0G,4,0,0,8.00G,0,na,Intel Xeon Platinum 8259,150G,SSD,4750.0M,Up to 25G,593.75M,Yes,18750
-r5n.12xlarge,EC2Family_Memory,EC2Type_R5N,EC2Type_R5N_12xLarge,384.0G,48,0,0,8.00G,0,na,Intel Xeon Platinum 8259,EBS only,na,9500.0M,50G,1187.5M,na,40000
-r5n.16xlarge,EC2Family_Memory,EC2Type_R5N,EC2Type_R5N_16xLarge,512.0G,64,0,0,8.00G,0,na,Intel Xeon Platinum 8259,EBS only,na,13600.0M,75G,1700.0M,na,60000
-r5n.24xlarge,EC2Family_Memory,EC2Type_R5N,EC2Type_R5N_24xLarge,768.0G,96,0,0,8.00G,0,na,Intel Xeon Platinum 8259,EBS only,na,19000.0M,100G,2375.0M,na,80000
-r5n.2xlarge,EC2Family_Memory,EC2Type_R5N,EC2Type_R5N_2xLarge,64.0G,8,0,0,8.00G,0,na,Intel Xeon Platinum 8259,EBS only,na,4750.0M,Up to 25G,593.75M,na,18750
-r5n.4xlarge,EC2Family_Memory,EC2Type_R5N,EC2Type_R5N_4xLarge,128.0G,16,0,0,8.00G,0,na,Intel Xeon Platinum 8259,EBS only,na,4750.0M,Up to 25G,593.75M,na,18750
-r5n.8xlarge,EC2Family_Memory,EC2Type_R5N,EC2Type_R5N_8xLarge,256.0G,32,0,0,8.00G,0,na,Intel Xeon Platinum 8259,EBS only,na,6800.0M,25G,850.0M,na,30000
-r5n.large,EC2Family_Memory,EC2Type_R5N,EC2Type_R5N_Large,16.0G,2,0,0,8.00G,0,na,Intel Xeon Platinum 8259,EBS only,na,4750.0M,Up to 25G,593.75M,na,18750
-r5n.metal,EC2Family_Memory,EC2Type_R5N,EC2Type_R5N_Metal,768.0G,96,0,0,8.00G,0,na,Intel Xeon Platinum 8259,EBS only,na,19000.0M,100G,2375.0M,na,80000
-r5n.xlarge,EC2Family_Memory,EC2Type_R5N,EC2Type_R5N_xLarge,32.0G,4,0,0,8.00G,0,na,Intel Xeon Platinum 8259,EBS only,na,4750.0M,Up to 25G,593.75M,na,18750
-r6a.12xlarge,EC2Family_Memory,EC2Type_R6A,EC2Type_R6A_12xLarge,384.0G,48,0,0,8.00G,0,na,AMD EPYC 7R13,EBS only,na,10000.0M,18.75G,1250.0M,na,40000
-r6a.16xlarge,EC2Family_Memory,EC2Type_R6A,EC2Type_R6A_16xLarge,512.0G,64,0,0,8.00G,0,na,AMD EPYC 7R13,EBS only,na,13300.0M,25G,1662.5M,na,53333
-r6a.24xlarge,EC2Family_Memory,EC2Type_R6A,EC2Type_R6A_24xLarge,768.0G,96,0,0,8.00G,0,na,AMD EPYC 7R13,EBS only,na,20000.0M,37.5G,2500.0M,na,80000
-r6a.2xlarge,EC2Family_Memory,EC2Type_R6A,EC2Type_R6A_2xLarge,64.0G,8,0,0,8.00G,0,na,AMD EPYC 7R13,EBS only,na,6666.664M,Up to 12.5G,833.333M,na,26667
-r6a.32xlarge,EC2Family_Memory,EC2Type_R6A,EC2Type_R6A_32xLarge,1024.0G,128,0,0,8.00G,0,na,AMD EPYC 7R13,EBS only,na,26666.664M,50G,3333.333M,na,100000
-r6a.48xlarge,EC2Family_Memory,EC2Type_R6A,EC2Type_R6A_48xLarge,1536.0G,192,0,0,8.00G,0,na,AMD EPYC 7R13,EBS only,na,40000.0M,50G,5000.0M,na,160000
-r6a.4xlarge,EC2Family_Memory,EC2Type_R6A,EC2Type_R6A_4xLarge,128.0G,16,0,0,8.00G,0,na,AMD EPYC 7R13,EBS only,na,6666.664M,Up to 12.5G,833.333M,na,26667
-r6a.8xlarge,EC2Family_Memory,EC2Type_R6A,EC2Type_R6A_8xLarge,256.0G,32,0,0,8.00G,0,na,AMD EPYC 7R13,EBS only,na,6666.664M,12.5G,833.333M,na,26667
-r6a.large,EC2Family_Memory,EC2Type_R6A,EC2Type_R6A_Large,16.0G,2,0,0,8.00G,0,na,AMD EPYC 7R13,EBS only,na,6666.664M,Up to 12.5G,833.333M,na,26667
-r6a.metal,EC2Family_Memory,EC2Type_R6A,EC2Type_R6A_Metal,1536.0G,192,0,0,8.00G,0,na,AMD EPYC 7R13,EBS only,na,40000.0M,50G,5000.0M,na,160000
-r6a.xlarge,EC2Family_Memory,EC2Type_R6A,EC2Type_R6A_xLarge,32.0G,4,0,0,8.00G,0,na,AMD EPYC 7R13,EBS only,na,6666.664M,Up to 12.5G,833.333M,na,26667
-r6g.12xlarge,EC2Family_Memory,EC2Type_R6G,EC2Type_R6G_12xLarge,384.0G,48,0,0,8.00G,0,na,AWS Graviton2,EBS only,na,14250.0M,20G,1781.25M,na,50000
-r6g.16xlarge,EC2Family_Memory,EC2Type_R6G,EC2Type_R6G_16xLarge,512.0G,64,0,0,8.00G,0,na,AWS Graviton2,EBS only,na,19000.0M,25G,2375.0M,na,80000
-r6g.2xlarge,EC2Family_Memory,EC2Type_R6G,EC2Type_R6G_2xLarge,64.0G,8,0,0,8.00G,0,na,AWS Graviton2,EBS only,na,4750.0M,Up to 10G,593.75M,na,20000
-r6g.4xlarge,EC2Family_Memory,EC2Type_R6G,EC2Type_R6G_4xLarge,128.0G,16,0,0,8.00G,0,na,AWS Graviton2,EBS only,na,4750.0M,Up to 10G,593.75M,na,20000
-r6g.8xlarge,EC2Family_Memory,EC2Type_R6G,EC2Type_R6G_8xLarge,256.0G,32,0,0,8.00G,0,na,AWS Graviton2,EBS only,na,9500.0M,12G,1187.5M,na,40000
-r6g.large,EC2Family_Memory,EC2Type_R6G,EC2Type_R6G_Large,16.0G,2,0,0,8.00G,0,na,AWS Graviton2,EBS only,na,4750.0M,Up to 10G,593.75M,na,20000
-r6g.medium,EC2Family_Memory,EC2Type_R6G,EC2Type_R6G_Medium,8.0G,1,0,0,8.00G,0,na,AWS Graviton2,EBS only,na,4750.0M,Up to 10G,593.75M,na,20000
-r6g.metal,EC2Family_Memory,EC2Type_R6G,EC2Type_R6G_Metal,512.0G,64,0,0,8.00G,0,na,AWS Graviton2,EBS only,na,19000.0M,25G,2375.0M,na,80000
-r6g.xlarge,EC2Family_Memory,EC2Type_R6G,EC2Type_R6G_xLarge,32.0G,4,0,0,8.00G,0,na,AWS Graviton2,EBS only,na,4750.0M,Up to 10G,593.75M,na,20000
-r6gd.12xlarge,EC2Family_Memory,EC2Type_R6GD,EC2Type_R6GD_12xLarge,384.0G,48,0,0,8.00G,0,na,AWS Graviton2,2850G,NVMe SSD,14250.0M,20G,1781.25M,Yes,50000
-r6gd.16xlarge,EC2Family_Memory,EC2Type_R6GD,EC2Type_R6GD_16xLarge,512.0G,64,0,0,8.00G,0,na,AWS Graviton2,3800G,NVMe SSD,19000.0M,25G,2375.0M,Yes,80000
-r6gd.2xlarge,EC2Family_Memory,EC2Type_R6GD,EC2Type_R6GD_2xLarge,64.0G,8,0,0,8.00G,0,na,AWS Graviton2,474G,SSD,4750.0M,Up to 10G,593.75M,Yes,20000
-r6gd.4xlarge,EC2Family_Memory,EC2Type_R6GD,EC2Type_R6GD_4xLarge,128.0G,16,0,0,8.00G,0,na,AWS Graviton2,950G,SSD,4750.0M,Up to 10G,593.75M,Yes,20000
-r6gd.8xlarge,EC2Family_Memory,EC2Type_R6GD,EC2Type_R6GD_8xLarge,256.0G,32,0,0,8.00G,0,na,AWS Graviton2,1900G,SSD,9500.0M,12G,1187.5M,Yes,40000
-r6gd.large,EC2Family_Memory,EC2Type_R6GD,EC2Type_R6GD_Large,16.0G,2,0,0,8.00G,0,na,AWS Graviton2,118G,SSD,4750.0M,Up to 10G,593.75M,Yes,20000
-r6gd.medium,EC2Family_Memory,EC2Type_R6GD,EC2Type_R6GD_Medium,8.0G,1,0,0,8.00G,0,na,AWS Graviton2,59G,SSD,4750.0M,Up to 10G,593.75M,Yes,20000
-r6gd.metal,EC2Family_Memory,EC2Type_R6GD,EC2Type_R6GD_Metal,512.0G,64,0,0,8.00G,0,na,AWS Graviton2,3800G,NVMe SSD,19000.0M,25G,2375.0M,Yes,80000
-r6gd.xlarge,EC2Family_Memory,EC2Type_R6GD,EC2Type_R6GD_xLarge,32.0G,4,0,0,8.00G,0,na,AWS Graviton2,237G,SSD,4750.0M,Up to 10G,593.75M,Yes,20000
-r6i.12xlarge,EC2Family_Memory,EC2Type_R6I,EC2Type_R6I_12xLarge,384.0G,48,0,0,8.00G,0,na,Intel Xeon 8375C,EBS only,na,15000.0M,18.75G,1875.0M,na,60000
-r6i.16xlarge,EC2Family_Memory,EC2Type_R6I,EC2Type_R6I_16xLarge,512.0G,64,0,0,8.00G,0,na,Intel Xeon 8375C,EBS only,na,20000.0M,25G,2500.0M,na,80000
-r6i.24xlarge,EC2Family_Memory,EC2Type_R6I,EC2Type_R6I_24xLarge,768.0G,96,0,0,8.00G,0,na,Intel Xeon 8375C,EBS only,na,30000.0M,37.5G,3750.0M,na,120000
-r6i.2xlarge,EC2Family_Memory,EC2Type_R6I,EC2Type_R6I_2xLarge,64.0G,8,0,0,8.00G,0,na,Intel Xeon 8375C,EBS only,na,10000.0M,Up to 12.5G,1250.0M,na,40000
-r6i.32xlarge,EC2Family_Memory,EC2Type_R6I,EC2Type_R6I_32xLarge,1024.0G,128,0,0,8.00G,0,na,Intel Xeon 8375C,EBS only,na,40000.0M,50G,5000.0M,na,160000
-r6i.4xlarge,EC2Family_Memory,EC2Type_R6I,EC2Type_R6I_4xLarge,128.0G,16,0,0,8.00G,0,na,Intel Xeon 8375C,EBS only,na,10000.0M,Up to 12.5G,1250.0M,na,40000
-r6i.8xlarge,EC2Family_Memory,EC2Type_R6I,EC2Type_R6I_8xLarge,256.0G,32,0,0,8.00G,0,na,Intel Xeon 8375C,EBS only,na,10000.0M,12.5G,1250.0M,na,40000
-r6i.large,EC2Family_Memory,EC2Type_R6I,EC2Type_R6I_Large,16.0G,2,0,0,8.00G,0,na,Intel Xeon 8375C,EBS only,na,10000.0M,Up to 12.5G,1250.0M,na,40000
-r6i.metal,EC2Family_Memory,EC2Type_R6I,EC2Type_R6I_Metal,1024.0G,128,0,0,8.00G,0,na,Intel Xeon 8375C,EBS only,na,40000.0M,50G,5000.0M,na,160000
-r6i.xlarge,EC2Family_Memory,EC2Type_R6I,EC2Type_R6I_xLarge,32.0G,4,0,0,8.00G,0,na,Intel Xeon 8375C,EBS only,na,10000.0M,Up to 12.5G,1250.0M,na,40000
-r6id.12xlarge,EC2Family_Memory,EC2Type_R6ID,EC2Type_R6ID_12xLarge,384.0G,48,0,0,8.00G,0,na,Intel Xeon 8375C,2850G,NVMe SSD,15000.0M,18.75G,1875.0M,Yes,60000
-r6id.16xlarge,EC2Family_Memory,EC2Type_R6ID,EC2Type_R6ID_16xLarge,512.0G,64,0,0,8.00G,0,na,Intel Xeon 8375C,3800G,NVMe SSD,20000.0M,25G,2500.0M,Yes,80000
-r6id.24xlarge,EC2Family_Memory,EC2Type_R6ID,EC2Type_R6ID_24xLarge,768.0G,96,0,0,8.00G,0,na,Intel Xeon 8375C,5700G,NVMe SSD,30000.0M,37.5G,3750.0M,Yes,120000
-r6id.2xlarge,EC2Family_Memory,EC2Type_R6ID,EC2Type_R6ID_2xLarge,64.0G,8,0,0,8.00G,0,na,Intel Xeon 8375C,474G,SSD,10000.0M,Up to 12.5G,1250.0M,Yes,40000
-r6id.32xlarge,EC2Family_Memory,EC2Type_R6ID,EC2Type_R6ID_32xLarge,1024.0G,128,0,0,8.00G,0,na,Intel Xeon 8375C,7600G,NVMe SSD,40000.0M,50G,5000.0M,Yes,160000
-r6id.4xlarge,EC2Family_Memory,EC2Type_R6ID,EC2Type_R6ID_4xLarge,128.0G,16,0,0,8.00G,0,na,Intel Xeon 8375C,950G,SSD,10000.0M,Up to 12.5G,1250.0M,Yes,40000
-r6id.8xlarge,EC2Family_Memory,EC2Type_R6ID,EC2Type_R6ID_8xLarge,256.0G,32,0,0,8.00G,0,na,Intel Xeon 8375C,1900G,SSD,10000.0M,12.5G,1250.0M,Yes,40000
-r6id.large,EC2Family_Memory,EC2Type_R6ID,EC2Type_R6ID_Large,16.0G,2,0,0,8.00G,0,na,Intel Xeon 8375C,118G,SSD,10000.0M,Up to 12.5G,1250.0M,Yes,40000
-r6id.metal,EC2Family_Memory,EC2Type_R6ID,EC2Type_R6ID_Metal,1024.0G,128,0,0,8.00G,0,na,Intel Xeon 8375C,7600G,NVMe SSD,40000.0M,50G,5000.0M,Yes,160000
-r6id.xlarge,EC2Family_Memory,EC2Type_R6ID,EC2Type_R6ID_xLarge,32.0G,4,0,0,8.00G,0,na,Intel Xeon 8375C,237G,SSD,10000.0M,Up to 12.5G,1250.0M,Yes,40000
-t1.micro,EC2Family_General,EC2Type_T1,EC2Type_T1_Micro,0.613G,1,0,0,0.61G,0,na,unknown,EBS only,na,unset,Very Low,0M,na,0
-t2.2xlarge,EC2Family_General,EC2Type_T2,EC2Type_T2_2xLarge,32.0G,8,0,0,4.00G,0,na,Intel Xeon Family,EBS only,na,unset,Moderate,0M,na,0
-t2.large,EC2Family_General,EC2Type_T2,EC2Type_T2_Large,8.0G,2,0,0,4.00G,0,na,Intel Xeon Family,EBS only,na,unset,Low to Moderate,0M,na,0
-t2.medium,EC2Family_General,EC2Type_T2,EC2Type_T2_Medium,4.0G,2,0,0,2.00G,0,na,Intel Xeon Family,EBS only,na,unset,Low to Moderate,0M,na,0
-t2.micro,EC2Family_General,EC2Type_T2,EC2Type_T2_Micro,1.0G,1,0,0,1.00G,0,na,Intel Xeon Family,EBS only,na,unset,Low to Moderate,0M,na,0
-t2.nano,EC2Family_General,EC2Type_T2,EC2Type_T2_Nano,0.5G,1,0,0,0.50G,0,na,Intel Xeon Family,EBS only,na,unset,Low to Moderate,0M,na,0
-t2.small,EC2Family_General,EC2Type_T2,EC2Type_T2_Small,2.0G,1,0,0,2.00G,0,na,Intel Xeon Family,EBS only,na,unset,Low to Moderate,0M,na,0
-t2.xlarge,EC2Family_General,EC2Type_T2,EC2Type_T2_xLarge,16.0G,4,0,0,4.00G,0,na,Intel Xeon Family,EBS only,na,unset,Moderate,0M,na,0
-t3.2xlarge,EC2Family_General,EC2Type_T3,EC2Type_T3_2xLarge,32.0G,8,0,0,4.00G,0,na,Intel Skylake E5 2686 v5,EBS only,na,2780.0M,Up to 5G,347.5M,na,15700
-t3.large,EC2Family_General,EC2Type_T3,EC2Type_T3_Large,8.0G,2,0,0,4.00G,0,na,Intel Skylake E5 2686 v5,EBS only,na,2780.0M,Up to 5G,347.5M,na,15700
-t3.medium,EC2Family_General,EC2Type_T3,EC2Type_T3_Medium,4.0G,2,0,0,2.00G,0,na,Intel Skylake E5 2686 v5,EBS only,na,2085.0M,Up to 5G,260.57M,na,11800
-t3.micro,EC2Family_General,EC2Type_T3,EC2Type_T3_Micro,1.0G,2,0,0,0.50G,0,na,Intel Skylake E5 2686 v5,EBS only,na,2085.0M,Up to 5G,260.57M,na,11800
-t3.nano,EC2Family_General,EC2Type_T3,EC2Type_T3_Nano,0.5G,2,0,0,0.25G,0,na,Intel Skylake E5 2686 v5,EBS only,na,2085.0M,Up to 5G,260.57M,na,11800
-t3.small,EC2Family_General,EC2Type_T3,EC2Type_T3_Small,2.0G,2,0,0,1.00G,0,na,Intel Skylake E5 2686 v5,EBS only,na,2085.0M,Up to 5G,260.57M,na,11800
-t3.xlarge,EC2Family_General,EC2Type_T3,EC2Type_T3_xLarge,16.0G,4,0,0,4.00G,0,na,Intel Skylake E5 2686 v5,EBS only,na,2780.0M,Up to 5G,347.5M,na,15700
-t3a.2xlarge,EC2Family_General,EC2Type_T3A,EC2Type_T3A_2xLarge,32.0G,8,0,0,4.00G,0,na,AMD EPYC 7571,EBS only,na,2780.0M,Up to 5G,347.5M,na,15700
-t3a.large,EC2Family_General,EC2Type_T3A,EC2Type_T3A_Large,8.0G,2,0,0,4.00G,0,na,AMD EPYC 7571,EBS only,na,2780.0M,Up to 5G,347.5M,na,15700
-t3a.medium,EC2Family_General,EC2Type_T3A,EC2Type_T3A_Medium,4.0G,2,0,0,2.00G,0,na,AMD EPYC 7571,EBS only,na,2085.0M,Up to 5G,260.57M,na,11800
-t3a.micro,EC2Family_General,EC2Type_T3A,EC2Type_T3A_Micro,1.0G,2,0,0,0.50G,0,na,AMD EPYC 7571,EBS only,na,2085.0M,Up to 5G,260.57M,na,11800
-t3a.nano,EC2Family_General,EC2Type_T3A,EC2Type_T3A_Nano,0.5G,2,0,0,0.25G,0,na,AMD EPYC 7571,EBS only,na,2085.0M,Up to 5G,260.57M,na,11800
-t3a.small,EC2Family_General,EC2Type_T3A,EC2Type_T3A_Small,2.0G,2,0,0,1.00G,0,na,AMD EPYC 7571,EBS only,na,2085.0M,Up to 5G,260.57M,na,11800
-t3a.xlarge,EC2Family_General,EC2Type_T3A,EC2Type_T3A_xLarge,16.0G,4,0,0,4.00G,0,na,AMD EPYC 7571,EBS only,na,2780.0M,Up to 5G,347.5M,na,15700
-t4g.2xlarge,EC2Family_General,EC2Type_T4G,EC2Type_T4G_2xLarge,32.0G,8,0,0,4.00G,0,na,AWS Graviton2,EBS only,na,2780.0M,Up to 5G,434.37M,na,15700
-t4g.large,EC2Family_General,EC2Type_T4G,EC2Type_T4G_Large,8.0G,2,0,0,4.00G,0,na,AWS Graviton2,EBS only,na,2780.0M,Up to 5G,434.37M,na,15700
-t4g.medium,EC2Family_General,EC2Type_T4G,EC2Type_T4G_Medium,4.0G,2,0,0,2.00G,0,na,AWS Graviton2,EBS only,na,2606.0M,Up to 5G,325.75M,na,11800
-t4g.micro,EC2Family_General,EC2Type_T4G,EC2Type_T4G_Micro,1.0G,2,0,0,0.50G,0,na,AWS Graviton2,EBS only,na,2606.0M,Up to 5G,325.75M,na,11800
-t4g.nano,EC2Family_General,EC2Type_T4G,EC2Type_T4G_Nano,0.5G,2,0,0,0.25G,0,na,AWS Graviton2,EBS only,na,2606.0M,Up to 5G,325.75M,na,11800
-t4g.small,EC2Family_General,EC2Type_T4G,EC2Type_T4G_Small,2.0G,2,0,0,1.00G,0,na,AWS Graviton2,EBS only,na,2606.0M,Up to 5G,325.75M,na,11800
-t4g.xlarge,EC2Family_General,EC2Type_T4G,EC2Type_T4G_xLarge,16.0G,4,0,0,4.00G,0,na,AWS Graviton2,EBS only,na,2780.0M,Up to 5G,434.37M,na,15700
-u-12tb1.112xlarge,EC2Family_Memory,EC2Type_U12TB1,EC2Type_U12TB1_112xLarge,12288.0G,448,0,0,27.43G,0,na,Intel Xeon Scalable,EBS only,na,38000.0M,100G,4750.0M,na,160000
-u-12tb1.metal,EC2Family_Memory,EC2Type_U12TB1,EC2Type_U12TB1_Metal,12288.0G,448,0,0,27.43G,0,na,Intel Xeon Scalable,EBS only,na,38000.0M,100G,4750.0M,na,160000
-u-18tb1.metal,EC2Family_Memory,EC2Type_U18TB1,EC2Type_U18TB1_Metal,18432.0G,448,0,0,41.14G,0,na,Intel Xeon Platinum 8280L,EBS only,na,38000.0M,100G,4750.0M,na,160000
-u-24tb1.metal,EC2Family_Memory,EC2Type_U24TB1,EC2Type_U24TB1_Metal,24576.0G,448,0,0,54.86G,0,na,Intel Xeon Platinum 8280L,EBS only,na,38000.0M,100G,4750.0M,na,160000
-u-3tb1.56xlarge,EC2Family_Memory,EC2Type_U3TB1,EC2Type_U3TB1_56xLarge,3072.0G,224,0,0,13.71G,0,na,Intel Xeon Scalable,EBS only,na,19000.0M,50G,2375.0M,na,80000
-u-6tb1.112xlarge,EC2Family_Memory,EC2Type_U6TB1,EC2Type_U6TB1_112xLarge,6144.0G,448,0,0,13.71G,0,na,Intel Xeon Scalable,EBS only,na,38000.0M,100G,4750.0M,na,160000
-u-6tb1.56xlarge,EC2Family_Memory,EC2Type_U6TB1,EC2Type_U6TB1_56xLarge,6144.0G,224,0,0,27.43G,0,na,Intel Xeon Scalable,EBS only,na,38000.0M,100G,4750.0M,na,160000
-u-6tb1.metal,EC2Family_Memory,EC2Type_U6TB1,EC2Type_U6TB1_Metal,6144.0G,448,0,0,13.71G,0,na,Intel Xeon Scalable,EBS only,na,38000.0M,100G,4750.0M,na,160000
-u-9tb1.112xlarge,EC2Family_Memory,EC2Type_U9TB1,EC2Type_U9TB1_112xLarge,9216.0G,448,0,0,20.57G,0,na,Intel Xeon Scalable,EBS only,na,38000.0M,100G,4750.0M,na,160000
-u-9tb1.metal,EC2Family_Memory,EC2Type_U9TB1,EC2Type_U9TB1_Metal,9216.0G,448,0,0,20.57G,0,na,Intel Xeon Scalable,EBS only,na,38000.0M,100G,4750.0M,na,160000
-vt1.24xlarge,EC2Family_Accelerated,EC2Type_VT1,EC2Type_VT1_24xLarge,192.0G,96,0,0,2.00G,0,na,Intel Xeon Platinum 8259CL,EBS only,na,19000.0M,25G,2375.0M,na,80000
-vt1.3xlarge,EC2Family_Accelerated,EC2Type_VT1,EC2Type_VT1_3xLarge,24.0G,12,0,0,2.00G,0,na,Intel Xeon Platinum 8259CL,EBS only,na,4750.0M,3.12G,593.75M,na,20000
-vt1.6xlarge,EC2Family_Accelerated,EC2Type_VT1,EC2Type_VT1_6xLarge,48.0G,24,0,0,2.00G,0,na,Intel Xeon Platinum 8259CL,EBS only,na,4750.0M,6.25G,593.75M,na,20000
-x1.16xlarge,EC2Family_Memory,EC2Type_X1,EC2Type_X1_16xLarge,976.0G,64,174.5,2.727,15.25G,0,na,Intel Xeon E7-8880 v3,1920G,SSD,7000.0M,10G,875.0M,No,40000
-x1.32xlarge,EC2Family_Memory,EC2Type_X1,EC2Type_X1_32xLarge,1952.0G,128,349,2.727,15.25G,0,na,Intel Xeon E7-8880 v3,3840G,SSD,14000.0M,25G,1750.0M,No,80000
-x1e.16xlarge,EC2Family_Memory,EC2Type_X1E,EC2Type_X1E_16xLarge,1952.0G,64,179,2.797,30.50G,0,na,Intel Xeon E7-8880 v3,1920G,SSD,7000.0M,10G,875.0M,No,40000
-x1e.2xlarge,EC2Family_Memory,EC2Type_X1E,EC2Type_X1E_2xLarge,244.0G,8,23,2.875,30.50G,0,na,Intel Xeon E7-8880 v3,240G,SSD,1000.0M,Up to 10G,125.0M,No,7400
-x1e.32xlarge,EC2Family_Memory,EC2Type_X1E,EC2Type_X1E_32xLarge,3904.0G,128,340,2.656,30.50G,0,na,Intel Xeon E7-8880 v3,3840G,SSD,14000.0M,25G,1750.0M,No,80000
-x1e.4xlarge,EC2Family_Memory,EC2Type_X1E,EC2Type_X1E_4xLarge,488.0G,16,47,2.938,30.50G,0,na,Intel Xeon E7-8880 v3,480G,SSD,1750.0M,Up to 10G,218.75M,No,10000
-x1e.8xlarge,EC2Family_Memory,EC2Type_X1E,EC2Type_X1E_8xLarge,976.0G,32,91,2.844,30.50G,0,na,Intel Xeon E7-8880 v3,960G,SSD,3500.0M,Up to 10G,437.5M,No,20000
-x1e.xlarge,EC2Family_Memory,EC2Type_X1E,EC2Type_X1E_xLarge,122.0G,4,12,3,30.50G,0,na,Intel Xeon E7-8880 v3,120G,SSD,500.0M,Up to 10G,62.5M,No,3700
-x2gd.12xlarge,EC2Family_Memory,EC2Type_X2GD,EC2Type_X2GD_12xLarge,768.0G,48,0,0,16.00G,0,na,AWS Graviton2,2850G,NVMe SSD,14250.0M,20G,1781.25M,Yes,60000
-x2gd.16xlarge,EC2Family_Memory,EC2Type_X2GD,EC2Type_X2GD_16xLarge,1024.0G,64,0,0,16.00G,0,na,AWS Graviton2,3800G,NVMe SSD,19000.0M,25G,2375.0M,Yes,80000
-x2gd.2xlarge,EC2Family_Memory,EC2Type_X2GD,EC2Type_X2GD_2xLarge,128.0G,8,0,0,16.00G,0,na,AWS Graviton2,475G,SSD,4750.0M,Up to 10G,593.75M,Yes,20000
-x2gd.4xlarge,EC2Family_Memory,EC2Type_X2GD,EC2Type_X2GD_4xLarge,256.0G,16,0,0,16.00G,0,na,AWS Graviton2,950G,SSD,4750.0M,Up to 10G,593.75M,Yes,20000
-x2gd.8xlarge,EC2Family_Memory,EC2Type_X2GD,EC2Type_X2GD_8xLarge,512.0G,32,0,0,16.00G,0,na,AWS Graviton2,1900G,SSD,9500.0M,12G,1187.5M,Yes,40000
-x2gd.large,EC2Family_Memory,EC2Type_X2GD,EC2Type_X2GD_Large,32.0G,2,0,0,16.00G,0,na,AWS Graviton2,118G,SSD,4750.0M,Up to 10G,593.75M,Yes,20000
-x2gd.medium,EC2Family_Memory,EC2Type_X2GD,EC2Type_X2GD_Medium,16.0G,1,0,0,16.00G,0,na,AWS Graviton2,59G,SSD,4750.0M,Up to 10G,593.75M,Yes,20000
-x2gd.metal,EC2Family_Memory,EC2Type_X2GD,EC2Type_X2GD_Metal,1024.0G,64,0,0,16.00G,0,na,AWS Graviton2,3800G,NVMe SSD,19000.0M,25G,2375.0M,Yes,80000
-x2gd.xlarge,EC2Family_Memory,EC2Type_X2GD,EC2Type_X2GD_xLarge,64.0G,4,0,0,16.00G,0,na,AWS Graviton2,237G,SSD,4750.0M,Up to 10G,593.75M,Yes,20000
-x2idn.16xlarge,EC2Family_Memory,EC2Type_X2IDN,EC2Type_X2IDN_16xLarge,1024.0G,64,0,0,16.00G,0,na,Intel Xeon Scalable,1900G,SSD,40000.0M,50G,5000.0M,Yes,130000
-x2idn.24xlarge,EC2Family_Memory,EC2Type_X2IDN,EC2Type_X2IDN_24xLarge,1536.0G,96,0,0,16.00G,0,na,Intel Xeon Scalable,2850G,NVMe SSD,60000.0M,75G,7500.0M,Yes,195000
-x2idn.32xlarge,EC2Family_Memory,EC2Type_X2IDN,EC2Type_X2IDN_32xLarge,2048.0G,128,0,0,16.00G,0,na,Intel Xeon Scalable,3800G,NVMe SSD,80000.0M,100G,10000.0M,Yes,260000
-x2idn.metal,EC2Family_Memory,EC2Type_X2IDN,EC2Type_X2IDN_Metal,2048.0G,128,0,0,16.00G,0,na,Intel Xeon Scalable,3800G,NVMe SSD,80000.0M,100G,10000.0M,Yes,260000
-x2iedn.16xlarge,EC2Family_Memory,EC2Type_X2IEDN,EC2Type_X2IEDN_16xLarge,2048.0G,64,0,0,32.00G,0,na,Intel Xeon Scalable,1900G,SSD,40000.0M,50G,5000.0M,Yes,130000
-x2iedn.24xlarge,EC2Family_Memory,EC2Type_X2IEDN,EC2Type_X2IEDN_24xLarge,3072.0G,96,0,0,32.00G,0,na,Intel Xeon Scalable,2850G,NVMe SSD,60000.0M,75G,7500.0M,Yes,195000
-x2iedn.2xlarge,EC2Family_Memory,EC2Type_X2IEDN,EC2Type_X2IEDN_2xLarge,256.0G,8,0,0,32.00G,0,na,Intel Xeon Scalable,237G,SSD,20000.0M,Up to 25G,2500.0M,Yes,65000
-x2iedn.32xlarge,EC2Family_Memory,EC2Type_X2IEDN,EC2Type_X2IEDN_32xLarge,4096.0G,128,0,0,32.00G,0,na,Intel Xeon Scalable,3800G,NVMe SSD,80000.0M,100G,10000.0M,Yes,260000
-x2iedn.4xlarge,EC2Family_Memory,EC2Type_X2IEDN,EC2Type_X2IEDN_4xLarge,512.0G,16,0,0,32.00G,0,na,Intel Xeon Scalable,475G,SSD,20000.0M,Up to 25G,2500.0M,Yes,65000
-x2iedn.8xlarge,EC2Family_Memory,EC2Type_X2IEDN,EC2Type_X2IEDN_8xLarge,1024.0G,32,0,0,32.00G,0,na,Intel Xeon Scalable,950G,SSD,20000.0M,25G,2500.0M,Yes,65000
-x2iedn.metal,EC2Family_Memory,EC2Type_X2IEDN,EC2Type_X2IEDN_Metal,4096.0G,128,0,0,32.00G,0,na,Intel Xeon Scalable,3800G,NVMe SSD,80000.0M,100G,10000.0M,Yes,260000
-x2iedn.xlarge,EC2Family_Memory,EC2Type_X2IEDN,EC2Type_X2IEDN_xLarge,128.0G,4,0,0,32.00G,0,na,Intel Xeon Scalable,118G,SSD,20000.0M,Up to 25G,2500.0M,Yes,65000
-x2iezn.12xlarge,EC2Family_Memory,EC2Type_X2IEZN,EC2Type_X2IEZN_12xLarge,1536.0G,48,0,0,32.00G,0,na,Intel Xeon Platinum 8252,EBS only,na,19000.0M,100G,2375.0M,na,80000
-x2iezn.2xlarge,EC2Family_Memory,EC2Type_X2IEZN,EC2Type_X2IEZN_2xLarge,256.0G,8,0,0,32.00G,0,na,Intel Xeon Platinum 8252,EBS only,na,3170.0M,Up to 25G,396.25M,na,13333
-x2iezn.4xlarge,EC2Family_Memory,EC2Type_X2IEZN,EC2Type_X2IEZN_4xLarge,512.0G,16,0,0,32.00G,0,na,Intel Xeon Platinum 8252,EBS only,na,4750.0M,Up to 25G,593.75M,na,20000
-x2iezn.6xlarge,EC2Family_Memory,EC2Type_X2IEZN,EC2Type_X2IEZN_6xLarge,768.0G,24,0,0,32.00G,0,na,Intel Xeon Platinum 8252,EBS only,na,9500.0M,50G,1187.5M,na,40000
-x2iezn.8xlarge,EC2Family_Memory,EC2Type_X2IEZN,EC2Type_X2IEZN_8xLarge,1024.0G,32,0,0,32.00G,0,na,Intel Xeon Platinum 8252,EBS only,na,12000.0M,75G,1500.0M,na,55000
-x2iezn.metal,EC2Family_Memory,EC2Type_X2IEZN,EC2Type_X2IEZN_Metal,1536.0G,48,0,0,32.00G,0,na,Intel Xeon Platinum 8252,EBS only,na,19000.0M,100G,2375.0M,na,80000
-z1d.12xlarge,EC2Family_Memory,EC2Type_Z1D,EC2Type_Z1D_12xLarge,384.0G,48,235,4.896,8.00G,0,na,Intel Xeon Platinum 8151,1800G,NVMe SSD,19000.0M,25G,2375.0M,Yes,80000
-z1d.2xlarge,EC2Family_Memory,EC2Type_Z1D,EC2Type_Z1D_2xLarge,64.0G,8,45,5.625,8.00G,0,na,Intel Xeon Platinum 8151,300G,SSD,3170.0M,Up to 10G,396.25M,Yes,13333
-z1d.3xlarge,EC2Family_Memory,EC2Type_Z1D,EC2Type_Z1D_3xLarge,96.0G,12,64,5.333,8.00G,0,na,Intel Xeon Platinum 8151,450G,SSD,4750.0M,Up to 10G,593.75M,Yes,20000
-z1d.6xlarge,EC2Family_Memory,EC2Type_Z1D,EC2Type_Z1D_6xLarge,192.0G,24,116,4.833,8.00G,0,na,Intel Xeon Platinum 8151,900G,SSD,9500.0M,10G,1187.5M,Yes,40000
-z1d.large,EC2Family_Memory,EC2Type_Z1D,EC2Type_Z1D_Large,16.0G,2,12,6,8.00G,0,na,Intel Xeon Platinum 8151,75G,SSD,3170.0M,Up to 10G,396.25M,Yes,13333
-z1d.metal,EC2Family_Memory,EC2Type_Z1D,EC2Type_Z1D_Metal,384.0G,48,271,5.646,8.00G,0,na,Intel Xeon Platinum 8151,1800G,NVMe SSD,19000.0M,25G,2375.0M,Yes,80000
-z1d.xlarge,EC2Family_Memory,EC2Type_Z1D,EC2Type_Z1D_xLarge,32.0G,4,23,5.75,8.00G,0,na,Intel Xeon Platinum 8151,150G,SSD,3170.0M,Up to 10G,396.25M,Yes,13333
+api_name,node_machinefamily,node_machinetype_super,node_machinetype,node_memory_size,node_vcpus_count,node_ecu_count,ecu_per_vcpu,memory_per_vcpu,accelerator_count,accelerator,processor,storage_size,storage_type,storage_bandwidth,network_performance,storage_throughput,storage_trim_support,storage_iops
+a1.2xlarge,EC2Family_General,EC2Type_A1,EC2Type_A1_2xLarge,16.0G,8,0,0,2.00G,0,na,AWS Graviton,na,StorageType_EC2_EBSOnly,3500.0M,<10G,437.5M,na,20000
+a1.4xlarge,EC2Family_General,EC2Type_A1,EC2Type_A1_4xLarge,32.0G,16,0,0,2.00G,0,na,AWS Graviton,na,StorageType_EC2_EBSOnly,3500.0M,<10G,437.5M,na,20000
+a1.large,EC2Family_General,EC2Type_A1,EC2Type_A1_Large,4.0G,2,0,0,2.00G,0,na,AWS Graviton,na,StorageType_EC2_EBSOnly,3500.0M,<10G,437.5M,na,20000
+a1.medium,EC2Family_General,EC2Type_A1,EC2Type_A1_Medium,2.0G,1,0,0,2.00G,0,na,AWS Graviton,na,StorageType_EC2_EBSOnly,3500.0M,<10G,437.5M,na,20000
+a1.metal,EC2Family_General,EC2Type_A1,EC2Type_A1_Metal,32.0G,16,0,0,2.00G,0,na,AWS Graviton,na,StorageType_EC2_EBSOnly,3500.0M,<10G,437.5M,na,20000
+a1.xlarge,EC2Family_General,EC2Type_A1,EC2Type_A1_xLarge,8.0G,4,0,0,2.00G,0,na,AWS Graviton,na,StorageType_EC2_EBSOnly,3500.0M,<10G,437.5M,na,20000
+c1.medium,EC2Family_Compute,EC2Type_C1,EC2Type_C1_Medium,1.7G,2,5,2.5,0.85G,0,na,Intel Xeon Family,350G,StorageType_HDD,unset,<250M,0M,na,0
+c1.xlarge,EC2Family_Compute,EC2Type_C1,EC2Type_C1_xLarge,7.0G,8,20,2.5,0.88G,0,na,Intel Xeon Family,1680G,StorageType_HDD,1000.0M,<1G,125.0M,na,8000
+c3.2xlarge,EC2Family_Compute,EC2Type_C3,EC2Type_C3_2xLarge,15.0G,8,28,3.5,1.88G,0,na,Intel Xeon E5-2680 v2,160G,StorageType_SSD,1000.0M,<1G,125.0M,No,8000
+c3.4xlarge,EC2Family_Compute,EC2Type_C3,EC2Type_C3_4xLarge,30.0G,16,55,3.438,1.88G,0,na,Intel Xeon E5-2680 v2,320G,StorageType_SSD,2000.0M,<1G,250.0M,No,16000
+c3.8xlarge,EC2Family_Compute,EC2Type_C3,EC2Type_C3_8xLarge,60.0G,32,108,3.375,1.88G,0,na,Intel Xeon E5-2680 v2,640G,StorageType_SSD,unset,10G,0M,No,0
+c3.large,EC2Family_Compute,EC2Type_C3,EC2Type_C3_Large,3.75G,2,7,3.5,1.88G,0,na,Intel Xeon E5-2680 v2,32G,StorageType_SSD,unset,<250M,0M,No,0
+c3.xlarge,EC2Family_Compute,EC2Type_C3,EC2Type_C3_xLarge,7.5G,4,14,3.5,1.88G,0,na,Intel Xeon E5-2680 v2,80G,StorageType_SSD,500.0M,<250M,62.5M,No,4000
+c4.2xlarge,EC2Family_Compute,EC2Type_C4,EC2Type_C4_2xLarge,15.0G,8,31,3.875,1.88G,0,na,Intel Xeon E5-2666 v3,na,StorageType_EC2_EBSOnly,1000.0M,<1G,125.0M,na,8000
+c4.4xlarge,EC2Family_Compute,EC2Type_C4,EC2Type_C4_4xLarge,30.0G,16,62,3.875,1.88G,0,na,Intel Xeon E5-2666 v3,na,StorageType_EC2_EBSOnly,2000.0M,<1G,250.0M,na,16000
+c4.8xlarge,EC2Family_Compute,EC2Type_C4,EC2Type_C4_8xLarge,60.0G,36,132,3.667,1.67G,0,na,Intel Xeon E5-2666 v3,na,StorageType_EC2_EBSOnly,4000.0M,10G,500.0M,na,32000
+c4.large,EC2Family_Compute,EC2Type_C4,EC2Type_C4_Large,3.75G,2,8,4,1.88G,0,na,Intel Xeon E5-2666 v3,na,StorageType_EC2_EBSOnly,500.0M,<250M,62.5M,na,4000
+c4.xlarge,EC2Family_Compute,EC2Type_C4,EC2Type_C4_xLarge,7.5G,4,16,4,1.88G,0,na,Intel Xeon E5-2666 v3,na,StorageType_EC2_EBSOnly,750.0M,<1G,93.75M,na,6000
+c5.12xlarge,EC2Family_Compute,EC2Type_C5,EC2Type_C5_12xLarge,96.0G,48,188,3.917,2.00G,0,na,Intel Xeon Platinum 8275L,na,StorageType_EC2_EBSOnly,9500.0M,12G,1187.5M,na,40000
+c5.18xlarge,EC2Family_Compute,EC2Type_C5,EC2Type_C5_18xLarge,144.0G,72,281,3.903,2.00G,0,na,Intel Xeon Platinum 8124M,na,StorageType_EC2_EBSOnly,19000.0M,25G,2375.0M,na,80000
+c5.24xlarge,EC2Family_Compute,EC2Type_C5,EC2Type_C5_24xLarge,192.0G,96,375,3.906,2.00G,0,na,Intel Xeon Platinum 8275L,na,StorageType_EC2_EBSOnly,19000.0M,25G,2375.0M,na,80000
+c5.2xlarge,EC2Family_Compute,EC2Type_C5,EC2Type_C5_2xLarge,16.0G,8,39,4.875,2.00G,0,na,Intel Xeon Platinum 8124M,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
+c5.4xlarge,EC2Family_Compute,EC2Type_C5,EC2Type_C5_4xLarge,32.0G,16,73,4.562,2.00G,0,na,Intel Xeon Platinum 8124M,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
+c5.9xlarge,EC2Family_Compute,EC2Type_C5,EC2Type_C5_9xLarge,72.0G,36,139,3.861,2.00G,0,na,Intel Xeon Platinum 8124M,na,StorageType_EC2_EBSOnly,9500.0M,10G,1187.5M,na,40000
+c5.large,EC2Family_Compute,EC2Type_C5,EC2Type_C5_Large,4.0G,2,10,5,2.00G,0,na,Intel Xeon Platinum 8124M,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
+c5.metal,EC2Family_Compute,EC2Type_C5,EC2Type_C5_Metal,192.0G,96,375,3.906,2.00G,0,na,Intel Xeon Platinum 8275L,na,StorageType_EC2_EBSOnly,19000.0M,25G,2375.0M,na,80000
+c5.xlarge,EC2Family_Compute,EC2Type_C5,EC2Type_C5_xLarge,8.0G,4,20,5,2.00G,0,na,Intel Xeon Platinum 8124M,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
+c5a.12xlarge,EC2Family_Compute,EC2Type_C5A,EC2Type_C5A_12xLarge,96.0G,48,0,0,2.00G,0,na,AMD EPYC 7R32,na,StorageType_EC2_EBSOnly,4750.0M,12G,594.0M,na,20000
+c5a.16xlarge,EC2Family_Compute,EC2Type_C5A,EC2Type_C5A_16xLarge,128.0G,64,0,0,2.00G,0,na,AMD EPYC 7R32,na,StorageType_EC2_EBSOnly,6300.0M,20G,788.0M,na,26700
+c5a.24xlarge,EC2Family_Compute,EC2Type_C5A,EC2Type_C5A_24xLarge,192.0G,96,0,0,2.00G,0,na,AMD EPYC 7R32,na,StorageType_EC2_EBSOnly,9500.0M,20G,1188.0M,na,40000
+c5a.2xlarge,EC2Family_Compute,EC2Type_C5A,EC2Type_C5A_2xLarge,16.0G,8,0,0,2.00G,0,na,AMD EPYC 7R32,na,StorageType_EC2_EBSOnly,3170.0M,<10G,396.0M,na,13300
+c5a.4xlarge,EC2Family_Compute,EC2Type_C5A,EC2Type_C5A_4xLarge,32.0G,16,0,0,2.00G,0,na,AMD EPYC 7R32,na,StorageType_EC2_EBSOnly,3170.0M,<10G,396.0M,na,13300
+c5a.8xlarge,EC2Family_Compute,EC2Type_C5A,EC2Type_C5A_8xLarge,64.0G,32,0,0,2.00G,0,na,AMD EPYC 7R32,na,StorageType_EC2_EBSOnly,3170.0M,10G,396.0M,na,13300
+c5a.large,EC2Family_Compute,EC2Type_C5A,EC2Type_C5A_Large,4.0G,2,0,0,2.00G,0,na,AMD EPYC 7R32,na,StorageType_EC2_EBSOnly,3170.0M,<10G,396.0M,na,13300
+c5a.xlarge,EC2Family_Compute,EC2Type_C5A,EC2Type_C5A_xLarge,8.0G,4,0,0,2.00G,0,na,AMD EPYC 7R32,na,StorageType_EC2_EBSOnly,3170.0M,<10G,396.0M,na,13300
+c5ad.12xlarge,EC2Family_Compute,EC2Type_C5AD,EC2Type_C5AD_12xLarge,96.0G,48,0,0,2.00G,0,na,AMD EPYC 7R32,1800G,StorageType_EC2_NVMeSSD,4750.0M,12G,594.0M,Yes,20000
+c5ad.16xlarge,EC2Family_Compute,EC2Type_C5AD,EC2Type_C5AD_16xLarge,128.0G,64,0,0,2.00G,0,na,AMD EPYC 7R32,2400G,StorageType_EC2_NVMeSSD,6300.0M,20G,788.0M,Yes,26700
+c5ad.24xlarge,EC2Family_Compute,EC2Type_C5AD,EC2Type_C5AD_24xLarge,192.0G,96,0,0,2.00G,0,na,AMD EPYC 7R32,3800G,StorageType_EC2_NVMeSSD,9500.0M,20G,1188.0M,Yes,40000
+c5ad.2xlarge,EC2Family_Compute,EC2Type_C5AD,EC2Type_C5AD_2xLarge,16.0G,8,0,0,2.00G,0,na,AMD EPYC 7R32,300G,StorageType_SSD,3170.0M,<10G,396.0M,Yes,13300
+c5ad.4xlarge,EC2Family_Compute,EC2Type_C5AD,EC2Type_C5AD_4xLarge,32.0G,16,0,0,2.00G,0,na,AMD EPYC 7R32,600G,StorageType_EC2_NVMeSSD,3170.0M,<10G,396.0M,Yes,13300
+c5ad.8xlarge,EC2Family_Compute,EC2Type_C5AD,EC2Type_C5AD_8xLarge,64.0G,32,0,0,2.00G,0,na,AMD EPYC 7R32,1200G,StorageType_EC2_NVMeSSD,3170.0M,10G,396.0M,Yes,13300
+c5ad.large,EC2Family_Compute,EC2Type_C5AD,EC2Type_C5AD_Large,4.0G,2,0,0,2.00G,0,na,AMD EPYC 7R32,75G,StorageType_SSD,3170.0M,<10G,396.0M,Yes,13300
+c5ad.xlarge,EC2Family_Compute,EC2Type_C5AD,EC2Type_C5AD_xLarge,8.0G,4,0,0,2.00G,0,na,AMD EPYC 7R32,150G,StorageType_SSD,3170.0M,<10G,396.0M,Yes,13300
+c5d.12xlarge,EC2Family_Compute,EC2Type_C5D,EC2Type_C5D_12xLarge,96.0G,48,188,3.917,2.00G,0,na,Intel Xeon Platinum 8275L,1800G,StorageType_EC2_NVMeSSD,9500.0M,12G,1187.5M,Yes,40000
+c5d.18xlarge,EC2Family_Compute,EC2Type_C5D,EC2Type_C5D_18xLarge,144.0G,72,281,3.903,2.00G,0,na,Intel Xeon Platinum 8124M,1800G,StorageType_EC2_NVMeSSD,19000.0M,25G,2375.0M,Yes,80000
+c5d.24xlarge,EC2Family_Compute,EC2Type_C5D,EC2Type_C5D_24xLarge,192.0G,96,375,3.906,2.00G,0,na,Intel Xeon Platinum 8275L,3600G,StorageType_EC2_NVMeSSD,19000.0M,25G,2375.0M,Yes,80000
+c5d.2xlarge,EC2Family_Compute,EC2Type_C5D,EC2Type_C5D_2xLarge,16.0G,8,39,4.875,2.00G,0,na,Intel Xeon Platinum 8124M,200G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,20000
+c5d.4xlarge,EC2Family_Compute,EC2Type_C5D,EC2Type_C5D_4xLarge,32.0G,16,73,4.562,2.00G,0,na,Intel Xeon Platinum 8124M,400G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,20000
+c5d.9xlarge,EC2Family_Compute,EC2Type_C5D,EC2Type_C5D_9xLarge,72.0G,36,139,3.861,2.00G,0,na,Intel Xeon Platinum 8124M,900G,StorageType_SSD,9500.0M,10G,1187.5M,Yes,40000
+c5d.large,EC2Family_Compute,EC2Type_C5D,EC2Type_C5D_Large,4.0G,2,10,5,2.00G,0,na,Intel Xeon Platinum 8124M,50G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,20000
+c5d.metal,EC2Family_Compute,EC2Type_C5D,EC2Type_C5D_Metal,192.0G,96,375,3.906,2.00G,0,na,Intel Xeon Platinum 8275L,3600G,StorageType_EC2_NVMeSSD,19000.0M,25G,2375.0M,Yes,80000
+c5d.xlarge,EC2Family_Compute,EC2Type_C5D,EC2Type_C5D_xLarge,8.0G,4,20,5,2.00G,0,na,Intel Xeon Platinum 8124M,100G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,20000
+c5n.18xlarge,EC2Family_Compute,EC2Type_C5N,EC2Type_C5N_18xLarge,192.0G,72,281,3.903,2.67G,0,na,Intel Xeon Platinum 8124M,na,StorageType_EC2_EBSOnly,19000.0M,100G,2375.0M,na,80000
+c5n.2xlarge,EC2Family_Compute,EC2Type_C5N,EC2Type_C5N_2xLarge,21.0G,8,39,4.875,2.62G,0,na,Intel Xeon Platinum 8124M,na,StorageType_EC2_EBSOnly,4750.0M,<25G,593.75M,na,20000
+c5n.4xlarge,EC2Family_Compute,EC2Type_C5N,EC2Type_C5N_4xLarge,42.0G,16,73,4.562,2.62G,0,na,Intel Xeon Platinum 8124M,na,StorageType_EC2_EBSOnly,4750.0M,<25G,593.75M,na,20000
+c5n.9xlarge,EC2Family_Compute,EC2Type_C5N,EC2Type_C5N_9xLarge,96.0G,36,139,3.861,2.67G,0,na,Intel Xeon Platinum 8124M,na,StorageType_EC2_EBSOnly,9500.0M,50G,1187.5M,na,40000
+c5n.large,EC2Family_Compute,EC2Type_C5N,EC2Type_C5N_Large,5.25G,2,10,5,2.62G,0,na,Intel Xeon Platinum 8124M,na,StorageType_EC2_EBSOnly,4750.0M,<25G,593.75M,na,20000
+c5n.metal,EC2Family_Compute,EC2Type_C5N,EC2Type_C5N_Metal,192.0G,72,0,0,2.67G,0,na,Intel Xeon Platinum 8124M,na,StorageType_EC2_EBSOnly,19000.0M,100G,2375.0M,na,80000
+c5n.xlarge,EC2Family_Compute,EC2Type_C5N,EC2Type_C5N_xLarge,10.5G,4,20,5,2.62G,0,na,Intel Xeon Platinum 8124M,na,StorageType_EC2_EBSOnly,4750.0M,<25G,593.75M,na,20000
+c6a.12xlarge,EC2Family_Compute,EC2Type_C6A,EC2Type_C6A_12xLarge,96.0G,48,0,0,2.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,10000.0M,18.75G,1250.0M,na,40000
+c6a.16xlarge,EC2Family_Compute,EC2Type_C6A,EC2Type_C6A_16xLarge,128.0G,64,0,0,2.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,13300.0M,25G,1662.5M,na,53333
+c6a.24xlarge,EC2Family_Compute,EC2Type_C6A,EC2Type_C6A_24xLarge,192.0G,96,0,0,2.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,20000.0M,37.5G,2500.0M,na,80000
+c6a.2xlarge,EC2Family_Compute,EC2Type_C6A,EC2Type_C6A_2xLarge,16.0G,8,0,0,2.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,6666.664M,<12.5G,833.333M,na,26667
+c6a.32xlarge,EC2Family_Compute,EC2Type_C6A,EC2Type_C6A_32xLarge,256.0G,128,0,0,2.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,26666.664M,50G,3333.333M,na,100000
+c6a.48xlarge,EC2Family_Compute,EC2Type_C6A,EC2Type_C6A_48xLarge,384.0G,192,0,0,2.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,40000.0M,50G,5000.0M,na,160000
+c6a.4xlarge,EC2Family_Compute,EC2Type_C6A,EC2Type_C6A_4xLarge,32.0G,16,0,0,2.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,6666.664M,<12.5G,833.333M,na,26667
+c6a.8xlarge,EC2Family_Compute,EC2Type_C6A,EC2Type_C6A_8xLarge,64.0G,32,0,0,2.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,6666.664M,12.5G,833.333M,na,26667
+c6a.large,EC2Family_Compute,EC2Type_C6A,EC2Type_C6A_Large,4.0G,2,0,0,2.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,6666.664M,<12.5G,833.333M,na,26667
+c6a.metal,EC2Family_Compute,EC2Type_C6A,EC2Type_C6A_Metal,384.0G,192,0,0,2.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,40000.0M,50G,5000.0M,na,160000
+c6a.xlarge,EC2Family_Compute,EC2Type_C6A,EC2Type_C6A_xLarge,8.0G,4,0,0,2.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,6666.664M,<12.5G,833.333M,na,26667
+c6g.12xlarge,EC2Family_Compute,EC2Type_C6G,EC2Type_C6G_12xLarge,96.0G,48,0,0,2.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,14250.0M,20G,1781.25M,na,50000
+c6g.16xlarge,EC2Family_Compute,EC2Type_C6G,EC2Type_C6G_16xLarge,128.0G,64,0,0,2.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,19000.0M,25G,2375.0M,na,80000
+c6g.2xlarge,EC2Family_Compute,EC2Type_C6G,EC2Type_C6G_2xLarge,16.0G,8,0,0,2.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
+c6g.4xlarge,EC2Family_Compute,EC2Type_C6G,EC2Type_C6G_4xLarge,32.0G,16,0,0,2.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
+c6g.8xlarge,EC2Family_Compute,EC2Type_C6G,EC2Type_C6G_8xLarge,64.0G,32,0,0,2.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,9500.0M,12G,1187.5M,na,40000
+c6g.large,EC2Family_Compute,EC2Type_C6G,EC2Type_C6G_Large,4.0G,2,0,0,2.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
+c6g.medium,EC2Family_Compute,EC2Type_C6G,EC2Type_C6G_Medium,2.0G,1,0,0,2.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
+c6g.metal,EC2Family_Compute,EC2Type_C6G,EC2Type_C6G_Metal,128.0G,64,0,0,2.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,19000.0M,25G,2375.0M,na,80000
+c6g.xlarge,EC2Family_Compute,EC2Type_C6G,EC2Type_C6G_xLarge,8.0G,4,0,0,2.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
+c6gd.12xlarge,EC2Family_Compute,EC2Type_C6GD,EC2Type_C6GD_12xLarge,96.0G,48,0,0,2.00G,0,na,AWS Graviton2,2850G,StorageType_EC2_NVMeSSD,14250.0M,20G,1781.25M,Yes,50000
+c6gd.16xlarge,EC2Family_Compute,EC2Type_C6GD,EC2Type_C6GD_16xLarge,128.0G,64,0,0,2.00G,0,na,AWS Graviton2,3800G,StorageType_EC2_NVMeSSD,19000.0M,25G,2375.0M,Yes,80000
+c6gd.2xlarge,EC2Family_Compute,EC2Type_C6GD,EC2Type_C6GD_2xLarge,16.0G,8,0,0,2.00G,0,na,AWS Graviton2,474G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,20000
+c6gd.4xlarge,EC2Family_Compute,EC2Type_C6GD,EC2Type_C6GD_4xLarge,32.0G,16,0,0,2.00G,0,na,AWS Graviton2,950G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,20000
+c6gd.8xlarge,EC2Family_Compute,EC2Type_C6GD,EC2Type_C6GD_8xLarge,64.0G,32,0,0,2.00G,0,na,AWS Graviton2,1900G,StorageType_SSD,9500.0M,12G,1187.5M,Yes,40000
+c6gd.large,EC2Family_Compute,EC2Type_C6GD,EC2Type_C6GD_Large,4.0G,2,0,0,2.00G,0,na,AWS Graviton2,118G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,20000
+c6gd.medium,EC2Family_Compute,EC2Type_C6GD,EC2Type_C6GD_Medium,2.0G,1,0,0,2.00G,0,na,AWS Graviton2,59G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,20000
+c6gd.metal,EC2Family_Compute,EC2Type_C6GD,EC2Type_C6GD_Metal,128.0G,64,0,0,2.00G,0,na,AWS Graviton2,3800G,StorageType_EC2_NVMeSSD,19000.0M,25G,2375.0M,Yes,80000
+c6gd.xlarge,EC2Family_Compute,EC2Type_C6GD,EC2Type_C6GD_xLarge,8.0G,4,0,0,2.00G,0,na,AWS Graviton2,237G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,20000
+c6gn.12xlarge,EC2Family_Compute,EC2Type_C6GN,EC2Type_C6GN_12xLarge,96.0G,48,0,0,2.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,28500.0M,75G,3562.5M,na,120000
+c6gn.16xlarge,EC2Family_Compute,EC2Type_C6GN,EC2Type_C6GN_16xLarge,128.0G,64,0,0,2.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,38000.0M,100G,4750.0M,na,160000
+c6gn.2xlarge,EC2Family_Compute,EC2Type_C6GN,EC2Type_C6GN_2xLarge,16.0G,8,0,0,2.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,9500.0M,<25G,1187.5M,na,40000
+c6gn.4xlarge,EC2Family_Compute,EC2Type_C6GN,EC2Type_C6GN_4xLarge,32.0G,16,0,0,2.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,9500.0M,<25G,1187.5M,na,40000
+c6gn.8xlarge,EC2Family_Compute,EC2Type_C6GN,EC2Type_C6GN_8xLarge,64.0G,32,0,0,2.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,19000.0M,50G,2375.0M,na,80000
+c6gn.large,EC2Family_Compute,EC2Type_C6GN,EC2Type_C6GN_Large,4.0G,2,0,0,2.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,9500.0M,<25G,1187.5M,na,40000
+c6gn.medium,EC2Family_Compute,EC2Type_C6GN,EC2Type_C6GN_Medium,2.0G,1,0,0,2.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,9500.0M,<16G,1187.5M,na,40000
+c6gn.xlarge,EC2Family_Compute,EC2Type_C6GN,EC2Type_C6GN_xLarge,8.0G,4,0,0,2.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,9500.0M,<25G,1187.5M,na,40000
+c6i.12xlarge,EC2Family_Compute,EC2Type_C6I,EC2Type_C6I_12xLarge,96.0G,48,0,0,2.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,15000.0M,18.75G,1875.0M,na,60000
+c6i.16xlarge,EC2Family_Compute,EC2Type_C6I,EC2Type_C6I_16xLarge,128.0G,64,0,0,2.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,20000.0M,25G,2500.0M,na,80000
+c6i.24xlarge,EC2Family_Compute,EC2Type_C6I,EC2Type_C6I_24xLarge,192.0G,96,0,0,2.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,30000.0M,37.5G,3750.0M,na,120000
+c6i.2xlarge,EC2Family_Compute,EC2Type_C6I,EC2Type_C6I_2xLarge,16.0G,8,0,0,2.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000
+c6i.32xlarge,EC2Family_Compute,EC2Type_C6I,EC2Type_C6I_32xLarge,256.0G,128,0,0,2.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,40000.0M,50G,5000.0M,na,160000
+c6i.4xlarge,EC2Family_Compute,EC2Type_C6I,EC2Type_C6I_4xLarge,32.0G,16,0,0,2.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000
+c6i.8xlarge,EC2Family_Compute,EC2Type_C6I,EC2Type_C6I_8xLarge,64.0G,32,0,0,2.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,10000.0M,12.5G,1250.0M,na,40000
+c6i.large,EC2Family_Compute,EC2Type_C6I,EC2Type_C6I_Large,4.0G,2,0,0,2.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000
+c6i.metal,EC2Family_Compute,EC2Type_C6I,EC2Type_C6I_Metal,256.0G,128,0,0,2.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,40000.0M,50G,5000.0M,na,160000
+c6i.xlarge,EC2Family_Compute,EC2Type_C6I,EC2Type_C6I_xLarge,8.0G,4,0,0,2.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000
+c6id.12xlarge,EC2Family_Compute,EC2Type_C6ID,EC2Type_C6ID_12xLarge,96.0G,48,0,0,2.00G,0,na,Intel Xeon 8375C,2850G,StorageType_EC2_NVMeSSD,15000.0M,18.75G,1875.0M,Yes,60000
+c6id.16xlarge,EC2Family_Compute,EC2Type_C6ID,EC2Type_C6ID_16xLarge,128.0G,64,0,0,2.00G,0,na,Intel Xeon 8375C,3800G,StorageType_EC2_NVMeSSD,20000.0M,25G,2500.0M,Yes,80000
+c6id.24xlarge,EC2Family_Compute,EC2Type_C6ID,EC2Type_C6ID_24xLarge,192.0G,96,0,0,2.00G,0,na,Intel Xeon 8375C,5700G,StorageType_EC2_NVMeSSD,30000.0M,37.5G,3750.0M,Yes,120000
+c6id.2xlarge,EC2Family_Compute,EC2Type_C6ID,EC2Type_C6ID_2xLarge,16.0G,8,0,0,2.00G,0,na,Intel Xeon 8375C,474G,StorageType_SSD,10000.0M,<12.5G,1250.0M,Yes,40000
+c6id.32xlarge,EC2Family_Compute,EC2Type_C6ID,EC2Type_C6ID_32xLarge,256.0G,128,0,0,2.00G,0,na,Intel Xeon 8375C,7600G,StorageType_EC2_NVMeSSD,40000.0M,50G,5000.0M,Yes,160000
+c6id.4xlarge,EC2Family_Compute,EC2Type_C6ID,EC2Type_C6ID_4xLarge,32.0G,16,0,0,2.00G,0,na,Intel Xeon 8375C,950G,StorageType_SSD,10000.0M,<12.5G,1250.0M,Yes,40000
+c6id.8xlarge,EC2Family_Compute,EC2Type_C6ID,EC2Type_C6ID_8xLarge,64.0G,32,0,0,2.00G,0,na,Intel Xeon 8375C,1900G,StorageType_SSD,10000.0M,12.5G,1250.0M,Yes,40000
+c6id.large,EC2Family_Compute,EC2Type_C6ID,EC2Type_C6ID_Large,4.0G,2,0,0,2.00G,0,na,Intel Xeon 8375C,118G,StorageType_SSD,10000.0M,<12.5G,1250.0M,Yes,40000
+c6id.metal,EC2Family_Compute,EC2Type_C6ID,EC2Type_C6ID_Metal,256.0G,128,0,0,2.00G,0,na,Intel Xeon 8375C,7600G,StorageType_EC2_NVMeSSD,40000.0M,50G,5000.0M,Yes,160000
+c6id.xlarge,EC2Family_Compute,EC2Type_C6ID,EC2Type_C6ID_xLarge,8.0G,4,0,0,2.00G,0,na,Intel Xeon 8375C,237G,StorageType_SSD,10000.0M,<12.5G,1250.0M,Yes,40000
+c7g.12xlarge,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_12xLarge,96.0G,48,0,0,2.00G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,15000.0M,22.5G,1875.0M,na,60000
+c7g.16xlarge,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_16xLarge,128.0G,64,0,0,2.00G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,20000.0M,30G,2500.0M,na,80000
+c7g.2xlarge,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_2xLarge,16.0G,8,0,0,2.00G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,10000.0M,<15G,1250.0M,na,40000
+c7g.4xlarge,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_4xLarge,32.0G,16,0,0,2.00G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,10000.0M,<15G,1250.0M,na,40000
+c7g.8xlarge,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_8xLarge,64.0G,32,0,0,2.00G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,10000.0M,15G,1250.0M,na,40000
+c7g.large,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_Large,4.0G,2,0,0,2.00G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000
+c7g.medium,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_Medium,2.0G,1,0,0,2.00G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000
+c7g.xlarge,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_xLarge,8.0G,4,0,0,2.00G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000
+cc2.8xlarge,N/A,EC2Type_CC2,EC2Type_CC2_8xLarge,60.5G,32,88,2.75,1.89G,0,na,Intel Xeon E5-2670,3360G,StorageType_HDD,unset,10G,0M,na,0
+cr1.8xlarge,N/A,EC2Type_CR1,EC2Type_CR1_8xLarge,244.0G,32,88,2.75,7.62G,0,na,Intel Xeon E5-2670,240G,StorageType_SSD,unset,10G,0M,No,0
+d2.2xlarge,EC2Family_Storage,EC2Type_D2,EC2Type_D2_2xLarge,61.0G,8,28,3.5,7.62G,0,na,Intel Xeon E5-2676 v3,12000G,StorageType_HDD,1000.0M,<1G,125.0M,na,8000
+d2.4xlarge,EC2Family_Storage,EC2Type_D2,EC2Type_D2_4xLarge,122.0G,16,56,3.5,7.62G,0,na,Intel Xeon E5-2676 v3,24000G,StorageType_HDD,2000.0M,<1G,250.0M,na,16000
+d2.8xlarge,EC2Family_Storage,EC2Type_D2,EC2Type_D2_8xLarge,244.0G,36,116,3.222,6.78G,0,na,Intel Xeon E5-2676 v3,48000G,StorageType_HDD,4000.0M,10G,500.0M,na,32000
+d2.xlarge,EC2Family_Storage,EC2Type_D2,EC2Type_D2_xLarge,30.5G,4,14,3.5,7.62G,0,na,Intel Xeon E5-2676 v3,6000G,StorageType_HDD,750.0M,<250M,93.75M,na,6000
+d3.2xlarge,EC2Family_Storage,EC2Type_D3,EC2Type_D3_2xLarge,64.0G,8,0,0,8.00G,0,na,Intel Xeon Platinum 8259,11880G,StorageType_HDD,2800.0M,<15G,350.0M,na,15000
+d3.4xlarge,EC2Family_Storage,EC2Type_D3,EC2Type_D3_4xLarge,128.0G,16,0,0,8.00G,0,na,Intel Xeon Platinum 8259,23760G,StorageType_HDD,2800.0M,<15G,350.0M,na,15000
+d3.8xlarge,EC2Family_Storage,EC2Type_D3,EC2Type_D3_8xLarge,256.0G,32,0,0,8.00G,0,na,Intel Xeon Platinum 8259,47520G,StorageType_HDD,5000.0M,25G,625.0M,na,30000
+d3.xlarge,EC2Family_Storage,EC2Type_D3,EC2Type_D3_xLarge,32.0G,4,0,0,8.00G,0,na,Intel Xeon Platinum 8259,5940G,StorageType_HDD,2800.0M,<15G,350.0M,na,15000
+d3en.12xlarge,EC2Family_Storage,EC2Type_D3EN,EC2Type_D3EN_12xLarge,192.0G,48,0,0,4.00G,0,na,Intel Xeon Platinum 8259,335520G,StorageType_HDD,7000.0M,75G,875.0M,na,40000
+d3en.2xlarge,EC2Family_Storage,EC2Type_D3EN,EC2Type_D3EN_2xLarge,32.0G,8,0,0,4.00G,0,na,Intel Xeon Platinum 8259,55920G,StorageType_HDD,2800.0M,<25G,350.0M,na,15000
+d3en.4xlarge,EC2Family_Storage,EC2Type_D3EN,EC2Type_D3EN_4xLarge,64.0G,16,0,0,4.00G,0,na,Intel Xeon Platinum 8259,111840G,StorageType_HDD,2800.0M,25G,350.0M,na,15000
+d3en.6xlarge,EC2Family_Storage,EC2Type_D3EN,EC2Type_D3EN_6xLarge,96.0G,24,0,0,4.00G,0,na,Intel Xeon Platinum 8259,167760G,StorageType_HDD,unset,40G,0M,na,0
+d3en.8xlarge,EC2Family_Storage,EC2Type_D3EN,EC2Type_D3EN_8xLarge,128.0G,32,0,0,4.00G,0,na,Intel Xeon Platinum 8259,223680G,StorageType_HDD,5000.0M,50G,625.0M,na,30000
+d3en.xlarge,EC2Family_Storage,EC2Type_D3EN,EC2Type_D3EN_xLarge,16.0G,4,0,0,4.00G,0,na,Intel Xeon Platinum 8259,27960G,StorageType_HDD,2800.0M,<25G,350.0M,na,15000
+dl1.24xlarge,EC2Family_Accelerated,EC2Type_DL1,EC2Type_DL1_24xLarge,768.0G,96,0,0,8.00G,0,na,Intel Xeon Platinum 8275L,4T,StorageType_EC2_NVMeSSD,19000.0M,400G,2375.0M,No,80000
+f1.16xlarge,EC2Family_Accelerated,EC2Type_F1,EC2Type_F1_16xLarge,976.0G,64,201,3.141,15.25G,8,Xilinx Virtex UltraScale+ VU9P,Intel Xeon E5-2686 v4,3760G,StorageType_EC2_NVMeSSD,14000.0M,25G,1750.0M,Yes,75000
+f1.2xlarge,EC2Family_Accelerated,EC2Type_F1,EC2Type_F1_2xLarge,122.0G,8,31,3.875,15.25G,1,Xilinx Virtex UltraScale+ VU9P,Intel Xeon E5-2686 v4,470G,StorageType_SSD,1700.0M,<10G,212.5M,Yes,12000
+f1.4xlarge,EC2Family_Accelerated,EC2Type_F1,EC2Type_F1_4xLarge,244.0G,16,58,3.625,15.25G,2,Xilinx Virtex UltraScale+ VU9P,Intel Xeon E5-2686 v4,940G,StorageType_SSD,3500.0M,<10G,437.5M,Yes,44000
+g2.2xlarge,EC2Family_Accelerated,EC2Type_G2,EC2Type_G2_2xLarge,15.0G,8,26,3.25,1.88G,1,NVIDIA GRID K520,Intel Xeon E5-2670,60G,StorageType_SSD,1000.0M,<250M,125.0M,No,8000
+g2.8xlarge,EC2Family_Accelerated,EC2Type_G2,EC2Type_G2_8xLarge,60.0G,32,104,3.25,1.88G,4,NVIDIA GRID K520,Intel Xeon E5-2670,240G,StorageType_SSD,unset,<1G,0M,No,0
+g3.16xlarge,EC2Family_Accelerated,EC2Type_G3,EC2Type_G3_16xLarge,488.0G,64,201,3.141,7.62G,4,NVIDIA Tesla M60,Intel Xeon E5-2686 v4,na,StorageType_EC2_EBSOnly,14000.0M,25G,1750.0M,na,80000
+g3.4xlarge,EC2Family_Accelerated,EC2Type_G3,EC2Type_G3_4xLarge,122.0G,16,58,3.625,7.62G,1,NVIDIA Tesla M60,Intel Xeon E5-2686 v4,na,StorageType_EC2_EBSOnly,3500.0M,<10G,437.5M,na,20000
+g3.8xlarge,EC2Family_Accelerated,EC2Type_G3,EC2Type_G3_8xLarge,244.0G,32,97,3.031,7.62G,2,NVIDIA Tesla M60,Intel Xeon E5-2686 v4,na,StorageType_EC2_EBSOnly,7000.0M,10G,875.0M,na,40000
+g3s.xlarge,EC2Family_Accelerated,EC2Type_G3S,EC2Type_G3S_xLarge,30.5G,4,13,3.25,7.62G,1,NVIDIA Tesla M60,Intel Xeon E5-2686 v4,na,StorageType_EC2_EBSOnly,850.0M,<10G,106.25M,na,5000
+g4ad.16xlarge,EC2Family_Accelerated,EC2Type_G4AD,EC2Type_G4AD_16xLarge,256.0G,64,0,0,4.00G,4,AMD Radeon Pro V520,AMD EPYC 7R32,2400G,StorageType_EC2_NVMeSSD,6300.0M,25G,787.5M,Yes,26667
+g4ad.2xlarge,EC2Family_Accelerated,EC2Type_G4AD,EC2Type_G4AD_2xLarge,32.0G,8,0,0,4.00G,1,AMD Radeon Pro V520,AMD EPYC 7R32,300G,StorageType_SSD,3170.0M,<10G,396.25M,Yes,13333
+g4ad.4xlarge,EC2Family_Accelerated,EC2Type_G4AD,EC2Type_G4AD_4xLarge,64.0G,16,0,0,4.00G,1,AMD Radeon Pro V520,AMD EPYC 7R32,600G,StorageType_SSD,3170.0M,<10G,396.25M,Yes,13333
+g4ad.8xlarge,EC2Family_Accelerated,EC2Type_G4AD,EC2Type_G4AD_8xLarge,128.0G,32,0,0,4.00G,2,AMD Radeon Pro V520,AMD EPYC 7R32,1200G,StorageType_SSD,3170.0M,15G,396.25M,Yes,13333
+g4ad.xlarge,EC2Family_Accelerated,EC2Type_G4AD,EC2Type_G4AD_xLarge,16.0G,4,0,0,4.00G,1,AMD Radeon Pro V520,AMD EPYC 7R32,150G,StorageType_SSD,3170.0M,<10G,396.25M,Yes,13333
+g4dn.12xlarge,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_12xLarge,192.0G,48,0,0,4.00G,4,NVIDIA T4 Tensor Core,Intel Xeon Family,900G,StorageType_SSD,9500.0M,50G,1187.5M,Yes,40000
+g4dn.16xlarge,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_16xLarge,256.0G,64,0,0,4.00G,1,NVIDIA T4 Tensor Core,Intel Xeon Family,900G,StorageType_SSD,9500.0M,50G,1187.5M,Yes,40000
+g4dn.2xlarge,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_2xLarge,32.0G,8,0,0,4.00G,1,NVIDIA T4 Tensor Core,Intel Xeon Family,225G,StorageType_SSD,3500.0M,<25G,437.5M,Yes,20000
+g4dn.4xlarge,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_4xLarge,64.0G,16,0,0,4.00G,1,NVIDIA T4 Tensor Core,Intel Xeon Family,225G,StorageType_SSD,4750.0M,<25G,593.75M,Yes,20000
+g4dn.8xlarge,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_8xLarge,128.0G,32,0,0,4.00G,1,NVIDIA T4 Tensor Core,Intel Xeon Family,900G,StorageType_SSD,9500.0M,50G,1187.5M,Yes,40000
+g4dn.metal,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_Metal,384.0G,96,0,0,4.00G,8,NVIDIA T4 Tensor Core,Intel Xeon Family,1800G,StorageType_EC2_NVMeSSD,19000.0M,100G,2375.0M,Yes,80000
+g4dn.xlarge,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_xLarge,16.0G,4,0,0,4.00G,1,NVIDIA T4 Tensor Core,Intel Xeon Family,125G,StorageType_SSD,3500.0M,<25G,437.5M,Yes,20000
+g5.12xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_12xLarge,192.0G,48,0,0,4.00G,4,NVIDIA A10G,AMD EPYC 7R32,3800G,StorageType_SSD,16000.0M,40G,2000.0M,Yes,65000
+g5.16xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_16xLarge,256.0G,64,0,0,4.00G,1,NVIDIA A10G,AMD EPYC 7R32,1900G,StorageType_SSD,16000.0M,25G,2000.0M,Yes,65000
+g5.24xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_24xLarge,384.0G,96,0,0,4.00G,4,NVIDIA A10G,AMD EPYC 7R32,3800G,StorageType_SSD,19000.0M,50G,2375.0M,Yes,80000
+g5.2xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_2xLarge,32.0G,8,0,0,4.00G,1,NVIDIA A10G,AMD EPYC 7R32,450G,StorageType_SSD,3500.0M,<10G,437.5M,Yes,15000
+g5.48xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_48xLarge,768.0G,192,0,0,4.00G,8,NVIDIA A10G,AMD EPYC 7R32,7600G,StorageType_EC2_NVMeSSD,19000.0M,100G,2375.0M,Yes,80000
+g5.4xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_4xLarge,64.0G,16,0,0,4.00G,1,NVIDIA A10G,AMD EPYC 7R32,600G,StorageType_SSD,4750.0M,<25G,593.75M,Yes,20000
+g5.8xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_8xLarge,128.0G,32,0,0,4.00G,1,NVIDIA A10G,AMD EPYC 7R32,900G,StorageType_SSD,16000.0M,25G,2000.0M,Yes,65000
+g5.xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_xLarge,16.0G,4,0,0,4.00G,1,NVIDIA A10G,AMD EPYC 7R32,250G,StorageType_SSD,3500.0M,<10G,437.5M,Yes,15000
+g5g.16xlarge,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_16xLarge,128.0G,64,0,0,2.00G,2,NVIDIA T4G Tensor Core,AWS Graviton2,na,StorageType_EC2_EBSOnly,19000.0M,25G,2375.0M,na,80000
+g5g.2xlarge,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_2xLarge,16.0G,8,0,0,2.00G,1,NVIDIA T4G Tensor Core,AWS Graviton2,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
+g5g.4xlarge,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_4xLarge,32.0G,16,0,0,2.00G,1,NVIDIA T4G Tensor Core,AWS Graviton2,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
+g5g.8xlarge,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_8xLarge,64.0G,32,0,0,2.00G,1,NVIDIA T4G Tensor Core,AWS Graviton2,na,StorageType_EC2_EBSOnly,9500.0M,12G,1187.5M,na,40000
+g5g.metal,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_Metal,128.0G,64,0,0,2.00G,2,NVIDIA T4G Tensor Core,AWS Graviton2,na,StorageType_EC2_EBSOnly,19000.0M,25G,2375.0M,na,80000
+g5g.xlarge,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_xLarge,8.0G,4,0,0,2.00G,1,NVIDIA T4G Tensor Core,AWS Graviton2,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
+h1.16xlarge,EC2Family_Storage,EC2Type_H1,EC2Type_H1_16xLarge,256.0G,64,201,3.141,4.00G,0,na,Intel Xeon E5-2686 v4,16000G,StorageType_HDD,14000.0M,25G,1750.0M,na,80000
+h1.2xlarge,EC2Family_Storage,EC2Type_H1,EC2Type_H1_2xLarge,32.0G,8,31,3.875,4.00G,0,na,Intel Xeon E5-2686 v4,2000G,StorageType_HDD,1750.0M,<10G,218.75M,na,12000
+h1.4xlarge,EC2Family_Storage,EC2Type_H1,EC2Type_H1_4xLarge,64.0G,16,58,3.625,4.00G,0,na,Intel Xeon E5-2686 v4,4000G,StorageType_HDD,3500.0M,<10G,437.5M,na,20000
+h1.8xlarge,EC2Family_Storage,EC2Type_H1,EC2Type_H1_8xLarge,128.0G,32,97,3.031,4.00G,0,na,Intel Xeon E5-2686 v4,8000G,StorageType_HDD,7000.0M,10G,875.0M,na,40000
+hpc6a.48xlarge,EC2Family_Compute,EC2Type_HPC6A,EC2Type_HPC6A_48xLarge,384.0G,96,0,0,4.00G,0,na,AMD EPYC 7R13,unknown,unknown,unknown,25G,unknown,unknown,unknown
+hs1.8xlarge,EC2Family_Storage,EC2Type_HS1,EC2Type_HS1_8xLarge,117.0G,16,35,2.188,7.31G,0,na,Intel Xeon E5-2650,48000G,StorageType_HDD,unset,10G,0M,na,0
+i2.2xlarge,EC2Family_Storage,EC2Type_I2,EC2Type_I2_2xLarge,61.0G,8,27,3.375,7.62G,0,na,Intel Xeon E5-2670 v2,1600G,StorageType_SSD,1000.0M,<1G,125.0M,Yes,8000
+i2.4xlarge,EC2Family_Storage,EC2Type_I2,EC2Type_I2_4xLarge,122.0G,16,53,3.312,7.62G,0,na,Intel Xeon E5-2670 v2,3200G,StorageType_SSD,2000.0M,<1G,250.0M,Yes,16000
+i2.8xlarge,EC2Family_Storage,EC2Type_I2,EC2Type_I2_8xLarge,244.0G,32,104,3.25,7.62G,0,na,Intel Xeon E5-2670 v2,6400G,StorageType_SSD,unset,10G,0M,Yes,0
+i2.large,EC2Family_Storage,EC2Type_I2,EC2Type_I2_Large,15.0G,2,7,3.5,7.50G,0,na,Intel Xeon E5-2670 v2,na,StorageType_EC2_EBSOnly,unset,<250M,0M,na,0
+i2.xlarge,EC2Family_Storage,EC2Type_I2,EC2Type_I2_xLarge,30.5G,4,14,3.5,7.62G,0,na,Intel Xeon E5-2670 v2,800G,StorageType_SSD,500.0M,<250M,62.5M,Yes,4000
+i3.16xlarge,EC2Family_Storage,EC2Type_I3,EC2Type_I3_16xLarge,488.0G,64,201,3.141,7.62G,0,na,Intel Xeon E5-2686 v4,15200G,StorageType_EC2_NVMeSSD,14000.0M,25G,1750.0M,Yes,65000
+i3.2xlarge,EC2Family_Storage,EC2Type_I3,EC2Type_I3_2xLarge,61.0G,8,31,3.875,7.62G,0,na,Intel Xeon E5-2686 v4,1900G,StorageType_SSD,1700.0M,<10G,212.5M,Yes,12000
+i3.4xlarge,EC2Family_Storage,EC2Type_I3,EC2Type_I3_4xLarge,122.0G,16,58,3.625,7.62G,0,na,Intel Xeon E5-2686 v4,3800G,StorageType_EC2_NVMeSSD,3500.0M,<10G,437.5M,Yes,16000
+i3.8xlarge,EC2Family_Storage,EC2Type_I3,EC2Type_I3_8xLarge,244.0G,32,97,3.031,7.62G,0,na,Intel Xeon E5-2686 v4,7600G,StorageType_EC2_NVMeSSD,7000.0M,10G,875.0M,Yes,32500
+i3.large,EC2Family_Storage,EC2Type_I3,EC2Type_I3_Large,15.25G,2,8,4,7.62G,0,na,Intel Xeon E5-2686 v4,475G,StorageType_SSD,425.0M,<10G,53.13M,Yes,3000
+i3.metal,EC2Family_Storage,EC2Type_I3,EC2Type_I3_Metal,512.0G,72,208,2.889,7.11G,0,na,Intel Xeon E5-2686 v4,15200G,StorageType_EC2_NVMeSSD,19000.0M,25G,2375.0M,Yes,80000
+i3.xlarge,EC2Family_Storage,EC2Type_I3,EC2Type_I3_xLarge,30.5G,4,16,4,7.62G,0,na,Intel Xeon E5-2686 v4,950G,StorageType_SSD,850.0M,<10G,106.25M,Yes,6000
+i3en.12xlarge,EC2Family_Storage,EC2Type_I3EN,EC2Type_I3EN_12xLarge,384.0G,48,168,3.5,8.00G,0,na,Intel Xeon Platinum 8175,30000G,StorageType_EC2_NVMeSSD,9500.0M,50G,1187.5M,Yes,40000
+i3en.24xlarge,EC2Family_Storage,EC2Type_I3EN,EC2Type_I3EN_24xLarge,768.0G,96,337,3.51,8.00G,0,na,Intel Xeon Platinum 8175,60000G,StorageType_EC2_NVMeSSD,19000.0M,100G,2375.0M,Yes,80000
+i3en.2xlarge,EC2Family_Storage,EC2Type_I3EN,EC2Type_I3EN_2xLarge,64.0G,8,37,4.625,8.00G,0,na,Intel Xeon Platinum 8175,5000G,StorageType_EC2_NVMeSSD,4750.0M,<25G,593.75M,Yes,20000
+i3en.3xlarge,EC2Family_Storage,EC2Type_I3EN,EC2Type_I3EN_3xLarge,96.0G,12,0,0,8.00G,0,na,Intel Xeon Platinum 8175,7500G,StorageType_SSD,4750.0M,<25G,593.75M,Yes,20000
+i3en.6xlarge,EC2Family_Storage,EC2Type_I3EN,EC2Type_I3EN_6xLarge,192.0G,24,0,0,8.00G,0,na,Intel Xeon Platinum 8175,15000G,StorageType_EC2_NVMeSSD,4750.0M,25G,593.75M,Yes,20000
+i3en.large,EC2Family_Storage,EC2Type_I3EN,EC2Type_I3EN_Large,16.0G,2,10,5,8.00G,0,na,Intel Xeon Platinum 8175,1250G,StorageType_SSD,4750.0M,<25G,593.75M,Yes,20000
+i3en.metal,EC2Family_Storage,EC2Type_I3EN,EC2Type_I3EN_Metal,768.0G,96,0,0,8.00G,0,na,Intel Xeon Platinum 8175,60000G,StorageType_EC2_NVMeSSD,19000.0M,100G,2375.0M,Yes,80000
+i3en.xlarge,EC2Family_Storage,EC2Type_I3EN,EC2Type_I3EN_xLarge,32.0G,4,0,0,8.00G,0,na,Intel Xeon Platinum 8175,2500G,StorageType_SSD,4750.0M,<25G,593.75M,Yes,20000
+i4i.16xlarge,EC2Family_Storage,EC2Type_I4I,EC2Type_I4I_16xLarge,512.0G,64,0,0,8.00G,0,na,Intel Xeon 8375C,15000G,StorageType_EC2_NVMeSSD,20000.0M,37.5G,2500.0M,Yes,80000
+i4i.2xlarge,EC2Family_Storage,EC2Type_I4I,EC2Type_I4I_2xLarge,64.0G,8,0,0,8.00G,0,na,Intel Xeon 8375C,1875G,StorageType_SSD,10000.0M,<12G,1250.0M,Yes,40000
+i4i.32xlarge,EC2Family_Storage,EC2Type_I4I,EC2Type_I4I_32xLarge,1024.0G,128,0,0,8.00G,0,na,Intel Xeon 8375C,30000G,StorageType_EC2_NVMeSSD,40000.0M,75G,5000.0M,Yes,160000
+i4i.4xlarge,EC2Family_Storage,EC2Type_I4I,EC2Type_I4I_4xLarge,128.0G,16,0,0,8.00G,0,na,Intel Xeon 8375C,3750G,StorageType_SSD,10000.0M,<25G,1250.0M,Yes,40000
+i4i.8xlarge,EC2Family_Storage,EC2Type_I4I,EC2Type_I4I_8xLarge,256.0G,32,0,0,8.00G,0,na,Intel Xeon 8375C,7500G,StorageType_EC2_NVMeSSD,10000.0M,18.75G,1250.0M,Yes,40000
+i4i.large,EC2Family_Storage,EC2Type_I4I,EC2Type_I4I_Large,16.0G,2,0,0,8.00G,0,na,Intel Xeon 8375C,468G,StorageType_SSD,10000.0M,<10G,1250.0M,Yes,40000
+i4i.metal,EC2Family_Storage,EC2Type_I4I,EC2Type_I4I_Metal,1024.0G,128,0,0,8.00G,0,na,Intel Xeon 8375C,30000G,StorageType_EC2_NVMeSSD,40000.0M,75G,5000.0M,Yes,160000
+i4i.xlarge,EC2Family_Storage,EC2Type_I4I,EC2Type_I4I_xLarge,32.0G,4,0,0,8.00G,0,na,Intel Xeon 8375C,937G,StorageType_SSD,10000.0M,<10G,1250.0M,Yes,40000
+im4gn.16xlarge,EC2Family_Storage,EC2Type_IM4GN,EC2Type_IM4GN_16xLarge,256.0G,64,0,0,4.00G,0,na,AWS Graviton2,30000G,StorageType_EC2_NVMeSSD,38000.0M,100G,4750.0M,Yes,160000
+im4gn.2xlarge,EC2Family_Storage,EC2Type_IM4GN,EC2Type_IM4GN_2xLarge,32.0G,8,0,0,4.00G,0,na,AWS Graviton2,3750G,StorageType_SSD,9500.0M,<25G,1187.5M,Yes,40000
+im4gn.4xlarge,EC2Family_Storage,EC2Type_IM4GN,EC2Type_IM4GN_4xLarge,64.0G,16,0,0,4.00G,0,na,AWS Graviton2,7500G,StorageType_SSD,9500.0M,25G,1187.5M,Yes,40000
+im4gn.8xlarge,EC2Family_Storage,EC2Type_IM4GN,EC2Type_IM4GN_8xLarge,128.0G,32,0,0,4.00G,0,na,AWS Graviton2,15000G,StorageType_EC2_NVMeSSD,19000.0M,50G,2375.0M,Yes,80000
+im4gn.large,EC2Family_Storage,EC2Type_IM4GN,EC2Type_IM4GN_Large,8.0G,2,0,0,4.00G,0,na,AWS Graviton2,937G,StorageType_SSD,9500.0M,<25G,1187.5M,Yes,40000
+im4gn.xlarge,EC2Family_Storage,EC2Type_IM4GN,EC2Type_IM4GN_xLarge,16.0G,4,0,0,4.00G,0,na,AWS Graviton2,1875G,StorageType_SSD,9500.0M,<25G,1187.5M,Yes,40000
+inf1.24xlarge,EC2Family_Accelerated,EC2Type_INF1,EC2Type_INF1_24xLarge,192.0G,96,0,0,2.00G,0,na,Intel Xeon Platinum 8275CL,na,StorageType_EC2_EBSOnly,19000.0M,100G,2375.0M,na,80000
+inf1.2xlarge,EC2Family_Accelerated,EC2Type_INF1,EC2Type_INF1_2xLarge,16.0G,8,0,0,2.00G,0,na,Intel Xeon Platinum 8275CL,na,StorageType_EC2_EBSOnly,4750.0M,<25G,593.75M,na,20000
+inf1.6xlarge,EC2Family_Accelerated,EC2Type_INF1,EC2Type_INF1_6xLarge,48.0G,24,0,0,2.00G,0,na,Intel Xeon Platinum 8275CL,na,StorageType_EC2_EBSOnly,4750.0M,25G,593.75M,na,20000
+inf1.xlarge,EC2Family_Accelerated,EC2Type_INF1,EC2Type_INF1_xLarge,8.0G,4,0,0,2.00G,0,na,Intel Xeon Platinum 8275CL,na,StorageType_EC2_EBSOnly,4750.0M,<25G,593.75M,na,20000
+is4gen.2xlarge,EC2Family_Storage,EC2Type_IS4GEN,EC2Type_IS4GEN_2xLarge,48.0G,8,0,0,6.00G,0,na,AWS Graviton2,7500G,StorageType_SSD,9500.0M,<25G,1187.5M,Yes,40000
+is4gen.4xlarge,EC2Family_Storage,EC2Type_IS4GEN,EC2Type_IS4GEN_4xLarge,96.0G,16,0,0,6.00G,0,na,AWS Graviton2,15000G,StorageType_EC2_NVMeSSD,9500.0M,25G,1187.5M,Yes,40000
+is4gen.8xlarge,EC2Family_Storage,EC2Type_IS4GEN,EC2Type_IS4GEN_8xLarge,192.0G,32,0,0,6.00G,0,na,AWS Graviton2,30000G,StorageType_EC2_NVMeSSD,19000.0M,50G,2375.0M,Yes,80000
+is4gen.large,EC2Family_Storage,EC2Type_IS4GEN,EC2Type_IS4GEN_Large,12.0G,2,0,0,6.00G,0,na,AWS Graviton2,1875G,StorageType_SSD,9500.0M,<25G,1187.5M,Yes,40000
+is4gen.medium,EC2Family_Storage,EC2Type_IS4GEN,EC2Type_IS4GEN_Medium,6.0G,1,0,0,6.00G,0,na,AWS Graviton2,937G,StorageType_SSD,9500.0M,<25G,1187.5M,Yes,40000
+is4gen.xlarge,EC2Family_Storage,EC2Type_IS4GEN,EC2Type_IS4GEN_xLarge,24.0G,4,0,0,6.00G,0,na,AWS Graviton2,3750G,StorageType_SSD,9500.0M,<25G,1187.5M,Yes,40000
+m1.large,EC2Family_General,EC2Type_M1,EC2Type_M1_Large,7.5G,2,4,2,3.75G,0,na,Intel Xeon Family,840G,StorageType_HDD,500.0M,<250M,62.5M,na,4000
+m1.medium,EC2Family_General,EC2Type_M1,EC2Type_M1_Medium,3.75G,1,2,2,3.75G,0,na,Intel Xeon Family,410G,StorageType_HDD,unset,<250M,0M,na,0
+m1.small,EC2Family_General,EC2Type_M1,EC2Type_M1_Small,1.7G,1,1,1,1.70G,0,na,Intel Xeon Family,160G,StorageType_HDD,unset,<100M,0M,na,0
+m1.xlarge,EC2Family_General,EC2Type_M1,EC2Type_M1_xLarge,15.0G,4,8,2,3.75G,0,na,Intel Xeon Family,1680G,StorageType_HDD,1000.0M,<1G,125.0M,na,8000
+m2.2xlarge,EC2Family_General,EC2Type_M2,EC2Type_M2_2xLarge,34.2G,4,13,3.25,8.55G,0,na,Intel Xeon Family,850G,StorageType_HDD,500.0M,<250M,62.5M,na,4000
+m2.4xlarge,EC2Family_General,EC2Type_M2,EC2Type_M2_4xLarge,68.4G,8,26,3.25,8.55G,0,na,Intel Xeon Family,1680G,StorageType_HDD,1000.0M,<1G,125.0M,na,8000
+m2.xlarge,EC2Family_General,EC2Type_M2,EC2Type_M2_xLarge,17.1G,2,6.5,3.25,8.55G,0,na,Intel Xeon Family,420G,StorageType_HDD,unset,<250M,0M,na,0
+m3.2xlarge,EC2Family_General,EC2Type_M3,EC2Type_M3_2xLarge,30.0G,8,26,3.25,3.75G,0,na,Intel Xeon E5-2670 v2,160G,StorageType_SSD,1000.0M,<1G,125.0M,No,8000
+m3.large,EC2Family_General,EC2Type_M3,EC2Type_M3_Large,7.5G,2,6.5,3.25,3.75G,0,na,Intel Xeon E5-2670 v2,32G,StorageType_SSD,unset,<250M,0M,No,0
+m3.medium,EC2Family_General,EC2Type_M3,EC2Type_M3_Medium,3.75G,1,3,3,3.75G,0,na,Intel Xeon E5-2670 v2,4G,StorageType_SSD,unset,<250M,0M,No,0
+m3.xlarge,EC2Family_General,EC2Type_M3,EC2Type_M3_xLarge,15.0G,4,13,3.25,3.75G,0,na,Intel Xeon E5-2670 v2,80G,StorageType_SSD,500.0M,<1G,62.5M,No,4000
+m4.10xlarge,EC2Family_General,EC2Type_M4,EC2Type_M4_10xLarge,160.0G,40,124.5,3.112,4.00G,0,na,Intel Xeon E5-2676 v3,na,StorageType_EC2_EBSOnly,8000.0M,10G,500.0M,na,32000
+m4.16xlarge,EC2Family_General,EC2Type_M4,EC2Type_M4_16xLarge,256.0G,64,188,2.938,4.00G,0,na,Intel Xeon E5-2686 v4,na,StorageType_EC2_EBSOnly,10000.0M,25G,1250.0M,na,65000
+m4.2xlarge,EC2Family_General,EC2Type_M4,EC2Type_M4_2xLarge,32.0G,8,26,3.25,4.00G,0,na,Intel Xeon E5-2676 v3,na,StorageType_EC2_EBSOnly,1000.0M,<1G,125.0M,na,8000
+m4.4xlarge,EC2Family_General,EC2Type_M4,EC2Type_M4_4xLarge,64.0G,16,53.5,3.344,4.00G,0,na,Intel Xeon E5-2676 v3,na,StorageType_EC2_EBSOnly,2000.0M,<1G,250.0M,na,16000
+m4.large,EC2Family_General,EC2Type_M4,EC2Type_M4_Large,8.0G,2,6.5,3.25,4.00G,0,na,Intel Xeon E5-2676 v3,na,StorageType_EC2_EBSOnly,450.0M,<250M,56.25M,na,3600
+m4.xlarge,EC2Family_General,EC2Type_M4,EC2Type_M4_xLarge,16.0G,4,13,3.25,4.00G,0,na,Intel Xeon E5-2676 v3,na,StorageType_EC2_EBSOnly,750.0M,<1G,93.75M,na,6000
+m5.12xlarge,EC2Family_General,EC2Type_M5,EC2Type_M5_12xLarge,192.0G,48,168,3.5,4.00G,0,na,Intel Xeon Platinum 8175,na,StorageType_EC2_EBSOnly,9500.0M,10G,1187.5M,na,40000
+m5.16xlarge,EC2Family_General,EC2Type_M5,EC2Type_M5_16xLarge,256.0G,64,256,4,4.00G,0,na,Intel Xeon Platinum 8175,na,StorageType_EC2_EBSOnly,13600.0M,20G,1700.0M,na,60000
+m5.24xlarge,EC2Family_General,EC2Type_M5,EC2Type_M5_24xLarge,384.0G,96,337,3.51,4.00G,0,na,Intel Xeon Platinum 8175,na,StorageType_EC2_EBSOnly,19000.0M,25G,2375.0M,na,80000
+m5.2xlarge,EC2Family_General,EC2Type_M5,EC2Type_M5_2xLarge,32.0G,8,37,4.625,4.00G,0,na,Intel Xeon Platinum 8175,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,18750
+m5.4xlarge,EC2Family_General,EC2Type_M5,EC2Type_M5_4xLarge,64.0G,16,70,4.375,4.00G,0,na,Intel Xeon Platinum 8175,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,18750
+m5.8xlarge,EC2Family_General,EC2Type_M5,EC2Type_M5_8xLarge,128.0G,32,128,4,4.00G,0,na,Intel Xeon Platinum 8175,na,StorageType_EC2_EBSOnly,6800.0M,10G,850.0M,na,30000
+m5.large,EC2Family_General,EC2Type_M5,EC2Type_M5_Large,8.0G,2,10,5,4.00G,0,na,Intel Xeon Platinum 8175,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,18750
+m5.metal,EC2Family_General,EC2Type_M5,EC2Type_M5_Metal,384.0G,96,345,3.594,4.00G,0,na,Intel Xeon Platinum 8175,na,StorageType_EC2_EBSOnly,19000.0M,25G,2375.0M,na,80000
+m5.xlarge,EC2Family_General,EC2Type_M5,EC2Type_M5_xLarge,16.0G,4,16,4,4.00G,0,na,Intel Xeon Platinum 8175,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,18750
+m5a.12xlarge,EC2Family_General,EC2Type_M5A,EC2Type_M5A_12xLarge,192.0G,48,0,0,4.00G,0,na,AMD EPYC 7571,na,StorageType_EC2_EBSOnly,6780.0M,10G,847.5M,na,30000
+m5a.16xlarge,EC2Family_General,EC2Type_M5A,EC2Type_M5A_16xLarge,256.0G,64,0,0,4.00G,0,na,AMD EPYC 7571,na,StorageType_EC2_EBSOnly,9500.0M,12G,1187.5M,na,40000
+m5a.24xlarge,EC2Family_General,EC2Type_M5A,EC2Type_M5A_24xLarge,384.0G,96,0,0,4.00G,0,na,AMD EPYC 7571,na,StorageType_EC2_EBSOnly,13570.0M,20G,1696.25M,na,60000
+m5a.2xlarge,EC2Family_General,EC2Type_M5A,EC2Type_M5A_2xLarge,32.0G,8,0,0,4.00G,0,na,AMD EPYC 7571,na,StorageType_EC2_EBSOnly,2880.0M,<10G,360.0M,na,16000
+m5a.4xlarge,EC2Family_General,EC2Type_M5A,EC2Type_M5A_4xLarge,64.0G,16,0,0,4.00G,0,na,AMD EPYC 7571,na,StorageType_EC2_EBSOnly,2880.0M,<10G,360.0M,na,16000
+m5a.8xlarge,EC2Family_General,EC2Type_M5A,EC2Type_M5A_8xLarge,128.0G,32,0,0,4.00G,0,na,AMD EPYC 7571,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
+m5a.large,EC2Family_General,EC2Type_M5A,EC2Type_M5A_Large,8.0G,2,0,0,4.00G,0,na,AMD EPYC 7571,na,StorageType_EC2_EBSOnly,2880.0M,<10G,360.0M,na,16000
+m5a.xlarge,EC2Family_General,EC2Type_M5A,EC2Type_M5A_xLarge,16.0G,4,0,0,4.00G,0,na,AMD EPYC 7571,na,StorageType_EC2_EBSOnly,2880.0M,<10G,360.0M,na,16000
+m5ad.12xlarge,EC2Family_General,EC2Type_M5AD,EC2Type_M5AD_12xLarge,192.0G,48,0,0,4.00G,0,na,AMD EPYC 7571,1800G,StorageType_EC2_NVMeSSD,6780.0M,10G,847.5M,Yes,30000
+m5ad.16xlarge,EC2Family_General,EC2Type_M5AD,EC2Type_M5AD_16xLarge,256.0G,64,0,0,4.00G,0,na,AMD EPYC 7571,2400G,StorageType_EC2_NVMeSSD,9500.0M,12G,1187.5M,Yes,40000
+m5ad.24xlarge,EC2Family_General,EC2Type_M5AD,EC2Type_M5AD_24xLarge,384.0G,96,0,0,4.00G,0,na,AMD EPYC 7571,3600G,StorageType_EC2_NVMeSSD,13570.0M,20G,1696.25M,Yes,60000
+m5ad.2xlarge,EC2Family_General,EC2Type_M5AD,EC2Type_M5AD_2xLarge,32.0G,8,0,0,4.00G,0,na,AMD EPYC 7571,300G,StorageType_SSD,2880.0M,<10G,360.0M,Yes,16000
+m5ad.4xlarge,EC2Family_General,EC2Type_M5AD,EC2Type_M5AD_4xLarge,64.0G,16,0,0,4.00G,0,na,AMD EPYC 7571,600G,StorageType_EC2_NVMeSSD,2880.0M,<10G,360.0M,Yes,16000
+m5ad.8xlarge,EC2Family_General,EC2Type_M5AD,EC2Type_M5AD_8xLarge,128.0G,32,0,0,4.00G,0,na,AMD EPYC 7571,1200G,StorageType_EC2_NVMeSSD,4750.0M,<10G,593.75M,Yes,20000
+m5ad.large,EC2Family_General,EC2Type_M5AD,EC2Type_M5AD_Large,8.0G,2,0,0,4.00G,0,na,AMD EPYC 7571,75G,StorageType_SSD,2880.0M,<10G,360.0M,Yes,16000
+m5ad.xlarge,EC2Family_General,EC2Type_M5AD,EC2Type_M5AD_xLarge,16.0G,4,0,0,4.00G,0,na,AMD EPYC 7571,150G,StorageType_SSD,2880.0M,<10G,360.0M,Yes,16000
+m5d.12xlarge,EC2Family_General,EC2Type_M5D,EC2Type_M5D_12xLarge,192.0G,48,168,3.5,4.00G,0,na,Intel Xeon Platinum 8175,1800G,StorageType_EC2_NVMeSSD,9500.0M,10G,1187.5M,Yes,40000
+m5d.16xlarge,EC2Family_General,EC2Type_M5D,EC2Type_M5D_16xLarge,256.0G,64,256,4,4.00G,0,na,Intel Xeon Platinum 8175,2400G,StorageType_EC2_NVMeSSD,13600.0M,20G,1700.0M,Yes,60000
+m5d.24xlarge,EC2Family_General,EC2Type_M5D,EC2Type_M5D_24xLarge,384.0G,96,337,3.51,4.00G,0,na,Intel Xeon Platinum 8175,3600G,StorageType_EC2_NVMeSSD,19000.0M,25G,2375.0M,Yes,80000
+m5d.2xlarge,EC2Family_General,EC2Type_M5D,EC2Type_M5D_2xLarge,32.0G,8,37,4.625,4.00G,0,na,Intel Xeon Platinum 8175,300G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,18750
+m5d.4xlarge,EC2Family_General,EC2Type_M5D,EC2Type_M5D_4xLarge,64.0G,16,70,4.375,4.00G,0,na,Intel Xeon Platinum 8175,600G,StorageType_EC2_NVMeSSD,4750.0M,<10G,593.75M,Yes,18750
+m5d.8xlarge,EC2Family_General,EC2Type_M5D,EC2Type_M5D_8xLarge,128.0G,32,128,4,4.00G,0,na,Intel Xeon Platinum 8175,1200G,StorageType_EC2_NVMeSSD,6800.0M,10G,850.0M,Yes,30000
+m5d.large,EC2Family_General,EC2Type_M5D,EC2Type_M5D_Large,8.0G,2,10,5,4.00G,0,na,Intel Xeon Platinum 8175,75G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,18750
+m5d.metal,EC2Family_General,EC2Type_M5D,EC2Type_M5D_Metal,384.0G,96,345,3.594,4.00G,0,na,Intel Xeon Platinum 8175,3600G,StorageType_EC2_NVMeSSD,19000.0M,25G,2375.0M,Yes,80000
+m5d.xlarge,EC2Family_General,EC2Type_M5D,EC2Type_M5D_xLarge,16.0G,4,16,4,4.00G,0,na,Intel Xeon Platinum 8175,150G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,18750
+m5dn.12xlarge,EC2Family_General,EC2Type_M5DN,EC2Type_M5DN_12xLarge,192.0G,48,0,0,4.00G,0,na,Intel Xeon Platinum 8259,1800G,StorageType_EC2_NVMeSSD,9500.0M,50G,1187.5M,Yes,40000
+m5dn.16xlarge,EC2Family_General,EC2Type_M5DN,EC2Type_M5DN_16xLarge,256.0G,64,0,0,4.00G,0,na,Intel Xeon Platinum 8259,2400G,StorageType_EC2_NVMeSSD,13600.0M,75G,1700.0M,Yes,60000
+m5dn.24xlarge,EC2Family_General,EC2Type_M5DN,EC2Type_M5DN_24xLarge,384.0G,96,0,0,4.00G,0,na,Intel Xeon Platinum 8259,3600G,StorageType_EC2_NVMeSSD,19000.0M,100G,2375.0M,Yes,80000
+m5dn.2xlarge,EC2Family_General,EC2Type_M5DN,EC2Type_M5DN_2xLarge,32.0G,8,0,0,4.00G,0,na,Intel Xeon Platinum 8259,300G,StorageType_SSD,4750.0M,<25G,593.75M,Yes,18750
+m5dn.4xlarge,EC2Family_General,EC2Type_M5DN,EC2Type_M5DN_4xLarge,64.0G,16,0,0,4.00G,0,na,Intel Xeon Platinum 8259,600G,StorageType_EC2_NVMeSSD,4750.0M,<25G,593.75M,Yes,18750
+m5dn.8xlarge,EC2Family_General,EC2Type_M5DN,EC2Type_M5DN_8xLarge,128.0G,32,0,0,4.00G,0,na,Intel Xeon Platinum 8259,1200G,StorageType_EC2_NVMeSSD,6800.0M,25G,850.0M,Yes,30000
+m5dn.large,EC2Family_General,EC2Type_M5DN,EC2Type_M5DN_Large,8.0G,2,0,0,4.00G,0,na,Intel Xeon Platinum 8259,75G,StorageType_SSD,4750.0M,<25G,593.75M,Yes,18750
+m5dn.metal,EC2Family_General,EC2Type_M5DN,EC2Type_M5DN_Metal,384.0G,96,0,0,4.00G,0,na,Intel Xeon Platinum 8259,3600G,StorageType_EC2_NVMeSSD,19000.0M,100G,2375.0M,Yes,80000
+m5dn.xlarge,EC2Family_General,EC2Type_M5DN,EC2Type_M5DN_xLarge,16.0G,4,0,0,4.00G,0,na,Intel Xeon Platinum 8259,150G,StorageType_SSD,4750.0M,<25G,593.75M,Yes,18750
+m5n.12xlarge,EC2Family_General,EC2Type_M5N,EC2Type_M5N_12xLarge,192.0G,48,0,0,4.00G,0,na,Intel Xeon Platinum 8259,na,StorageType_EC2_EBSOnly,9500.0M,50G,1187.5M,na,40000
+m5n.16xlarge,EC2Family_General,EC2Type_M5N,EC2Type_M5N_16xLarge,256.0G,64,0,0,4.00G,0,na,Intel Xeon Platinum 8259,na,StorageType_EC2_EBSOnly,13600.0M,75G,1700.0M,na,60000
+m5n.24xlarge,EC2Family_General,EC2Type_M5N,EC2Type_M5N_24xLarge,384.0G,96,0,0,4.00G,0,na,Intel Xeon Platinum 8259,na,StorageType_EC2_EBSOnly,19000.0M,100G,2375.0M,na,80000
+m5n.2xlarge,EC2Family_General,EC2Type_M5N,EC2Type_M5N_2xLarge,32.0G,8,0,0,4.00G,0,na,Intel Xeon Platinum 8259,na,StorageType_EC2_EBSOnly,4750.0M,<25G,593.75M,na,18750
+m5n.4xlarge,EC2Family_General,EC2Type_M5N,EC2Type_M5N_4xLarge,64.0G,16,0,0,4.00G,0,na,Intel Xeon Platinum 8259,na,StorageType_EC2_EBSOnly,4750.0M,<25G,593.75M,na,18750
+m5n.8xlarge,EC2Family_General,EC2Type_M5N,EC2Type_M5N_8xLarge,128.0G,32,0,0,4.00G,0,na,Intel Xeon Platinum 8259,na,StorageType_EC2_EBSOnly,6800.0M,25G,850.0M,na,30000
+m5n.large,EC2Family_General,EC2Type_M5N,EC2Type_M5N_Large,8.0G,2,0,0,4.00G,0,na,Intel Xeon Platinum 8259,na,StorageType_EC2_EBSOnly,4750.0M,<25G,593.75M,na,18750
+m5n.metal,EC2Family_General,EC2Type_M5N,EC2Type_M5N_Metal,384.0G,96,0,0,4.00G,0,na,Intel Xeon Platinum 8259,na,StorageType_EC2_EBSOnly,19000.0M,100G,2375.0M,na,80000
+m5n.xlarge,EC2Family_General,EC2Type_M5N,EC2Type_M5N_xLarge,16.0G,4,0,0,4.00G,0,na,Intel Xeon Platinum 8259,na,StorageType_EC2_EBSOnly,4750.0M,<25G,593.75M,na,18750
+m5zn.12xlarge,EC2Family_General,EC2Type_M5ZN,EC2Type_M5ZN_12xLarge,192.0G,48,0,0,4.00G,0,na,Intel Xeon Platinum 8252,na,StorageType_EC2_EBSOnly,19000.0M,100G,2375.0M,na,80000
+m5zn.2xlarge,EC2Family_General,EC2Type_M5ZN,EC2Type_M5ZN_2xLarge,32.0G,8,0,0,4.00G,0,na,Intel Xeon Platinum 8252,na,StorageType_EC2_EBSOnly,3170.0M,<25G,396.25M,na,13333
+m5zn.3xlarge,EC2Family_General,EC2Type_M5ZN,EC2Type_M5ZN_3xLarge,48.0G,12,0,0,4.00G,0,na,Intel Xeon Platinum 8252,na,StorageType_EC2_EBSOnly,4750.0M,<25G,593.75M,na,20000
+m5zn.6xlarge,EC2Family_General,EC2Type_M5ZN,EC2Type_M5ZN_6xLarge,96.0G,24,0,0,4.00G,0,na,Intel Xeon Platinum 8252,na,StorageType_EC2_EBSOnly,9500.0M,50G,1187.5M,na,40000
+m5zn.large,EC2Family_General,EC2Type_M5ZN,EC2Type_M5ZN_Large,8.0G,2,0,0,4.00G,0,na,Intel Xeon Platinum 8252,na,StorageType_EC2_EBSOnly,3170.0M,<25G,396.25M,na,13333
+m5zn.metal,EC2Family_General,EC2Type_M5ZN,EC2Type_M5ZN_Metal,192.0G,48,0,0,4.00G,0,na,Intel Xeon Platinum 8252,na,StorageType_EC2_EBSOnly,19000.0M,100G,2375.0M,na,80000
+m5zn.xlarge,EC2Family_General,EC2Type_M5ZN,EC2Type_M5ZN_xLarge,16.0G,4,0,0,4.00G,0,na,Intel Xeon Platinum 8252,na,StorageType_EC2_EBSOnly,3170.0M,<25G,396.25M,na,13333
+m6a.12xlarge,EC2Family_General,EC2Type_M6A,EC2Type_M6A_12xLarge,192.0G,48,0,0,4.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,10000.0M,18.75G,1250.0M,na,40000
+m6a.16xlarge,EC2Family_General,EC2Type_M6A,EC2Type_M6A_16xLarge,256.0G,64,0,0,4.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,13300.0M,25G,1662.5M,na,53333
+m6a.24xlarge,EC2Family_General,EC2Type_M6A,EC2Type_M6A_24xLarge,384.0G,96,0,0,4.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,20000.0M,37.5G,2500.0M,na,80000
+m6a.2xlarge,EC2Family_General,EC2Type_M6A,EC2Type_M6A_2xLarge,32.0G,8,0,0,4.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,6666.666664M,<12.5G,833.333333M,na,26667
+m6a.32xlarge,EC2Family_General,EC2Type_M6A,EC2Type_M6A_32xLarge,512.0G,128,0,0,4.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,26666.666664M,50G,3333.333333M,na,100000
+m6a.48xlarge,EC2Family_General,EC2Type_M6A,EC2Type_M6A_48xLarge,768.0G,192,0,0,4.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,40000.0M,50G,5000.0M,na,160000
+m6a.4xlarge,EC2Family_General,EC2Type_M6A,EC2Type_M6A_4xLarge,64.0G,16,0,0,4.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,6666.666664M,<12.5G,833.333333M,na,26667
+m6a.8xlarge,EC2Family_General,EC2Type_M6A,EC2Type_M6A_8xLarge,128.0G,32,0,0,4.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,6666.666664M,12.5G,833.333333M,na,26667
+m6a.large,EC2Family_General,EC2Type_M6A,EC2Type_M6A_Large,8.0G,2,0,0,4.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,6666.666664M,<12.5G,833.333333M,na,26667
+m6a.metal,EC2Family_General,EC2Type_M6A,EC2Type_M6A_Metal,768.0G,192,0,0,4.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,40000.0M,50G,5000.0M,na,160000
+m6a.xlarge,EC2Family_General,EC2Type_M6A,EC2Type_M6A_xLarge,16.0G,4,0,0,4.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,6666.666664M,<12.5G,833.333333M,na,26667
+m6g.12xlarge,EC2Family_General,EC2Type_M6G,EC2Type_M6G_12xLarge,192.0G,48,0,0,4.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,14250.0M,20G,1781.25M,na,50000
+m6g.16xlarge,EC2Family_General,EC2Type_M6G,EC2Type_M6G_16xLarge,256.0G,64,0,0,4.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,19000.0M,25G,2375.0M,na,80000
+m6g.2xlarge,EC2Family_General,EC2Type_M6G,EC2Type_M6G_2xLarge,32.0G,8,0,0,4.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
+m6g.4xlarge,EC2Family_General,EC2Type_M6G,EC2Type_M6G_4xLarge,64.0G,16,0,0,4.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
+m6g.8xlarge,EC2Family_General,EC2Type_M6G,EC2Type_M6G_8xLarge,128.0G,32,0,0,4.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,9500.0M,12G,1187.5M,na,40000
+m6g.large,EC2Family_General,EC2Type_M6G,EC2Type_M6G_Large,8.0G,2,0,0,4.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
+m6g.medium,EC2Family_General,EC2Type_M6G,EC2Type_M6G_Medium,4.0G,1,0,0,4.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
+m6g.metal,EC2Family_General,EC2Type_M6G,EC2Type_M6G_Metal,256.0G,64,0,0,4.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,19000.0M,25G,2375.0M,na,80000
+m6g.xlarge,EC2Family_General,EC2Type_M6G,EC2Type_M6G_xLarge,16.0G,4,0,0,4.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
+m6gd.12xlarge,EC2Family_General,EC2Type_M6GD,EC2Type_M6GD_12xLarge,192.0G,48,0,0,4.00G,0,na,AWS Graviton2,2850G,StorageType_EC2_NVMeSSD,14250.0M,20G,1781.25M,Yes,50000
+m6gd.16xlarge,EC2Family_General,EC2Type_M6GD,EC2Type_M6GD_16xLarge,256.0G,64,0,0,4.00G,0,na,AWS Graviton2,3800G,StorageType_EC2_NVMeSSD,19000.0M,25G,2375.0M,Yes,80000
+m6gd.2xlarge,EC2Family_General,EC2Type_M6GD,EC2Type_M6GD_2xLarge,32.0G,8,0,0,4.00G,0,na,AWS Graviton2,474G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,20000
+m6gd.4xlarge,EC2Family_General,EC2Type_M6GD,EC2Type_M6GD_4xLarge,64.0G,16,0,0,4.00G,0,na,AWS Graviton2,950G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,20000
+m6gd.8xlarge,EC2Family_General,EC2Type_M6GD,EC2Type_M6GD_8xLarge,128.0G,32,0,0,4.00G,0,na,AWS Graviton2,1900G,StorageType_SSD,9500.0M,12G,1187.5M,Yes,40000
+m6gd.large,EC2Family_General,EC2Type_M6GD,EC2Type_M6GD_Large,8.0G,2,0,0,4.00G,0,na,AWS Graviton2,118G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,20000
+m6gd.medium,EC2Family_General,EC2Type_M6GD,EC2Type_M6GD_Medium,4.0G,1,0,0,4.00G,0,na,AWS Graviton2,59G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,20000
+m6gd.metal,EC2Family_General,EC2Type_M6GD,EC2Type_M6GD_Metal,256.0G,64,0,0,4.00G,0,na,AWS Graviton2,3800G,StorageType_EC2_NVMeSSD,19000.0M,25G,2375.0M,Yes,80000
+m6gd.xlarge,EC2Family_General,EC2Type_M6GD,EC2Type_M6GD_xLarge,16.0G,4,0,0,4.00G,0,na,AWS Graviton2,237G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,20000
+m6i.12xlarge,EC2Family_General,EC2Type_M6I,EC2Type_M6I_12xLarge,192.0G,48,0,0,4.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,15000.0M,18.75G,1875.0M,na,60000
+m6i.16xlarge,EC2Family_General,EC2Type_M6I,EC2Type_M6I_16xLarge,256.0G,64,0,0,4.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,20000.0M,25G,2500.0M,na,80000
+m6i.24xlarge,EC2Family_General,EC2Type_M6I,EC2Type_M6I_24xLarge,384.0G,96,0,0,4.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,30000.0M,37.5G,3750.0M,na,120000
+m6i.2xlarge,EC2Family_General,EC2Type_M6I,EC2Type_M6I_2xLarge,32.0G,8,0,0,4.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000
+m6i.32xlarge,EC2Family_General,EC2Type_M6I,EC2Type_M6I_32xLarge,512.0G,128,0,0,4.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,40000.0M,50G,5000.0M,na,160000
+m6i.4xlarge,EC2Family_General,EC2Type_M6I,EC2Type_M6I_4xLarge,64.0G,16,0,0,4.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000
+m6i.8xlarge,EC2Family_General,EC2Type_M6I,EC2Type_M6I_8xLarge,128.0G,32,0,0,4.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,10000.0M,12.5G,1250.0M,na,40000
+m6i.large,EC2Family_General,EC2Type_M6I,EC2Type_M6I_Large,8.0G,2,0,0,4.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000
+m6i.metal,EC2Family_General,EC2Type_M6I,EC2Type_M6I_Metal,512.0G,128,0,0,4.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,40000.0M,50G,5000.0M,na,160000
+m6i.xlarge,EC2Family_General,EC2Type_M6I,EC2Type_M6I_xLarge,16.0G,4,0,0,4.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000
+m6id.12xlarge,EC2Family_General,EC2Type_M6ID,EC2Type_M6ID_12xLarge,192.0G,48,0,0,4.00G,0,na,Intel Xeon 8375C,2850G,StorageType_EC2_NVMeSSD,15000.0M,18.75G,1875.0M,Yes,60000
+m6id.16xlarge,EC2Family_General,EC2Type_M6ID,EC2Type_M6ID_16xLarge,256.0G,64,0,0,4.00G,0,na,Intel Xeon 8375C,3800G,StorageType_EC2_NVMeSSD,20000.0M,25G,2500.0M,Yes,80000
+m6id.24xlarge,EC2Family_General,EC2Type_M6ID,EC2Type_M6ID_24xLarge,384.0G,96,0,0,4.00G,0,na,Intel Xeon 8375C,5700G,StorageType_EC2_NVMeSSD,30000.0M,37.5G,3750.0M,Yes,120000
+m6id.2xlarge,EC2Family_General,EC2Type_M6ID,EC2Type_M6ID_2xLarge,32.0G,8,0,0,4.00G,0,na,Intel Xeon 8375C,474G,StorageType_SSD,10000.0M,<12.5G,1250.0M,Yes,40000
+m6id.32xlarge,EC2Family_General,EC2Type_M6ID,EC2Type_M6ID_32xLarge,512.0G,128,0,0,4.00G,0,na,Intel Xeon 8375C,7600G,StorageType_EC2_NVMeSSD,40000.0M,50G,5000.0M,Yes,160000
+m6id.4xlarge,EC2Family_General,EC2Type_M6ID,EC2Type_M6ID_4xLarge,64.0G,16,0,0,4.00G,0,na,Intel Xeon 8375C,950G,StorageType_SSD,10000.0M,<12.5G,1250.0M,Yes,40000
+m6id.8xlarge,EC2Family_General,EC2Type_M6ID,EC2Type_M6ID_8xLarge,128.0G,32,0,0,4.00G,0,na,Intel Xeon 8375C,1900G,StorageType_SSD,10000.0M,12.5G,1250.0M,Yes,40000
+m6id.large,EC2Family_General,EC2Type_M6ID,EC2Type_M6ID_Large,8.0G,2,0,0,4.00G,0,na,Intel Xeon 8375C,118G,StorageType_SSD,10000.0M,<12.5G,1250.0M,Yes,40000
+m6id.metal,EC2Family_General,EC2Type_M6ID,EC2Type_M6ID_Metal,512.0G,128,0,0,4.00G,0,na,Intel Xeon 8375C,7600G,StorageType_EC2_NVMeSSD,40000.0M,50G,5000.0M,Yes,160000
+m6id.xlarge,EC2Family_General,EC2Type_M6ID,EC2Type_M6ID_xLarge,16.0G,4,0,0,4.00G,0,na,Intel Xeon 8375C,237G,StorageType_SSD,10000.0M,<12.5G,1250.0M,Yes,40000
+mac1.metal,EC2Family_General,EC2Type_MAC1,EC2Type_MAC1_Metal,32.0G,12,0,0,2.67G,0,na,Intel Core i7-8700B,na,StorageType_EC2_EBSOnly,8000.0M,25G,1000.0M,na,55000
+mac2.metal,EC2Family_General,EC2Type_MAC2,EC2Type_MAC2_Metal,16.0G,12,0,0,1.33G,0,na,Apple M1,na,StorageType_EC2_EBSOnly,unset,10G,0M,na,0
+p2.16xlarge,EC2Family_Accelerated,EC2Type_P2,EC2Type_P2_16xLarge,732.0G,64,201,3.141,11.44G,16,NVIDIA Tesla K80,Intel Xeon E5-2686 v4,na,StorageType_EC2_EBSOnly,10000.0M,25G,1250.0M,na,65000
+p2.8xlarge,EC2Family_Accelerated,EC2Type_P2,EC2Type_P2_8xLarge,488.0G,32,97,3.031,15.25G,8,NVIDIA Tesla K80,Intel Xeon E5-2686 v4,na,StorageType_EC2_EBSOnly,5000.0M,10G,625.0M,na,32500
+p2.xlarge,EC2Family_Accelerated,EC2Type_P2,EC2Type_P2_xLarge,61.0G,4,16,4,15.25G,1,NVIDIA Tesla K80,Intel Xeon E5-2686 v4,na,StorageType_EC2_EBSOnly,750.0M,<1G,93.75M,na,6000
+p3.16xlarge,EC2Family_Accelerated,EC2Type_P3,EC2Type_P3_16xLarge,488.0G,64,201,3.141,7.62G,8,NVIDIA Tesla V100,Intel Xeon E5-2686 v4,na,StorageType_EC2_EBSOnly,14000.0M,25G,1750.0M,na,80000
+p3.2xlarge,EC2Family_Accelerated,EC2Type_P3,EC2Type_P3_2xLarge,61.0G,8,31,3.875,7.62G,1,NVIDIA Tesla V100,Intel Xeon E5-2686 v4,na,StorageType_EC2_EBSOnly,1750.0M,<10G,218.75M,na,10000
+p3.8xlarge,EC2Family_Accelerated,EC2Type_P3,EC2Type_P3_8xLarge,244.0G,32,97,3.031,7.62G,4,NVIDIA Tesla V100,Intel Xeon E5-2686 v4,na,StorageType_EC2_EBSOnly,7000.0M,10G,875.0M,na,40000
+p3dn.24xlarge,EC2Family_Accelerated,EC2Type_P3DN,EC2Type_P3DN_24xLarge,768.0G,96,337,3.51,8.00G,8,NVIDIA Tesla V100,Intel Xeon Platinum 8175,1800G,StorageType_EC2_NVMeSSD,19000.0M,100G,2375.0M,Yes,80000
+p4d.24xlarge,EC2Family_Accelerated,EC2Type_P4D,EC2Type_P4D_24xLarge,1152.0G,96,345,3.594,12.00G,8,NVIDIA A100,Intel Xeon Platinum 8275L,8000G,StorageType_EC2_NVMeSSD,19000.0M,100G,2375.0M,Yes,80000
+p4de.24xlarge,EC2Family_Accelerated,EC2Type_P4DE,EC2Type_P4DE_24xLarge,1152.0G,96,345,3.594,12.00G,8,NVIDIA A100,Intel Xeon Platinum 8275L,8000G,StorageType_EC2_NVMeSSD,19000.0M,400G,2375.0M,Yes,80000
+r3.2xlarge,EC2Family_Memory,EC2Type_R3,EC2Type_R3_2xLarge,61.0G,8,26,3.25,7.62G,0,na,Intel Xeon E5-2670 v2,160G,StorageType_SSD,1000.0M,<1G,125.0M,Yes,8000
+r3.4xlarge,EC2Family_Memory,EC2Type_R3,EC2Type_R3_4xLarge,122.0G,16,52,3.25,7.62G,0,na,Intel Xeon E5-2670 v2,320G,StorageType_SSD,2000.0M,<1G,250.0M,Yes,16000
+r3.8xlarge,EC2Family_Memory,EC2Type_R3,EC2Type_R3_8xLarge,244.0G,32,104,3.25,7.62G,0,na,Intel Xeon E5-2670 v2,640G,StorageType_SSD,unset,10G,0M,Yes,0
+r3.large,EC2Family_Memory,EC2Type_R3,EC2Type_R3_Large,15.25G,2,6.5,3.25,7.62G,0,na,Intel Xeon E5-2670 v2,32G,StorageType_SSD,unset,<250M,0M,Yes,0
+r3.xlarge,EC2Family_Memory,EC2Type_R3,EC2Type_R3_xLarge,30.5G,4,13,3.25,7.62G,0,na,Intel Xeon E5-2670 v2,80G,StorageType_SSD,500.0M,<250M,62.5M,Yes,4000
+r4.16xlarge,EC2Family_Memory,EC2Type_R4,EC2Type_R4_16xLarge,488.0G,64,201,3.141,7.62G,0,na,Intel Xeon E5-2686 v4,na,StorageType_EC2_EBSOnly,14000.0M,25G,1750.0M,na,75000
+r4.2xlarge,EC2Family_Memory,EC2Type_R4,EC2Type_R4_2xLarge,61.0G,8,31,3.875,7.62G,0,na,Intel Xeon E5-2686 v4,na,StorageType_EC2_EBSOnly,1700.0M,<10G,212.5M,na,12000
+r4.4xlarge,EC2Family_Memory,EC2Type_R4,EC2Type_R4_4xLarge,122.0G,16,58,3.625,7.62G,0,na,Intel Xeon E5-2686 v4,na,StorageType_EC2_EBSOnly,3500.0M,<10G,437.5M,na,18750
+r4.8xlarge,EC2Family_Memory,EC2Type_R4,EC2Type_R4_8xLarge,244.0G,32,97,3.031,7.62G,0,na,Intel Xeon E5-2686 v4,na,StorageType_EC2_EBSOnly,7000.0M,10G,875.0M,na,37500
+r4.large,EC2Family_Memory,EC2Type_R4,EC2Type_R4_Large,15.25G,2,8,4,7.62G,0,na,Intel Xeon E5-2686 v4,na,StorageType_EC2_EBSOnly,425.0M,<10G,53.13M,na,3000
+r4.xlarge,EC2Family_Memory,EC2Type_R4,EC2Type_R4_xLarge,30.5G,4,16,4,7.62G,0,na,Intel Xeon E5-2686 v4,na,StorageType_EC2_EBSOnly,850.0M,<10G,106.25M,na,6000
+r5.12xlarge,EC2Family_Memory,EC2Type_R5,EC2Type_R5_12xLarge,384.0G,48,168,3.5,8.00G,0,na,Intel Xeon Platinum 8175,na,StorageType_EC2_EBSOnly,9500.0M,10G,1187.5M,na,40000
+r5.16xlarge,EC2Family_Memory,EC2Type_R5,EC2Type_R5_16xLarge,512.0G,64,256,4,8.00G,0,na,Intel Xeon Platinum 8175,na,StorageType_EC2_EBSOnly,13600.0M,20G,1700.0M,na,60000
+r5.24xlarge,EC2Family_Memory,EC2Type_R5,EC2Type_R5_24xLarge,768.0G,96,337,3.51,8.00G,0,na,Intel Xeon Platinum 8175,na,StorageType_EC2_EBSOnly,19000.0M,25G,2375.0M,na,80000
+r5.2xlarge,EC2Family_Memory,EC2Type_R5,EC2Type_R5_2xLarge,64.0G,8,37,4.625,8.00G,0,na,Intel Xeon Platinum 8175,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,18750
+r5.4xlarge,EC2Family_Memory,EC2Type_R5,EC2Type_R5_4xLarge,128.0G,16,70,4.375,8.00G,0,na,Intel Xeon Platinum 8175,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,18750
+r5.8xlarge,EC2Family_Memory,EC2Type_R5,EC2Type_R5_8xLarge,256.0G,32,128,4,8.00G,0,na,Intel Xeon Platinum 8175,na,StorageType_EC2_EBSOnly,6800.0M,10G,850.0M,na,30000
+r5.large,EC2Family_Memory,EC2Type_R5,EC2Type_R5_Large,16.0G,2,10,5,8.00G,0,na,Intel Xeon Platinum 8175,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,18750
+r5.metal,EC2Family_Memory,EC2Type_R5,EC2Type_R5_Metal,768.0G,96,347,3.615,8.00G,0,na,Intel Xeon Platinum 8175,na,StorageType_EC2_EBSOnly,19000.0M,25G,2375.0M,na,80000
+r5.xlarge,EC2Family_Memory,EC2Type_R5,EC2Type_R5_xLarge,32.0G,4,19,4.75,8.00G,0,na,Intel Xeon Platinum 8175,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,18750
+r5a.12xlarge,EC2Family_Memory,EC2Type_R5A,EC2Type_R5A_12xLarge,384.0G,48,0,0,8.00G,0,na,AMD EPYC 7571,na,StorageType_EC2_EBSOnly,6780.0M,10G,847.5M,na,30000
+r5a.16xlarge,EC2Family_Memory,EC2Type_R5A,EC2Type_R5A_16xLarge,512.0G,64,0,0,8.00G,0,na,AMD EPYC 7571,na,StorageType_EC2_EBSOnly,9500.0M,12G,1187.5M,na,40000
+r5a.24xlarge,EC2Family_Memory,EC2Type_R5A,EC2Type_R5A_24xLarge,768.0G,96,0,0,8.00G,0,na,AMD EPYC 7571,na,StorageType_EC2_EBSOnly,13570.0M,20G,1696.25M,na,60000
+r5a.2xlarge,EC2Family_Memory,EC2Type_R5A,EC2Type_R5A_2xLarge,64.0G,8,0,0,8.00G,0,na,AMD EPYC 7571,na,StorageType_EC2_EBSOnly,2880.0M,<10G,360.0M,na,16000
+r5a.4xlarge,EC2Family_Memory,EC2Type_R5A,EC2Type_R5A_4xLarge,128.0G,16,0,0,8.00G,0,na,AMD EPYC 7571,na,StorageType_EC2_EBSOnly,2880.0M,<10G,360.0M,na,16000
+r5a.8xlarge,EC2Family_Memory,EC2Type_R5A,EC2Type_R5A_8xLarge,256.0G,32,0,0,8.00G,0,na,AMD EPYC 7571,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
+r5a.large,EC2Family_Memory,EC2Type_R5A,EC2Type_R5A_Large,16.0G,2,0,0,8.00G,0,na,AMD EPYC 7571,na,StorageType_EC2_EBSOnly,2880.0M,<10G,360.0M,na,16000
+r5a.xlarge,EC2Family_Memory,EC2Type_R5A,EC2Type_R5A_xLarge,32.0G,4,0,0,8.00G,0,na,AMD EPYC 7571,na,StorageType_EC2_EBSOnly,2880.0M,<10G,360.0M,na,16000
+r5ad.12xlarge,EC2Family_Memory,EC2Type_R5AD,EC2Type_R5AD_12xLarge,384.0G,48,0,0,8.00G,0,na,AMD EPYC 7571,1800G,StorageType_EC2_NVMeSSD,6780.0M,10G,847.5M,Yes,30000
+r5ad.16xlarge,EC2Family_Memory,EC2Type_R5AD,EC2Type_R5AD_16xLarge,512.0G,64,0,0,8.00G,0,na,AMD EPYC 7571,2400G,StorageType_EC2_NVMeSSD,9500.0M,12G,1187.5M,Yes,40000
+r5ad.24xlarge,EC2Family_Memory,EC2Type_R5AD,EC2Type_R5AD_24xLarge,768.0G,96,0,0,8.00G,0,na,AMD EPYC 7571,3600G,StorageType_EC2_NVMeSSD,13570.0M,20G,1696.25M,Yes,60000
+r5ad.2xlarge,EC2Family_Memory,EC2Type_R5AD,EC2Type_R5AD_2xLarge,64.0G,8,0,0,8.00G,0,na,AMD EPYC 7571,300G,StorageType_SSD,2880.0M,<10G,360.0M,Yes,16000
+r5ad.4xlarge,EC2Family_Memory,EC2Type_R5AD,EC2Type_R5AD_4xLarge,128.0G,16,0,0,8.00G,0,na,AMD EPYC 7571,600G,StorageType_EC2_NVMeSSD,2880.0M,<10G,360.0M,Yes,16000
+r5ad.8xlarge,EC2Family_Memory,EC2Type_R5AD,EC2Type_R5AD_8xLarge,256.0G,32,0,0,8.00G,0,na,AMD EPYC 7571,1200G,StorageType_EC2_NVMeSSD,4750.0M,<10G,593.75M,Yes,20000
+r5ad.large,EC2Family_Memory,EC2Type_R5AD,EC2Type_R5AD_Large,16.0G,2,0,0,8.00G,0,na,AMD EPYC 7571,75G,StorageType_SSD,2880.0M,<10G,360.0M,Yes,16000
+r5ad.xlarge,EC2Family_Memory,EC2Type_R5AD,EC2Type_R5AD_xLarge,32.0G,4,0,0,8.00G,0,na,AMD EPYC 7571,150G,StorageType_SSD,2880.0M,<10G,360.0M,Yes,16000
+r5b.12xlarge,EC2Family_Memory,EC2Type_R5B,EC2Type_R5B_12xLarge,384.0G,48,0,0,8.00G,0,na,Intel Xeon Platinum 8259,na,StorageType_EC2_EBSOnly,30000.0M,10G,3750.0M,na,130000
+r5b.16xlarge,EC2Family_Memory,EC2Type_R5B,EC2Type_R5B_16xLarge,512.0G,64,0,0,8.00G,0,na,Intel Xeon Platinum 8259,na,StorageType_EC2_EBSOnly,40000.0M,20G,5000.0M,na,173333
+r5b.24xlarge,EC2Family_Memory,EC2Type_R5B,EC2Type_R5B_24xLarge,768.0G,96,0,0,8.00G,0,na,Intel Xeon Platinum 8259,na,StorageType_EC2_EBSOnly,60000.0M,25G,7500.0M,na,260000
+r5b.2xlarge,EC2Family_Memory,EC2Type_R5B,EC2Type_R5B_2xLarge,64.0G,8,0,0,8.00G,0,na,Intel Xeon Platinum 8259,na,StorageType_EC2_EBSOnly,10000.0M,<10G,1250.0M,na,43333
+r5b.4xlarge,EC2Family_Memory,EC2Type_R5B,EC2Type_R5B_4xLarge,128.0G,16,0,0,8.00G,0,na,Intel Xeon Platinum 8259,na,StorageType_EC2_EBSOnly,10000.0M,<10G,1250.0M,na,43333
+r5b.8xlarge,EC2Family_Memory,EC2Type_R5B,EC2Type_R5B_8xLarge,256.0G,32,0,0,8.00G,0,na,Intel Xeon Platinum 8259,na,StorageType_EC2_EBSOnly,20000.0M,10G,2500.0M,na,86667
+r5b.large,EC2Family_Memory,EC2Type_R5B,EC2Type_R5B_Large,16.0G,2,0,0,8.00G,0,na,Intel Xeon Platinum 8259,na,StorageType_EC2_EBSOnly,10000.0M,<10G,1250.0M,na,43333
+r5b.metal,EC2Family_Memory,EC2Type_R5B,EC2Type_R5B_Metal,768.0G,96,0,0,8.00G,0,na,Intel Xeon Platinum 8259,na,StorageType_EC2_EBSOnly,60000.0M,25G,7500.0M,na,260000
+r5b.xlarge,EC2Family_Memory,EC2Type_R5B,EC2Type_R5B_xLarge,32.0G,4,0,0,8.00G,0,na,Intel Xeon Platinum 8259,na,StorageType_EC2_EBSOnly,10000.0M,<10G,1250.0M,na,43333
+r5d.12xlarge,EC2Family_Memory,EC2Type_R5D,EC2Type_R5D_12xLarge,384.0G,48,168,3.5,8.00G,0,na,Intel Xeon Platinum 8175,1800G,StorageType_EC2_NVMeSSD,9500.0M,10G,1187.5M,Yes,40000
+r5d.16xlarge,EC2Family_Memory,EC2Type_R5D,EC2Type_R5D_16xLarge,512.0G,64,256,4,8.00G,0,na,Intel Xeon Platinum 8175,2400G,StorageType_EC2_NVMeSSD,13600.0M,20G,1700.0M,Yes,60000
+r5d.24xlarge,EC2Family_Memory,EC2Type_R5D,EC2Type_R5D_24xLarge,768.0G,96,337,3.51,8.00G,0,na,Intel Xeon Platinum 8175,3600G,StorageType_EC2_NVMeSSD,19000.0M,25G,2375.0M,Yes,80000
+r5d.2xlarge,EC2Family_Memory,EC2Type_R5D,EC2Type_R5D_2xLarge,64.0G,8,37,4.625,8.00G,0,na,Intel Xeon Platinum 8175,300G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,18750
+r5d.4xlarge,EC2Family_Memory,EC2Type_R5D,EC2Type_R5D_4xLarge,128.0G,16,70,4.375,8.00G,0,na,Intel Xeon Platinum 8175,600G,StorageType_EC2_NVMeSSD,4750.0M,<10G,593.75M,Yes,18750
+r5d.8xlarge,EC2Family_Memory,EC2Type_R5D,EC2Type_R5D_8xLarge,256.0G,32,128,4,8.00G,0,na,Intel Xeon Platinum 8175,1200G,StorageType_EC2_NVMeSSD,6800.0M,10G,850.0M,Yes,30000
+r5d.large,EC2Family_Memory,EC2Type_R5D,EC2Type_R5D_Large,16.0G,2,10,5,8.00G,0,na,Intel Xeon Platinum 8175,75G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,18750
+r5d.metal,EC2Family_Memory,EC2Type_R5D,EC2Type_R5D_Metal,768.0G,96,347,3.615,8.00G,0,na,Intel Xeon Platinum 8175,3600G,StorageType_EC2_NVMeSSD,19000.0M,25G,2375.0M,Yes,80000
+r5d.xlarge,EC2Family_Memory,EC2Type_R5D,EC2Type_R5D_xLarge,32.0G,4,19,4.75,8.00G,0,na,Intel Xeon Platinum 8175,150G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,18750
+r5dn.12xlarge,EC2Family_Memory,EC2Type_R5DN,EC2Type_R5DN_12xLarge,384.0G,48,0,0,8.00G,0,na,Intel Xeon Platinum 8259,1800G,StorageType_EC2_NVMeSSD,9500.0M,50G,1187.5M,Yes,40000
+r5dn.16xlarge,EC2Family_Memory,EC2Type_R5DN,EC2Type_R5DN_16xLarge,512.0G,64,0,0,8.00G,0,na,Intel Xeon Platinum 8259,2400G,StorageType_EC2_NVMeSSD,13600.0M,75G,1700.0M,Yes,60000
+r5dn.24xlarge,EC2Family_Memory,EC2Type_R5DN,EC2Type_R5DN_24xLarge,768.0G,96,0,0,8.00G,0,na,Intel Xeon Platinum 8259,3600G,StorageType_EC2_NVMeSSD,19000.0M,100G,2375.0M,Yes,80000
+r5dn.2xlarge,EC2Family_Memory,EC2Type_R5DN,EC2Type_R5DN_2xLarge,64.0G,8,0,0,8.00G,0,na,Intel Xeon Platinum 8259,300G,StorageType_SSD,4750.0M,<25G,593.75M,Yes,18750
+r5dn.4xlarge,EC2Family_Memory,EC2Type_R5DN,EC2Type_R5DN_4xLarge,128.0G,16,0,0,8.00G,0,na,Intel Xeon Platinum 8259,600G,StorageType_EC2_NVMeSSD,4750.0M,<25G,593.75M,Yes,18750
+r5dn.8xlarge,EC2Family_Memory,EC2Type_R5DN,EC2Type_R5DN_8xLarge,256.0G,32,0,0,8.00G,0,na,Intel Xeon Platinum 8259,1200G,StorageType_EC2_NVMeSSD,6800.0M,25G,850.0M,Yes,30000
+r5dn.large,EC2Family_Memory,EC2Type_R5DN,EC2Type_R5DN_Large,16.0G,2,0,0,8.00G,0,na,Intel Xeon Platinum 8259,75G,StorageType_SSD,4750.0M,<25G,593.75M,Yes,18750
+r5dn.metal,EC2Family_Memory,EC2Type_R5DN,EC2Type_R5DN_Metal,768.0G,96,0,0,8.00G,0,na,Intel Xeon Platinum 8259,3600G,StorageType_EC2_NVMeSSD,19000.0M,100G,2375.0M,Yes,80000
+r5dn.xlarge,EC2Family_Memory,EC2Type_R5DN,EC2Type_R5DN_xLarge,32.0G,4,0,0,8.00G,0,na,Intel Xeon Platinum 8259,150G,StorageType_SSD,4750.0M,<25G,593.75M,Yes,18750
+r5n.12xlarge,EC2Family_Memory,EC2Type_R5N,EC2Type_R5N_12xLarge,384.0G,48,0,0,8.00G,0,na,Intel Xeon Platinum 8259,na,StorageType_EC2_EBSOnly,9500.0M,50G,1187.5M,na,40000
+r5n.16xlarge,EC2Family_Memory,EC2Type_R5N,EC2Type_R5N_16xLarge,512.0G,64,0,0,8.00G,0,na,Intel Xeon Platinum 8259,na,StorageType_EC2_EBSOnly,13600.0M,75G,1700.0M,na,60000
+r5n.24xlarge,EC2Family_Memory,EC2Type_R5N,EC2Type_R5N_24xLarge,768.0G,96,0,0,8.00G,0,na,Intel Xeon Platinum 8259,na,StorageType_EC2_EBSOnly,19000.0M,100G,2375.0M,na,80000
+r5n.2xlarge,EC2Family_Memory,EC2Type_R5N,EC2Type_R5N_2xLarge,64.0G,8,0,0,8.00G,0,na,Intel Xeon Platinum 8259,na,StorageType_EC2_EBSOnly,4750.0M,<25G,593.75M,na,18750
+r5n.4xlarge,EC2Family_Memory,EC2Type_R5N,EC2Type_R5N_4xLarge,128.0G,16,0,0,8.00G,0,na,Intel Xeon Platinum 8259,na,StorageType_EC2_EBSOnly,4750.0M,<25G,593.75M,na,18750
+r5n.8xlarge,EC2Family_Memory,EC2Type_R5N,EC2Type_R5N_8xLarge,256.0G,32,0,0,8.00G,0,na,Intel Xeon Platinum 8259,na,StorageType_EC2_EBSOnly,6800.0M,25G,850.0M,na,30000
+r5n.large,EC2Family_Memory,EC2Type_R5N,EC2Type_R5N_Large,16.0G,2,0,0,8.00G,0,na,Intel Xeon Platinum 8259,na,StorageType_EC2_EBSOnly,4750.0M,<25G,593.75M,na,18750
+r5n.metal,EC2Family_Memory,EC2Type_R5N,EC2Type_R5N_Metal,768.0G,96,0,0,8.00G,0,na,Intel Xeon Platinum 8259,na,StorageType_EC2_EBSOnly,19000.0M,100G,2375.0M,na,80000
+r5n.xlarge,EC2Family_Memory,EC2Type_R5N,EC2Type_R5N_xLarge,32.0G,4,0,0,8.00G,0,na,Intel Xeon Platinum 8259,na,StorageType_EC2_EBSOnly,4750.0M,<25G,593.75M,na,18750
+r6a.12xlarge,EC2Family_Memory,EC2Type_R6A,EC2Type_R6A_12xLarge,384.0G,48,0,0,8.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,10000.0M,18.75G,1250.0M,na,40000
+r6a.16xlarge,EC2Family_Memory,EC2Type_R6A,EC2Type_R6A_16xLarge,512.0G,64,0,0,8.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,13300.0M,25G,1662.5M,na,53333
+r6a.24xlarge,EC2Family_Memory,EC2Type_R6A,EC2Type_R6A_24xLarge,768.0G,96,0,0,8.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,20000.0M,37.5G,2500.0M,na,80000
+r6a.2xlarge,EC2Family_Memory,EC2Type_R6A,EC2Type_R6A_2xLarge,64.0G,8,0,0,8.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,6666.664M,<12.5G,833.333M,na,26667
+r6a.32xlarge,EC2Family_Memory,EC2Type_R6A,EC2Type_R6A_32xLarge,1024.0G,128,0,0,8.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,26666.664M,50G,3333.333M,na,100000
+r6a.48xlarge,EC2Family_Memory,EC2Type_R6A,EC2Type_R6A_48xLarge,1536.0G,192,0,0,8.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,40000.0M,50G,5000.0M,na,160000
+r6a.4xlarge,EC2Family_Memory,EC2Type_R6A,EC2Type_R6A_4xLarge,128.0G,16,0,0,8.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,6666.664M,<12.5G,833.333M,na,26667
+r6a.8xlarge,EC2Family_Memory,EC2Type_R6A,EC2Type_R6A_8xLarge,256.0G,32,0,0,8.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,6666.664M,12.5G,833.333M,na,26667
+r6a.large,EC2Family_Memory,EC2Type_R6A,EC2Type_R6A_Large,16.0G,2,0,0,8.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,6666.664M,<12.5G,833.333M,na,26667
+r6a.metal,EC2Family_Memory,EC2Type_R6A,EC2Type_R6A_Metal,1536.0G,192,0,0,8.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,40000.0M,50G,5000.0M,na,160000
+r6a.xlarge,EC2Family_Memory,EC2Type_R6A,EC2Type_R6A_xLarge,32.0G,4,0,0,8.00G,0,na,AMD EPYC 7R13,na,StorageType_EC2_EBSOnly,6666.664M,<12.5G,833.333M,na,26667
+r6g.12xlarge,EC2Family_Memory,EC2Type_R6G,EC2Type_R6G_12xLarge,384.0G,48,0,0,8.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,14250.0M,20G,1781.25M,na,50000
+r6g.16xlarge,EC2Family_Memory,EC2Type_R6G,EC2Type_R6G_16xLarge,512.0G,64,0,0,8.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,19000.0M,25G,2375.0M,na,80000
+r6g.2xlarge,EC2Family_Memory,EC2Type_R6G,EC2Type_R6G_2xLarge,64.0G,8,0,0,8.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
+r6g.4xlarge,EC2Family_Memory,EC2Type_R6G,EC2Type_R6G_4xLarge,128.0G,16,0,0,8.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
+r6g.8xlarge,EC2Family_Memory,EC2Type_R6G,EC2Type_R6G_8xLarge,256.0G,32,0,0,8.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,9500.0M,12G,1187.5M,na,40000
+r6g.large,EC2Family_Memory,EC2Type_R6G,EC2Type_R6G_Large,16.0G,2,0,0,8.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
+r6g.medium,EC2Family_Memory,EC2Type_R6G,EC2Type_R6G_Medium,8.0G,1,0,0,8.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
+r6g.metal,EC2Family_Memory,EC2Type_R6G,EC2Type_R6G_Metal,512.0G,64,0,0,8.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,19000.0M,25G,2375.0M,na,80000
+r6g.xlarge,EC2Family_Memory,EC2Type_R6G,EC2Type_R6G_xLarge,32.0G,4,0,0,8.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
+r6gd.12xlarge,EC2Family_Memory,EC2Type_R6GD,EC2Type_R6GD_12xLarge,384.0G,48,0,0,8.00G,0,na,AWS Graviton2,2850G,StorageType_EC2_NVMeSSD,14250.0M,20G,1781.25M,Yes,50000
+r6gd.16xlarge,EC2Family_Memory,EC2Type_R6GD,EC2Type_R6GD_16xLarge,512.0G,64,0,0,8.00G,0,na,AWS Graviton2,3800G,StorageType_EC2_NVMeSSD,19000.0M,25G,2375.0M,Yes,80000
+r6gd.2xlarge,EC2Family_Memory,EC2Type_R6GD,EC2Type_R6GD_2xLarge,64.0G,8,0,0,8.00G,0,na,AWS Graviton2,474G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,20000
+r6gd.4xlarge,EC2Family_Memory,EC2Type_R6GD,EC2Type_R6GD_4xLarge,128.0G,16,0,0,8.00G,0,na,AWS Graviton2,950G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,20000
+r6gd.8xlarge,EC2Family_Memory,EC2Type_R6GD,EC2Type_R6GD_8xLarge,256.0G,32,0,0,8.00G,0,na,AWS Graviton2,1900G,StorageType_SSD,9500.0M,12G,1187.5M,Yes,40000
+r6gd.large,EC2Family_Memory,EC2Type_R6GD,EC2Type_R6GD_Large,16.0G,2,0,0,8.00G,0,na,AWS Graviton2,118G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,20000
+r6gd.medium,EC2Family_Memory,EC2Type_R6GD,EC2Type_R6GD_Medium,8.0G,1,0,0,8.00G,0,na,AWS Graviton2,59G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,20000
+r6gd.metal,EC2Family_Memory,EC2Type_R6GD,EC2Type_R6GD_Metal,512.0G,64,0,0,8.00G,0,na,AWS Graviton2,3800G,StorageType_EC2_NVMeSSD,19000.0M,25G,2375.0M,Yes,80000
+r6gd.xlarge,EC2Family_Memory,EC2Type_R6GD,EC2Type_R6GD_xLarge,32.0G,4,0,0,8.00G,0,na,AWS Graviton2,237G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,20000
+r6i.12xlarge,EC2Family_Memory,EC2Type_R6I,EC2Type_R6I_12xLarge,384.0G,48,0,0,8.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,15000.0M,18.75G,1875.0M,na,60000
+r6i.16xlarge,EC2Family_Memory,EC2Type_R6I,EC2Type_R6I_16xLarge,512.0G,64,0,0,8.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,20000.0M,25G,2500.0M,na,80000
+r6i.24xlarge,EC2Family_Memory,EC2Type_R6I,EC2Type_R6I_24xLarge,768.0G,96,0,0,8.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,30000.0M,37.5G,3750.0M,na,120000
+r6i.2xlarge,EC2Family_Memory,EC2Type_R6I,EC2Type_R6I_2xLarge,64.0G,8,0,0,8.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000
+r6i.32xlarge,EC2Family_Memory,EC2Type_R6I,EC2Type_R6I_32xLarge,1024.0G,128,0,0,8.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,40000.0M,50G,5000.0M,na,160000
+r6i.4xlarge,EC2Family_Memory,EC2Type_R6I,EC2Type_R6I_4xLarge,128.0G,16,0,0,8.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000
+r6i.8xlarge,EC2Family_Memory,EC2Type_R6I,EC2Type_R6I_8xLarge,256.0G,32,0,0,8.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,10000.0M,12.5G,1250.0M,na,40000
+r6i.large,EC2Family_Memory,EC2Type_R6I,EC2Type_R6I_Large,16.0G,2,0,0,8.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000
+r6i.metal,EC2Family_Memory,EC2Type_R6I,EC2Type_R6I_Metal,1024.0G,128,0,0,8.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,40000.0M,50G,5000.0M,na,160000
+r6i.xlarge,EC2Family_Memory,EC2Type_R6I,EC2Type_R6I_xLarge,32.0G,4,0,0,8.00G,0,na,Intel Xeon 8375C,na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000
+r6id.12xlarge,EC2Family_Memory,EC2Type_R6ID,EC2Type_R6ID_12xLarge,384.0G,48,0,0,8.00G,0,na,Intel Xeon 8375C,2850G,StorageType_EC2_NVMeSSD,15000.0M,18.75G,1875.0M,Yes,60000
+r6id.16xlarge,EC2Family_Memory,EC2Type_R6ID,EC2Type_R6ID_16xLarge,512.0G,64,0,0,8.00G,0,na,Intel Xeon 8375C,3800G,StorageType_EC2_NVMeSSD,20000.0M,25G,2500.0M,Yes,80000
+r6id.24xlarge,EC2Family_Memory,EC2Type_R6ID,EC2Type_R6ID_24xLarge,768.0G,96,0,0,8.00G,0,na,Intel Xeon 8375C,5700G,StorageType_EC2_NVMeSSD,30000.0M,37.5G,3750.0M,Yes,120000
+r6id.2xlarge,EC2Family_Memory,EC2Type_R6ID,EC2Type_R6ID_2xLarge,64.0G,8,0,0,8.00G,0,na,Intel Xeon 8375C,474G,StorageType_SSD,10000.0M,<12.5G,1250.0M,Yes,40000
+r6id.32xlarge,EC2Family_Memory,EC2Type_R6ID,EC2Type_R6ID_32xLarge,1024.0G,128,0,0,8.00G,0,na,Intel Xeon 8375C,7600G,StorageType_EC2_NVMeSSD,40000.0M,50G,5000.0M,Yes,160000
+r6id.4xlarge,EC2Family_Memory,EC2Type_R6ID,EC2Type_R6ID_4xLarge,128.0G,16,0,0,8.00G,0,na,Intel Xeon 8375C,950G,StorageType_SSD,10000.0M,<12.5G,1250.0M,Yes,40000
+r6id.8xlarge,EC2Family_Memory,EC2Type_R6ID,EC2Type_R6ID_8xLarge,256.0G,32,0,0,8.00G,0,na,Intel Xeon 8375C,1900G,StorageType_SSD,10000.0M,12.5G,1250.0M,Yes,40000
+r6id.large,EC2Family_Memory,EC2Type_R6ID,EC2Type_R6ID_Large,16.0G,2,0,0,8.00G,0,na,Intel Xeon 8375C,118G,StorageType_SSD,10000.0M,<12.5G,1250.0M,Yes,40000
+r6id.metal,EC2Family_Memory,EC2Type_R6ID,EC2Type_R6ID_Metal,1024.0G,128,0,0,8.00G,0,na,Intel Xeon 8375C,7600G,StorageType_EC2_NVMeSSD,40000.0M,50G,5000.0M,Yes,160000
+r6id.xlarge,EC2Family_Memory,EC2Type_R6ID,EC2Type_R6ID_xLarge,32.0G,4,0,0,8.00G,0,na,Intel Xeon 8375C,237G,StorageType_SSD,10000.0M,<12.5G,1250.0M,Yes,40000
+t1.micro,EC2Family_General,EC2Type_T1,EC2Type_T1_Micro,0.613G,1,0,0,0.61G,0,na,unknown,na,StorageType_EC2_EBSOnly,unset,<10M,0M,na,0
+t2.2xlarge,EC2Family_General,EC2Type_T2,EC2Type_T2_2xLarge,32.0G,8,0,0,4.00G,0,na,Intel Xeon Family,na,StorageType_EC2_EBSOnly,unset,<250M,0M,na,0
+t2.large,EC2Family_General,EC2Type_T2,EC2Type_T2_Large,8.0G,2,0,0,4.00G,0,na,Intel Xeon Family,na,StorageType_EC2_EBSOnly,unset,<200M,0M,na,0
+t2.medium,EC2Family_General,EC2Type_T2,EC2Type_T2_Medium,4.0G,2,0,0,2.00G,0,na,Intel Xeon Family,na,StorageType_EC2_EBSOnly,unset,<200M,0M,na,0
+t2.micro,EC2Family_General,EC2Type_T2,EC2Type_T2_Micro,1.0G,1,0,0,1.00G,0,na,Intel Xeon Family,na,StorageType_EC2_EBSOnly,unset,<200M,0M,na,0
+t2.nano,EC2Family_General,EC2Type_T2,EC2Type_T2_Nano,0.5G,1,0,0,0.50G,0,na,Intel Xeon Family,na,StorageType_EC2_EBSOnly,unset,<200M,0M,na,0
+t2.small,EC2Family_General,EC2Type_T2,EC2Type_T2_Small,2.0G,1,0,0,2.00G,0,na,Intel Xeon Family,na,StorageType_EC2_EBSOnly,unset,<200M,0M,na,0
+t2.xlarge,EC2Family_General,EC2Type_T2,EC2Type_T2_xLarge,16.0G,4,0,0,4.00G,0,na,Intel Xeon Family,na,StorageType_EC2_EBSOnly,unset,<250M,0M,na,0
+t3.2xlarge,EC2Family_General,EC2Type_T3,EC2Type_T3_2xLarge,32.0G,8,0,0,4.00G,0,na,Intel Skylake E5 2686 v5,na,StorageType_EC2_EBSOnly,2780.0M,<5G,347.5M,na,15700
+t3.large,EC2Family_General,EC2Type_T3,EC2Type_T3_Large,8.0G,2,0,0,4.00G,0,na,Intel Skylake E5 2686 v5,na,StorageType_EC2_EBSOnly,2780.0M,<5G,347.5M,na,15700
+t3.medium,EC2Family_General,EC2Type_T3,EC2Type_T3_Medium,4.0G,2,0,0,2.00G,0,na,Intel Skylake E5 2686 v5,na,StorageType_EC2_EBSOnly,2085.0M,<5G,260.57M,na,11800
+t3.micro,EC2Family_General,EC2Type_T3,EC2Type_T3_Micro,1.0G,2,0,0,0.50G,0,na,Intel Skylake E5 2686 v5,na,StorageType_EC2_EBSOnly,2085.0M,<5G,260.57M,na,11800
+t3.nano,EC2Family_General,EC2Type_T3,EC2Type_T3_Nano,0.5G,2,0,0,0.25G,0,na,Intel Skylake E5 2686 v5,na,StorageType_EC2_EBSOnly,2085.0M,<5G,260.57M,na,11800
+t3.small,EC2Family_General,EC2Type_T3,EC2Type_T3_Small,2.0G,2,0,0,1.00G,0,na,Intel Skylake E5 2686 v5,na,StorageType_EC2_EBSOnly,2085.0M,<5G,260.57M,na,11800
+t3.xlarge,EC2Family_General,EC2Type_T3,EC2Type_T3_xLarge,16.0G,4,0,0,4.00G,0,na,Intel Skylake E5 2686 v5,na,StorageType_EC2_EBSOnly,2780.0M,<5G,347.5M,na,15700
+t3a.2xlarge,EC2Family_General,EC2Type_T3A,EC2Type_T3A_2xLarge,32.0G,8,0,0,4.00G,0,na,AMD EPYC 7571,na,StorageType_EC2_EBSOnly,2780.0M,<5G,347.5M,na,15700
+t3a.large,EC2Family_General,EC2Type_T3A,EC2Type_T3A_Large,8.0G,2,0,0,4.00G,0,na,AMD EPYC 7571,na,StorageType_EC2_EBSOnly,2780.0M,<5G,347.5M,na,15700
+t3a.medium,EC2Family_General,EC2Type_T3A,EC2Type_T3A_Medium,4.0G,2,0,0,2.00G,0,na,AMD EPYC 7571,na,StorageType_EC2_EBSOnly,2085.0M,<5G,260.57M,na,11800
+t3a.micro,EC2Family_General,EC2Type_T3A,EC2Type_T3A_Micro,1.0G,2,0,0,0.50G,0,na,AMD EPYC 7571,na,StorageType_EC2_EBSOnly,2085.0M,<5G,260.57M,na,11800
+t3a.nano,EC2Family_General,EC2Type_T3A,EC2Type_T3A_Nano,0.5G,2,0,0,0.25G,0,na,AMD EPYC 7571,na,StorageType_EC2_EBSOnly,2085.0M,<5G,260.57M,na,11800
+t3a.small,EC2Family_General,EC2Type_T3A,EC2Type_T3A_Small,2.0G,2,0,0,1.00G,0,na,AMD EPYC 7571,na,StorageType_EC2_EBSOnly,2085.0M,<5G,260.57M,na,11800
+t3a.xlarge,EC2Family_General,EC2Type_T3A,EC2Type_T3A_xLarge,16.0G,4,0,0,4.00G,0,na,AMD EPYC 7571,na,StorageType_EC2_EBSOnly,2780.0M,<5G,347.5M,na,15700
+t4g.2xlarge,EC2Family_General,EC2Type_T4G,EC2Type_T4G_2xLarge,32.0G,8,0,0,4.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,2780.0M,<5G,434.37M,na,15700
+t4g.large,EC2Family_General,EC2Type_T4G,EC2Type_T4G_Large,8.0G,2,0,0,4.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,2780.0M,<5G,434.37M,na,15700
+t4g.medium,EC2Family_General,EC2Type_T4G,EC2Type_T4G_Medium,4.0G,2,0,0,2.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,2606.0M,<5G,325.75M,na,11800
+t4g.micro,EC2Family_General,EC2Type_T4G,EC2Type_T4G_Micro,1.0G,2,0,0,0.50G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,2606.0M,<5G,325.75M,na,11800
+t4g.nano,EC2Family_General,EC2Type_T4G,EC2Type_T4G_Nano,0.5G,2,0,0,0.25G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,2606.0M,<5G,325.75M,na,11800
+t4g.small,EC2Family_General,EC2Type_T4G,EC2Type_T4G_Small,2.0G,2,0,0,1.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,2606.0M,<5G,325.75M,na,11800
+t4g.xlarge,EC2Family_General,EC2Type_T4G,EC2Type_T4G_xLarge,16.0G,4,0,0,4.00G,0,na,AWS Graviton2,na,StorageType_EC2_EBSOnly,2780.0M,<5G,434.37M,na,15700
+u-12tb1.112xlarge,EC2Family_Memory,EC2Type_U12TB1,EC2Type_U12TB1_112xLarge,12288.0G,448,0,0,27.43G,0,na,Intel Xeon Scalable,na,StorageType_EC2_EBSOnly,38000.0M,100G,4750.0M,na,160000
+u-12tb1.metal,EC2Family_Memory,EC2Type_U12TB1,EC2Type_U12TB1_Metal,12288.0G,448,0,0,27.43G,0,na,Intel Xeon Scalable,na,StorageType_EC2_EBSOnly,38000.0M,100G,4750.0M,na,160000
+u-18tb1.metal,EC2Family_Memory,EC2Type_U18TB1,EC2Type_U18TB1_Metal,18432.0G,448,0,0,41.14G,0,na,Intel Xeon Platinum 8280L,na,StorageType_EC2_EBSOnly,38000.0M,100G,4750.0M,na,160000
+u-24tb1.metal,EC2Family_Memory,EC2Type_U24TB1,EC2Type_U24TB1_Metal,24576.0G,448,0,0,54.86G,0,na,Intel Xeon Platinum 8280L,na,StorageType_EC2_EBSOnly,38000.0M,100G,4750.0M,na,160000
+u-3tb1.56xlarge,EC2Family_Memory,EC2Type_U3TB1,EC2Type_U3TB1_56xLarge,3072.0G,224,0,0,13.71G,0,na,Intel Xeon Scalable,na,StorageType_EC2_EBSOnly,19000.0M,50G,2375.0M,na,80000
+u-6tb1.112xlarge,EC2Family_Memory,EC2Type_U6TB1,EC2Type_U6TB1_112xLarge,6144.0G,448,0,0,13.71G,0,na,Intel Xeon Scalable,na,StorageType_EC2_EBSOnly,38000.0M,100G,4750.0M,na,160000
+u-6tb1.56xlarge,EC2Family_Memory,EC2Type_U6TB1,EC2Type_U6TB1_56xLarge,6144.0G,224,0,0,27.43G,0,na,Intel Xeon Scalable,na,StorageType_EC2_EBSOnly,38000.0M,100G,4750.0M,na,160000
+u-6tb1.metal,EC2Family_Memory,EC2Type_U6TB1,EC2Type_U6TB1_Metal,6144.0G,448,0,0,13.71G,0,na,Intel Xeon Scalable,na,StorageType_EC2_EBSOnly,38000.0M,100G,4750.0M,na,160000
+u-9tb1.112xlarge,EC2Family_Memory,EC2Type_U9TB1,EC2Type_U9TB1_112xLarge,9216.0G,448,0,0,20.57G,0,na,Intel Xeon Scalable,na,StorageType_EC2_EBSOnly,38000.0M,100G,4750.0M,na,160000
+u-9tb1.metal,EC2Family_Memory,EC2Type_U9TB1,EC2Type_U9TB1_Metal,9216.0G,448,0,0,20.57G,0,na,Intel Xeon Scalable,na,StorageType_EC2_EBSOnly,38000.0M,100G,4750.0M,na,160000
+vt1.24xlarge,EC2Family_Accelerated,EC2Type_VT1,EC2Type_VT1_24xLarge,192.0G,96,0,0,2.00G,0,na,Intel Xeon Platinum 8259CL,na,StorageType_EC2_EBSOnly,19000.0M,25G,2375.0M,na,80000
+vt1.3xlarge,EC2Family_Accelerated,EC2Type_VT1,EC2Type_VT1_3xLarge,24.0G,12,0,0,2.00G,0,na,Intel Xeon Platinum 8259CL,na,StorageType_EC2_EBSOnly,4750.0M,3.12G,593.75M,na,20000
+vt1.6xlarge,EC2Family_Accelerated,EC2Type_VT1,EC2Type_VT1_6xLarge,48.0G,24,0,0,2.00G,0,na,Intel Xeon Platinum 8259CL,na,StorageType_EC2_EBSOnly,4750.0M,6.25G,593.75M,na,20000
+x1.16xlarge,EC2Family_Memory,EC2Type_X1,EC2Type_X1_16xLarge,976.0G,64,174.5,2.727,15.25G,0,na,Intel Xeon E7-8880 v3,1920G,StorageType_SSD,7000.0M,10G,875.0M,No,40000
+x1.32xlarge,EC2Family_Memory,EC2Type_X1,EC2Type_X1_32xLarge,1952.0G,128,349,2.727,15.25G,0,na,Intel Xeon E7-8880 v3,3840G,StorageType_SSD,14000.0M,25G,1750.0M,No,80000
+x1e.16xlarge,EC2Family_Memory,EC2Type_X1E,EC2Type_X1E_16xLarge,1952.0G,64,179,2.797,30.50G,0,na,Intel Xeon E7-8880 v3,1920G,StorageType_SSD,7000.0M,10G,875.0M,No,40000
+x1e.2xlarge,EC2Family_Memory,EC2Type_X1E,EC2Type_X1E_2xLarge,244.0G,8,23,2.875,30.50G,0,na,Intel Xeon E7-8880 v3,240G,StorageType_SSD,1000.0M,<10G,125.0M,No,7400
+x1e.32xlarge,EC2Family_Memory,EC2Type_X1E,EC2Type_X1E_32xLarge,3904.0G,128,340,2.656,30.50G,0,na,Intel Xeon E7-8880 v3,3840G,StorageType_SSD,14000.0M,25G,1750.0M,No,80000
+x1e.4xlarge,EC2Family_Memory,EC2Type_X1E,EC2Type_X1E_4xLarge,488.0G,16,47,2.938,30.50G,0,na,Intel Xeon E7-8880 v3,480G,StorageType_SSD,1750.0M,<10G,218.75M,No,10000
+x1e.8xlarge,EC2Family_Memory,EC2Type_X1E,EC2Type_X1E_8xLarge,976.0G,32,91,2.844,30.50G,0,na,Intel Xeon E7-8880 v3,960G,StorageType_SSD,3500.0M,<10G,437.5M,No,20000
+x1e.xlarge,EC2Family_Memory,EC2Type_X1E,EC2Type_X1E_xLarge,122.0G,4,12,3,30.50G,0,na,Intel Xeon E7-8880 v3,120G,StorageType_SSD,500.0M,<10G,62.5M,No,3700
+x2gd.12xlarge,EC2Family_Memory,EC2Type_X2GD,EC2Type_X2GD_12xLarge,768.0G,48,0,0,16.00G,0,na,AWS Graviton2,2850G,StorageType_EC2_NVMeSSD,14250.0M,20G,1781.25M,Yes,60000
+x2gd.16xlarge,EC2Family_Memory,EC2Type_X2GD,EC2Type_X2GD_16xLarge,1024.0G,64,0,0,16.00G,0,na,AWS Graviton2,3800G,StorageType_EC2_NVMeSSD,19000.0M,25G,2375.0M,Yes,80000
+x2gd.2xlarge,EC2Family_Memory,EC2Type_X2GD,EC2Type_X2GD_2xLarge,128.0G,8,0,0,16.00G,0,na,AWS Graviton2,475G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,20000
+x2gd.4xlarge,EC2Family_Memory,EC2Type_X2GD,EC2Type_X2GD_4xLarge,256.0G,16,0,0,16.00G,0,na,AWS Graviton2,950G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,20000
+x2gd.8xlarge,EC2Family_Memory,EC2Type_X2GD,EC2Type_X2GD_8xLarge,512.0G,32,0,0,16.00G,0,na,AWS Graviton2,1900G,StorageType_SSD,9500.0M,12G,1187.5M,Yes,40000
+x2gd.large,EC2Family_Memory,EC2Type_X2GD,EC2Type_X2GD_Large,32.0G,2,0,0,16.00G,0,na,AWS Graviton2,118G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,20000
+x2gd.medium,EC2Family_Memory,EC2Type_X2GD,EC2Type_X2GD_Medium,16.0G,1,0,0,16.00G,0,na,AWS Graviton2,59G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,20000
+x2gd.metal,EC2Family_Memory,EC2Type_X2GD,EC2Type_X2GD_Metal,1024.0G,64,0,0,16.00G,0,na,AWS Graviton2,3800G,StorageType_EC2_NVMeSSD,19000.0M,25G,2375.0M,Yes,80000
+x2gd.xlarge,EC2Family_Memory,EC2Type_X2GD,EC2Type_X2GD_xLarge,64.0G,4,0,0,16.00G,0,na,AWS Graviton2,237G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,20000
+x2idn.16xlarge,EC2Family_Memory,EC2Type_X2IDN,EC2Type_X2IDN_16xLarge,1024.0G,64,0,0,16.00G,0,na,Intel Xeon Scalable,1900G,StorageType_SSD,40000.0M,50G,5000.0M,Yes,130000
+x2idn.24xlarge,EC2Family_Memory,EC2Type_X2IDN,EC2Type_X2IDN_24xLarge,1536.0G,96,0,0,16.00G,0,na,Intel Xeon Scalable,2850G,StorageType_EC2_NVMeSSD,60000.0M,75G,7500.0M,Yes,195000
+x2idn.32xlarge,EC2Family_Memory,EC2Type_X2IDN,EC2Type_X2IDN_32xLarge,2048.0G,128,0,0,16.00G,0,na,Intel Xeon Scalable,3800G,StorageType_EC2_NVMeSSD,80000.0M,100G,10000.0M,Yes,260000
+x2idn.metal,EC2Family_Memory,EC2Type_X2IDN,EC2Type_X2IDN_Metal,2048.0G,128,0,0,16.00G,0,na,Intel Xeon Scalable,3800G,StorageType_EC2_NVMeSSD,80000.0M,100G,10000.0M,Yes,260000
+x2iedn.16xlarge,EC2Family_Memory,EC2Type_X2IEDN,EC2Type_X2IEDN_16xLarge,2048.0G,64,0,0,32.00G,0,na,Intel Xeon Scalable,1900G,StorageType_SSD,40000.0M,50G,5000.0M,Yes,130000
+x2iedn.24xlarge,EC2Family_Memory,EC2Type_X2IEDN,EC2Type_X2IEDN_24xLarge,3072.0G,96,0,0,32.00G,0,na,Intel Xeon Scalable,2850G,StorageType_EC2_NVMeSSD,60000.0M,75G,7500.0M,Yes,195000
+x2iedn.2xlarge,EC2Family_Memory,EC2Type_X2IEDN,EC2Type_X2IEDN_2xLarge,256.0G,8,0,0,32.00G,0,na,Intel Xeon Scalable,237G,StorageType_SSD,20000.0M,<25G,2500.0M,Yes,65000
+x2iedn.32xlarge,EC2Family_Memory,EC2Type_X2IEDN,EC2Type_X2IEDN_32xLarge,4096.0G,128,0,0,32.00G,0,na,Intel Xeon Scalable,3800G,StorageType_EC2_NVMeSSD,80000.0M,100G,10000.0M,Yes,260000
+x2iedn.4xlarge,EC2Family_Memory,EC2Type_X2IEDN,EC2Type_X2IEDN_4xLarge,512.0G,16,0,0,32.00G,0,na,Intel Xeon Scalable,475G,StorageType_SSD,20000.0M,<25G,2500.0M,Yes,65000
+x2iedn.8xlarge,EC2Family_Memory,EC2Type_X2IEDN,EC2Type_X2IEDN_8xLarge,1024.0G,32,0,0,32.00G,0,na,Intel Xeon Scalable,950G,StorageType_SSD,20000.0M,25G,2500.0M,Yes,65000
+x2iedn.metal,EC2Family_Memory,EC2Type_X2IEDN,EC2Type_X2IEDN_Metal,4096.0G,128,0,0,32.00G,0,na,Intel Xeon Scalable,3800G,StorageType_EC2_NVMeSSD,80000.0M,100G,10000.0M,Yes,260000
+x2iedn.xlarge,EC2Family_Memory,EC2Type_X2IEDN,EC2Type_X2IEDN_xLarge,128.0G,4,0,0,32.00G,0,na,Intel Xeon Scalable,118G,StorageType_SSD,20000.0M,<25G,2500.0M,Yes,65000
+x2iezn.12xlarge,EC2Family_Memory,EC2Type_X2IEZN,EC2Type_X2IEZN_12xLarge,1536.0G,48,0,0,32.00G,0,na,Intel Xeon Platinum 8252,na,StorageType_EC2_EBSOnly,19000.0M,100G,2375.0M,na,80000
+x2iezn.2xlarge,EC2Family_Memory,EC2Type_X2IEZN,EC2Type_X2IEZN_2xLarge,256.0G,8,0,0,32.00G,0,na,Intel Xeon Platinum 8252,na,StorageType_EC2_EBSOnly,3170.0M,<25G,396.25M,na,13333
+x2iezn.4xlarge,EC2Family_Memory,EC2Type_X2IEZN,EC2Type_X2IEZN_4xLarge,512.0G,16,0,0,32.00G,0,na,Intel Xeon Platinum 8252,na,StorageType_EC2_EBSOnly,4750.0M,<25G,593.75M,na,20000
+x2iezn.6xlarge,EC2Family_Memory,EC2Type_X2IEZN,EC2Type_X2IEZN_6xLarge,768.0G,24,0,0,32.00G,0,na,Intel Xeon Platinum 8252,na,StorageType_EC2_EBSOnly,9500.0M,50G,1187.5M,na,40000
+x2iezn.8xlarge,EC2Family_Memory,EC2Type_X2IEZN,EC2Type_X2IEZN_8xLarge,1024.0G,32,0,0,32.00G,0,na,Intel Xeon Platinum 8252,na,StorageType_EC2_EBSOnly,12000.0M,75G,1500.0M,na,55000
+x2iezn.metal,EC2Family_Memory,EC2Type_X2IEZN,EC2Type_X2IEZN_Metal,1536.0G,48,0,0,32.00G,0,na,Intel Xeon Platinum 8252,na,StorageType_EC2_EBSOnly,19000.0M,100G,2375.0M,na,80000
+z1d.12xlarge,EC2Family_Memory,EC2Type_Z1D,EC2Type_Z1D_12xLarge,384.0G,48,235,4.896,8.00G,0,na,Intel Xeon Platinum 8151,1800G,StorageType_EC2_NVMeSSD,19000.0M,25G,2375.0M,Yes,80000
+z1d.2xlarge,EC2Family_Memory,EC2Type_Z1D,EC2Type_Z1D_2xLarge,64.0G,8,45,5.625,8.00G,0,na,Intel Xeon Platinum 8151,300G,StorageType_SSD,3170.0M,<10G,396.25M,Yes,13333
+z1d.3xlarge,EC2Family_Memory,EC2Type_Z1D,EC2Type_Z1D_3xLarge,96.0G,12,64,5.333,8.00G,0,na,Intel Xeon Platinum 8151,450G,StorageType_SSD,4750.0M,<10G,593.75M,Yes,20000
+z1d.6xlarge,EC2Family_Memory,EC2Type_Z1D,EC2Type_Z1D_6xLarge,192.0G,24,116,4.833,8.00G,0,na,Intel Xeon Platinum 8151,900G,StorageType_SSD,9500.0M,10G,1187.5M,Yes,40000
+z1d.large,EC2Family_Memory,EC2Type_Z1D,EC2Type_Z1D_Large,16.0G,2,12,6,8.00G,0,na,Intel Xeon Platinum 8151,75G,StorageType_SSD,3170.0M,<10G,396.25M,Yes,13333
+z1d.metal,EC2Family_Memory,EC2Type_Z1D,EC2Type_Z1D_Metal,384.0G,48,271,5.646,8.00G,0,na,Intel Xeon Platinum 8151,1800G,StorageType_EC2_NVMeSSD,19000.0M,25G,2375.0M,Yes,80000
+z1d.xlarge,EC2Family_Memory,EC2Type_Z1D,EC2Type_Z1D_xLarge,32.0G,4,23,5.75,8.00G,0,na,Intel Xeon Platinum 8151,150G,StorageType_SSD,3170.0M,<10G,396.25M,Yes,13333

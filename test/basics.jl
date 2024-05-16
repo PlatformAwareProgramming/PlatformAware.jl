@@ -31,14 +31,14 @@
         println(z,": kernel for 1 accelerators of unspecified kind")
     end
 
-    @platform aware function kernel({accelerator_count::@atleast(1,C),
+    @platform aware function kernel({accelerator_count::Tuple{AtLeast1,AtMostInf,C} #=(@atleast(1,C))=#,
                                      accelerator_manufacturer::NVIDIA,
                                      accelerator_api::(@api CUDA 3.0)},
                                     x::@atleast(1),y,args...; z=2, kwargs...) where C
         println(z,": kernel 1 for $C NVIDIA accelerators")
     end
 
-    @platform aware function kernel({accelerator_count::@atleast(1,C),
+    @platform aware function kernel({accelerator_count::Tuple{AtLeast1,AtMostInf,C}#=(@atleast(1,C))=#,
                                      accelerator_manufacturer::NVIDIA,
                                      accelerator_api::(@api CUDA 3.0)},
                                     x::@atleast(16),y,args...; z=2, kwargs...) where C
