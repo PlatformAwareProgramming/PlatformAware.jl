@@ -799,6 +799,8 @@ Intel;Xeon,4108,8,1.80G,16,64-bit,SSE4.2;AVX;AVX2;AVX-512,Skylake,IntelXeon_4108
 Intel;Xeon,3204,6,1.90G,6,64-bit,SSE4.2;AVX;AVX2;AVX-512,CascadeLake,IntelXeon_3204,Intel,85,unset,unset,unset
 Intel;Xeon,3106,8,1.70G,8,64-bit,SSE4.2;AVX;AVX2;AVX-512,Skylake,IntelXeon_3106,Intel,85,unset,unset,unset
 Intel;Xeon,3104,6,1.70G,6,64-bit,SSE4.2;AVX;AVX2;AVX-512,Skylake,IntelXeon_3104,Intel,85,unset,unset,unset
+Intel;Xeon,Scalable,unknown,unknown,unknown,64-bit,SSE4.2;AVX;AVX2;AVX-512,unknown,IntelXeon_Scalable,Intel,unknown,unset,unset,unset
+Intel;Xeon,,unknown,unknown,unknown,64-bit,SSE4.2;AVX;AVX2,unknown,IntelXeon,Intel,unknown,unset,unset,unset
 Intel;Pentium,N6415,4,1.20G,4,64-bit,unset,ElkhartLake,IntelPentium_N6415,Intel,6.5,unset,unset,unset
 Intel;Pentium,N6415,4,1.20G,4,64-bit,unset,ElkhartLake,IntelPentium_N6415,Intel,6.5,unset,unset,unset
 Intel;Pentium,N6005,4,2.00G,4,64-bit,SSE4.2,JasperLake,IntelPentium_N6005,Intel,10,unset,unset,unset
