@@ -490,13 +490,13 @@ t2.micro,EC2Family_General,EC2Type_T2,EC2Type_T2_Micro,1.0G,1,0,0,1.00G,0,na,Int
 t2.nano,EC2Family_General,EC2Type_T2,EC2Type_T2_Nano,0.5G,1,0,0,0.50G,0,na,Intel Xeon Family,na,StorageType_EC2_EBSOnly,unset,<200M,0M,na,0
 t2.small,EC2Family_General,EC2Type_T2,EC2Type_T2_Small,2.0G,1,0,0,2.00G,0,na,Intel Xeon Family,na,StorageType_EC2_EBSOnly,unset,<200M,0M,na,0
 t2.xlarge,EC2Family_General,EC2Type_T2,EC2Type_T2_xLarge,16.0G,4,0,0,4.00G,0,na,Intel Xeon Family,na,StorageType_EC2_EBSOnly,unset,<250M,0M,na,0
-t3.2xlarge,EC2Family_General,EC2Type_T3,EC2Type_T3_2xLarge,32.0G,8,0,0,4.00G,0,na,Intel Skylake E5 2686 v5,na,StorageType_EC2_EBSOnly,2780.0M,<5G,347.5M,na,15700
-t3.large,EC2Family_General,EC2Type_T3,EC2Type_T3_Large,8.0G,2,0,0,4.00G,0,na,Intel Skylake E5 2686 v5,na,StorageType_EC2_EBSOnly,2780.0M,<5G,347.5M,na,15700
-t3.medium,EC2Family_General,EC2Type_T3,EC2Type_T3_Medium,4.0G,2,0,0,2.00G,0,na,Intel Skylake E5 2686 v5,na,StorageType_EC2_EBSOnly,2085.0M,<5G,260.57M,na,11800
-t3.micro,EC2Family_General,EC2Type_T3,EC2Type_T3_Micro,1.0G,2,0,0,0.50G,0,na,Intel Skylake E5 2686 v5,na,StorageType_EC2_EBSOnly,2085.0M,<5G,260.57M,na,11800
-t3.nano,EC2Family_General,EC2Type_T3,EC2Type_T3_Nano,0.5G,2,0,0,0.25G,0,na,Intel Skylake E5 2686 v5,na,StorageType_EC2_EBSOnly,2085.0M,<5G,260.57M,na,11800
-t3.small,EC2Family_General,EC2Type_T3,EC2Type_T3_Small,2.0G,2,0,0,1.00G,0,na,Intel Skylake E5 2686 v5,na,StorageType_EC2_EBSOnly,2085.0M,<5G,260.57M,na,11800
-t3.xlarge,EC2Family_General,EC2Type_T3,EC2Type_T3_xLarge,16.0G,4,0,0,4.00G,0,na,Intel Skylake E5 2686 v5,na,StorageType_EC2_EBSOnly,2780.0M,<5G,347.5M,na,15700
+t3.2xlarge,EC2Family_General,EC2Type_T3,EC2Type_T3_2xLarge,32.0G,8,0,0,4.00G,0,na,Intel Xeon E5 2686 v5,na,StorageType_EC2_EBSOnly,2780.0M,<5G,347.5M,na,15700
+t3.large,EC2Family_General,EC2Type_T3,EC2Type_T3_Large,8.0G,2,0,0,4.00G,0,na,Intel Xeon E5 2686 v5,na,StorageType_EC2_EBSOnly,2780.0M,<5G,347.5M,na,15700
+t3.medium,EC2Family_General,EC2Type_T3,EC2Type_T3_Medium,4.0G,2,0,0,2.00G,0,na,Intel Xeon E5 2686 v5,na,StorageType_EC2_EBSOnly,2085.0M,<5G,260.57M,na,11800
+t3.micro,EC2Family_General,EC2Type_T3,EC2Type_T3_Micro,1.0G,2,0,0,0.50G,0,na,Intel Xeon E5 2686 v5,na,StorageType_EC2_EBSOnly,2085.0M,<5G,260.57M,na,11800
+t3.nano,EC2Family_General,EC2Type_T3,EC2Type_T3_Nano,0.5G,2,0,0,0.25G,0,na,Intel Xeon E5 2686 v5,na,StorageType_EC2_EBSOnly,2085.0M,<5G,260.57M,na,11800
+t3.small,EC2Family_General,EC2Type_T3,EC2Type_T3_Small,2.0G,2,0,0,1.00G,0,na,Intel Xeon E5 2686 v5,na,StorageType_EC2_EBSOnly,2085.0M,<5G,260.57M,na,11800
+t3.xlarge,EC2Family_General,EC2Type_T3,EC2Type_T3_xLarge,16.0G,4,0,0,4.00G,0,na,Intel Xeon E5 2686 v5,na,StorageType_EC2_EBSOnly,2780.0M,<5G,347.5M,na,15700
 t3a.2xlarge,EC2Family_General,EC2Type_T3A,EC2Type_T3A_2xLarge,32.0G,8,0,0,4.00G,0,na,AMD EPYC 7571,na,StorageType_EC2_EBSOnly,2780.0M,<5G,347.5M,na,15700
 t3a.large,EC2Family_General,EC2Type_T3A,EC2Type_T3A_Large,8.0G,2,0,0,4.00G,0,na,AMD EPYC 7571,na,StorageType_EC2_EBSOnly,2780.0M,<5G,347.5M,na,15700
 t3a.medium,EC2Family_General,EC2Type_T3A,EC2Type_T3A_Medium,4.0G,2,0,0,2.00G,0,na,AMD EPYC 7571,na,StorageType_EC2_EBSOnly,2085.0M,<5G,260.57M,na,11800
