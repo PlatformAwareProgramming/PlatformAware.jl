@@ -154,13 +154,13 @@ g4ad.2xlarge,EC2Family_Accelerated,EC2Type_G4AD,EC2Type_G4AD_2xLarge,32.0G,8,0,0
 g4ad.4xlarge,EC2Family_Accelerated,EC2Type_G4AD,EC2Type_G4AD_4xLarge,64.0G,16,0,0,4.00G,1,AMD Radeon Pro V520,AMD EPYC 7R32,600G,StorageType_SSD,3170.0M,<10G,396.25M,Yes,13333
 g4ad.8xlarge,EC2Family_Accelerated,EC2Type_G4AD,EC2Type_G4AD_8xLarge,128.0G,32,0,0,4.00G,2,AMD Radeon Pro V520,AMD EPYC 7R32,1200G,StorageType_SSD,3170.0M,15G,396.25M,Yes,13333
 g4ad.xlarge,EC2Family_Accelerated,EC2Type_G4AD,EC2Type_G4AD_xLarge,16.0G,4,0,0,4.00G,1,AMD Radeon Pro V520,AMD EPYC 7R32,150G,StorageType_SSD,3170.0M,<10G,396.25M,Yes,13333
-g4dn.12xlarge,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_12xLarge,192.0G,48,0,0,4.00G,4,NVIDIA T4 Tensor Core,Intel Xeon Family,900G,StorageType_SSD,9500.0M,50G,1187.5M,Yes,40000
-g4dn.16xlarge,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_16xLarge,256.0G,64,0,0,4.00G,1,NVIDIA T4 Tensor Core,Intel Xeon Family,900G,StorageType_SSD,9500.0M,50G,1187.5M,Yes,40000
-g4dn.2xlarge,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_2xLarge,32.0G,8,0,0,4.00G,1,NVIDIA T4 Tensor Core,Intel Xeon Family,225G,StorageType_SSD,3500.0M,<25G,437.5M,Yes,20000
-g4dn.4xlarge,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_4xLarge,64.0G,16,0,0,4.00G,1,NVIDIA T4 Tensor Core,Intel Xeon Family,225G,StorageType_SSD,4750.0M,<25G,593.75M,Yes,20000
-g4dn.8xlarge,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_8xLarge,128.0G,32,0,0,4.00G,1,NVIDIA T4 Tensor Core,Intel Xeon Family,900G,StorageType_SSD,9500.0M,50G,1187.5M,Yes,40000
-g4dn.metal,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_Metal,384.0G,96,0,0,4.00G,8,NVIDIA T4 Tensor Core,Intel Xeon Family,1800G,StorageType_EC2_NVMeSSD,19000.0M,100G,2375.0M,Yes,80000
-g4dn.xlarge,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_xLarge,16.0G,4,0,0,4.00G,1,NVIDIA T4 Tensor Core,Intel Xeon Family,125G,StorageType_SSD,3500.0M,<25G,437.5M,Yes,20000
+g4dn.12xlarge,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_12xLarge,192.0G,48,0,0,4.00G,4,NVIDIA Tesla T4,Intel Xeon Family,900G,StorageType_SSD,9500.0M,50G,1187.5M,Yes,40000
+g4dn.16xlarge,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_16xLarge,256.0G,64,0,0,4.00G,1,NVIDIA Tesla T4,Intel Xeon Family,900G,StorageType_SSD,9500.0M,50G,1187.5M,Yes,40000
+g4dn.2xlarge,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_2xLarge,32.0G,8,0,0,4.00G,1,NVIDIA Tesla T4,Intel Xeon Family,225G,StorageType_SSD,3500.0M,<25G,437.5M,Yes,20000
+g4dn.4xlarge,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_4xLarge,64.0G,16,0,0,4.00G,1,NVIDIA Tesla T4,Intel Xeon Family,225G,StorageType_SSD,4750.0M,<25G,593.75M,Yes,20000
+g4dn.8xlarge,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_8xLarge,128.0G,32,0,0,4.00G,1,NVIDIA Tesla T4,Intel Xeon Family,900G,StorageType_SSD,9500.0M,50G,1187.5M,Yes,40000
+g4dn.metal,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_Metal,384.0G,96,0,0,4.00G,8,NVIDIA Tesla T4,Intel Xeon Family,1800G,StorageType_EC2_NVMeSSD,19000.0M,100G,2375.0M,Yes,80000
+g4dn.xlarge,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_xLarge,16.0G,4,0,0,4.00G,1,NVIDIA Tesla T4,Intel Xeon Family,125G,StorageType_SSD,3500.0M,<25G,437.5M,Yes,20000
 g5.12xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_12xLarge,192.0G,48,0,0,4.00G,4,NVIDIA A10G,AMD EPYC 7R32,3800G,StorageType_SSD,16000.0M,40G,2000.0M,Yes,65000
 g5.16xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_16xLarge,256.0G,64,0,0,4.00G,1,NVIDIA A10G,AMD EPYC 7R32,1900G,StorageType_SSD,16000.0M,25G,2000.0M,Yes,65000
 g5.24xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_24xLarge,384.0G,96,0,0,4.00G,4,NVIDIA A10G,AMD EPYC 7R32,3800G,StorageType_SSD,19000.0M,50G,2375.0M,Yes,80000
@@ -169,12 +169,12 @@ g5.48xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_48xLarge,768.0G,192,0,0,
 g5.4xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_4xLarge,64.0G,16,0,0,4.00G,1,NVIDIA A10G,AMD EPYC 7R32,600G,StorageType_SSD,4750.0M,<25G,593.75M,Yes,20000
 g5.8xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_8xLarge,128.0G,32,0,0,4.00G,1,NVIDIA A10G,AMD EPYC 7R32,900G,StorageType_SSD,16000.0M,25G,2000.0M,Yes,65000
 g5.xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_xLarge,16.0G,4,0,0,4.00G,1,NVIDIA A10G,AMD EPYC 7R32,250G,StorageType_SSD,3500.0M,<10G,437.5M,Yes,15000
-g5g.16xlarge,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_16xLarge,128.0G,64,0,0,2.00G,2,NVIDIA T4G Tensor Core,AWS Graviton2,na,StorageType_EC2_EBSOnly,19000.0M,25G,2375.0M,na,80000
-g5g.2xlarge,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_2xLarge,16.0G,8,0,0,2.00G,1,NVIDIA T4G Tensor Core,AWS Graviton2,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
-g5g.4xlarge,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_4xLarge,32.0G,16,0,0,2.00G,1,NVIDIA T4G Tensor Core,AWS Graviton2,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
-g5g.8xlarge,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_8xLarge,64.0G,32,0,0,2.00G,1,NVIDIA T4G Tensor Core,AWS Graviton2,na,StorageType_EC2_EBSOnly,9500.0M,12G,1187.5M,na,40000
-g5g.metal,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_Metal,128.0G,64,0,0,2.00G,2,NVIDIA T4G Tensor Core,AWS Graviton2,na,StorageType_EC2_EBSOnly,19000.0M,25G,2375.0M,na,80000
-g5g.xlarge,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_xLarge,8.0G,4,0,0,2.00G,1,NVIDIA T4G Tensor Core,AWS Graviton2,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
+g5g.16xlarge,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_16xLarge,128.0G,64,0,0,2.00G,2,NVIDIA Tesla T4G,AWS Graviton2,na,StorageType_EC2_EBSOnly,19000.0M,25G,2375.0M,na,80000
+g5g.2xlarge,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_2xLarge,16.0G,8,0,0,2.00G,1,NVIDIA Tesla T4G,AWS Graviton2,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
+g5g.4xlarge,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_4xLarge,32.0G,16,0,0,2.00G,1,NVIDIA Tesla T4G,AWS Graviton2,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
+g5g.8xlarge,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_8xLarge,64.0G,32,0,0,2.00G,1,NVIDIA Tesla T4G,AWS Graviton2,na,StorageType_EC2_EBSOnly,9500.0M,12G,1187.5M,na,40000
+g5g.metal,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_Metal,128.0G,64,0,0,2.00G,2,NVIDIA Tesla T4G,AWS Graviton2,na,StorageType_EC2_EBSOnly,19000.0M,25G,2375.0M,na,80000
+g5g.xlarge,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_xLarge,8.0G,4,0,0,2.00G,1,NVIDIA Tesla T4G,AWS Graviton2,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
 h1.16xlarge,EC2Family_Storage,EC2Type_H1,EC2Type_H1_16xLarge,256.0G,64,201,3.141,4.00G,0,na,Intel Xeon E5-2686 v4,16000G,StorageType_HDD,14000.0M,25G,1750.0M,na,80000
 h1.2xlarge,EC2Family_Storage,EC2Type_H1,EC2Type_H1_2xLarge,32.0G,8,31,3.875,4.00G,0,na,Intel Xeon E5-2686 v4,2000G,StorageType_HDD,1750.0M,<10G,218.75M,na,12000
 h1.4xlarge,EC2Family_Storage,EC2Type_H1,EC2Type_H1_4xLarge,64.0G,16,58,3.625,4.00G,0,na,Intel Xeon E5-2686 v4,4000G,StorageType_HDD,3500.0M,<10G,437.5M,na,20000

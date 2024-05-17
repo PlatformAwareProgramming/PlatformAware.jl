@@ -234,6 +234,7 @@ abstract type NVIDIATitan_Xp <: NVIDIATitan end; export NVIDIATitan_Xp
 # GPU models (Grid)
 
 abstract type NVIDIAGrid <: NVIDIAAccelerator end; export NVIDIAGrid
+abstract type NVIDIAGrid_K520 <: NVIDIAGrid end; export NVIDIAGrid_K520
 abstract type NVIDIAGrid_A100A <: NVIDIAGrid end; export NVIDIAGrid_A100A
 abstract type NVIDIAGrid_A100B <: NVIDIAGrid end; export NVIDIAGrid_A100B
 abstract type NVIDIAGrid_M10_8Q <: NVIDIAGrid end; export NVIDIAGrid_M10_8Q
