@@ -112,7 +112,7 @@ abstract type CUDA_7_5 <: CUDA_7_2 end; export CUDA_7_5
 abstract type CUDA_8_0 <: CUDA_7_5 end; const CUDA8 = CUDA_8_0; export CUDA_8_0, CUDA8
 abstract type CUDA_8_6 <: CUDA_8_0 end; export CUDA_8_6
 abstract type CUDA_8_9 <: CUDA_8_6 end; export CUDA_8_9
-abstract type CUDA_9_0 <: CUDA_9_0 end; const CUDA9 = CUDA_9_0; export CUDA_9_0, CUDA9
+abstract type CUDA_9_0 <: CUDA_8_9 end; const CUDA9 = CUDA_9_0; export CUDA_9_0, CUDA9
 
 # GPU models
 
