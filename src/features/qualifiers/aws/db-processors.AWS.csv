@@ -1,0 +1,5 @@
+,,processor_core_count,processor_clock,processor_core_threads_count,processor_isa,processor_simd,processor_microarchitecture,processor,processor_manufacturer,processor_tdp,processor_core_L1_size,processor_core_L2_size,processor_L3_size,node_memory_bandwidth,node_memory_type
+AWS;Graviton,1,16,2.3G,2,64-bit,unset,unset,AWSGraviton1,AWS,35,unset,1280K,8M,na,DDR5
+AWS;Graviton,2,64,2.5G,2,64-bit,unset,unset,AWSGraviton2,AWS,31,unset,8M,64M,32M,DDR5
+AWS;Graviton,3,64,2.6G,2,64-bit,unset,unset,AWSGraviton3,AWS,31,unset,8M,64M,32M,DDR5
+AWS;Graviton,4,96,2.6G,2,64-bit,unset,unset,AWSGraviton4,AWS,31,unset,12M,192M,na,DDR5
