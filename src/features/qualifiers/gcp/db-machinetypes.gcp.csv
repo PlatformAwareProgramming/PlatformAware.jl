@@ -51,8 +51,8 @@ e2-standard-2,GCPFamily_General,GCPType_E2,GCPType_E2_Standard2,8.0G,2,4.00G,0,n
 e2-standard-32,GCPFamily_General,GCPType_E2,GCPType_E2_Standard32,128.0G,32,4.00G,0,na,unknown,unset,unset,unset,No,16G,unset,unset,unset
 e2-standard-4,GCPFamily_General,GCPType_E2,GCPType_E2_Standard4,16.0G,4,4.00G,0,na,unknown,unset,unset,unset,No,8G,unset,unset,unset
 e2-standard-8,GCPFamily_General,GCPType_E2,GCPType_E2_Standard8,32.0G,8,4.00G,0,na,unknown,unset,unset,unset,No,16G,unset,unset,unset
-f1-micro,GCPFamily_General,GCPType_N1,GCPType_F1_Micro,0.6G,"0,2",3.00G,0,na,unknown,unset,unset,unset,No,unkonwn,unset,unset,unset
-g1-small,GCPFamily_General,GCPType_N1,GCPType_G1_Small,1.7G,"0,5",3.40G,0,na,unknown,unset,unset,unset,No,unkonwn,unset,unset,unset
+f1-micro,GCPFamily_General,GCPType_F1_Micro,GCPType_F1_Micro,0.6G,0.2,3.00G,0,na,unknown,unset,unset,unset,No,unkonwn,unset,unset,unset
+g1-small,GCPFamily_General,GCPType_G1_Small,GCPType_G1_Small,1.7G,0.5,3.40G,0,na,unknown,unset,unset,unset,No,unkonwn,unset,unset,unset
 g2-standard-4,GCPFamily_Accelerated,GCPType_G2,GCPType_G2_Standard4,16.0G,4,4.00G,1,NVIDIA_L4,Intel Xeon 8280L,unset,unset,unset,unknown,10G,unset,unset,unset
 g2-standard-8,GCPFamily_Accelerated,GCPType_G2,GCPType_G2_Standard8,32.0G,8,4.00G,1,NVIDIA_L4,Intel Xeon 8280L,unset,unset,unset,unknown,16G,unset,unset,unset
 g2-standard-12,GCPFamily_Accelerated,GCPType_G2,GCPType_G2_Standard12,48.0G,12,4.00G,1,NVIDIA_L4,Intel Xeon 8280L,unset,unset,unset,unknown,16G,unset,unset,unset
