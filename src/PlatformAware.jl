@@ -40,6 +40,7 @@ include("features/qualifiers/intel/intel_processors_itanium.jl")
 include("features/qualifiers/intel/intel_processors_pentium.jl")
 include("features/qualifiers/intel/intel_processors_xeon.jl")
 include("features/qualifiers/amd/amd_processors.jl")
+include("features/qualifiers/aws/aws_processors.jl")
 include("features/qualifiers/amd/amd_accelerators.jl")
 include("features/qualifiers/xilinx/xilinx.jl")
 
