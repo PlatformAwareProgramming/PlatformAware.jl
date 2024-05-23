@@ -1,10 +1,10 @@
 api_name,node_machinefamily,node_machinetype_super,node_machinetype,node_memory_size,node_vcpus_count,node_ecu_count,ecu_per_vcpu,memory_per_vcpu,accelerator_count,accelerator,processor,storage_size,storage_type,storage_bandwidth,network_performance,storage_throughput,storage_trim_support,storage_iops
-a1.2xlarge,EC2Family_General,EC2Type_A1,EC2Type_A1_2xLarge,16.0G,8,0,0,2.00G,0,na,AWS Graviton,na,StorageType_EC2_EBSOnly,3500.0M,<10G,437.5M,na,20000
-a1.4xlarge,EC2Family_General,EC2Type_A1,EC2Type_A1_4xLarge,32.0G,16,0,0,2.00G,0,na,AWS Graviton,na,StorageType_EC2_EBSOnly,3500.0M,<10G,437.5M,na,20000
-a1.large,EC2Family_General,EC2Type_A1,EC2Type_A1_Large,4.0G,2,0,0,2.00G,0,na,AWS Graviton,na,StorageType_EC2_EBSOnly,3500.0M,<10G,437.5M,na,20000
-a1.medium,EC2Family_General,EC2Type_A1,EC2Type_A1_Medium,2.0G,1,0,0,2.00G,0,na,AWS Graviton,na,StorageType_EC2_EBSOnly,3500.0M,<10G,437.5M,na,20000
-a1.metal,EC2Family_General,EC2Type_A1,EC2Type_A1_Metal,32.0G,16,0,0,2.00G,0,na,AWS Graviton,na,StorageType_EC2_EBSOnly,3500.0M,<10G,437.5M,na,20000
-a1.xlarge,EC2Family_General,EC2Type_A1,EC2Type_A1_xLarge,8.0G,4,0,0,2.00G,0,na,AWS Graviton,na,StorageType_EC2_EBSOnly,3500.0M,<10G,437.5M,na,20000
+a1.2xlarge,EC2Family_General,EC2Type_A1,EC2Type_A1_2xLarge,16.0G,8,0,0,2.00G,0,na,AWS Graviton1,na,StorageType_EC2_EBSOnly,3500.0M,<10G,437.5M,na,20000
+a1.4xlarge,EC2Family_General,EC2Type_A1,EC2Type_A1_4xLarge,32.0G,16,0,0,2.00G,0,na,AWS Graviton1,na,StorageType_EC2_EBSOnly,3500.0M,<10G,437.5M,na,20000
+a1.large,EC2Family_General,EC2Type_A1,EC2Type_A1_Large,4.0G,2,0,0,2.00G,0,na,AWS Graviton1,na,StorageType_EC2_EBSOnly,3500.0M,<10G,437.5M,na,20000
+a1.medium,EC2Family_General,EC2Type_A1,EC2Type_A1_Medium,2.0G,1,0,0,2.00G,0,na,AWS Graviton1,na,StorageType_EC2_EBSOnly,3500.0M,<10G,437.5M,na,20000
+a1.metal,EC2Family_General,EC2Type_A1,EC2Type_A1_Metal,32.0G,16,0,0,2.00G,0,na,AWS Graviton1,na,StorageType_EC2_EBSOnly,3500.0M,<10G,437.5M,na,20000
+a1.xlarge,EC2Family_General,EC2Type_A1,EC2Type_A1_xLarge,8.0G,4,0,0,2.00G,0,na,AWS Graviton1,na,StorageType_EC2_EBSOnly,3500.0M,<10G,437.5M,na,20000
 c1.medium,EC2Family_Compute,EC2Type_C1,EC2Type_C1_Medium,1.7G,2,5,2.5,0.85G,0,na,Intel Xeon Family,350G,StorageType_HDD,unset,<250M,0M,na,0
 c1.xlarge,EC2Family_Compute,EC2Type_C1,EC2Type_C1_xLarge,7.0G,8,20,2.5,0.88G,0,na,Intel Xeon Family,1680G,StorageType_HDD,1000.0M,<1G,125.0M,na,8000
 c3.2xlarge,EC2Family_Compute,EC2Type_C3,EC2Type_C3_2xLarge,15.0G,8,28,3.5,1.88G,0,na,Intel Xeon E5-2680 v2,160G,StorageType_SSD,1000.0M,<1G,125.0M,No,8000
