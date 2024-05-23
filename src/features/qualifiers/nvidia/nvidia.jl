@@ -24,7 +24,8 @@ abstract type Pascal <: Maxwell2 end;  export Pascal
 abstract type Volta <: Pascal end;  export Volta
 abstract type Turing <: Volta end;  export Turing
 abstract type Ampere <: Turing end;  export Ampere
-abstract type Hopper <: Ampere end;  export Hopper
+abstract type Ada <: Ampere end;  export Ada
+abstract type Hopper <: Ada end;  export Hopper
 
 # GPU processors
 
@@ -110,7 +111,8 @@ abstract type CUDA_7_2 <: CUDA_7_0 end; export CUDA_7_2
 abstract type CUDA_7_5 <: CUDA_7_2 end; export CUDA_7_5
 abstract type CUDA_8_0 <: CUDA_7_5 end; const CUDA8 = CUDA_8_0; export CUDA_8_0, CUDA8
 abstract type CUDA_8_6 <: CUDA_8_0 end; export CUDA_8_6
-abstract type CUDA_9_0 <: CUDA_8_6 end; const CUDA9 = CUDA_9_0; export CUDA_9_0, CUDA9
+abstract type CUDA_8_9 <: CUDA_8_6 end; export CUDA_8_9
+abstract type CUDA_9_0 <: CUDA_9_0 end; const CUDA9 = CUDA_9_0; export CUDA_9_0, CUDA9
 
 # GPU models
 
@@ -119,6 +121,8 @@ abstract type NVIDIAAccelerator <: Accelerator end; export NVIDIAAccelerator
 # GPU models (Tensor Core)
 
 abstract type NVIDIATensorCore <: NVIDIAAccelerator end; export NVIDIATensorCore
+
+abstract type NVIDIA_L4 <: NVIDIATensorCore end; export NVIDIA_L4      # 23/05/2024
 
 abstract type NVIDIA_A10 <: NVIDIATensorCore end; export NVIDIA_A10
 abstract type NVIDIA_A100 <: NVIDIATensorCore end; export NVIDIA_A100
