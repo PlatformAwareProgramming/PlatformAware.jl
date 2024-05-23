@@ -1,172 +1,172 @@
-api_name,node_machinefamily,node_machinetype,node_machinesize,node_memory_size,node_vcpus_count,memory_per_vcpu,accelerator_count,accelerator,GPU support,processor,CPU Type,storage_size,storage_type,storage_bandwidth,Local SSD support,interconnection_bandwidth,storage_throughput,storage_trim_support,storage_iops,Sole tenant support,Nested virtualization support
-a2-highgpu-1g,GCPFamily_Accelerated,GCPType_A2,GCPType_A2_Highgpu1G,85.0G,12,7.08G,1,NVIDIA_A100,Supported,IntelXeon_8273CL,Cascade Lake,,,,Supported,24 Gigabit,,,,Unknown,Unknown
-a2-highgpu-2g,GCPFamily_Accelerated,GCPType_A2,GCPType_A2_Highgpu2G,170.0G,24,7.08G,2,NVIDIA_A100,Supported,IntelXeon_8273CL,Cascade Lake,,,,Supported,32 Gigabit,,,,Unknown,Unknown
-a2-highgpu-4g,GCPFamily_Accelerated,GCPType_A2,GCPType_A2_Highgpu4G,340.0G,48,7.08G,4,NVIDIA_A100,Supported,IntelXeon_8273CL,Cascade Lake,,,,Supported,50 Gigabit,,,,Unknown,Unknown
-a2-highgpu-8g,GCPFamily_Accelerated,GCPType_A2,GCPType_A2_Highgpu8G,680.0G,96,7.08G,8,NVIDIA_A100,Supported,IntelXeon_8273CL,Cascade Lake,,,,Supported,100 Gigabit,,,,Unknown,Unknown
-a2-megagpu-16g,GCPFamily_Accelerated,GCPType_A2,GCPType_A2_Megagpu16G,1360.0G,96,14.16G,16,NVIDIA_A100,Supported,IntelXeon_8273CL,Cascade Lake,,,,Supported,100 Gigabit,,,,Unknown,Unknown
-a2-ultragpu-1g,GCPFamily_Accelerated,GCPType_A2,GCPType_A2_Ultragpu1G,170.0G,12,14.16G,1,NVIDIA_A100,Supported,IntelXeon_8273CL,Cascade Lake,,,,,,,,,,
-a2-ultragpu-2g,GCPFamily_Accelerated,GCPType_A2,GCPType_A2_Ultragpu2G,340.0G,24,14.16G,2,NVIDIA_A100,Supported,IntelXeon_8273CL,Cascade Lake,,,,,,,,,,
-a2-ultragpu-4g,GCPFamily_Accelerated,GCPType_A2,GCPType_A2_Ultragpu4G,680.0G,48,14.16G,4,NVIDIA_A100,Supported,IntelXeon_8273CL,Cascade Lake,,,,,,,,,,
-a2-ultragpu-8g,GCPFamily_Accelerated,GCPType_A2,GCPType_A2_Ultragpu8G,1360.0G,96,14.16G,8,NVIDIA_A100,Supported,IntelXeon_8273CL,Cascade Lake,,,,,,,,,,
-c2-standard-16,GCPFamily_Compute,GCPType_C2,GCPType_C2_Standard16,64.0G,16,4.00G,0,na,Not supported,IntelXeon_6253CL,Cascade Lake,,,,Supported,32 Gigabit,,,,Unknown,Unknown
-c2-standard-30,GCPFamily_Compute,GCPType_C2,GCPType_C2_Standard30,120.0G,30,4.00G,0,na,Not supported,IntelXeon_6253CL,Cascade Lake,,,,Supported,32 Gigabit,,,,Unknown,Unknown
-c2-standard-4,GCPFamily_Compute,GCPType_C2,GCPType_C2_Standard4,16.0G,4,4.00G,0,na,Not supported,IntelXeon_6253CL,Cascade Lake,,,,Supported,10 Gigabit,,,,Unknown,Unknown
-c2-standard-60,GCPFamily_Compute,GCPType_C2,GCPType_C2_Standard60,240.0G,60,4.00G,0,na,Not supported,IntelXeon_6253CL,Cascade Lake,,,,Supported,32 Gigabit,,,,Unknown,Unknown
-c2-standard-8,GCPFamily_Compute,GCPType_C2,GCPType_C2_Standard8,32.0G,8,4.00G,0,na,Not supported,IntelXeon_6253CL,Cascade Lake,,,,Supported,16 Gigabit,,,,Unknown,Unknown
-c2d-highcpu-112,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Highcpu112,224.0G,112,2.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Supported,32 Gigabit,,,,Unknown,Unknown
-c2d-highcpu-16,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Highcpu16,32.0G,16,2.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Supported,32 Gigabit,,,,Unknown,Unknown
-c2d-highcpu-2,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Highcpu2,4.0G,2,2.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Supported,32 Gigabit,,,,Unknown,Unknown
-c2d-highcpu-32,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Highcpu32,64.0G,32,2.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Supported,32 Gigabit,,,,Unknown,Unknown
-c2d-highcpu-4,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Highcpu4,8.0G,4,2.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Supported,32 Gigabit,,,,Unknown,Unknown
-c2d-highcpu-56,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Highcpu56,112.0G,56,2.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Supported,32 Gigabit,,,,Unknown,Unknown
-c2d-highcpu-8,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Highcpu8,16.0G,8,2.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Supported,32 Gigabit,,,,Unknown,Unknown
-c2d-highmem-112,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Highmem112,896.0G,112,8.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Supported,32 Gigabit,,,,Unknown,Unknown
-c2d-highmem-16,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Highmem16,128.0G,16,8.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Supported,32 Gigabit,,,,Unknown,Unknown
-c2d-highmem-2,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Highmem2,16.0G,2,8.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Supported,32 Gigabit,,,,Unknown,Unknown
-c2d-highmem-32,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Highmem32,256.0G,32,8.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Supported,32 Gigabit,,,,Unknown,Unknown
-c2d-highmem-4,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Highmem4,32.0G,4,8.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Supported,32 Gigabit,,,,Unknown,Unknown
-c2d-highmem-56,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Highmem56,448.0G,56,8.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Supported,32 Gigabit,,,,Unknown,Unknown
-c2d-highmem-8,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Highmem8,64.0G,8,8.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Supported,32 Gigabit,,,,Unknown,Unknown
-c2d-standard-112,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Standard112,448.0G,112,4.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Supported,32 Gigabit,,,,Unknown,Unknown
-c2d-standard-16,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Standard16,64.0G,16,4.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Supported,32 Gigabit,,,,Unknown,Unknown
-c2d-standard-2,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Standard2,8.0G,2,4.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Supported,32 Gigabit,,,,Unknown,Unknown
-c2d-standard-32,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Standard32,128.0G,32,4.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Supported,32 Gigabit,,,,Unknown,Unknown
-c2d-standard-4,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Standard4,16.0G,4,4.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Supported,32 Gigabit,,,,Unknown,Unknown
-c2d-standard-56,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Standard56,224.0G,56,4.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Supported,32 Gigabit,,,,Unknown,Unknown
-c2d-standard-8,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Standard8,32.0G,8,4.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Supported,32 Gigabit,,,,Unknown,Unknown
-e2-highcpu-16,GCPFamily_General,GCPType_E2,GCPType_E2_Highcpu16,16.0G,16,1.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Not supported,16 Gigabit,,,,Not supported,Not supported
-e2-highcpu-2,GCPFamily_General,GCPType_E2,GCPType_E2_Highcpu2,2.0G,2,1.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Not supported,4 Gigabit,,,,Not supported,Not supported
-e2-highcpu-32,GCPFamily_General,GCPType_E2,GCPType_E2_Highcpu32,32.0G,32,1.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Not supported,16 Gigabit,,,,Not supported,Not supported
-e2-highcpu-4,GCPFamily_General,GCPType_E2,GCPType_E2_Highcpu4,4.0G,4,1.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Not supported,8 Gigabit,,,,Not supported,Not supported
-e2-highcpu-8,GCPFamily_General,GCPType_E2,GCPType_E2_Highcpu8,8.0G,8,1.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Not supported,16 Gigabit,,,,Not supported,Not supported
-e2-highmem-16,GCPFamily_General,GCPType_E2,GCPType_E2_Highmem16,128.0G,16,8.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Not supported,16 Gigabit,,,,Not supported,Not supported
-e2-highmem-2,GCPFamily_General,GCPType_E2,GCPType_E2_Highmem2,16.0G,2,8.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Not supported,4 Gigabit,,,,Not supported,Not supported
-e2-highmem-4,GCPFamily_General,GCPType_E2,GCPType_E2_Highmem4,32.0G,4,8.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Not supported,8 Gigabit,,,,Not supported,Not supported
-e2-highmem-8,GCPFamily_General,GCPType_E2,GCPType_E2_Highmem8,64.0G,8,8.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Not supported,16 Gigabit,,,,Not supported,Not supported
-e2-medium,GCPFamily_General,GCPType_E2,GCPType_E2_Medium,4.0G,2,2.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Not supported,2 Gigabit,,,,Not supported,Not supported
-e2-micro,GCPFamily_General,GCPType_E2,GCPType_E2_Micro,1.0G,2,0.50G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Not supported,1 Gigabit,,,,Not supported,Not supported
-e2-small,GCPFamily_General,GCPType_E2,GCPType_E2_Small,2.0G,2,1.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Not supported,1 Gigabit,,,,Not supported,Not supported
-e2-standard-16,GCPFamily_General,GCPType_E2,GCPType_E2_Standard16,64.0G,16,4.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Not supported,16 Gigabit,,,,Not supported,Not supported
-e2-standard-2,GCPFamily_General,GCPType_E2,GCPType_E2_Standard2,8.0G,2,4.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Not supported,4 Gigabit,,,,Not supported,Not supported
-e2-standard-32,GCPFamily_General,GCPType_E2,GCPType_E2_Standard32,128.0G,32,4.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Not supported,16 Gigabit,,,,Not supported,Not supported
-e2-standard-4,GCPFamily_General,GCPType_E2,GCPType_E2_Standard4,16.0G,4,4.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Not supported,8 Gigabit,,,,Not supported,Not supported
-e2-standard-8,GCPFamily_General,GCPType_E2,GCPType_E2_Standard8,32.0G,8,4.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Not supported,16 Gigabit,,,,Not supported,Not supported
-f1-micro,GCPFamily_General,GCPType_N1,GCPType_F1_Micro,0.6G,0.2,3.00G,0,na,Not supported,DYNAMIC,IntelXeon,,,,Not supported,Unknown,,,,Not supported,Not supported
-g1-small,GCPFamily_General,GCPType_N1,GCPType_G1_Small,1.7G,0.5,3.40G,0,na,Not supported,DYNAMIC,IntelXeon,,,,Not supported,Unknown,,,,Not supported,Not supported
-g2-standard-4,GCPFamily_Accelerated,GCPType_G2,GCPType_G2_Standard4,16.0G,4,4.00G,1,NVIDIA_L4,Supported,IntelXeon_8280L,Cascade Lake,,,,,10 Gigabit,,,,,
-g2-standard-8,GCPFamily_Accelerated,GCPType_G2,GCPType_G2_Standard8,32.0G,8,4.00G,1,NVIDIA_L4,Supported,IntelXeon_8280L,Cascade Lake,,,,,16 Gigabit,,,,,
-g2-standard-12,GCPFamily_Accelerated,GCPType_G2,GCPType_G2_Standard12,48.0G,12,4.00G,1,NVIDIA_L4,Supported,IntelXeon_8280L,Cascade Lake,,,,,16 Gigabit,,,,,
-g2-standard-16,GCPFamily_Accelerated,GCPType_G2,GCPType_G2_Standard16,64.0G,16,4.00G,1,NVIDIA_L4,Supported,IntelXeon_8280L,Cascade Lake,,,,,32 Gigabit,,,,,
-g2-standard-24,GCPFamily_Accelerated,GCPType_G2,GCPType_G2_Standard24,96.0G,24,4.00G,2,NVIDIA_L4,Supported,IntelXeon_8280L,Cascade Lake,,,,,32 Gigabit,,,,,
-g2-standard-32,GCPFamily_Accelerated,GCPType_G2,GCPType_G2_Standard32,128.0G,32,4.00G,1,NVIDIA_L4,Supported,IntelXeon_8280L,Cascade Lake,,,,,32 Gigabit,,,,,
-g2-standard-48,GCPFamily_Accelerated,GCPType_G2,GCPType_G2_Standard48,192.0G,48,4.00G,4,NVIDIA_L4,Supported,IntelXeon_8280L,Cascade Lake,,,,,50 Gigabit,,,,,
-g2-standard-96,GCPFamily_Accelerated,GCPType_G2,GCPType_G2_Standard96,384.0G,96,4.00G,8,NVIDIA_L4,Supported,IntelXeon_8280L,Cascade Lake,,,,,100 Gigabit,,,,,
-m1-megamem-96,GCPFamily_Memory,GCPType_M1,GCPType_M1_Megamem96,1433.6G,96,15.41G,0,na,Unknown,IntelXeon_8173M,"Cascade Lake, Broadwell E7",,,,Supported,32 Gigabit,,,,Unknown,Unknown
-m1-ultramem-160,GCPFamily_Memory,GCPType_M1,GCPType_M1_Ultramem160,3844.0G,160,24.02G,0,na,Unknown,IntelXeon_E78880V4,"Skylake, Broadwell E5",,,,Not supported,32 Gigabit,,,,Unknown,Unknown
-m1-ultramem-40,GCPFamily_Memory,GCPType_M1,GCPType_M1_Ultramem40,961.0G,40,24.02G,0,na,Unknown,IntelXeon_E78880V4,"Skylake, Broadwell E5",,,,Not supported,32 Gigabit,,,,Unknown,Unknown
-m1-ultramem-80,GCPFamily_Memory,GCPType_M1,GCPType_M1_Ultramem80,1922.0G,80,24.02G,0,na,Unknown,IntelXeon_E78880V4,"Skylake, Broadwell E5",,,,Not supported,32 Gigabit,,,,Unknown,Unknown
-m2-megamem-416,GCPFamily_Memory,GCPType_M2,GCPType_M2_Megamem416,5888.0G,416,14.15G,0,na,Unknown,IntelXeon_8280L,Cascade Lake,,,,Not supported,32 Gigabit,,,,Unknown,Unknown
-m2-ultramem-208,GCPFamily_Memory,GCPType_M2,GCPType_M2_Ultramem208,5888.0G,208,28.30G,0,na,Unknown,IntelXeon_8280L,Cascade Lake,,,,Not supported,32 Gigabit,,,,Unknown,Unknown
-m2-ultramem-416,GCPFamily_Memory,GCPType_M2,GCPType_M2_Ultramem416,11776.0G,416,28.30G,0,na,Unknown,IntelXeon_8280L,Cascade Lake,,,,Not supported,32 Gigabit,,,,Unknown,Unknown
-m3-megamem-128,GCPFamily_Memory,GCPType_M3,GCPType_M3_Megamem128,1952.0G,128,15.25G,0,na,Unknown,IntelXeon_8373C,Ice Lake,,,,Not supported,32 Gigabit,,,,Unknown,Unknown
-m3-megamem-64,GCPFamily_Memory,GCPType_M3,GCPType_M3_Megamem64,976.0G,64,15.25G,0,na,Unknown,IntelXeon_8373C,Ice Lake,,,,Not supported,32 Gigabit,,,,Unknown,Unknown
-m3-ultramem-128,GCPFamily_Memory,GCPType_M3,GCPType_M3_Ultramem128,3904.0G,128,30.50G,0,na,Unknown,IntelXeon_8373C,Ice Lake,,,,Not supported,32 Gigabit,,,,Unknown,Unknown
-m3-ultramem-32,GCPFamily_Memory,GCPType_M3,GCPType_M3_Ultramem32,976.0G,32,30.50G,0,na,Unknown,IntelXeon_8373C,Ice Lake,,,,Not supported,32 Gigabit,,,,Unknown,Unknown
-m3-ultramem-64,GCPFamily_Memory,GCPType_M3,GCPType_M3_Ultramem64,1952.0G,64,30.50G,0,na,Unknown,IntelXeon_8373C,Ice Lake,,,,Not supported,32 Gigabit,,,,Unknown,Unknown
-n1-highcpu-16,GCPFamily_General,GCPType_N1,GCPType_N1_Highcpu16,14.4G,16,0.90G,DYNAMIC,DYNAMIC,Supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Supported,Supported
-n1-highcpu-2,GCPFamily_General,GCPType_N1,GCPType_N1_Highcpu2,1.8G,2,0.90G,DYNAMIC,DYNAMIC,Supported,DYNAMIC,DYNAMIC,,,,Supported,10 Gigabit,,,,Supported,Supported
-n1-highcpu-32,GCPFamily_General,GCPType_N1,GCPType_N1_Highcpu32,28.8G,32,0.90G,DYNAMIC,DYNAMIC,Supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Supported,Supported
-n1-highcpu-4,GCPFamily_General,GCPType_N1,GCPType_N1_Highcpu4,3.6G,4,0.90G,DYNAMIC,DYNAMIC,Supported,DYNAMIC,DYNAMIC,,,,Supported,10 Gigabit,,,,Supported,Supported
-n1-highcpu-64,GCPFamily_General,GCPType_N1,GCPType_N1_Highcpu64,57.6G,64,0.90G,DYNAMIC,DYNAMIC,Supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Supported,Supported
-n1-highcpu-8,GCPFamily_General,GCPType_N1,GCPType_N1_Highcpu8,7.2G,8,0.90G,DYNAMIC,DYNAMIC,Supported,DYNAMIC,DYNAMIC,,,,Supported,16 Gigabit,,,,Supported,Supported
-n1-highcpu-96,GCPFamily_General,GCPType_N1,GCPType_N1_Highcpu96,86.4G,96,0.90G,DYNAMIC,DYNAMIC,Supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Supported,Supported
-n1-highmem-16,GCPFamily_General,GCPType_N1,GCPType_N1_Highmem16,104.0G,16,6.50G,DYNAMIC,DYNAMIC,Supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Supported,Supported
-n1-highmem-2,GCPFamily_General,GCPType_N1,GCPType_N1_Highmem2,13.0G,2,6.50G,DYNAMIC,DYNAMIC,Supported,DYNAMIC,DYNAMIC,,,,Supported,10 Gigabit,,,,Supported,Supported
-n1-highmem-32,GCPFamily_General,GCPType_N1,GCPType_N1_Highmem32,208.0G,32,6.50G,DYNAMIC,DYNAMIC,Supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Supported,Supported
-n1-highmem-4,GCPFamily_General,GCPType_N1,GCPType_N1_Highmem4,26.0G,4,6.50G,DYNAMIC,DYNAMIC,Supported,DYNAMIC,DYNAMIC,,,,Supported,10 Gigabit,,,,Supported,Supported
-n1-highmem-64,GCPFamily_General,GCPType_N1,GCPType_N1_Highmem64,416.0G,64,6.50G,DYNAMIC,DYNAMIC,Supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Supported,Supported
-n1-highmem-8,GCPFamily_General,GCPType_N1,GCPType_N1_Highmem8,52.0G,8,6.50G,DYNAMIC,DYNAMIC,Supported,DYNAMIC,DYNAMIC,,,,Supported,16 Gigabit,,,,Supported,Supported
-n1-highmem-96,GCPFamily_General,GCPType_N1,GCPType_N1_Highmem96,624.0G,96,6.50G,DYNAMIC,DYNAMIC,Supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Supported,Supported
-n1-standard-1,GCPFamily_General,GCPType_N1,GCPType_N1_Standard1,3.75G,1,3.75G,DYNAMIC,DYNAMIC,Supported,DYNAMIC,DYNAMIC,,,,Supported,2 Gigabit,,,,Supported,Supported
-n1-standard-16,GCPFamily_General,GCPType_N1,GCPType_N1_Standard16,60.0G,16,3.75G,DYNAMIC,DYNAMIC,Supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Supported,Supported
-n1-standard-2,GCPFamily_General,GCPType_N1,GCPType_N1_Standard2,7.5G,2,3.75G,DYNAMIC,DYNAMIC,Supported,DYNAMIC,DYNAMIC,,,,Supported,10 Gigabit,,,,Supported,Supported
-n1-standard-32,GCPFamily_General,GCPType_N1,GCPType_N1_Standard32,120.0G,32,3.75G,DYNAMIC,DYNAMIC,Supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Supported,Supported
-n1-standard-4,GCPFamily_General,GCPType_N1,GCPType_N1_Standard4,15.0G,4,3.75G,DYNAMIC,DYNAMIC,Supported,DYNAMIC,DYNAMIC,,,,Supported,10 Gigabit,,,,Supported,Supported
-n1-standard-64,GCPFamily_General,GCPType_N1,GCPType_N1_Standard64,240.0G,64,3.75G,DYNAMIC,DYNAMIC,Supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Supported,Supported
-n1-standard-8,GCPFamily_General,GCPType_N1,GCPType_N1_Standard8,30.0G,8,3.75G,DYNAMIC,DYNAMIC,Supported,DYNAMIC,DYNAMIC,,,,Supported,16 Gigabit,,,,Supported,Supported
-n1-standard-96,GCPFamily_General,GCPType_N1,GCPType_N1_Standard96,360.0G,96,3.75G,DYNAMIC,DYNAMIC,Supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Supported,Supported
-n2-highcpu-16,GCPFamily_General,GCPType_N2,GCPType_N2_Highcpu16,16.0G,16,1.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Supported,Supported
-n2-highcpu-2,GCPFamily_General,GCPType_N2,GCPType_N2_Highcpu2,2.0G,2,1.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,10 Gigabit,,,,Supported,Supported
-n2-highcpu-32,GCPFamily_General,GCPType_N2,GCPType_N2_Highcpu32,32.0G,32,1.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Supported,Supported
-n2-highcpu-4,GCPFamily_General,GCPType_N2,GCPType_N2_Highcpu4,4.0G,4,1.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,10 Gigabit,,,,Supported,Supported
-n2-highcpu-48,GCPFamily_General,GCPType_N2,GCPType_N2_Highcpu48,48.0G,48,1.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Supported,Supported
-n2-highcpu-64,GCPFamily_General,GCPType_N2,GCPType_N2_Highcpu64,64.0G,64,1.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Supported,Supported
-n2-highcpu-8,GCPFamily_General,GCPType_N2,GCPType_N2_Highcpu8,8.0G,8,1.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,16 Gigabit,,,,Supported,Supported
-n2-highcpu-80,GCPFamily_General,GCPType_N2,GCPType_N2_Highcpu80,80.0G,80,1.00G,0,na,Not supported,IntelXeon_8373C,Ice Lake,,,,Supported,32 Gigabit,,,,Supported,Supported
-n2-highcpu-96,GCPFamily_General,GCPType_N2,GCPType_N2_Highcpu96,96.0G,96,1.00G,0,na,Not supported,IntelXeon_8373C,Ice Lake,,,,Supported,32 Gigabit,,,,Supported,Supported
-n2-highmem-128,GCPFamily_General,GCPType_N2,GCPType_N2_Highmem128,864.0G,128,6.75G,0,na,Not supported,IntelXeon_8373C,Ice Lake,,,,Supported,32 Gigabit,,,,Supported,Supported
-n2-highmem-16,GCPFamily_General,GCPType_N2,GCPType_N2_Highmem16,128.0G,16,8.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Supported,Supported
-n2-highmem-2,GCPFamily_General,GCPType_N2,GCPType_N2_Highmem2,16.0G,2,8.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,10 Gigabit,,,,Supported,Supported
-n2-highmem-32,GCPFamily_General,GCPType_N2,GCPType_N2_Highmem32,256.0G,32,8.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Supported,Supported
-n2-highmem-4,GCPFamily_General,GCPType_N2,GCPType_N2_Highmem4,32.0G,4,8.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,10 Gigabit,,,,Supported,Supported
-n2-highmem-48,GCPFamily_General,GCPType_N2,GCPType_N2_Highmem48,384.0G,48,8.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Supported,Supported
-n2-highmem-64,GCPFamily_General,GCPType_N2,GCPType_N2_Highmem64,512.0G,64,8.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Supported,Supported
-n2-highmem-8,GCPFamily_General,GCPType_N2,GCPType_N2_Highmem8,64.0G,8,8.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,16 Gigabit,,,,Supported,Supported
-n2-highmem-80,GCPFamily_General,GCPType_N2,GCPType_N2_Highmem80,640.0G,80,8.00G,0,na,Not supported,IntelXeon_8373C,Ice Lake,,,,Supported,32 Gigabit,,,,Supported,Supported
-n2-highmem-96,GCPFamily_General,GCPType_N2,GCPType_N2_Highmem96,768.0G,96,8.00G,0,na,Not supported,IntelXeon_8373C,Ice Lake,,,,Supported,32 Gigabit,,,,Supported,Supported
-n2-standard-128,GCPFamily_General,GCPType_N2,GCPType_N2_Standard128,512.0G,128,4.00G,0,na,Not supported,IntelXeon_8373C,Ice Lake,,,,Supported,32 Gigabit,,,,Supported,Supported
-n2-standard-16,GCPFamily_General,GCPType_N2,GCPType_N2_Standard16,64.0G,16,4.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Supported,Supported
-n2-standard-2,GCPFamily_General,GCPType_N2,GCPType_N2_Standard2,8.0G,2,4.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,10 Gigabit,,,,Supported,Supported
-n2-standard-32,GCPFamily_General,GCPType_N2,GCPType_N2_Standard32,128.0G,32,4.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Supported,Supported
-n2-standard-4,GCPFamily_General,GCPType_N2,GCPType_N2_Standard4,16.0G,4,4.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,10 Gigabit,,,,Supported,Supported
-n2-standard-48,GCPFamily_General,GCPType_N2,GCPType_N2_Standard48,192.0G,48,4.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Supported,Supported
-n2-standard-64,GCPFamily_General,GCPType_N2,GCPType_N2_Standard64,256.0G,64,4.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Supported,Supported
-n2-standard-8,GCPFamily_General,GCPType_N2,GCPType_N2_Standard8,32.0G,8,4.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,16 Gigabit,,,,Supported,Supported
-n2-standard-80,GCPFamily_General,GCPType_N2,GCPType_N2_Standard80,320.0G,80,4.00G,0,na,Not supported,IntelXeon_8373C,Ice Lake,,,,Supported,32 Gigabit,,,,Supported,Supported
-n2-standard-96,GCPFamily_General,GCPType_N2,GCPType_N2_Standard96,384.0G,96,4.00G,0,na,Not supported,IntelXeon_8373C,Ice Lake,,,,Supported,32 Gigabit,,,,Supported,Supported
-n2d-highcpu-128,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highcpu128,128.0G,128,1.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Not supported,Not supported
-n2d-highcpu-16,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highcpu16,16.0G,16,1.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Not supported,Not supported
-n2d-highcpu-2,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highcpu2,2.0G,2,1.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,10 Gigabit,,,,Not supported,Not supported
-n2d-highcpu-224,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highcpu224,224.0G,224,1.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Not supported,Not supported
-n2d-highcpu-32,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highcpu32,32.0G,32,1.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Not supported,Not supported
-n2d-highcpu-4,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highcpu4,4.0G,4,1.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,10 Gigabit,,,,Not supported,Not supported
-n2d-highcpu-48,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highcpu48,48.0G,48,1.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Not supported,Not supported
-n2d-highcpu-64,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highcpu64,64.0G,64,1.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Not supported,Not supported
-n2d-highcpu-8,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highcpu8,8.0G,8,1.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,10 Gigabit,,,,Not supported,Not supported
-n2d-highcpu-80,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highcpu80,80.0G,80,1.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Not supported,Not supported
-n2d-highcpu-96,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highcpu96,96.0G,96,1.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Not supported,Not supported
-n2d-highmem-16,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highmem16,128.0G,16,8.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Not supported,Not supported
-n2d-highmem-2,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highmem2,16.0G,2,8.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,10 Gigabit,,,,Not supported,Not supported
-n2d-highmem-32,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highmem32,256.0G,32,8.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Not supported,Not supported
-n2d-highmem-4,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highmem4,32.0G,4,8.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,10 Gigabit,,,,Not supported,Not supported
-n2d-highmem-48,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highmem48,384.0G,48,8.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Not supported,Not supported
-n2d-highmem-64,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highmem64,512.0G,64,8.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Not supported,Not supported
-n2d-highmem-8,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highmem8,64.0G,8,8.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,10 Gigabit,,,,Not supported,Not supported
-n2d-highmem-80,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highmem80,640.0G,80,8.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Not supported,Not supported
-n2d-highmem-96,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highmem96,768.0G,96,8.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Not supported,Not supported
-n2d-standard-128,GCPFamily_General,GCPType_N2D,GCPType_N2D_Standard128,512.0G,128,4.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Not supported,Not supported
-n2d-standard-16,GCPFamily_General,GCPType_N2D,GCPType_N2D_Standard16,64.0G,16,4.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Not supported,Not supported
-n2d-standard-2,GCPFamily_General,GCPType_N2D,GCPType_N2D_Standard2,8.0G,2,4.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,10 Gigabit,,,,Not supported,Not supported
-n2d-standard-224,GCPFamily_General,GCPType_N2D,GCPType_N2D_Standard224,896.0G,224,4.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Not supported,Not supported
-n2d-standard-32,GCPFamily_General,GCPType_N2D,GCPType_N2D_Standard32,128.0G,32,4.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Not supported,Not supported
-n2d-standard-4,GCPFamily_General,GCPType_N2D,GCPType_N2D_Standard4,16.0G,4,4.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,10 Gigabit,,,,Not supported,Not supported
-n2d-standard-48,GCPFamily_General,GCPType_N2D,GCPType_N2D_Standard48,192.0G,48,4.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Not supported,Not supported
-n2d-standard-64,GCPFamily_General,GCPType_N2D,GCPType_N2D_Standard64,256.0G,64,4.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Not supported,Not supported
-n2d-standard-8,GCPFamily_General,GCPType_N2D,GCPType_N2D_Standard8,32.0G,8,4.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,10 Gigabit,,,,Not supported,Not supported
-n2d-standard-80,GCPFamily_General,GCPType_N2D,GCPType_N2D_Standard80,320.0G,80,4.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Not supported,Not supported
-n2d-standard-96,GCPFamily_General,GCPType_N2D,GCPType_N2D_Standard96,384.0G,96,4.00G,0,na,Not supported,DYNAMIC,DYNAMIC,,,,Supported,32 Gigabit,,,,Not supported,Not supported
-t2a-standard-1,GCPFamily_General,GCPType_T2A,GCPType_T2A_Standard1,4.0G,1,4.00G,0,na,Not supported,AmpereAltra_Q6430,Ampere Altra,,,,Not supported,10 Gigabit,,,,Not supported,Not supported
-t2a-standard-16,GCPFamily_General,GCPType_T2A,GCPType_T2A_Standard16,64.0G,16,4.00G,0,na,Not supported,AmpereAltra_Q6430,Ampere Altra,,,,Not supported,32 Gigabit,,,,Not supported,Not supported
-t2a-standard-2,GCPFamily_General,GCPType_T2A,GCPType_T2A_Standard2,8.0G,2,4.00G,0,na,Not supported,AmpereAltra_Q6430,Ampere Altra,,,,Not supported,10 Gigabit,,,,Not supported,Not supported
-t2a-standard-32,GCPFamily_General,GCPType_T2A,GCPType_T2A_Standard32,128.0G,32,4.00G,0,na,Not supported,AmpereAltra_Q6430,Ampere Altra,,,,Not supported,32 Gigabit,,,,Not supported,Not supported
-t2a-standard-4,GCPFamily_General,GCPType_T2A,GCPType_T2A_Standard4,16.0G,4,4.00G,0,na,Not supported,AmpereAltra_Q6430,Ampere Altra,,,,Not supported,10 Gigabit,,,,Not supported,Not supported
-t2a-standard-48,GCPFamily_General,GCPType_T2A,GCPType_T2A_Standard48,192.0G,48,4.00G,0,na,Not supported,AmpereAltra_Q6430,Ampere Altra,,,,Not supported,32 Gigabit,,,,Not supported,Not supported
-t2a-standard-8,GCPFamily_General,GCPType_T2A,GCPType_T2A_Standard8,32.0G,8,4.00G,0,na,Not supported,AmpereAltra_Q6430,Ampere Altra,,,,Not supported,16 Gigabit,,,,Not supported,Not supported
-t2d-standard-1,GCPFamily_General,GCPType_T2D,GCPType_T2D_Standard1,4.0G,1,4.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Not supported,10 Gigabit,,,,Not supported,Not supported
-t2d-standard-16,GCPFamily_General,GCPType_T2D,GCPType_T2D_Standard16,64.0G,16,4.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Not supported,32 Gigabit,,,,Not supported,Not supported
-t2d-standard-2,GCPFamily_General,GCPType_T2D,GCPType_T2D_Standard2,8.0G,2,4.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Not supported,10 Gigabit,,,,Not supported,Not supported
-t2d-standard-32,GCPFamily_General,GCPType_T2D,GCPType_T2D_Standard32,128.0G,32,4.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Not supported,32 Gigabit,,,,Not supported,Not supported
-t2d-standard-4,GCPFamily_General,GCPType_T2D,GCPType_T2D_Standard4,16.0G,4,4.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Not supported,10 Gigabit,,,,Not supported,Not supported
-t2d-standard-48,GCPFamily_General,GCPType_T2D,GCPType_T2D_Standard48,192.0G,48,4.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Not supported,32 Gigabit,,,,Not supported,Not supported
-t2d-standard-60,GCPFamily_General,GCPType_T2D,GCPType_T2D_Standard60,240.0G,60,4.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Not supported,32 Gigabit,,,,Not supported,Not supported
-t2d-standard-8,GCPFamily_General,GCPType_T2D,GCPType_T2D_Standard8,32.0G,8,4.00G,0,na,Not supported,AMDEPYC_7B13,AMDEPYC,,,,Not supported,16 Gigabit,,,,Not supported,Not supported
+api_name,node_machinefamily,node_machinetype,node_machinesize,node_memory_size,node_vcpus_count,memory_per_vcpu,accelerator_count,accelerator,processor,storage_size,storage_type,storage_bandwidth,storage_ssd_support,network_performance,storage_throughput,storage_trim_support,storage_iops
+a2-highgpu-1g,GCPFamily_Accelerated,GCPType_A2,GCPType_A2_Highgpu1G,85.0G,12,7.08G,1,NVIDIA_A100,Intel Xeon 8273CL,,,,Yes,24G,,,
+a2-highgpu-2g,GCPFamily_Accelerated,GCPType_A2,GCPType_A2_Highgpu2G,170.0G,24,7.08G,2,NVIDIA_A100,Intel Xeon 8273CL,,,,Yes,32G,,,
+a2-highgpu-4g,GCPFamily_Accelerated,GCPType_A2,GCPType_A2_Highgpu4G,340.0G,48,7.08G,4,NVIDIA_A100,Intel Xeon 8273CL,,,,Yes,50G,,,
+a2-highgpu-8g,GCPFamily_Accelerated,GCPType_A2,GCPType_A2_Highgpu8G,680.0G,96,7.08G,8,NVIDIA_A100,Intel Xeon 8273CL,,,,Yes,100G,,,
+a2-megagpu-16g,GCPFamily_Accelerated,GCPType_A2,GCPType_A2_Megagpu16G,1360.0G,96,14.16G,16,NVIDIA_A100,Intel Xeon 8273CL,,,,Yes,100G,,,
+a2-ultragpu-1g,GCPFamily_Accelerated,GCPType_A2,GCPType_A2_Ultragpu1G,170.0G,12,14.16G,1,NVIDIA_A100,Intel Xeon 8273CL,,,,unknown,,,,
+a2-ultragpu-2g,GCPFamily_Accelerated,GCPType_A2,GCPType_A2_Ultragpu2G,340.0G,24,14.16G,2,NVIDIA_A100,Intel Xeon 8273CL,,,,unknown,,,,
+a2-ultragpu-4g,GCPFamily_Accelerated,GCPType_A2,GCPType_A2_Ultragpu4G,680.0G,48,14.16G,4,NVIDIA_A100,Intel Xeon 8273CL,,,,unknown,,,,
+a2-ultragpu-8g,GCPFamily_Accelerated,GCPType_A2,GCPType_A2_Ultragpu8G,1360.0G,96,14.16G,8,NVIDIA_A100,Intel Xeon 8273CL,,,,unknown,,,,
+c2-standard-16,GCPFamily_Compute,GCPType_C2,GCPType_C2_Standard16,64.0G,16,4.00G,0,na,Intel Xeon 6253CL,,,,Yes,32G,,,
+c2-standard-30,GCPFamily_Compute,GCPType_C2,GCPType_C2_Standard30,120.0G,30,4.00G,0,na,Intel Xeon 6253CL,,,,Yes,32G,,,
+c2-standard-4,GCPFamily_Compute,GCPType_C2,GCPType_C2_Standard4,16.0G,4,4.00G,0,na,Intel Xeon 6253CL,,,,Yes,10G,,,
+c2-standard-60,GCPFamily_Compute,GCPType_C2,GCPType_C2_Standard60,240.0G,60,4.00G,0,na,Intel Xeon 6253CL,,,,Yes,32G,,,
+c2-standard-8,GCPFamily_Compute,GCPType_C2,GCPType_C2_Standard8,32.0G,8,4.00G,0,na,Intel Xeon 6253CL,,,,Yes,16G,,,
+c2d-highcpu-112,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Highcpu112,224.0G,112,2.00G,0,na,AMD EPYC 7B13,,,,Yes,32G,,,
+c2d-highcpu-16,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Highcpu16,32.0G,16,2.00G,0,na,AMD EPYC 7B13,,,,Yes,32G,,,
+c2d-highcpu-2,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Highcpu2,4.0G,2,2.00G,0,na,AMD EPYC 7B13,,,,Yes,32G,,,
+c2d-highcpu-32,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Highcpu32,64.0G,32,2.00G,0,na,AMD EPYC 7B13,,,,Yes,32G,,,
+c2d-highcpu-4,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Highcpu4,8.0G,4,2.00G,0,na,AMD EPYC 7B13,,,,Yes,32G,,,
+c2d-highcpu-56,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Highcpu56,112.0G,56,2.00G,0,na,AMD EPYC 7B13,,,,Yes,32G,,,
+c2d-highcpu-8,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Highcpu8,16.0G,8,2.00G,0,na,AMD EPYC 7B13,,,,Yes,32G,,,
+c2d-highmem-112,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Highmem112,896.0G,112,8.00G,0,na,AMD EPYC 7B13,,,,Yes,32G,,,
+c2d-highmem-16,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Highmem16,128.0G,16,8.00G,0,na,AMD EPYC 7B13,,,,Yes,32G,,,
+c2d-highmem-2,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Highmem2,16.0G,2,8.00G,0,na,AMD EPYC 7B13,,,,Yes,32G,,,
+c2d-highmem-32,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Highmem32,256.0G,32,8.00G,0,na,AMD EPYC 7B13,,,,Yes,32G,,,
+c2d-highmem-4,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Highmem4,32.0G,4,8.00G,0,na,AMD EPYC 7B13,,,,Yes,32G,,,
+c2d-highmem-56,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Highmem56,448.0G,56,8.00G,0,na,AMD EPYC 7B13,,,,Yes,32G,,,
+c2d-highmem-8,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Highmem8,64.0G,8,8.00G,0,na,AMD EPYC 7B13,,,,Yes,32G,,,
+c2d-standard-112,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Standard112,448.0G,112,4.00G,0,na,AMD EPYC 7B13,,,,Yes,32G,,,
+c2d-standard-16,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Standard16,64.0G,16,4.00G,0,na,AMD EPYC 7B13,,,,Yes,32G,,,
+c2d-standard-2,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Standard2,8.0G,2,4.00G,0,na,AMD EPYC 7B13,,,,Yes,32G,,,
+c2d-standard-32,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Standard32,128.0G,32,4.00G,0,na,AMD EPYC 7B13,,,,Yes,32G,,,
+c2d-standard-4,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Standard4,16.0G,4,4.00G,0,na,AMD EPYC 7B13,,,,Yes,32G,,,
+c2d-standard-56,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Standard56,224.0G,56,4.00G,0,na,AMD EPYC 7B13,,,,Yes,32G,,,
+c2d-standard-8,GCPFamily_Compute,GCPType_C2D,GCPType_C2D_Standard8,32.0G,8,4.00G,0,na,AMD EPYC 7B13,,,,Yes,32G,,,
+e2-highcpu-16,GCPFamily_General,GCPType_E2,GCPType_E2_Highcpu16,16.0G,16,1.00G,0,na,unknown,,,,No,16G,,,
+e2-highcpu-2,GCPFamily_General,GCPType_E2,GCPType_E2_Highcpu2,2.0G,2,1.00G,0,na,unknown,,,,No,4G,,,
+e2-highcpu-32,GCPFamily_General,GCPType_E2,GCPType_E2_Highcpu32,32.0G,32,1.00G,0,na,unknown,,,,No,16G,,,
+e2-highcpu-4,GCPFamily_General,GCPType_E2,GCPType_E2_Highcpu4,4.0G,4,1.00G,0,na,unknown,,,,No,8G,,,
+e2-highcpu-8,GCPFamily_General,GCPType_E2,GCPType_E2_Highcpu8,8.0G,8,1.00G,0,na,unknown,,,,No,16G,,,
+e2-highmem-16,GCPFamily_General,GCPType_E2,GCPType_E2_Highmem16,128.0G,16,8.00G,0,na,unknown,,,,No,16G,,,
+e2-highmem-2,GCPFamily_General,GCPType_E2,GCPType_E2_Highmem2,16.0G,2,8.00G,0,na,unknown,,,,No,4G,,,
+e2-highmem-4,GCPFamily_General,GCPType_E2,GCPType_E2_Highmem4,32.0G,4,8.00G,0,na,unknown,,,,No,8G,,,
+e2-highmem-8,GCPFamily_General,GCPType_E2,GCPType_E2_Highmem8,64.0G,8,8.00G,0,na,unknown,,,,No,16G,,,
+e2-medium,GCPFamily_General,GCPType_E2,GCPType_E2_Medium,4.0G,2,2.00G,0,na,unknown,,,,No,2G,,,
+e2-micro,GCPFamily_General,GCPType_E2,GCPType_E2_Micro,1.0G,2,0.50G,0,na,unknown,,,,No,1G,,,
+e2-small,GCPFamily_General,GCPType_E2,GCPType_E2_Small,2.0G,2,1.00G,0,na,unknown,,,,No,1G,,,
+e2-standard-16,GCPFamily_General,GCPType_E2,GCPType_E2_Standard16,64.0G,16,4.00G,0,na,unknown,,,,No,16G,,,
+e2-standard-2,GCPFamily_General,GCPType_E2,GCPType_E2_Standard2,8.0G,2,4.00G,0,na,unknown,,,,No,4G,,,
+e2-standard-32,GCPFamily_General,GCPType_E2,GCPType_E2_Standard32,128.0G,32,4.00G,0,na,unknown,,,,No,16G,,,
+e2-standard-4,GCPFamily_General,GCPType_E2,GCPType_E2_Standard4,16.0G,4,4.00G,0,na,unknown,,,,No,8G,,,
+e2-standard-8,GCPFamily_General,GCPType_E2,GCPType_E2_Standard8,32.0G,8,4.00G,0,na,unknown,,,,No,16G,,,
+f1-micro,GCPFamily_General,GCPType_N1,GCPType_F1_Micro,0.6G,"0,2",3.00G,0,na,unknown,,,,No,unkonwn,,,
+g1-small,GCPFamily_General,GCPType_N1,GCPType_G1_Small,1.7G,"0,5",3.40G,0,na,unknown,,,,No,unkonwn,,,
+g2-standard-4,GCPFamily_Accelerated,GCPType_G2,GCPType_G2_Standard4,16.0G,4,4.00G,1,NVIDIA_L4,Intel Xeon 8280L,,,,unknown,10G,,,
+g2-standard-8,GCPFamily_Accelerated,GCPType_G2,GCPType_G2_Standard8,32.0G,8,4.00G,1,NVIDIA_L4,Intel Xeon 8280L,,,,unknown,16G,,,
+g2-standard-12,GCPFamily_Accelerated,GCPType_G2,GCPType_G2_Standard12,48.0G,12,4.00G,1,NVIDIA_L4,Intel Xeon 8280L,,,,unknown,16G,,,
+g2-standard-16,GCPFamily_Accelerated,GCPType_G2,GCPType_G2_Standard16,64.0G,16,4.00G,1,NVIDIA_L4,Intel Xeon 8280L,,,,unknown,32G,,,
+g2-standard-24,GCPFamily_Accelerated,GCPType_G2,GCPType_G2_Standard24,96.0G,24,4.00G,2,NVIDIA_L4,Intel Xeon 8280L,,,,unknown,32G,,,
+g2-standard-32,GCPFamily_Accelerated,GCPType_G2,GCPType_G2_Standard32,128.0G,32,4.00G,1,NVIDIA_L4,Intel Xeon 8280L,,,,unknown,32G,,,
+g2-standard-48,GCPFamily_Accelerated,GCPType_G2,GCPType_G2_Standard48,192.0G,48,4.00G,4,NVIDIA_L4,Intel Xeon 8280L,,,,unknown,50G,,,
+g2-standard-96,GCPFamily_Accelerated,GCPType_G2,GCPType_G2_Standard96,384.0G,96,4.00G,8,NVIDIA_L4,Intel Xeon 8280L,,,,unknown,100G,,,
+m1-megamem-96,GCPFamily_Memory,GCPType_M1,GCPType_M1_Megamem96,1433.6G,96,15.41G,0,na,Intel Xeon 8173M,,,,Yes,32G,,,
+m1-ultramem-160,GCPFamily_Memory,GCPType_M1,GCPType_M1_Ultramem160,3844.0G,160,24.02G,0,na,Intel Xeon E7 8880 v4,,,,No,32G,,,
+m1-ultramem-40,GCPFamily_Memory,GCPType_M1,GCPType_M1_Ultramem40,961.0G,40,24.02G,0,na,Intel Xeon E7 8880 v4,,,,No,32G,,,
+m1-ultramem-80,GCPFamily_Memory,GCPType_M1,GCPType_M1_Ultramem80,1922.0G,80,24.02G,0,na,Intel Xeon E7 8880 v4,,,,No,32G,,,
+m2-megamem-416,GCPFamily_Memory,GCPType_M2,GCPType_M2_Megamem416,5888.0G,416,14.15G,0,na,Intel Xeon 8280L,,,,No,32G,,,
+m2-ultramem-208,GCPFamily_Memory,GCPType_M2,GCPType_M2_Ultramem208,5888.0G,208,28.30G,0,na,Intel Xeon 8280L,,,,No,32G,,,
+m2-ultramem-416,GCPFamily_Memory,GCPType_M2,GCPType_M2_Ultramem416,11776.0G,416,28.30G,0,na,Intel Xeon 8280L,,,,No,32G,,,
+m3-megamem-128,GCPFamily_Memory,GCPType_M3,GCPType_M3_Megamem128,1952.0G,128,15.25G,0,na,Intel Xeon 8373C,,,,No,32G,,,
+m3-megamem-64,GCPFamily_Memory,GCPType_M3,GCPType_M3_Megamem64,976.0G,64,15.25G,0,na,Intel Xeon 8373C,,,,No,32G,,,
+m3-ultramem-128,GCPFamily_Memory,GCPType_M3,GCPType_M3_Ultramem128,3904.0G,128,30.50G,0,na,Intel Xeon 8373C,,,,No,32G,,,
+m3-ultramem-32,GCPFamily_Memory,GCPType_M3,GCPType_M3_Ultramem32,976.0G,32,30.50G,0,na,Intel Xeon 8373C,,,,No,32G,,,
+m3-ultramem-64,GCPFamily_Memory,GCPType_M3,GCPType_M3_Ultramem64,1952.0G,64,30.50G,0,na,Intel Xeon 8373C,,,,No,32G,,,
+n1-highcpu-16,GCPFamily_General,GCPType_N1,GCPType_N1_Highcpu16,14.4G,16,0.90G,unknown,unknown,unknown,,,,Yes,32G,,,
+n1-highcpu-2,GCPFamily_General,GCPType_N1,GCPType_N1_Highcpu2,1.8G,2,0.90G,unknown,unknown,unknown,,,,Yes,10G,,,
+n1-highcpu-32,GCPFamily_General,GCPType_N1,GCPType_N1_Highcpu32,28.8G,32,0.90G,unknown,unknown,unknown,,,,Yes,32G,,,
+n1-highcpu-4,GCPFamily_General,GCPType_N1,GCPType_N1_Highcpu4,3.6G,4,0.90G,unknown,unknown,unknown,,,,Yes,10G,,,
+n1-highcpu-64,GCPFamily_General,GCPType_N1,GCPType_N1_Highcpu64,57.6G,64,0.90G,unknown,unknown,unknown,,,,Yes,32G,,,
+n1-highcpu-8,GCPFamily_General,GCPType_N1,GCPType_N1_Highcpu8,7.2G,8,0.90G,unknown,unknown,unknown,,,,Yes,16G,,,
+n1-highcpu-96,GCPFamily_General,GCPType_N1,GCPType_N1_Highcpu96,86.4G,96,0.90G,unknown,unknown,unknown,,,,Yes,32G,,,
+n1-highmem-16,GCPFamily_General,GCPType_N1,GCPType_N1_Highmem16,104.0G,16,6.50G,unknown,unknown,unknown,,,,Yes,32G,,,
+n1-highmem-2,GCPFamily_General,GCPType_N1,GCPType_N1_Highmem2,13.0G,2,6.50G,unknown,unknown,unknown,,,,Yes,10G,,,
+n1-highmem-32,GCPFamily_General,GCPType_N1,GCPType_N1_Highmem32,208.0G,32,6.50G,unknown,unknown,unknown,,,,Yes,32G,,,
+n1-highmem-4,GCPFamily_General,GCPType_N1,GCPType_N1_Highmem4,26.0G,4,6.50G,unknown,unknown,unknown,,,,Yes,10G,,,
+n1-highmem-64,GCPFamily_General,GCPType_N1,GCPType_N1_Highmem64,416.0G,64,6.50G,unknown,unknown,unknown,,,,Yes,32G,,,
+n1-highmem-8,GCPFamily_General,GCPType_N1,GCPType_N1_Highmem8,52.0G,8,6.50G,unknown,unknown,unknown,,,,Yes,16G,,,
+n1-highmem-96,GCPFamily_General,GCPType_N1,GCPType_N1_Highmem96,624.0G,96,6.50G,unknown,unknown,unknown,,,,Yes,32G,,,
+n1-standard-1,GCPFamily_General,GCPType_N1,GCPType_N1_Standard1,3.75G,1,3.75G,unknown,unknown,unknown,,,,Yes,2G,,,
+n1-standard-16,GCPFamily_General,GCPType_N1,GCPType_N1_Standard16,60.0G,16,3.75G,unknown,unknown,unknown,,,,Yes,32G,,,
+n1-standard-2,GCPFamily_General,GCPType_N1,GCPType_N1_Standard2,7.5G,2,3.75G,unknown,unknown,unknown,,,,Yes,10G,,,
+n1-standard-32,GCPFamily_General,GCPType_N1,GCPType_N1_Standard32,120.0G,32,3.75G,unknown,unknown,unknown,,,,Yes,32G,,,
+n1-standard-4,GCPFamily_General,GCPType_N1,GCPType_N1_Standard4,15.0G,4,3.75G,unknown,unknown,unknown,,,,Yes,10G,,,
+n1-standard-64,GCPFamily_General,GCPType_N1,GCPType_N1_Standard64,240.0G,64,3.75G,unknown,unknown,unknown,,,,Yes,32G,,,
+n1-standard-8,GCPFamily_General,GCPType_N1,GCPType_N1_Standard8,30.0G,8,3.75G,unknown,unknown,unknown,,,,Yes,16G,,,
+n1-standard-96,GCPFamily_General,GCPType_N1,GCPType_N1_Standard96,360.0G,96,3.75G,unknown,unknown,unknown,,,,Yes,32G,,,
+n2-highcpu-16,GCPFamily_General,GCPType_N2,GCPType_N2_Highcpu16,16.0G,16,1.00G,0,na,unknown,,,,Yes,32G,,,
+n2-highcpu-2,GCPFamily_General,GCPType_N2,GCPType_N2_Highcpu2,2.0G,2,1.00G,0,na,unknown,,,,Yes,10G,,,
+n2-highcpu-32,GCPFamily_General,GCPType_N2,GCPType_N2_Highcpu32,32.0G,32,1.00G,0,na,unknown,,,,Yes,32G,,,
+n2-highcpu-4,GCPFamily_General,GCPType_N2,GCPType_N2_Highcpu4,4.0G,4,1.00G,0,na,unknown,,,,Yes,10G,,,
+n2-highcpu-48,GCPFamily_General,GCPType_N2,GCPType_N2_Highcpu48,48.0G,48,1.00G,0,na,unknown,,,,Yes,32G,,,
+n2-highcpu-64,GCPFamily_General,GCPType_N2,GCPType_N2_Highcpu64,64.0G,64,1.00G,0,na,unknown,,,,Yes,32G,,,
+n2-highcpu-8,GCPFamily_General,GCPType_N2,GCPType_N2_Highcpu8,8.0G,8,1.00G,0,na,unknown,,,,Yes,16G,,,
+n2-highcpu-80,GCPFamily_General,GCPType_N2,GCPType_N2_Highcpu80,80.0G,80,1.00G,0,na,Intel Xeon 8373C,,,,Yes,32G,,,
+n2-highcpu-96,GCPFamily_General,GCPType_N2,GCPType_N2_Highcpu96,96.0G,96,1.00G,0,na,Intel Xeon 8373C,,,,Yes,32G,,,
+n2-highmem-128,GCPFamily_General,GCPType_N2,GCPType_N2_Highmem128,864.0G,128,6.75G,0,na,Intel Xeon 8373C,,,,Yes,32G,,,
+n2-highmem-16,GCPFamily_General,GCPType_N2,GCPType_N2_Highmem16,128.0G,16,8.00G,0,na,unknown,,,,Yes,32G,,,
+n2-highmem-2,GCPFamily_General,GCPType_N2,GCPType_N2_Highmem2,16.0G,2,8.00G,0,na,unknown,,,,Yes,10G,,,
+n2-highmem-32,GCPFamily_General,GCPType_N2,GCPType_N2_Highmem32,256.0G,32,8.00G,0,na,unknown,,,,Yes,32G,,,
+n2-highmem-4,GCPFamily_General,GCPType_N2,GCPType_N2_Highmem4,32.0G,4,8.00G,0,na,unknown,,,,Yes,10G,,,
+n2-highmem-48,GCPFamily_General,GCPType_N2,GCPType_N2_Highmem48,384.0G,48,8.00G,0,na,unknown,,,,Yes,32G,,,
+n2-highmem-64,GCPFamily_General,GCPType_N2,GCPType_N2_Highmem64,512.0G,64,8.00G,0,na,unknown,,,,Yes,32G,,,
+n2-highmem-8,GCPFamily_General,GCPType_N2,GCPType_N2_Highmem8,64.0G,8,8.00G,0,na,unknown,,,,Yes,16G,,,
+n2-highmem-80,GCPFamily_General,GCPType_N2,GCPType_N2_Highmem80,640.0G,80,8.00G,0,na,Intel Xeon 8373C,,,,Yes,32G,,,
+n2-highmem-96,GCPFamily_General,GCPType_N2,GCPType_N2_Highmem96,768.0G,96,8.00G,0,na,Intel Xeon 8373C,,,,Yes,32G,,,
+n2-standard-128,GCPFamily_General,GCPType_N2,GCPType_N2_Standard128,512.0G,128,4.00G,0,na,Intel Xeon 8373C,,,,Yes,32G,,,
+n2-standard-16,GCPFamily_General,GCPType_N2,GCPType_N2_Standard16,64.0G,16,4.00G,0,na,unknown,,,,Yes,32G,,,
+n2-standard-2,GCPFamily_General,GCPType_N2,GCPType_N2_Standard2,8.0G,2,4.00G,0,na,unknown,,,,Yes,10G,,,
+n2-standard-32,GCPFamily_General,GCPType_N2,GCPType_N2_Standard32,128.0G,32,4.00G,0,na,unknown,,,,Yes,32G,,,
+n2-standard-4,GCPFamily_General,GCPType_N2,GCPType_N2_Standard4,16.0G,4,4.00G,0,na,unknown,,,,Yes,10G,,,
+n2-standard-48,GCPFamily_General,GCPType_N2,GCPType_N2_Standard48,192.0G,48,4.00G,0,na,unknown,,,,Yes,32G,,,
+n2-standard-64,GCPFamily_General,GCPType_N2,GCPType_N2_Standard64,256.0G,64,4.00G,0,na,unknown,,,,Yes,32G,,,
+n2-standard-8,GCPFamily_General,GCPType_N2,GCPType_N2_Standard8,32.0G,8,4.00G,0,na,unknown,,,,Yes,16G,,,
+n2-standard-80,GCPFamily_General,GCPType_N2,GCPType_N2_Standard80,320.0G,80,4.00G,0,na,Intel Xeon 8373C,,,,Yes,32G,,,
+n2-standard-96,GCPFamily_General,GCPType_N2,GCPType_N2_Standard96,384.0G,96,4.00G,0,na,Intel Xeon 8373C,,,,Yes,32G,,,
+n2d-highcpu-128,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highcpu128,128.0G,128,1.00G,0,na,unknown,,,,Yes,32G,,,
+n2d-highcpu-16,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highcpu16,16.0G,16,1.00G,0,na,unknown,,,,Yes,32G,,,
+n2d-highcpu-2,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highcpu2,2.0G,2,1.00G,0,na,unknown,,,,Yes,10G,,,
+n2d-highcpu-224,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highcpu224,224.0G,224,1.00G,0,na,unknown,,,,Yes,32G,,,
+n2d-highcpu-32,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highcpu32,32.0G,32,1.00G,0,na,unknown,,,,Yes,32G,,,
+n2d-highcpu-4,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highcpu4,4.0G,4,1.00G,0,na,unknown,,,,Yes,10G,,,
+n2d-highcpu-48,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highcpu48,48.0G,48,1.00G,0,na,unknown,,,,Yes,32G,,,
+n2d-highcpu-64,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highcpu64,64.0G,64,1.00G,0,na,unknown,,,,Yes,32G,,,
+n2d-highcpu-8,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highcpu8,8.0G,8,1.00G,0,na,unknown,,,,Yes,10G,,,
+n2d-highcpu-80,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highcpu80,80.0G,80,1.00G,0,na,unknown,,,,Yes,32G,,,
+n2d-highcpu-96,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highcpu96,96.0G,96,1.00G,0,na,unknown,,,,Yes,32G,,,
+n2d-highmem-16,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highmem16,128.0G,16,8.00G,0,na,unknown,,,,Yes,32G,,,
+n2d-highmem-2,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highmem2,16.0G,2,8.00G,0,na,unknown,,,,Yes,10G,,,
+n2d-highmem-32,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highmem32,256.0G,32,8.00G,0,na,unknown,,,,Yes,32G,,,
+n2d-highmem-4,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highmem4,32.0G,4,8.00G,0,na,unknown,,,,Yes,10G,,,
+n2d-highmem-48,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highmem48,384.0G,48,8.00G,0,na,unknown,,,,Yes,32G,,,
+n2d-highmem-64,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highmem64,512.0G,64,8.00G,0,na,unknown,,,,Yes,32G,,,
+n2d-highmem-8,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highmem8,64.0G,8,8.00G,0,na,unknown,,,,Yes,10G,,,
+n2d-highmem-80,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highmem80,640.0G,80,8.00G,0,na,unknown,,,,Yes,32G,,,
+n2d-highmem-96,GCPFamily_General,GCPType_N2D,GCPType_N2D_Highmem96,768.0G,96,8.00G,0,na,unknown,,,,Yes,32G,,,
+n2d-standard-128,GCPFamily_General,GCPType_N2D,GCPType_N2D_Standard128,512.0G,128,4.00G,0,na,unknown,,,,Yes,32G,,,
+n2d-standard-16,GCPFamily_General,GCPType_N2D,GCPType_N2D_Standard16,64.0G,16,4.00G,0,na,unknown,,,,Yes,32G,,,
+n2d-standard-2,GCPFamily_General,GCPType_N2D,GCPType_N2D_Standard2,8.0G,2,4.00G,0,na,unknown,,,,Yes,10G,,,
+n2d-standard-224,GCPFamily_General,GCPType_N2D,GCPType_N2D_Standard224,896.0G,224,4.00G,0,na,unknown,,,,Yes,32G,,,
+n2d-standard-32,GCPFamily_General,GCPType_N2D,GCPType_N2D_Standard32,128.0G,32,4.00G,0,na,unknown,,,,Yes,32G,,,
+n2d-standard-4,GCPFamily_General,GCPType_N2D,GCPType_N2D_Standard4,16.0G,4,4.00G,0,na,unknown,,,,Yes,10G,,,
+n2d-standard-48,GCPFamily_General,GCPType_N2D,GCPType_N2D_Standard48,192.0G,48,4.00G,0,na,unknown,,,,Yes,32G,,,
+n2d-standard-64,GCPFamily_General,GCPType_N2D,GCPType_N2D_Standard64,256.0G,64,4.00G,0,na,unknown,,,,Yes,32G,,,
+n2d-standard-8,GCPFamily_General,GCPType_N2D,GCPType_N2D_Standard8,32.0G,8,4.00G,0,na,unknown,,,,Yes,10G,,,
+n2d-standard-80,GCPFamily_General,GCPType_N2D,GCPType_N2D_Standard80,320.0G,80,4.00G,0,na,unknown,,,,Yes,32G,,,
+n2d-standard-96,GCPFamily_General,GCPType_N2D,GCPType_N2D_Standard96,384.0G,96,4.00G,0,na,unknown,,,,Yes,32G,,,
+t2a-standard-1,GCPFamily_General,GCPType_T2A,GCPType_T2A_Standard1,4.0G,1,4.00G,0,na,Ampere Altra Q6430,,,,No,10G,,,
+t2a-standard-16,GCPFamily_General,GCPType_T2A,GCPType_T2A_Standard16,64.0G,16,4.00G,0,na,Ampere Altra Q6430,,,,No,32G,,,
+t2a-standard-2,GCPFamily_General,GCPType_T2A,GCPType_T2A_Standard2,8.0G,2,4.00G,0,na,Ampere Altra Q6430,,,,No,10G,,,
+t2a-standard-32,GCPFamily_General,GCPType_T2A,GCPType_T2A_Standard32,128.0G,32,4.00G,0,na,Ampere Altra Q6430,,,,No,32G,,,
+t2a-standard-4,GCPFamily_General,GCPType_T2A,GCPType_T2A_Standard4,16.0G,4,4.00G,0,na,Ampere Altra Q6430,,,,No,10G,,,
+t2a-standard-48,GCPFamily_General,GCPType_T2A,GCPType_T2A_Standard48,192.0G,48,4.00G,0,na,Ampere Altra Q6430,,,,No,32G,,,
+t2a-standard-8,GCPFamily_General,GCPType_T2A,GCPType_T2A_Standard8,32.0G,8,4.00G,0,na,Ampere Altra Q6430,,,,No,16G,,,
+t2d-standard-1,GCPFamily_General,GCPType_T2D,GCPType_T2D_Standard1,4.0G,1,4.00G,0,na,AMD EPYC 7B13,,,,No,10G,,,
+t2d-standard-16,GCPFamily_General,GCPType_T2D,GCPType_T2D_Standard16,64.0G,16,4.00G,0,na,AMD EPYC 7B13,,,,No,32G,,,
+t2d-standard-2,GCPFamily_General,GCPType_T2D,GCPType_T2D_Standard2,8.0G,2,4.00G,0,na,AMD EPYC 7B13,,,,No,10G,,,
+t2d-standard-32,GCPFamily_General,GCPType_T2D,GCPType_T2D_Standard32,128.0G,32,4.00G,0,na,AMD EPYC 7B13,,,,No,32G,,,
+t2d-standard-4,GCPFamily_General,GCPType_T2D,GCPType_T2D_Standard4,16.0G,4,4.00G,0,na,AMD EPYC 7B13,,,,No,10G,,,
+t2d-standard-48,GCPFamily_General,GCPType_T2D,GCPType_T2D_Standard48,192.0G,48,4.00G,0,na,AMD EPYC 7B13,,,,No,32G,,,
+t2d-standard-60,GCPFamily_General,GCPType_T2D,GCPType_T2D_Standard60,240.0G,60,4.00G,0,na,AMD EPYC 7B13,,,,No,32G,,,
+t2d-standard-8,GCPFamily_General,GCPType_T2D,GCPType_T2D_Standard8,32.0G,8,4.00G,0,na,AMD EPYC 7B13,,,,No,16G,,,

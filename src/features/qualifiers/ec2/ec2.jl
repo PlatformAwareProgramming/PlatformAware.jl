@@ -255,16 +255,77 @@ abstract type EC2Type_CC2 <: EC2Type end
 abstract type EC2Type_CC2_8xLarge <: EC2Type_CC2 end
 
 
+abstract type EC2Type_C7A <: EC2Type end
 abstract type EC2Type_C7G <: EC2Type end
+abstract type EC2Type_C7GD <: EC2Type end
+abstract type EC2Type_C7GN <: EC2Type end
+abstract type EC2Type_C7I <: EC2Type end
+abstract type EC2Type_HPC7A <: EC2Type end
+abstract type EC2Type_HPC7G <: EC2Type end
 
-abstract type EC2Type_C7G_Large <: EC2Type_C7G end
-abstract type EC2Type_C7G_Medium <: EC2Type_C7G end
-abstract type EC2Type_C7G_xLarge <: EC2Type_C7G end
+abstract type EC2Type_C7A_12xLarge <: EC2Type_C7A end
+abstract type EC2Type_C7A_16xLarge <: EC2Type_C7A end
+abstract type EC2Type_C7A_24xLarge <: EC2Type_C7A end
+abstract type EC2Type_C7A_2xLarge <: EC2Type_C7A end
+abstract type EC2Type_C7A_32xLarge <: EC2Type_C7A end
+abstract type EC2Type_C7A_48xLarge <: EC2Type_C7A end
+abstract type EC2Type_C7A_4xLarge <: EC2Type_C7A end
+abstract type EC2Type_C7A_8xLarge <: EC2Type_C7A end
+abstract type EC2Type_C7A_Large <: EC2Type_C7A end
+abstract type EC2Type_C7A_Medium <: EC2Type_C7A end
+abstract type EC2Type_C7A_Metal_48xl <: EC2Type_C7A end
+abstract type EC2Type_C7A_xLarge <: EC2Type_C7A end
+
+abstract type EC2Type_C7G_12xLarge <: EC2Type_C7G end
+abstract type EC2Type_C7G_16xLarge <: EC2Type_C7G end
 abstract type EC2Type_C7G_2xLarge <: EC2Type_C7G end
 abstract type EC2Type_C7G_4xLarge <: EC2Type_C7G end
 abstract type EC2Type_C7G_8xLarge <: EC2Type_C7G end
-abstract type EC2Type_C7G_12xLarge <: EC2Type_C7G end
-abstract type EC2Type_C7G_16xLarge <: EC2Type_C7G end
+abstract type EC2Type_C7G_Large <: EC2Type_C7G end
+abstract type EC2Type_C7G_Medium <: EC2Type_C7G end
+abstract type EC2Type_C7G_Metal <: EC2Type_C7G end
+abstract type EC2Type_C7G_xLarge <: EC2Type_C7G end
+
+abstract type EC2Type_C7GD_12xLarge <: EC2Type_C7GD end
+abstract type EC2Type_C7GD_16xLarge <: EC2Type_C7GD end
+abstract type EC2Type_C7GD_2xLarge <: EC2Type_C7GD end
+abstract type EC2Type_C7GD_4xLarge <: EC2Type_C7GD end
+abstract type EC2Type_C7GD_8xLarge <: EC2Type_C7GD end
+abstract type EC2Type_C7GD_Large <: EC2Type_C7GD end
+abstract type EC2Type_C7GD_Medium <: EC2Type_C7GD end
+abstract type EC2Type_C7GD_Metal <: EC2Type_C7GD end
+abstract type EC2Type_C7GD_xLarge <: EC2Type_C7GD end
+
+abstract type EC2Type_C7GN_12xLarge <: EC2Type_C7GN end
+abstract type EC2Type_C7GN_16xLarge <: EC2Type_C7GN end
+abstract type EC2Type_C7GN_2xLarge <: EC2Type_C7GN end
+abstract type EC2Type_C7GN_4xLarge <: EC2Type_C7GN end
+abstract type EC2Type_C7GN_8xLarge <: EC2Type_C7GN end
+abstract type EC2Type_C7GN_Large <: EC2Type_C7GN end
+abstract type EC2Type_C7GN_Medium <: EC2Type_C7GN end
+abstract type EC2Type_C7GN_Metal <: EC2Type_C7GN end
+abstract type EC2Type_C7GN_xLarge <: EC2Type_C7GN end
+
+abstract type EC2Type_C7I_12xLarge <: EC2Type_C7I end
+abstract type EC2Type_C7I_16xLarge <: EC2Type_C7I end
+abstract type EC2Type_C7I_24xLarge <: EC2Type_C7I end
+abstract type EC2Type_C7I_2xLarge <: EC2Type_C7I end
+abstract type EC2Type_C7I_48xLarge <: EC2Type_C7I end
+abstract type EC2Type_C7I_4xLarge <: EC2Type_C7I end
+abstract type EC2Type_C7I_8xLarge <: EC2Type_C7I end
+abstract type EC2Type_C7I_Large <: EC2Type_C7I end
+abstract type EC2Type_C7I_Metal_24xl <: EC2Type_C7I end
+abstract type EC2Type_C7I_Metal_48xl <: EC2Type_C7I end
+abstract type EC2Type_C7I_xLarge <: EC2Type_C7I end
+
+abstract type EC2Type_HPC7A_12xLarge <: EC2Type_HPC7A end
+abstract type EC2Type_HPC7A_24xLarge <: EC2Type_HPC7A end
+abstract type EC2Type_HPC7A_48xLarge <: EC2Type_HPC7A end
+abstract type EC2Type_HPC7A_96xLarge <: EC2Type_HPC7A end
+
+abstract type EC2Type_HPC7G_16xLarge <: EC2Type_HPC7G end
+abstract type EC2Type_HPC7G_4xLarge <: EC2Type_HPC7G end
+abstract type EC2Type_HPC7G_8xLarge <: EC2Type_HPC7G end
 
 abstract type EC2Type_C6 <: EC2Type end
 abstract type EC2Type_C6G <: EC2Type_C6 end
@@ -709,6 +770,17 @@ abstract type EC2Type_G5G_2xLarge <: EC2Type_G5G end
 abstract type EC2Type_G5G_4xLarge <: EC2Type_G5G end
 abstract type EC2Type_G5G_8xLarge <: EC2Type_G5G end
 abstract type EC2Type_G5G_16xLarge <: EC2Type_G5G end
+
+abstract type EC2Type_G6 <: EC2Type end
+
+abstract type EC2Type_G6_xLarge <: EC2Type_G6 end
+abstract type EC2Type_G6_2xLarge <: EC2Type_G6 end
+abstract type EC2Type_G6_4xLarge <: EC2Type_G6 end
+abstract type EC2Type_G6_8xLarge <: EC2Type_G6 end
+abstract type EC2Type_G6_12xLarge <: EC2Type_G6 end
+abstract type EC2Type_G6_16xLarge <: EC2Type_G6 end
+abstract type EC2Type_G6_24xLarge <: EC2Type_G6 end
+abstract type EC2Type_G6_48xLarge <: EC2Type_G6 end
 
 abstract type EC2Type_G4 <: EC2Type end
 abstract type EC2Type_G4DN <: EC2Type_G4 end

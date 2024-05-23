@@ -115,14 +115,63 @@ c6id.8xlarge,EC2Family_Compute,EC2Type_C6ID,EC2Type_C6ID_8xLarge,64.0G,32,0,0,2.
 c6id.large,EC2Family_Compute,EC2Type_C6ID,EC2Type_C6ID_Large,4.0G,2,0,0,2.00G,0,na,Intel Xeon 8375C,118G,StorageType_SSD,10000.0M,<12.5G,1250.0M,Yes,40000
 c6id.metal,EC2Family_Compute,EC2Type_C6ID,EC2Type_C6ID_Metal,256.0G,128,0,0,2.00G,0,na,Intel Xeon 8375C,7600G,StorageType_EC2_NVMeSSD,40000.0M,50G,5000.0M,Yes,160000
 c6id.xlarge,EC2Family_Compute,EC2Type_C6ID,EC2Type_C6ID_xLarge,8.0G,4,0,0,2.00G,0,na,Intel Xeon 8375C,237G,StorageType_SSD,10000.0M,<12.5G,1250.0M,Yes,40000
-c7g.12xlarge,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_12xLarge,96.0G,48,0,0,2.00G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,15000.0M,22.5G,1875.0M,na,60000
-c7g.16xlarge,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_16xLarge,128.0G,64,0,0,2.00G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,20000.0M,30G,2500.0M,na,80000
-c7g.2xlarge,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_2xLarge,16.0G,8,0,0,2.00G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,10000.0M,<15G,1250.0M,na,40000
-c7g.4xlarge,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_4xLarge,32.0G,16,0,0,2.00G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,10000.0M,<15G,1250.0M,na,40000
-c7g.8xlarge,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_8xLarge,64.0G,32,0,0,2.00G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,10000.0M,15G,1250.0M,na,40000
-c7g.large,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_Large,4.0G,2,0,0,2.00G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000
-c7g.medium,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_Medium,2.0G,1,0,0,2.00G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000
-c7g.xlarge,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_xLarge,8.0G,4,0,0,2.00G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000
+c7a.12xlarge,EC2Family_Compute,EC2Type_C7A,EC2Type_C7A_12xLarge,96.0G,48,0,0,2G,0,na,AMD EPYC 9R14,na,StorageType_EC2_EBSOnly,15000.0M,18.75G,1875.0M,na,60000.0
+c7a.16xlarge,EC2Family_Compute,EC2Type_C7A,EC2Type_C7A_16xLarge,128.0G,64,0,0,2G,0,na,AMD EPYC 9R14,na,StorageType_EC2_EBSOnly,20000.0M,25G,2500.0M,na,80000.0
+c7a.24xlarge,EC2Family_Compute,EC2Type_C7A,EC2Type_C7A_24xLarge,192.0G,96,0,0,2G,0,na,AMD EPYC 9R14,na,StorageType_EC2_EBSOnly,30000.0M,37.5G,3750.0M,na,120000.0
+c7a.2xlarge,EC2Family_Compute,EC2Type_C7A,EC2Type_C7A_2xLarge,16.0G,8,0,0,2G,0,na,AMD EPYC 9R14,na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000.0
+c7a.32xlarge,EC2Family_Compute,EC2Type_C7A,EC2Type_C7A_32xLarge,256.0G,128,0,0,2G,0,na,AMD EPYC 9R14,na,StorageType_EC2_EBSOnly,40000.0M,50G,5000.0M,na,160000.0
+c7a.48xlarge,EC2Family_Compute,EC2Type_C7A,EC2Type_C7A_48xLarge,384.0G,192,0,0,2G,0,na,AMD EPYC 9R14,na,StorageType_EC2_EBSOnly,40000.0M,50G,5000.0M,na,240000.0
+c7a.4xlarge,EC2Family_Compute,EC2Type_C7A,EC2Type_C7A_4xLarge,32.0G,16,0,0,2G,0,na,AMD EPYC 9R14,na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000.0
+c7a.8xlarge,EC2Family_Compute,EC2Type_C7A,EC2Type_C7A_8xLarge,64.0G,32,0,0,2G,0,na,AMD EPYC 9R14,na,StorageType_EC2_EBSOnly,10000.0M,12.5G,1250.0M,na,40000.0
+c7a.large,EC2Family_Compute,EC2Type_C7A,EC2Type_C7A_Large,4.0G,2,0,0,2G,0,na,AMD EPYC 9R14,na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000.0
+c7a.medium,EC2Family_Compute,EC2Type_C7A,EC2Type_C7A_Medium,2.0G,1,0,0,2G,0,na,AMD EPYC 9R14,na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000.0
+c7a.metal-48xl,EC2Family_Compute,EC2Type_C7A,EC2Type_C7A_Metal_48xl,384.0G,192,0,0,2G,0,na,AMD EPYC 9R14,na,StorageType_EC2_EBSOnly,40000.0M,50G,5000.0M,na,240000.0
+c7a.xlarge,EC2Family_Compute,EC2Type_C7A,EC2Type_C7A_xLarge,8.0G,4,0,0,2G,0,na,AMD EPYC 9R14,na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000.0
+c7g.12xlarge,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_12xLarge,96.0G,48,0,0,2G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,15000.0M,22.5G,1875.0M,na,60000.0
+c7g.16xlarge,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_16xLarge,128.0G,64,0,0,2G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,20000.0M,30G,2500.0M,na,80000.0
+c7g.2xlarge,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_2xLarge,16.0G,8,0,0,2G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,10000.0M,<15G,1250.0M,na,40000.0
+c7g.4xlarge,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_4xLarge,32.0G,16,0,0,2G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,10000.0M,<15G,1250.0M,na,40000.0
+c7g.8xlarge,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_8xLarge,64.0G,32,0,0,2G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,10000.0M,15G,1250.0M,na,40000.0
+c7g.large,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_Large,4.0G,2,0,0,2G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000.0
+c7g.medium,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_Medium,2.0G,1,0,0,2G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000.0
+c7g.metal,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_Metal,128.0G,64,0,0,2G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,20000.0M,30G,2500.0M,na,80000.0
+c7g.xlarge,EC2Family_Compute,EC2Type_C7G,EC2Type_C7G_xLarge,8.0G,4,0,0,2G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000.0
+c7gd.12xlarge,EC2Family_Compute,EC2Type_C7GD,EC2Type_C7GD_12xLarge,96.0G,48,0,0,2G,0,na,AWS Graviton3,2850G,StorageType_EC2_NVMeSSD,15000.0M,22.5G,1875.0M,No,60000.0
+c7gd.16xlarge,EC2Family_Compute,EC2Type_C7GD,EC2Type_C7GD_16xLarge,128.0G,64,0,0,2G,0,na,AWS Graviton3,3800G,StorageType_EC2_NVMeSSD,20000.0M,30G,2500.0M,No,80000.0
+c7gd.2xlarge,EC2Family_Compute,EC2Type_C7GD,EC2Type_C7GD_2xLarge,16.0G,8,0,0,2G,0,na,AWS Graviton3,474G,StorageType_EC2_NVMeSSD,10000.0M,<15G,1250.0M,No,40000.0
+c7gd.4xlarge,EC2Family_Compute,EC2Type_C7GD,EC2Type_C7GD_4xLarge,32.0G,16,0,0,2G,0,na,AWS Graviton3,950G,StorageType_EC2_NVMeSSD,10000.0M,<15G,1250.0M,No,40000.0
+c7gd.8xlarge,EC2Family_Compute,EC2Type_C7GD,EC2Type_C7GD_8xLarge,64.0G,32,0,0,2G,0,na,AWS Graviton3,1900G,StorageType_EC2_NVMeSSD,10000.0M,15G,1250.0M,No,40000.0
+c7gd.large,EC2Family_Compute,EC2Type_C7GD,EC2Type_C7GD_Large,4.0G,2,0,0,2G,0,na,AWS Graviton3,118G,StorageType_EC2_NVMeSSD,10000.0M,<12.5G,1250.0M,No,40000.0
+c7gd.medium,EC2Family_Compute,EC2Type_C7GD,EC2Type_C7GD_Medium,2.0G,1,0,0,2G,0,na,AWS Graviton3,59G,StorageType_EC2_NVMeSSD,10000.0M,<12.5G,1250.0M,No,40000.0
+c7gd.metal,EC2Family_Compute,EC2Type_C7GD,EC2Type_C7GD_Metal,128.0G,64,0,0,2G,0,na,AWS Graviton3,3800G,StorageType_EC2_NVMeSSD,20000.0M,30G,2500.0M,No,80000.0
+c7gd.xlarge,EC2Family_Compute,EC2Type_C7GD,EC2Type_C7GD_xLarge,8.0G,4,0,0,2G,0,na,AWS Graviton3,237G,StorageType_EC2_NVMeSSD,10000.0M,<12.5G,1250.0M,No,40000.0
+c7gn.12xlarge,EC2Family_Compute,EC2Type_C7GN,EC2Type_C7GN_12xLarge,96.0G,48,0,0,2G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,30000.0M,150G,3750.0M,na,120000.0
+c7gn.16xlarge,EC2Family_Compute,EC2Type_C7GN,EC2Type_C7GN_16xLarge,128.0G,64,0,0,2G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,40000.0M,200G,5000.0M,na,160000.0
+c7gn.2xlarge,EC2Family_Compute,EC2Type_C7GN,EC2Type_C7GN_2xLarge,16.0G,8,0,0,2G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,10000.0M,<50G,1250.0M,na,40000.0
+c7gn.4xlarge,EC2Family_Compute,EC2Type_C7GN,EC2Type_C7GN_4xLarge,32.0G,16,0,0,2G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,10000.0M,50G,1250.0M,na,40000.0
+c7gn.8xlarge,EC2Family_Compute,EC2Type_C7GN,EC2Type_C7GN_8xLarge,64.0G,32,0,0,2G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,20000.0M,100G,2500.0M,na,80000.0
+c7gn.large,EC2Family_Compute,EC2Type_C7GN,EC2Type_C7GN_Large,4.0G,2,0,0,2G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,10000.0M,<30G,1250.0M,na,40000.0
+c7gn.medium,EC2Family_Compute,EC2Type_C7GN,EC2Type_C7GN_Medium,2.0G,1,0,0,2G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,10000.0M,<25G,1250.0M,na,40000.0
+c7gn.metal,EC2Family_Compute,EC2Type_C7GN,EC2Type_C7GN_Metal,128.0G,64,0,0,2G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,40000.0M,200G,5000.0M,na,160000.0
+c7gn.xlarge,EC2Family_Compute,EC2Type_C7GN,EC2Type_C7GN_xLarge,8.0G,4,0,0,2G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,10000.0M,<40G,1250.0M,na,40000.0
+c7i.12xlarge,EC2Family_Compute,EC2Type_C7I,EC2Type_C7I_12xLarge,96.0G,48,0,0,2G,0,na,Intel Xeon Scalable (Sapphire Rapids),na,StorageType_EC2_EBSOnly,15000.0M,18.75G,1875.0M,na,60000.0
+c7i.16xlarge,EC2Family_Compute,EC2Type_C7I,EC2Type_C7I_16xLarge,128.0G,64,0,0,2G,0,na,Intel Xeon Scalable (Sapphire Rapids),na,StorageType_EC2_EBSOnly,20000.0M,25G,2500.0M,na,80000.0
+c7i.24xlarge,EC2Family_Compute,EC2Type_C7I,EC2Type_C7I_24xLarge,192.0G,96,0,0,2G,0,na,Intel Xeon Scalable (Sapphire Rapids),na,StorageType_EC2_EBSOnly,30000.0M,37.5G,3750.0M,na,120000.0
+c7i.2xlarge,EC2Family_Compute,EC2Type_C7I,EC2Type_C7I_2xLarge,16.0G,8,0,0,2G,0,na,Intel Xeon Scalable (Sapphire Rapids),na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000.0
+c7i.48xlarge,EC2Family_Compute,EC2Type_C7I,EC2Type_C7I_48xLarge,384.0G,192,0,0,2G,0,na,Intel Xeon Scalable (Sapphire Rapids),na,StorageType_EC2_EBSOnly,40000.0M,50G,5000.0M,na,240000.0
+c7i.4xlarge,EC2Family_Compute,EC2Type_C7I,EC2Type_C7I_4xLarge,32.0G,16,0,0,2G,0,na,Intel Xeon Scalable (Sapphire Rapids),na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000.0
+c7i.8xlarge,EC2Family_Compute,EC2Type_C7I,EC2Type_C7I_8xLarge,64.0G,32,0,0,2G,0,na,Intel Xeon Scalable (Sapphire Rapids),na,StorageType_EC2_EBSOnly,10000.0M,12.5G,1250.0M,na,40000.0
+c7i.large,EC2Family_Compute,EC2Type_C7I,EC2Type_C7I_Large,4.0G,2,0,0,2G,0,na,Intel Xeon Scalable (Sapphire Rapids),na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000.0
+c7i.metal-24xl,EC2Family_Compute,EC2Type_C7I,EC2Type_C7I_Metal_24xl,192.0G,96,0,0,2G,0,na,Intel Xeon Scalable (Sapphire Rapids),na,StorageType_EC2_EBSOnly,30000.0M,37.5G,3750.0M,na,120000.0
+c7i.metal-48xl,EC2Family_Compute,EC2Type_C7I,EC2Type_C7I_Metal_48xl,384.0G,192,0,0,2G,0,na,Intel Xeon Scalable (Sapphire Rapids),na,StorageType_EC2_EBSOnly,40000.0M,50G,5000.0M,na,240000.0
+c7i.xlarge,EC2Family_Compute,EC2Type_C7I,EC2Type_C7I_xLarge,8.0G,4,0,0,2G,0,na,Intel Xeon Scalable (Sapphire Rapids),na,StorageType_EC2_EBSOnly,10000.0M,<12.5G,1250.0M,na,40000.0
+hpc7a.12xlarge,EC2Family_Compute,EC2Type_HPC7A,EC2Type_HPC7A_12xLarge,768.0G,24,0,0,32G,0,na,AMD EPYC 9R14,na,StorageType_EC2_EBSOnly,87.0M,300G,2085.0M,na,10.88
+hpc7a.24xlarge,EC2Family_Compute,EC2Type_HPC7A,EC2Type_HPC7A_24xLarge,768.0G,48,0,0,16G,0,na,AMD EPYC 9R14,na,StorageType_EC2_EBSOnly,87.0M,300G,2085.0M,na,10.88
+hpc7a.48xlarge,EC2Family_Compute,EC2Type_HPC7A,EC2Type_HPC7A_48xLarge,768.0G,96,0,0,8G,0,na,AMD EPYC 9R14,na,StorageType_EC2_EBSOnly,87.0M,300G,2085.0M,na,10.88
+hpc7a.96xlarge,EC2Family_Compute,EC2Type_HPC7A,EC2Type_HPC7A_96xLarge,768.0G,192,0,0,4G,0,na,AMD EPYC 9R14,na,StorageType_EC2_EBSOnly,87.0M,300G,2085.0M,na,10.88
+hpc7g.16xlarge,EC2Family_Compute,EC2Type_HPC7G,EC2Type_HPC7G_16xLarge,128.0G,64,0,0,2G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,87.0M,200G,2085.0M,na,10.88
+hpc7g.4xlarge,EC2Family_Compute,EC2Type_HPC7G,EC2Type_HPC7G_4xLarge,128.0G,16,0,0,8G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,87.0M,200G,2085.0M,na,10.88
+hpc7g.8xlarge,EC2Family_Compute,EC2Type_HPC7G,EC2Type_HPC7G_8xLarge,128.0G,32,0,0,4G,0,na,AWS Graviton3,na,StorageType_EC2_EBSOnly,87.0M,200G,2085.0M,na,10.88
 cc2.8xlarge,N/A,EC2Type_CC2,EC2Type_CC2_8xLarge,60.5G,32,88,2.75,1.89G,0,na,Intel Xeon E5-2670,3360G,StorageType_HDD,unset,10G,0M,na,0
 cr1.8xlarge,N/A,EC2Type_CR1,EC2Type_CR1_8xLarge,244.0G,32,88,2.75,7.62G,0,na,Intel Xeon E5-2670,240G,StorageType_SSD,unset,10G,0M,No,0
 d2.2xlarge,EC2Family_Storage,EC2Type_D2,EC2Type_D2_2xLarge,61.0G,8,28,3.5,7.62G,0,na,Intel Xeon E5-2676 v3,12000G,StorageType_HDD,1000.0M,<1G,125.0M,na,8000
@@ -161,20 +210,28 @@ g4dn.4xlarge,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_4xLarge,64.0G,16,0,
 g4dn.8xlarge,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_8xLarge,128.0G,32,0,0,4.00G,1,NVIDIA Tesla T4,Intel Xeon Family,900G,StorageType_SSD,9500.0M,50G,1187.5M,Yes,40000
 g4dn.metal,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_Metal,384.0G,96,0,0,4.00G,8,NVIDIA Tesla T4,Intel Xeon Family,1800G,StorageType_EC2_NVMeSSD,19000.0M,100G,2375.0M,Yes,80000
 g4dn.xlarge,EC2Family_Accelerated,EC2Type_G4DN,EC2Type_G4DN_xLarge,16.0G,4,0,0,4.00G,1,NVIDIA Tesla T4,Intel Xeon Family,125G,StorageType_SSD,3500.0M,<25G,437.5M,Yes,20000
-g5.12xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_12xLarge,192.0G,48,0,0,4.00G,4,NVIDIA A10G,AMD EPYC 7R32,3800G,StorageType_SSD,16000.0M,40G,2000.0M,Yes,65000
-g5.16xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_16xLarge,256.0G,64,0,0,4.00G,1,NVIDIA A10G,AMD EPYC 7R32,1900G,StorageType_SSD,16000.0M,25G,2000.0M,Yes,65000
-g5.24xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_24xLarge,384.0G,96,0,0,4.00G,4,NVIDIA A10G,AMD EPYC 7R32,3800G,StorageType_SSD,19000.0M,50G,2375.0M,Yes,80000
-g5.2xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_2xLarge,32.0G,8,0,0,4.00G,1,NVIDIA A10G,AMD EPYC 7R32,450G,StorageType_SSD,3500.0M,<10G,437.5M,Yes,15000
+g5.xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_xLarge,16.0G,4,0,0,4.00G,1,NVIDIA A10G,AMD EPYC 7R32,250G,StorageType_EC2_NVMeSSD,3500.0M,<10G,437.5M,Yes,15000
+g5.2xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_2xLarge,32.0G,8,0,0,4.00G,1,NVIDIA A10G,AMD EPYC 7R32,450G,StorageType_EC2_NVMeSSD,3500.0M,<10G,437.5M,Yes,15000
+g5.4xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_4xLarge,64.0G,16,0,0,4.00G,1,NVIDIA A10G,AMD EPYC 7R32,600G,StorageType_EC2_NVMeSSD,4750.0M,<25G,593.75M,Yes,20000
+g5.8xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_8xLarge,128.0G,32,0,0,4.00G,1,NVIDIA A10G,AMD EPYC 7R32,900G,StorageType_EC2_NVMeSSD,16000.0M,25G,2000.0M,Yes,65000
+g5.12xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_12xLarge,192.0G,48,0,0,4.00G,4,NVIDIA A10G,AMD EPYC 7R32,3800G,StorageType_EC2_NVMeSSD,16000.0M,40G,2000.0M,Yes,65000
+g5.16xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_16xLarge,256.0G,64,0,0,4.00G,1,NVIDIA A10G,AMD EPYC 7R32,1900G,StorageType_EC2_NVMeSSD,16000.0M,25G,2000.0M,Yes,65000
+g5.24xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_24xLarge,384.0G,96,0,0,4.00G,4,NVIDIA A10G,AMD EPYC 7R32,3800G,StorageType_EC2_NVMeSSD,19000.0M,50G,2375.0M,Yes,80000
 g5.48xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_48xLarge,768.0G,192,0,0,4.00G,8,NVIDIA A10G,AMD EPYC 7R32,7600G,StorageType_EC2_NVMeSSD,19000.0M,100G,2375.0M,Yes,80000
-g5.4xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_4xLarge,64.0G,16,0,0,4.00G,1,NVIDIA A10G,AMD EPYC 7R32,600G,StorageType_SSD,4750.0M,<25G,593.75M,Yes,20000
-g5.8xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_8xLarge,128.0G,32,0,0,4.00G,1,NVIDIA A10G,AMD EPYC 7R32,900G,StorageType_SSD,16000.0M,25G,2000.0M,Yes,65000
-g5.xlarge,EC2Family_Accelerated,EC2Type_G5,EC2Type_G5_xLarge,16.0G,4,0,0,4.00G,1,NVIDIA A10G,AMD EPYC 7R32,250G,StorageType_SSD,3500.0M,<10G,437.5M,Yes,15000
 g5g.16xlarge,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_16xLarge,128.0G,64,0,0,2.00G,2,NVIDIA Tesla T4G,AWS Graviton2,na,StorageType_EC2_EBSOnly,19000.0M,25G,2375.0M,na,80000
 g5g.2xlarge,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_2xLarge,16.0G,8,0,0,2.00G,1,NVIDIA Tesla T4G,AWS Graviton2,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
 g5g.4xlarge,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_4xLarge,32.0G,16,0,0,2.00G,1,NVIDIA Tesla T4G,AWS Graviton2,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
 g5g.8xlarge,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_8xLarge,64.0G,32,0,0,2.00G,1,NVIDIA Tesla T4G,AWS Graviton2,na,StorageType_EC2_EBSOnly,9500.0M,12G,1187.5M,na,40000
 g5g.metal,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_Metal,128.0G,64,0,0,2.00G,2,NVIDIA Tesla T4G,AWS Graviton2,na,StorageType_EC2_EBSOnly,19000.0M,25G,2375.0M,na,80000
 g5g.xlarge,EC2Family_Accelerated,EC2Type_G5G,EC2Type_G5G_xLarge,8.0G,4,0,0,2.00G,1,NVIDIA Tesla T4G,AWS Graviton2,na,StorageType_EC2_EBSOnly,4750.0M,<10G,593.75M,na,20000
+g6.xlarge,EC2Family_Accelerated,EC2Type_G6,EC2Type_G6_xLarge,16.0G,4,0,0,4.00G,1,NVIDIA L4,AMD EPYC 7R13,250G,StorageType_EC2_NVMeSSD,3500.0M,<10G,625M,No,20000
+g6.2xlarge,EC2Family_Accelerated,EC2Type_G6,EC2Type_G6_2xLarge,32.0G,8,0,0,4.00G,1,NVIDIA L4,AMD EPYC 7R13,450G,StorageType_EC2_NVMeSSD,3500.0M,<10G,625M,No,20000
+g6.4xlarge,EC2Family_Accelerated,EC2Type_G6,EC2Type_G6_4xLarge,64.0G,16,0,0,4.00G,1,NVIDIA L4,AMD EPYC 7R13,600G,StorageType_EC2_NVMeSSD,4750.0M,<25G,1000M,No,32000
+g6.8xlarge,EC2Family_Accelerated,EC2Type_G6,EC2Type_G6_8xLarge,128.0G,32,0,0,4.00G,1,NVIDIA L4,AMD EPYC 7R13,900G,StorageType_EC2_NVMeSSD,16000.0M,25G,2000M,No,64000
+g6.16xlarge,EC2Family_Accelerated,EC2Type_G6,EC2Type_G6_16xLarge,256.0G,64,0,0,4.00G,1,NVIDIA L4,AMD EPYC 7R13,3800G,StorageType_EC2_NVMeSSD,16000.0M,25G,2500M,No,80000
+g6.12xlarge,EC2Family_Accelerated,EC2Type_G6,EC2Type_G5_12xLarge,192.0G,48,0,0,4.00G,4,NVIDIA L4,AMD EPYC 7R13,15200G,StorageType_EC2_NVMeSSD,16000.0M,40G,2500M,No,80000
+g6.24xlarge,EC2Family_Accelerated,EC2Type_G6,EC2Type_G6_24xLarge,384.0G,96,0,0,4.00G,4,NVIDIA L4,AMD EPYC 7R13,15200G,StorageType_EC2_NVMeSSD,19000.0M,50G,3750M,No,120000
+g6.48xlarge,EC2Family_Accelerated,EC2Type_G6,EC2Type_G6_48xLarge,768.0G,192,0,0,4.00G,8,NVIDIA L4,AMD EPYC 7R13,60800G,StorageType_EC2_NVMeSSD,19000.0M,100G,7500M,No,240000
 h1.16xlarge,EC2Family_Storage,EC2Type_H1,EC2Type_H1_16xLarge,256.0G,64,201,3.141,4.00G,0,na,Intel Xeon E5-2686 v4,16000G,StorageType_HDD,14000.0M,25G,1750.0M,na,80000
 h1.2xlarge,EC2Family_Storage,EC2Type_H1,EC2Type_H1_2xLarge,32.0G,8,31,3.875,4.00G,0,na,Intel Xeon E5-2686 v4,2000G,StorageType_HDD,1750.0M,<10G,218.75M,na,12000
 h1.4xlarge,EC2Family_Storage,EC2Type_H1,EC2Type_H1_4xLarge,64.0G,16,58,3.625,4.00G,0,na,Intel Xeon E5-2686 v4,4000G,StorageType_HDD,3500.0M,<10G,437.5M,na,20000

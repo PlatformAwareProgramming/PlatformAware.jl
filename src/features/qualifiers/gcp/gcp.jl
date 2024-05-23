@@ -306,3 +306,15 @@ function getDiskInfo(provider::Type{<:GoogleCloud})
 end
 
 
+function readCloudInstancesDB(::Type{<:GoogleCloud})
+
+    database_path = @get_scratch!("database_path")
+    machinetypedb_gcp_url = "https://raw.githubusercontent.com/PlatformAwareProgramming/PlatformAware.jl/master/src/features/qualifiers/gcp/db-machinetypes.gcp.csv"
+    machinetypedb_gcp_fname =  joinpath(database_path,basename(machinetypedb_gcp_url))
+    #machinetypedb_gcp_fname = "/home/heron/Dropbox/Copy/ufc_mdcc_hpc/PlatformAware/PlatformAware.jl/src/features/qualifiers/gcp/db-machinetypes.gcp.csv"
+    try_download(machinetypedb_gcp_url, machinetypedb_gcp_fname)
+    machinetype_dict_gcp = readDB2(machinetypedb_gcp_fname)
+
+    return machinetype_dict_gcp
+
+end
