@@ -160,7 +160,7 @@ function get_quantifier_from_number(n, d)
     Tuple{a_type,b_type,n}
 end
 
-mag_mult = Dict('K' => 2^10, 'M' => 2^20, 'G' => 2^30, 'T' => 2^40, 'P'=> 2^50, 'E' => 2^60)
+mag_mult = Dict('n' => 2^(-30), 'u' => 2^(-20), 'm' => 2^(-10), 'K' => 2^10, 'M' => 2^20, 'G' => 2^30, 'T' => 2^40, 'P'=> 2^50, 'E' => 2^60)
 
 function get_quantifier_from_string(nn)
    
