@@ -117,7 +117,7 @@ get_quantifier_from_number(n) = get_quantifier_from_number(n,'.')
     
 function get_quantifier_from_number(n, d)
 
-    if n>0
+    if n >= 1.0
         magnitude = Dict(0 => "", 1 => "K", 2 => "M", 3 => "G", 4 => "T", 5 => "P", 6 => "E")
 
         l = log(2,n)
@@ -136,6 +136,9 @@ function get_quantifier_from_number(n, d)
                 a = a - 10
                 m1 = m1 + 1
             end
+            if n==0.5
+                @info n, d
+            end
             a_str = "AtLeast" * string(Integer(2^a)) * magnitude[m1]
         end
 
@@ -150,6 +153,10 @@ function get_quantifier_from_number(n, d)
             end
             b_str = "AtMost" * string(Integer(2^b)) * magnitude[m2]
         end
+    elseif n < 1.0
+        #TODO: consider 'n', 'u', and 'm' multipliers.
+        a_str = "AtLeast0"
+        b_str = "AtMost1"
     else
         a_str = "AtLeast0"
         b_str = "AtMost0"
