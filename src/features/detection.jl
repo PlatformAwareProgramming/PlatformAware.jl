@@ -13,6 +13,7 @@ function loadDBs!()
 
    procdb_intel_url = "https://raw.githubusercontent.com/PlatformAwareProgramming/PlatformAware.jl/master/src/features/qualifiers/intel/db-processors.Intel.csv"
    procdb_amd_url   = "https://raw.githubusercontent.com/PlatformAwareProgramming/PlatformAware.jl/master/src/features/qualifiers/amd/db-processors.AMD.csv"
+   procdb_aws_url   = "https://raw.githubusercontent.com/PlatformAwareProgramming/PlatformAware.jl/master/src/features/qualifiers/aws/db-processors.AWS.csv"
    accdb_intel_url  = "https://raw.githubusercontent.com/PlatformAwareProgramming/PlatformAware.jl/master/src/features/qualifiers/intel/db-accelerators.Intel.csv"
    accdb_amd_url    = "https://raw.githubusercontent.com/PlatformAwareProgramming/PlatformAware.jl/master/src/features/qualifiers/amd/db-accelerators.AMD.csv"
    accdb_nvidia_url = "https://raw.githubusercontent.com/PlatformAwareProgramming/PlatformAware.jl/master/src/features/qualifiers/nvidia/db-accelerators.NVIDIA.csv"
@@ -25,23 +26,26 @@ function loadDBs!()
 
    procdb_intel_fname =  joinpath(database_path,basename(procdb_intel_url))
    procdb_amd_fname = joinpath(database_path,basename(procdb_amd_url))
+   procdb_aws_fname = joinpath(database_path,basename(procdb_aws_url))
    accdb_intel_fname = joinpath(database_path,basename(accdb_intel_url))
    accdb_amd_fname = joinpath(database_path,basename(accdb_amd_url))
    accdb_nvidia_fname = joinpath(database_path,basename(accdb_nvidia_url))
 
    try_download(procdb_intel_url, procdb_intel_fname)
    try_download(procdb_amd_url, procdb_amd_fname)
+   try_download(procdb_aws_url, procdb_aws_fname)
    try_download(accdb_intel_url, accdb_intel_fname)
    try_download(accdb_amd_url, accdb_amd_fname)
    try_download(accdb_nvidia_url, accdb_nvidia_fname)
 
    processor_dict_intel = readDB(procdb_intel_fname)
    processor_dict_amd = readDB(procdb_amd_fname)
+   processor_dict_aws = readDB(procdb_aws_fname)
    accelerator_dict_intel = readDB(accdb_intel_fname)
    accelerator_dict_amd = readDB(accdb_amd_fname)
    accelerator_dict_nvidia = readDB(accdb_nvidia_fname)
 
-   global processor_dict[] = vcat(processor_dict_amd, processor_dict_intel)
+   global processor_dict[] = vcat(processor_dict_amd, processor_dict_aws, processor_dict_intel)
    global accelerator_dict[] = vcat(accelerator_dict_intel, accelerator_dict_amd, accelerator_dict_nvidia)
 
 end

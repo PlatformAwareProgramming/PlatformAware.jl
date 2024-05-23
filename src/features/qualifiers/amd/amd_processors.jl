@@ -12,11 +12,11 @@ abstract type AMDProcessor <: Processor end; export AMDProcessor
 
 abstract type AMDMicroarchitecture <: ProcessorMicroarchitecture end
 
-abstract type K6 <: ProcessorMicroarchitecture end
-abstract type K7 <: ProcessorMicroarchitecture end
-abstract type K8 <: ProcessorMicroarchitecture end
+abstract type K6 <: AMDMicroarchitecture end
+abstract type K7 <: AMDMicroarchitecture end
+abstract type K8 <: AMDMicroarchitecture end
 const Hammer = K8
-abstract type K10 <: ProcessorMicroarchitecture end
+abstract type K10 <: AMDMicroarchitecture end
     
 abstract type Zen <: AMDMicroarchitecture end
 abstract type Zen2 <: AMDMicroarchitecture end
