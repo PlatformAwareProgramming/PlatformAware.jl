@@ -79,6 +79,7 @@ abstract type AMDEPYC_7003_VCache <: AMDEPYC_7003 end     #	AMD EPYC™ 7003 Ser
 abstract type AMDEPYC_7002 <: AMDEPYC end     #	AMD EPYC™ 7002 Series
 abstract type AMDEPYC_7001 <: AMDEPYC end     #	AMD EPYC™ 7001 Series
 abstract type AMDEPYC_9R14 <: AMDEPYC end     
+abstract type AMDEPYC_7B13 <: AMDEPYC end     
 abstract type AMDEPYC_7R13 <: AMDEPYC end     
 abstract type AMDEPYC_7R32 <: AMDEPYC end     
 abstract type AMD_FX_8_Black <: AMD_FX end     #	AMD FX 8-Core Black Edition Processors
