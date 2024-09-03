@@ -25,25 +25,24 @@
         println(z,": default implementation of kernel_example:")
     end
 
+
     # specify platform-aware implementations
-    @platform aware function kernel({accelerator_count::(@atleast 1)},
-                                    x,y,args...; z=1, kwargs...)
+    @platform aware function kernel({accelerator_count::(@atleast 1)}, y, args...; z=1, kwargs...)
         println(z,": kernel for 1 accelerators of unspecified kind")
     end
 
     @platform aware function kernel({accelerator_count::Tuple{AtLeast1,AtMostInf,C} #=(@atleast(1,C))=#,
                                      accelerator_manufacturer::NVIDIA,
-                                     accelerator_api::(@api CUDA 3.0)},
-                                    x::@atleast(1),y,args...; z=2, kwargs...) where C
+                                     accelerator_api::(@api CUDA 6.0)},y,args...; z=2, kwargs...) where C
         println(z,": kernel 1 for $C NVIDIA accelerators")
     end
 
     @platform aware function kernel({accelerator_count::Tuple{AtLeast1,AtMostInf,C}#=(@atleast(1,C))=#,
                                      accelerator_manufacturer::NVIDIA,
-                                     accelerator_api::(@api CUDA 3.0)},
-                                    x::@atleast(16),y,args...; z=2, kwargs...) where C
+                                     accelerator_api::(@api CUDA 5.0)},y,args...; z=2, kwargs...) where C
         println(z,": kernel 2 for $C NVIDIA accelerators")
     end
+
 
     @platform assumption some_cluster = {node_count::(@atleast 32), processor::IntelCore_i7_7500U}
 
