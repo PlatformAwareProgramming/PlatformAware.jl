@@ -239,6 +239,11 @@ Therefore, we suggest the following general guideline for package developers who
 
 6. After implementing and testing all platform-aware methods, you have a list of platform parameters that were used to make assumptions about the target execution platform(s). You can optionally instruct the _PlatformAware.jl_ to use only that parameters by using the ``@platform feature`` macro. 
 
+# Publications
+
+F. H. de Carvalho Junior, A. B. Dantas, J. M. Hoffiman, T. Carneiro, C. S. Sales, and P. A. S. Sales. 2023. _Structured Platform-Aware Programming_. In XXIV Symposium on High-Performance Computational Systems (SSCAD’2023) (Porto Alegre, RS). SBC, Porto Alegre, Brazil, 301–312.
+https://sol.sbc.org.br/index.php/sscad/article/view/26529
+
 # Contributing
 
 Contributions are very welcome, as are feature requests and suggestions.
