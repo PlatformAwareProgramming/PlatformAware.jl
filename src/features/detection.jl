@@ -473,7 +473,7 @@ function collectAcceleratorFeatures(l)
       device["accelerator_manufacturer"] = acc_info[4]
       device["accelerator_api"] = acc_info[5]
       device["accelerator_architecture"] = acc_info[6]
-      device["accelerator_memory_size"] = acc_info[7]
+      device["accelerator_memory_size"] = acc_info[7];
       device["accelerator_tdp"] = acc_info[8]
       device["accelerator_processor_count"] = length(acc_info) > 8 ? acc_info[9] : "unset"
       device["accelerator_processor"] = length(acc_info) > 9 ? acc_info[10] : "unset"
