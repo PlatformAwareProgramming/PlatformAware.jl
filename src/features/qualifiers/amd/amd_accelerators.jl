@@ -42,7 +42,7 @@ export TeraScale, TeraScale_1_0, TeraScale_2_0, TeraScale_3_0, TeraScale1, TeraS
 
 # Accelerators
 
-abstract type AMDAccelerator <: Accelerator end
+abstract type AMDAccelerator <: Accelerator end; export AMDAccelerator
 
 
 # families 1

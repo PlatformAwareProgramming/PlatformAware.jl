@@ -7,7 +7,7 @@
 abstract type OpenCL_API <: AcceleratorBackend end
 abstract type OpenCL_1_0 <: OpenCL_API end
 abstract type OpenCL_1_1 <: OpenCL_1_0 end
-abstract type OpenCL_1_2 <: OpenCL_1_1 end
+abstract type OpenCL_1_2 <: OpenCL_1_1 end  
 abstract type OpenCL_2_0 <: OpenCL_1_2 end
 abstract type OpenCL_2_1 <: OpenCL_2_0 end
 abstract type OpenCL_2_2 <: OpenCL_2_1 end
@@ -89,7 +89,7 @@ abstract type HBM2e <: SDRAM end
 abstract type HBM3 <: SDRAM end
 abstract type HBM_PIM <: SDRAM end
 
-export RAM, DDR2, DDR3, DDR33L, DDR4, LPDDR4, LPDDR4X, DDR5, LPDDR5
+export RAM, SDRAM, DDR2, DDR3, DDR33L, DDR4, LPDDR4, LPDDR4X, DDR5, LPDDR5
 export DDR_SDRAM, GDDR2, GDDR3, GDDR4, GDDR5, GDDR5X, GDDR6, GDDR6X
 
 # Storage types
@@ -147,4 +147,4 @@ abstract type PerThread <: WorkerCount end
 abstract type PerVCPU <: WorkerCount end
 abstract type Unmapped <: WorkerCount end
 
-export PerNode, PerProcessor, PerCore, PerThread, PerVCPU
+export WorkerCount, NoCoworkers, PerNode, PerProcessor, PerCore, PerThread, PerVCPU, Unmapped

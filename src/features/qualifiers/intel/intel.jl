@@ -10,7 +10,7 @@ abstract type IntelProcessor <: Processor end; export IntelProcessor
 
 # Microarchictetures (from 2010)
 
-abstract type IntelMicroarchitecture <: ProcessorMicroarchitecture end
+abstract type IntelMicroarchitecture <: ProcessorMicroarchitecture end; export IntelMicroarchitecture
 
 abstract type Westmere <: IntelMicroarchitecture end
 abstract type Saltwell <: IntelMicroarchitecture end
@@ -117,7 +117,7 @@ export Westmere,
     
 # Intel Accelerators
 
-abstract type IntelAccelerator <: Accelerator end
+abstract type IntelAccelerator <: Accelerator end; export IntelAccelerator
 
 abstract type IntelAcceleratorArchitecture <: AcceleratorArchitecture end; export IntelAcceleratorArchitecture
     

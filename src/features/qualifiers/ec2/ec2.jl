@@ -1000,7 +1000,7 @@ function getNodeFeatures(provider::Type{<:AmazonEC2}, node_features)
         node_features["node_virtual"] = "Yes"
         node_features["node_dedicated"] = "Yes"            # ???
         node_features["node_machinefamily"] = instance_info["node_machinefamily"]
-        node_features["node_machinetype"] = instance_info["node_machinesize"] 
+        node_features["node_machinetype"] = instance_info["node_machinetype"] 
         node_features["node_vcpus_count"] = instance_info["node_vcpus_count"]     
     end
 

@@ -4,7 +4,7 @@
 
 abstract type Xilinx <: Manufacturer end; export Xilinx
 
-abstract type UltrascalePlus_HBM_FPGA <: AcceleratorType end; export UltrascalePlus_HBM_FPGA
-abstract type UltrascalePlus_VU9P <: AcceleratorType end; export UltrascalePlus_VU9P
+abstract type UltrascalePlus_HBM_FPGA <: FPGA end; export UltrascalePlus_HBM_FPGA
+abstract type UltrascalePlus_VU9P <: FPGA end; export UltrascalePlus_VU9P
 
 #TODO 
