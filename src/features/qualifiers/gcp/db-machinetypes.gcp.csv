@@ -1,4 +1,4 @@
-api_name,node_machinefamily,node_machinetype,node_machinesize,node_memory_size,node_vcpus_count,memory_per_vcpu,accelerator_count,accelerator,processor,storage_size,storage_type,storage_bandwidth,storage_ssd_support,network_performance,storage_throughput,storage_trim_support,storage_iops
+api_name,node_machinefamily,node_machinetype_super,node_machinetype,node_memory_size,node_vcpus_count,memory_per_vcpu,accelerator_count,accelerator,processor,storage_size,storage_type,storage_bandwidth,storage_ssd_support,network_performance,storage_throughput,storage_trim_support,storage_iops
 a2-highgpu-1g,GCPFamily_Accelerated,GCPType_A2,GCPType_A2_Highgpu1G,85.0G,12,7.08G,1,NVIDIA_A100,Intel Xeon 8273CL,unset,unset,unset,Yes,24G,unset,unset,unset
 a2-highgpu-2g,GCPFamily_Accelerated,GCPType_A2,GCPType_A2_Highgpu2G,170.0G,24,7.08G,2,NVIDIA_A100,Intel Xeon 8273CL,unset,unset,unset,Yes,32G,unset,unset,unset
 a2-highgpu-4g,GCPFamily_Accelerated,GCPType_A2,GCPType_A2_Highgpu4G,340.0G,48,7.08G,4,NVIDIA_A100,Intel Xeon 8273CL,unset,unset,unset,Yes,50G,unset,unset,unset
