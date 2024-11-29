@@ -44,7 +44,7 @@ These operations create a standard _"hello world"_ project, with the contents of
 
 ## Installing _PlatformAware.jl_
 
-Before coding the platform-aware package, it is necessary to add _PlatormAware.jl_ as a dependency of _MyFFT.jl_ by running the following command in the Julia REPL:
+Before coding the platform-aware package, it is necessary to add _platformAware.jl_ as a dependency of _MyFFT.jl_ by running the following command in the Julia REPL:
 
 ```julia
 ] add PlatformAware
@@ -68,7 +68,7 @@ module MyFFT
 
   import PlatformAware
 
-  # setup platorm features (parameters)
+  # setup platform features (parameters)
   @platform feature clear
   @platform feature accelerator_count
   @platform feature accelerator_api
@@ -87,9 +87,9 @@ module MyFFT
 end
 ```
 
-The sequence of ```@platorm feature``` declarations specifies which platform parameters will be used by subsequent kernel method declarations, that is, the assumptions that will be made to distinguish them. You can refer to [this table](https://docs.google.com/spreadsheets/d/1n-c4b7RxUduaKV43XrTnt54w-SR1AXgVNI7dN2OkEUc/edit?usp=sharing) for a list of all supported _**platform parameters**_. By default, they are all included. In the case of ```fft```, the kernel methods are differentiated using only two parameters: ```accelerator_count``` and ```accelerator_api```. They denote respectively assumptions about the number of accelerator devices and the native API they support.
+The sequence of ```@platform feature``` declarations specifies which platform parameters will be used by subsequent kernel method declarations, that is, the assumptions that will be made to distinguish them. You can refer to [this table](https://docs.google.com/spreadsheets/d/1n-c4b7RxUduaKV43XrTnt54w-SR1AXgVNI7dN2OkEUc/edit?usp=sharing) for a list of all supported _**platform parameters**_. By default, they are all included. In the case of ```fft```, the kernel methods are differentiated using only two parameters: ```accelerator_count``` and ```accelerator_api```. They denote respectively assumptions about the number of accelerator devices and the native API they support.
 
-The ```@platorm default``` macro declares the _default kernel method_, which will be called if none of the assumptions of other kernel methods declared using ```@platform aware``` macro calls are valid. The default kernel must be unique to avoid ambiguity. 
+The ```@platform default``` macro declares the _default kernel method_, which will be called if none of the assumptions of other kernel methods declared using ```@platform aware``` macro calls are valid. The default kernel must be unique to avoid ambiguity. 
 
 Finally, kernels for the accelerators that support OpenCL and CUDA APIs are declared using the macro ```@platform aware```. The list of platform parameters is declared just before the regular parameters, such as ```X```, in braces. Their types denote assumptions. For example, ```@atleast 1``` denotes a quantifier representing one or more units of a resource, while``` @api CUDA``` and ```@api OpenCL``` denote types of qualifiers that refer to the CUDA and OpenCL APIs.
 
@@ -227,7 +227,7 @@ We suggest the following general guidelines for package developers who want to t
 2. Provide a default (fallback) method for each kernel function using the ```@platform default``` macro.
 
 3. Identify the target execution platforms to provide specialized methods for each kernel function. You can choose a set of execution platforms for all kernels or select one or more platforms for each separate kernel. To help your choice, look at the following information sources:
-   - the [table of supported _platform **parameters**_](https://docs.google.com/spreadsheets/d/1n-c4b7RxUduaKV43XrTnt54w-SR1AXgVNI7dN2OkEUc/edit?usp=sharing), which will help you to know which assumptions _PlatformAware.jl_ already allow you to make about the target execution platorm;
+   - the [table of supported _platform **parameters**_](https://docs.google.com/spreadsheets/d/1n-c4b7RxUduaKV43XrTnt54w-SR1AXgVNI7dN2OkEUc/edit?usp=sharing), which will help you to know which assumptions _PlatformAware.jl_ already allow you to make about the target execution platform;
    - the database of supported _platform **features**_, where the features of the processor and accelerator models currently supported by _PlatformaWare.jl_ are described:
       - AMD [accelerators](https://github.com/PlatformAwareProgramming/PlatformAware.jl/blob/master/src/features/qualifiers/amd/db-accelerators.AMD.csv) and [processors](https://github.com/PlatformAwareProgramming/PlatformAware.jl/blob/master/src/features/qualifiers/amd/db-processors.AMD.csv);
       - Intel [accelerators](https://github.com/PlatformAwareProgramming/PlatformAware.jl/blob/master/src/features/qualifiers/intel/db-accelerators.Intel.csv) and [processors](https://github.com/PlatformAwareProgramming/PlatformAware.jl/blob/master/src/features/qualifiers/intel/db-processors.Intel.csv);
