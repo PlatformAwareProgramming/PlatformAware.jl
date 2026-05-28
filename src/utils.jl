@@ -8,6 +8,7 @@ function try_download(url,fname)
           cp(fname,fname * ".backup", force=true)
        end
        Downloads.download(url, fname)
+       @info "downloaded $url to $fname."
     catch e
        @info "error downloading $url."
        if (isfile(fname) || isfile(fname * ".backup"))

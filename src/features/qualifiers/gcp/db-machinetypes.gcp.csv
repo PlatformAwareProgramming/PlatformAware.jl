@@ -23,18 +23,18 @@ c3-highmem-44,GCPFamily_Compute,GCPType_C3,GCPType_C3_Highmem44,352.0G,44,8.00G,
 c3-highmem-8,GCPFamily_Compute,GCPType_C3,GCPType_C3_Highmem8,64.0G,8,8.00G,0,na,Intel Xeon Scalable 4th Gen,unset,unset,unset,No,23G,unset,unset,unset
 c3-highmem-88,GCPFamily_Compute,GCPType_C3,GCPType_C3_Highmem88,704.0G,88,8.00G,0,na,Intel Xeon Scalable 4th Gen,unset,unset,unset,No,62G,unset,unset,unset
 c3-standard-176,GCPFamily_Compute,GCPType_C3,GCPType_C3_Standard176,704.0G,176,4.00G,0,na,Intel Xeon Scalable 4th Gen,unset,unset,unset,No,100G,unset,unset,unset
-c3-standard-176-lssd,GCPFamily_Compute,GCPType_C3,GCPType_C3_Standard176Lssd,704.0G,176,4.00G,0,na,Intel Xeon Scalable 4th Gen,12T,Local_SSD,unset,Yes,100G,unset,unset,unset
+c3-standard-176-lssd,GCPFamily_Compute,GCPType_C3,GCPType_C3_Standard176Lssd,704.0G,176,4.00G,0,na,Intel Xeon Scalable 4th Gen,12T,unset,unset,Yes,100G,unset,unset,unset
 c3-standard-192-metal,GCPFamily_Compute,GCPType_C3,GCPType_C3_Standard192Metal,768.0G,192,4.00G,0,na,Intel Xeon Scalable 4th Gen,unset,unset,unset,No,100G,unset,unset,unset
 c3-standard-22,GCPFamily_Compute,GCPType_C3,GCPType_C3_Standard22,88.0G,22,4.00G,0,na,Intel Xeon Scalable 4th Gen,unset,unset,unset,No,23G,unset,unset,unset
-c3-standard-22-lssd,GCPFamily_Compute,GCPType_C3,GCPType_C3_Standard22Lssd,88.0G,22,4.00G,0,na,Intel Xeon Scalable 4th Gen,1.5T,Local_SSD,unset,Yes,23G,unset,unset,unset
+c3-standard-22-lssd,GCPFamily_Compute,GCPType_C3,GCPType_C3_Standard22Lssd,88.0G,22,4.00G,0,na,Intel Xeon Scalable 4th Gen,1.5T,unset,unset,Yes,23G,unset,unset,unset
 c3-standard-4,GCPFamily_Compute,GCPType_C3,GCPType_C3_Standard4,16.0G,4,4.00G,0,na,Intel Xeon Scalable 4th Gen,unset,unset,unset,No,23G,unset,unset,unset
-c3-standard-4-lssd,GCPFamily_Compute,GCPType_C3,GCPType_C3_Standard4Lssd,16.0G,4,4.00G,0,na,Intel Xeon Scalable 4th Gen,375G,Local_SSD,unset,Yes,23G,unset,unset,unset
+c3-standard-4-lssd,GCPFamily_Compute,GCPType_C3,GCPType_C3_Standard4Lssd,16.0G,4,4.00G,0,na,Intel Xeon Scalable 4th Gen,375G,unset,unset,Yes,23G,unset,unset,unset
 c3-standard-44,GCPFamily_Compute,GCPType_C3,GCPType_C3_Standard44,176.0G,44,4.00G,0,na,Intel Xeon Scalable 4th Gen,unset,unset,unset,No,32G,unset,unset,unset
-c3-standard-44-lssd,GCPFamily_Compute,GCPType_C3,GCPType_C3_Standard44Lssd,176.0G,44,4.00G,0,na,Intel Xeon Scalable 4th Gen,3T,Local_SSD,unset,Yes,32G,unset,unset,unset
+c3-standard-44-lssd,GCPFamily_Compute,GCPType_C3,GCPType_C3_Standard44Lssd,176.0G,44,4.00G,0,na,Intel Xeon Scalable 4th Gen,3T,unset,unset,Yes,32G,unset,unset,unset
 c3-standard-8,GCPFamily_Compute,GCPType_C3,GCPType_C3_Standard8,32.0G,8,4.00G,0,na,Intel Xeon Scalable 4th Gen,unset,unset,unset,No,23G,unset,unset,unset
-c3-standard-8-lssd,GCPFamily_Compute,GCPType_C3,GCPType_C3_Standard8Lssd,32.0G,8,4.00G,0,na,Intel Xeon Scalable 4th Gen,750G,Local_SSD,unset,Yes,23G,unset,unset,unset
+c3-standard-8-lssd,GCPFamily_Compute,GCPType_C3,GCPType_C3_Standard8Lssd,32.0G,8,4.00G,0,na,Intel Xeon Scalable 4th Gen,750G,unset,unset,Yes,23G,unset,unset,unset
 c3-standard-88,GCPFamily_Compute,GCPType_C3,GCPType_C3_Standard88,352.0G,88,4.00G,0,na,Intel Xeon Scalable 4th Gen,unset,unset,unset,No,62G,unset,unset,unset
-c3-standard-88-lssd,GCPFamily_Compute,GCPType_C3,GCPType_C3_Standard88Lssd,352.0G,88,4.00G,0,na,Intel Xeon Scalable 4th Gen,6T,Local_SSD,unset,Yes,62G,unset,unset,unset
+c3-standard-88-lssd,GCPFamily_Compute,GCPType_C3,GCPType_C3_Standard88Lssd,352.0G,88,4.00G,0,na,Intel Xeon Scalable 4th Gen,6T,unset,unset,Yes,62G,unset,unset,unset
 c2-standard-16,GCPFamily_Compute,GCPType_C2,GCPType_C2_Standard16,64.0G,16,4.00G,0,na,Intel Xeon 6253CL,unset,unset,unset,Yes,32G,unset,unset,unset
 c2-standard-30,GCPFamily_Compute,GCPType_C2,GCPType_C2_Standard30,120.0G,30,4.00G,0,na,Intel Xeon 6253CL,unset,unset,unset,Yes,32G,unset,unset,unset
 c2-standard-4,GCPFamily_Compute,GCPType_C2,GCPType_C2_Standard4,16.0G,4,4.00G,0,na,Intel Xeon 6253CL,unset,unset,unset,Yes,10G,unset,unset,unset
