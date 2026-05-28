@@ -199,6 +199,43 @@ abstract type GCPType_C2_Standard16 <: GCPType_C2_Standard end
 abstract type GCPType_C2_Standard30 <: GCPType_C2_Standard end
 abstract type GCPType_C2_Standard60 <: GCPType_C2_Standard end
 
+abstract type GCPType_C3 <: GCPType end
+
+abstract type GCPType_C3_Standard <: GCPType_C3 end
+abstract type GCPType_C3_Highcpu <: GCPType_C3 end
+abstract type GCPType_C3_Highmem <: GCPType_C3 end
+
+abstract type GCPType_C3_Standard4 <: GCPType_C3_Standard end
+abstract type GCPType_C3_Standard8 <: GCPType_C3_Standard end
+abstract type GCPType_C3_Standard22 <: GCPType_C3_Standard end
+abstract type GCPType_C3_Standard44 <: GCPType_C3_Standard end
+abstract type GCPType_C3_Standard88 <: GCPType_C3_Standard end
+abstract type GCPType_C3_Standard176 <: GCPType_C3_Standard end
+abstract type GCPType_C3_Standard192Metal <: GCPType_C3_Standard end
+
+abstract type GCPType_C3_Standard4Lssd <: GCPType_C3_Standard end
+abstract type GCPType_C3_Standard8Lssd <: GCPType_C3_Standard end
+abstract type GCPType_C3_Standard22Lssd <: GCPType_C3_Standard end
+abstract type GCPType_C3_Standard44Lssd <: GCPType_C3_Standard end
+abstract type GCPType_C3_Standard88Lssd <: GCPType_C3_Standard end
+abstract type GCPType_C3_Standard176Lssd <: GCPType_C3_Standard end
+
+abstract type GCPType_C3_Highcpu4 <: GCPType_C3_Highcpu end
+abstract type GCPType_C3_Highcpu8 <: GCPType_C3_Highcpu end
+abstract type GCPType_C3_Highcpu22 <: GCPType_C3_Highcpu end
+abstract type GCPType_C3_Highcpu44 <: GCPType_C3_Highcpu end
+abstract type GCPType_C3_Highcpu88 <: GCPType_C3_Highcpu end
+abstract type GCPType_C3_Highcpu176 <: GCPType_C3_Highcpu end
+abstract type GCPType_C3_Highcpu192Metal <: GCPType_C3_Highcpu end
+
+abstract type GCPType_C3_Highmem4 <: GCPType_C3_Highmem end
+abstract type GCPType_C3_Highmem8 <: GCPType_C3_Highmem end
+abstract type GCPType_C3_Highmem22 <: GCPType_C3_Highmem end
+abstract type GCPType_C3_Highmem44 <: GCPType_C3_Highmem end
+abstract type GCPType_C3_Highmem88 <: GCPType_C3_Highmem end
+abstract type GCPType_C3_Highmem176 <: GCPType_C3_Highmem end
+abstract type GCPType_C3_Highmem192Metal <: GCPType_C3_Highmem end
+
 abstract type GCPType_C2D <: GCPType end
 
 abstract type GCPType_C2D_Standard <: GCPType_C2D end
